@@ -734,9 +734,13 @@ async def extract_note(text: str, pkg: dict[str,Any], source_context: str, provi
     provider=requested
     auto_warning=None
     if provider=="auto":
-        url=os.getenv("NEXUS_OLLAMA_URL","http://127.0.0.1:11434").rstrip("/")
-        model=os.getenv("NEXUS_OLLAMA_MODEL","medgemma:4b")
-        ready,why=await _ollama_model_ready(url,model)
+        ollama_disabled=bool(os.getenv("RENDER")) or os.getenv("NEXUS_DISABLE_OLLAMA","").strip().lower() in {"1","true","yes"}
+        if ollama_disabled:
+            ready,why=False,"Ollama is not available in this deployment environment"
+        else:
+            url=os.getenv("NEXUS_OLLAMA_URL","http://127.0.0.1:11434").rstrip("/")
+            model=os.getenv("NEXUS_OLLAMA_MODEL","medgemma:4b")
+            ready,why=await _ollama_model_ready(url,model)
         if ready:
             provider="ollama"
         elif os.getenv("GEMINI_API_KEY","").strip():
