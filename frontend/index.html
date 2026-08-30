@@ -1,16 +1,894 @@
 <!doctype html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEXUS Manual Test</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEXUS Clinical Decision Support</title>
 <style>
-:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#172033;background:#f6f8fb}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1280px;margin:auto;padding:28px}.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}.brand h1{margin:0;font-size:28px}.brand p{margin:6px 0 0;color:#667085}.badge{font-size:12px;padding:7px 10px;border-radius:999px;background:#eef2ff;color:#3448a5}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:white;border:1px solid #e4e7ec;border-radius:14px;padding:16px;box-shadow:0 1px 2px #1018280a}label{font-weight:700;display:block;margin-bottom:10px}textarea{width:100%;min-height:260px;resize:vertical;border:1px solid #d0d5dd;border-radius:10px;padding:13px;font:inherit;line-height:1.5;outline:none}textarea:focus{border-color:#667eea;box-shadow:0 0 0 3px #667eea18}.actions{display:flex;justify-content:center;margin:20px 0}.run{border:0;border-radius:10px;padding:13px 30px;background:#2737d8;color:white;font-weight:800;font-size:15px;cursor:pointer}.run:disabled{opacity:.5;cursor:wait}.status{margin-left:12px;color:#667085;align-self:center}.result{display:none}.result.show{display:block}.section{margin-top:18px}.section h2{font-size:19px;margin:0 0 12px}.kv{display:grid;grid-template-columns:240px 1fr;border-top:1px solid #eaecf0}.kv>div{padding:10px 8px;border-bottom:1px solid #eaecf0}.key{font-weight:700;color:#475467}.val{white-space:pre-wrap;word-break:break-word}.pill{display:inline-block;padding:5px 8px;border-radius:7px;background:#f2f4f7;font:12px ui-monospace,SFMono-Regular,Menlo,monospace}.danger{background:#fff1f0;color:#b42318}.ok{background:#ecfdf3;color:#067647}.warn{background:#fffaeb;color:#b54708}.empty{color:#98a2b3}.json{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;background:#101828;color:#e6eaf2;border-radius:10px;padding:12px;max-height:360px;overflow:auto}.notice{padding:12px 14px;border-radius:10px;background:#fffaeb;border:1px solid #fedf89;color:#7a2e0e;margin-bottom:16px;display:none}@media(max-width:820px){.grid{grid-template-columns:1fr}.kv{grid-template-columns:1fr}.key{padding-bottom:2px!important}.val{padding-top:2px!important}}
-</style></head><body><div class="wrap"><div class="head"><div class="brand"><h1>NEXUS Manual Test</h1><p>History + current consultation → actual extraction → deterministic pathway engine</p></div><span class="badge">15 cancer packages only</span></div>
-<div id="notice" class="notice"></div><div class="grid"><div class="card"><label for="history">PATIENT HISTORY / LONGITUDINAL SUMMARY</label><textarea id="history" placeholder="Paste longitudinal patient history here..."></textarea></div><div class="card"><label for="opd">CURRENT OPD / CONSULTATION NOTE</label><textarea id="opd" placeholder="Paste today's/current consultation note here..."></textarea></div></div>
-<div class="actions"><button id="run" class="run">RUN NEXUS</button><span id="working" class="status"></span></div>
-<div id="result" class="result"><div class="card section"><h2>A. Extraction understood</h2><div id="extract"></div></div><div class="card section"><h2>B–E. NEXUS deterministic result</h2><div id="nexus"></div></div><details class="card section"><summary><b>Raw response / audit trace</b></summary><pre id="raw" class="json"></pre></details></div></div>
+:root{
+  --navy:#0e1f45;--navy-active:#1c3a7a;--navy-text:#aab6d6;
+  --blue:#2f5fe0;--blue-light:#eef3ff;--blue-border:#c7d9fb;
+  --bg:#f4f6fb;--card:#ffffff;--border:#e5e9f2;--text:#172033;--muted:#6b7280;
+  --green:#16a34a;--green-bg:#ecfdf3;--green-border:#bbf0d0;
+  --amber:#b45309;--amber-bg:#fef3c7;--amber-border:#fde08a;
+  --red:#dc2626;--red-bg:#fef2f2;--red-border:#fecaca;
+  --gray-bg:#f2f4f7;--gray-border:#e4e7ec;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text)}
+a{color:inherit}
+.shell{display:flex;min-height:100vh}
+
+/* ---------- sidebar ---------- */
+.sidebar{width:230px;flex:0 0 230px;background:var(--navy);color:var(--navy-text);display:flex;flex-direction:column;padding:20px 14px;position:sticky;top:0;height:100vh}
+.logo{color:#fff;font-weight:800;font-size:22px;letter-spacing:.5px;padding:6px 10px 22px}
+.logo span{color:#6f93ff}
+.nav{display:flex;flex-direction:column;gap:3px;flex:1}
+.nav-item{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;font-size:14px;font-weight:600;cursor:default;color:var(--navy-text);border:0;background:none;text-align:left;width:100%}
+.nav-item svg{flex:0 0 18px;width:18px;height:18px}
+.nav-item.active{background:var(--navy-active);color:#fff}
+.nav-item.disabled{opacity:.55;cursor:not-allowed}
+.nav-foot{display:flex;flex-direction:column;gap:3px;margin-top:10px;padding-top:10px;border-top:1px solid #223868}
+@media(max-width:980px){.sidebar{display:none}}
+
+/* ---------- main ---------- */
+.main-col{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{display:flex;justify-content:flex-end;padding:14px 28px 0}
+.profile{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:7px 14px 7px 7px}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px}
+.profile .name{font-size:13px;font-weight:700}
+.profile .role{font-size:11px;color:var(--muted)}
+.content{max-width:1440px;margin:0 auto;padding:16px 28px 48px;width:100%}
+
+/* ---------- input card ---------- */
+.input-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 1px 2px #1018280a}
+.input-grid label{font-weight:700;display:block;margin-bottom:10px;font-size:13px;letter-spacing:.02em}
+textarea{width:100%;min-height:170px;resize:vertical;border:1px solid #d0d5dd;border-radius:10px;padding:12px;font:inherit;line-height:1.5;outline:none}
+textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2f5fe01e}
+.actions{display:flex;justify-content:center;align-items:center;margin:16px 0 22px;gap:12px}
+.run{border:0;border-radius:10px;padding:13px 30px;background:var(--blue);color:#fff;font-weight:800;font-size:15px;cursor:pointer}
+.run:disabled{opacity:.5;cursor:wait}
+.status-text{color:var(--muted);font-size:13px}
+.notice{padding:12px 14px;border-radius:10px;background:var(--amber-bg);border:1px solid var(--amber-border);color:#7a2e0e;margin-bottom:16px;display:none}
+
+/* ---------- result layout ---------- */
+.result{display:none}
+.result.show{display:block}
+.result-grid{display:grid;grid-template-columns:1fr 300px;gap:16px;align-items:start}
+@media(max-width:1180px){.result-grid{grid-template-columns:1fr}}
+.result-main{display:flex;flex-direction:column;gap:16px}
+
+/* header card */
+.head-card{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.head-left .eyebrow{color:var(--blue);font-weight:800;font-size:12px;letter-spacing:.06em}
+.head-left h1{margin:6px 0 2px;font-size:26px}
+.head-left h2{margin:0 0 4px;font-size:15px;font-weight:600;color:#3a4560}
+.head-left .ver{color:var(--muted);font-size:13px}
+.head-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;max-width:320px}
+.status-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;font-weight:800;font-size:12.5px;letter-spacing:.03em;border:1px solid}
+.status-pill.ok{background:var(--green-bg);color:var(--green);border-color:var(--green-border)}
+.status-pill.warn{background:var(--amber-bg);color:var(--amber);border-color:var(--amber-border)}
+.status-pill.danger{background:var(--red-bg);color:var(--red);border-color:var(--red-border)}
+.status-pill.muted{background:var(--gray-bg);color:var(--muted);border-color:var(--gray-border)}
+.head-msg{color:var(--muted);font-size:13px;text-align:right}
+
+/* numbered section title */
+.sec-title{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.sec-num{flex:0 0 24px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.sec-title h3{margin:0;font-size:15px}
+
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:1180px){.row3{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+ul.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+ul.plain li{display:flex;gap:8px;font-size:13.5px;line-height:1.45}
+ul.plain li .dot{color:var(--muted)}
+.subhead{color:var(--blue);font-weight:700;font-size:12.5px;margin:14px 0 8px;letter-spacing:.02em}
+.hr{border:0;border-top:1px solid var(--border);margin:12px 0}
+
+/* pathway stepper */
+.stepper{display:flex;flex-direction:column}
+.step{display:flex;gap:10px;position:relative;padding-bottom:18px}
+.step .rail{display:flex;flex-direction:column;align-items:center}
+.step .dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--blue);background:#fff;flex:0 0 10px}
+.step .line{flex:1;width:2px;background:var(--blue-border);margin-top:2px}
+.step:last-of-type .line{display:none}
+.step .txt{font-size:13.5px;padding-top:-2px}
+.pos-box{background:var(--blue-light);border:1px solid var(--blue-border);border-radius:12px;padding:12px 14px;font-size:13.5px;margin-top:2px}
+.pos-box b{display:block;margin-bottom:3px;font-size:12px;color:var(--blue);letter-spacing:.02em}
+.node-id{color:var(--muted);font-size:12px;margin-top:8px}
+.node-id code{background:var(--gray-bg);border-radius:5px;padding:2px 6px;font:12px ui-monospace,Menlo,monospace}
+
+/* options */
+.opt-label{font-size:11.5px;font-weight:800;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:12px 0 8px}
+.opt-label:first-child{margin-top:0}
+.opt-row{display:flex;align-items:center;gap:10px;border-radius:10px;padding:10px 12px;font-size:13.5px;margin-bottom:8px;border:1px solid transparent}
+.opt-row.preferred{background:var(--blue-light);border-color:var(--blue-border);font-weight:700}
+.opt-row.plain{background:var(--gray-bg)}
+.opt-icon{flex:0 0 auto}
+.opt-foot{color:var(--muted);font-size:12px;font-style:italic;margin-top:6px}
+.info-box{border-radius:12px;padding:14px;font-size:13.5px;line-height:1.5}
+.info-box.warn{background:var(--amber-bg);border:1px solid var(--amber-border);color:#7a4300}
+.info-box.muted{background:var(--gray-bg);border:1px solid var(--gray-border);color:var(--muted)}
+
+/* workup rows */
+.wu-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+.wu-row:last-child{border-bottom:0}
+.wu-left{display:flex;align-items:center;gap:9px}
+.pill-status{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill-status.ok{background:var(--green-bg);color:var(--green)}
+.pill-status.warn{background:var(--amber-bg);color:var(--amber)}
+.pill-status.muted{background:var(--gray-bg);color:var(--muted)}
+
+/* missing info */
+.missing-item{display:flex;gap:10px;margin-bottom:14px}
+.missing-item:last-child{margin-bottom:0}
+.qmark{flex:0 0 20px;width:20px;height:20px;border-radius:50%;background:var(--amber-bg);color:var(--amber);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center}
+.missing-item .body b{font-size:13.5px}
+.missing-item .body{font-size:13px;line-height:1.5}
+.missing-item .why{margin-top:4px}
+.missing-item .change{margin-top:4px;color:#92400e}
+
+/* why-pathway */
+.check-row{display:flex;gap:8px;font-size:13.5px;margin-bottom:8px}
+.check-row .ic{color:var(--green)}
+.check-row.unresolved .ic{color:var(--amber)}
+.chip-answer{font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--gray-bg);color:var(--muted);margin-left:4px}
+.therefore{font-size:13.5px;line-height:1.5}
+.therefore b{color:var(--blue)}
+
+.wcc-row{font-size:13.5px;margin-bottom:9px;line-height:1.5}
+.wcc-row:last-child{margin-bottom:0}
+
+/* accordion list */
+.accordion-card{padding:0;overflow:hidden}
+details.acc{border-bottom:1px solid var(--border)}
+details.acc:last-child{border-bottom:0}
+details.acc>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px;cursor:pointer;font-weight:700;font-size:14px}
+details.acc>summary::-webkit-details-marker{display:none}
+details.acc>summary .left{display:flex;align-items:center;gap:11px}
+details.acc>summary .chev{transition:transform .15s;color:var(--muted)}
+details.acc[open]>summary .chev{transform:rotate(180deg)}
+.acc-body{padding:0 18px 18px;font-size:13px}
+
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{text-align:left;color:var(--muted);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;padding:8px 10px;border-bottom:1px solid var(--border)}
+table.data td{padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+table.data tr:last-child td{border-bottom:0}
+.src-pill{font-size:11px;background:var(--gray-bg);color:var(--muted);padding:2px 8px;border-radius:6px;white-space:nowrap}
+.evi-quote{color:var(--muted);font-style:italic}
+
+.trace-step{padding:12px 0;border-bottom:1px solid var(--border)}
+.trace-step:last-child{border-bottom:0}
+.trace-step .q{font-weight:700;font-size:13.5px}
+.trace-step .a{font-size:13px;color:var(--muted);margin-top:2px}
+.trace-step .src{font-size:11.5px;color:var(--muted);margin-top:4px}
+.trace-step.stop{background:var(--amber-bg);margin:0 -18px;padding:12px 18px;border-bottom:0}
+
+.timeline-group{margin-bottom:16px}
+.timeline-group:last-child{margin-bottom:0}
+.timeline-group .tg-head{font-weight:800;font-size:12px;letter-spacing:.04em;color:var(--blue);margin-bottom:8px}
+.timeline-group .tg-date{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0}
+.timeline-arrow{text-align:center;color:var(--blue-border);font-size:18px;margin:4px 0}
+
+.json-box{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;background:#101828;color:#e6eaf2;border-radius:10px;padding:14px;max-height:420px;overflow:auto;margin:0}
+.acc-actions{display:flex;gap:8px;margin-bottom:10px}
+.acc-actions button{border:1px solid var(--border);background:#fff;border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;color:var(--text)}
+.acc-actions button:hover{background:var(--gray-bg)}
+
+/* right rail */
+.rail{display:flex;flex-direction:column;gap:16px}
+.rail-title{color:var(--blue);font-weight:800;font-size:13px;margin:0 0 10px}
+.rail .card{font-size:13px}
+.rail .src-line{margin-bottom:5px}
+.rail .src-line.strong{font-weight:700}
+.quote-card{display:flex;gap:9px;padding:10px 0;border-bottom:1px solid var(--border)}
+.quote-card:last-child{border-bottom:0}
+.quote-mark{color:var(--blue-border);font-size:22px;line-height:1;flex:0 0 auto}
+.quote-card .qt{font-size:12.5px;font-style:italic;color:#3a4560;line-height:1.4}
+.empty-note{color:var(--muted);font-size:13px}
+</style></head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="logo">NEXUS<span>.</span></div>
+    <nav class="nav">
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        Dashboard
+      </button>
+      <button class="nav-item active" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="12" r="2.6"/><path d="M6 8.6V15.4M8.4 6.9 15.6 11M8.4 17.1 15.6 13"/></svg>
+        Guideline Result
+      </button>
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6"/></svg>
+        Patients
+      </button>
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h6"/></svg>
+        Pathways
+      </button>
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h9l5 5v11H5z"/><path d="M9 12h6M9 16h6M9 8h3"/></svg>
+        Evidence
+      </button>
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+        Reports
+      </button>
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3.9a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.6a7 7 0 0 0-2 1.2l-2.3-.9-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.3-.9c.6.5 1.3.9 2 1.2L10 21h4l.6-2.6c.7-.3 1.4-.7 2-1.2l2.3.9 2-3.4-2-1.5c.1-.4.1-.8.1-1.2Z"/></svg>
+        Settings
+      </button>
+    </nav>
+    <div class="nav-foot">
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 .5c0 1.6-2.2 2-2.5 3.5M12 17h.01"/></svg>
+        Help
+      </button>
+      <button class="nav-item disabled" type="button" title="Not available in this build" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+        Log Out
+      </button>
+    </div>
+  </aside>
+
+  <div class="main-col">
+    <div class="topbar">
+      <div class="profile">
+        <div class="avatar">NX</div>
+        <div>
+          <div class="name">Manual test session</div>
+          <div class="role">No PHI stored &middot; not linked to an EHR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="notice" class="notice"></div>
+
+      <div class="input-grid">
+        <div class="card"><label for="history">PATIENT HISTORY / LONGITUDINAL SUMMARY</label><textarea id="history" placeholder="Paste longitudinal patient history here..."></textarea></div>
+        <div class="card"><label for="opd">CURRENT OPD / CONSULTATION NOTE</label><textarea id="opd" placeholder="Paste today's/current consultation note here..."></textarea></div>
+      </div>
+      <div class="actions"><button id="run" class="run">RUN NEXUS</button><span id="working" class="status-text"></span></div>
+
+      <div id="result" class="result">
+        <div class="result-grid">
+          <div class="result-main" id="resultMain"></div>
+          <aside class="rail" id="resultRail"></aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-const $=id=>document.getElementById(id); const pretty=v=>v==null||v===''?'—':typeof v==='string'?v:JSON.stringify(v,null,2);
-const rows=(obj,labels)=>'<div>'+labels.map(([k,l])=>`<div class="kv"><div class="key">${l}</div><div class="val">${format(obj?.[k])}</div></div>`).join('')+'</div>';
-function format(v){if(v==null||(Array.isArray(v)&&!v.length)||(typeof v==='object'&&!Array.isArray(v)&&!Object.keys(v).length))return '<span class="empty">None / not present</span>'; if(typeof v==='string'){let cls=v==='REQUIRES_REVIEW'?'danger':v==='NEEDS_INFORMATION'||v==='GUIDELINE_NOT_AVAILABLE'?'warn':v==='RECOMMENDATION'||v==='RESOLVED'?'ok':'';return `<span class="pill ${cls}">${escapeHtml(v)}</span>`}return `<pre style="margin:0;white-space:pre-wrap;font:12px ui-monospace,SFMono-Regular,Menlo,monospace">${escapeHtml(JSON.stringify(v,null,2))}</pre>`}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-async function health(){try{let r=await fetch('/api/health'),j=await r.json();if(j.status!=='ok'){let n=$('notice');n.style.display='block';n.textContent=j.message||'Deterministic engine not found.'}}catch{}}
-$('run').onclick=async()=>{let btn=$('run');btn.disabled=true;$('working').textContent='Running extraction → longitudinal merge → deterministic engine…';$('result').classList.remove('show');try{let r=await fetch('/api/v1/nexus/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({patient_history:$('history').value,current_opd_note:$('opd').value})});let j=await r.json();$('extract').innerHTML=rows(j.extraction,[['detected_cancer','DETECTED CANCER'],['cancer_detection_status','CANCER DETECTION STATUS'],['provider','EXTRACTION PROVIDER'],['extraction_mode_warning','EXTRACTION MODE WARNING'],['provider_warnings','EXTRACTION PROVIDER WARNINGS'],['current_verified_facts','CURRENT VERIFIED FACTS'],['current_pending_unverified_facts','CURRENT PENDING / UNVERIFIED FACTS'],['historical_facts','HISTORICAL FACTS'],['new_facts_from_today','NEW FACTS FROM TODAY'],['updated_facts','UPDATED FACTS'],['superseded_facts','SUPERSEDED FACTS'],['conflicting_facts','CONFLICTING FACTS'],['normalized_non_routing_facts','NORMALIZED NON-ROUTING CLINICAL FACTS'],['unresolved_clinical_mentions','UNRESOLVED CLINICAL MENTIONS'],['canonical_facts_sent_to_engine','CANONICAL FACTS SENT TO ENGINE']]);$('nexus').innerHTML=rows(j.nexus_result,[['status','Status'],['detected_cancer','Detected cancer'],['guideline','Guideline'],['guideline_version','Guideline/version'],['current_clinical_state','Current clinical state'],['current_nccn_pathway','Current NCCN pathway'],['current_pathway_node','Current pathway node'],['applicable_nccn_options','Applicable NCCN options'],['required_workup_information','Required work-up / information'],['missing_pathway_changing_facts','Missing pathway-changing facts'],['conflicting_information','Conflicting information'],['evidence_used','Evidence used'],['why_nexus_reached_this_pathway','Why NEXUS reached this pathway'],['what_could_change_the_pathway','What could change the pathway'],['source_page_section_references','Source page / section references'],['next_transition','Next transition']]);$('raw').textContent=JSON.stringify(j,null,2);$('result').classList.add('show')}catch(e){let n=$('notice');n.style.display='block';n.textContent='Run failed: '+e}finally{btn.disabled=false;$('working').textContent=''}}; health();
-</script></body></html>
+/* ---------------------------------------------------------------------
+   Label / humanization helpers. The deterministic engine only speaks in
+   fact_ids and CODED enum strings; everything shown to a clinician here
+   is either that raw data verbatim (values, quotes, section codes -- in
+   Raw Audit) or a mechanical transform of it (title-casing, a small
+   curated dictionary for names that are known ahead of time). Nothing
+   in this file invents clinical content that isn't already present in
+   the NEXUS response.
+--------------------------------------------------------------------- */
+const FACT_LABELS={
+  treatment_phase:"Current treatment phase",
+  disease_progression:"Disease progression",
+  fgfr2_fusion:"FGFR2 fusion",
+  resectable:"Resectability",
+  primary_site:"Primary site",
+  systemic_line:"Current systemic treatment line",
+  metastatic_line:"Current metastatic-setting treatment line",
+  her2_positive:"HER2 status",
+  idh1_mutation:"IDH1 mutation",
+  msi_h_dmmr:"MSI-H / dMMR status",
+  metastatic:"Metastatic disease",
+  jaundice_or_biliary_obstruction:"Jaundice / biliary obstruction",
+  clinical_t:"Clinical T stage",
+  clinical_n:"Clinical N stage",
+  clinical_m:"Clinical M stage",
+  figo_stage:"FIGO stage",
+  stage_group:"Overall stage group",
+  disease_extent:"Disease extent",
+  response_status:"Response status",
+  histology:"Histology",
+  cancer_type:"Cancer type",
+};
+const BOOLEAN_PHRASES={
+  resectable:{true:"Resectable",false:"Currently unresectable"},
+  disease_progression:{true:"Disease progression confirmed",false:"No disease progression documented"},
+  fgfr2_fusion:{true:"FGFR2 fusion positive",false:"FGFR2 fusion negative"},
+  her2_positive:{true:"HER2 positive",false:"HER2 negative"},
+  idh1_mutation:{true:"IDH1 mutation detected",false:"IDH1 mutation not detected"},
+  msi_h_dmmr:{true:"MSI-H / dMMR positive",false:"MSS / no MSI-H/dMMR identified"},
+  metastatic:{true:"Metastatic disease present",false:"No metastatic disease"},
+  jaundice_or_biliary_obstruction:{true:"Jaundice / biliary obstruction present",false:"No jaundice or biliary obstruction"},
+};
+const WHAT_COULD_CHANGE_TEXT={
+  treatment_phase:"Confirmation of the current treatment phase → determines the appropriate subsequent pathway",
+  systemic_line:"Current line of systemic therapy → can change subsequent-line treatment options",
+  fgfr2_fusion:"FGFR2 fusion status → may determine eligibility for an FGFR-directed pathway when clinically applicable",
+  resectable:"New resectability assessment → could move the patient to a surgical pathway",
+  disease_progression:"Further disease progression → may alter treatment-line and disease-management pathways",
+  her2_positive:"HER2 status → may determine eligibility for HER2-directed therapy when clinically applicable",
+  idh1_mutation:"IDH1 mutation status → may determine eligibility for an IDH1-directed pathway when clinically applicable",
+  msi_h_dmmr:"MSI-H / dMMR status → may determine eligibility for immunotherapy-based options",
+  metastatic:"New metastatic disease → may move the patient to a metastatic-disease pathway",
+};
+// The engine's own "what could change" trace only carries internal node/
+// decision ids (eg. "i_care") -- never clinician-facing. For a single
+// missing fact we only ever show the curated consequence clause (or a safe
+// generic one), never those raw ids.
+function consequenceClauseFor(fid){
+  const text=WHAT_COULD_CHANGE_TEXT[fid];
+  if(text){
+    const arrow=text.indexOf("→");
+    if(arrow!==-1)return text.slice(arrow+1).trim();
+  }
+  return "the applicable NCCN pathway or options";
+}
+const ACRONYM_MAP={
+  fgfr1:"FGFR1",fgfr2:"FGFR2",fgfr3:"FGFR3",her2:"HER2",idh1:"IDH1",idh2:"IDH2",
+  msi:"MSI",mss:"MSS",dmmr:"dMMR",pmmr:"pMMR",psa:"PSA",ecog:"ECOG",kps:"KPS",
+  brca1:"BRCA1",brca2:"BRCA2",pten:"PTEN",kras:"KRAS",nras:"NRAS",hras:"HRAS",
+  egfr:"EGFR",alk:"ALK",ros1:"ROS1",ntrk:"NTRK",met:"MET",ret:"RET",braf:"BRAF",
+  tp53:"TP53",flt3:"FLT3",npm1:"NPM1",cebpa:"CEBPA",jak2:"JAK2",calr:"CALR",mpl:"MPL",
+  bcr:"BCR",abl1:"ABL1",pdl1:"PD-L1",pd1:"PD-1",ctla4:"CTLA-4",mrd:"MRD",cns:"CNS",
+  hpv:"HPV",ebv:"EBV",hct:"HCT",atra:"ATRA",ato:"ATO",tki:"TKI",cd19:"CD19",cd20:"CD20",
+  cd30:"CD30",dna:"DNA",rna:"RNA",hbv:"HBV",hcv:"HCV",afp:"AFP",er:"ER",pr:"PR",
+  all:"ALL",aml:"AML",cml:"CML",cll:"CLL",mds:"MDS",mpn:"MPN",gist:"GIST",nccn:"NCCN",
+};
+const STATUS_META={
+  RECOMMENDATION:{label:"Recommendation",cls:"ok",icon:"✓"},
+  NEEDS_INFORMATION:{label:"Needs Information",cls:"warn",icon:"!"},
+  REQUIRES_REVIEW:{label:"Requires Review",cls:"danger",icon:"!"},
+  GUIDELINE_NOT_AVAILABLE:{label:"Guideline Not Available",cls:"muted",icon:"–"},
+  ENGINE_NOT_AVAILABLE:{label:"Engine Not Available",cls:"muted",icon:"–"},
+  OUTSIDE_ENCODED_SCOPE:{label:"Outside Encoded Scope",cls:"muted",icon:"–"},
+  RULE_ENGINE_ERROR:{label:"Engine Error",cls:"danger",icon:"!"},
+  INVALID_INPUT:{label:"Invalid Input",cls:"danger",icon:"!"},
+};
+const PREFERENCE_TIER_META={
+  PREFERRED:{title:"Preferred",cls:"preferred"},
+  OTHER_RECOMMENDED:{title:"Other guideline-listed options",cls:"plain"},
+  USEFUL_IN_CERTAIN_CIRCUMSTANCES:{title:"Additional considerations",cls:"plain"},
+  __DEFAULT__:{title:"Guideline-listed options",cls:"plain"},
+};
+const WORKUP_STATUS_META={
+  AVAILABLE:{icon:"✓",cls:"ok",text:"Available"},
+  DONE:{icon:"✓",cls:"ok",text:"Available"},
+  COMPLETE:{icon:"✓",cls:"ok",text:"Available"},
+  PENDING:{icon:"◷",cls:"warn",text:"Pending"},
+  ORDERED:{icon:"◷",cls:"warn",text:"Pending"},
+  MISSING:{icon:"○",cls:"muted",text:"Missing"},
+  NOT_DONE:{icon:"○",cls:"muted",text:"Missing"},
+  UNKNOWN:{icon:"○",cls:"muted",text:"Not currently verified"},
+  __DEFAULT__:{icon:"◷",cls:"warn",text:"Pending"},
+};
+
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function titleWord(w){
+  const lw=w.toLowerCase();
+  if(ACRONYM_MAP[lw])return ACRONYM_MAP[lw];
+  if(/^[tnm]\d[a-z]?$/i.test(w))return w.toUpperCase();
+  if(/^[ivx]+$/i.test(w)&&w.length<=4)return w.toUpperCase();
+  if(/^\d+$/.test(w))return w;
+  if(w.length<=2)return w.toUpperCase();
+  return w.charAt(0).toUpperCase()+w.slice(1).toLowerCase();
+}
+function humanizeEnum(s){
+  if(s==null)return "";
+  return String(s).split(/[_\s]+/).filter(Boolean).map(titleWord).join(" ");
+}
+function factLabel(key){
+  if(!key)return "";
+  return FACT_LABELS[key]||humanizeEnum(key);
+}
+function formatValue(key,value){
+  if(value==null||value==="")return "—";
+  if(typeof value==="boolean"){
+    const p=BOOLEAN_PHRASES[key];
+    if(p)return p[value];
+    return value?"Yes":"No";
+  }
+  if(Array.isArray(value))return value.map(v=>formatValue(key,v)).join(", ");
+  if(typeof value==="number")return String(value);
+  if(typeof value==="string"){
+    if(/^[A-Z0-9_]+$/.test(value)&&value.includes("_")===false&&value.length<=4)return value; // short codes like T3, N0
+    if(/^[A-Z0-9_]{2,}$/.test(value))return humanizeEnum(value);
+    return value;
+  }
+  return String(value);
+}
+function cleanQuestion(label){return String(label||"").replace(/\?+\s*$/,"")}
+function fmtDate(iso){
+  if(!iso)return null;
+  try{const d=new Date(iso);if(isNaN(d))return String(iso);return d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});}
+  catch{return String(iso);}
+}
+
+/* ---------------------------------------------------------------------
+   Rendering
+--------------------------------------------------------------------- */
+function statusMeta(status){return STATUS_META[status]||{label:humanizeEnum(status||"Unknown"),cls:"muted",icon:"–"};}
+
+// `nexus_result.current_clinical_state` is a union: a plain string for a
+// resolved terminal node, or an ad-hoc {fact_id: {status,value}} dict as a
+// fallback. canonical_facts_sent_to_engine is consistently shaped, so read
+// specific facts (like primary_site) from there instead of the union field.
+function canonicalFactValue(extraction,key){
+  const entry=(extraction.canonical_facts_sent_to_engine||{})[key];
+  if(entry&&entry.status==="CONFIRMED")return entry.value;
+  return null;
+}
+
+function headerMessage(nexus){
+  const status=nexus.status;
+  if(status==="NEEDS_INFORMATION"){
+    const n=(nexus.missing_pathway_changing_facts||[]).length;
+    if(n>0)return `NEXUS needs ${n} pathway-changing fact${n===1?"":"s"} before the current NCCN pathway can be fully resolved.`;
+  }
+  if(status==="RECOMMENDATION"){
+    const n=(nexus.applicable_nccn_options||[]).length;
+    return n>0?`NEXUS has resolved a guideline-concordant pathway with ${n} option${n===1?"":"s"}.`:"NEXUS has resolved this pathway; no distinct treatment options were released at this node.";
+  }
+  if(status==="REQUIRES_REVIEW")return "NEXUS detected conflicting information that must be resolved by a clinician before this pathway can proceed.";
+  return nexus.message||`Status: ${humanizeEnum(status)}`;
+}
+
+function renderHeader(nexus,extraction){
+  const meta=statusMeta(nexus.status);
+  const title=humanizeEnum(nexus.detected_cancer)||nexus.guideline||"Unknown Cancer";
+  const rawSite=canonicalFactValue(extraction,"primary_site");
+  const primarySite=rawSite?formatValue("primary_site",rawSite):null;
+  const subtitle=(primarySite&&primarySite!==title)?primarySite:null;
+  return `
+  <div class="card head-card">
+    <div class="head-left">
+      <div class="eyebrow">NEXUS GUIDELINE RESULT</div>
+      <h1>${escapeHtml(title)}</h1>
+      ${subtitle?`<h2>${escapeHtml(subtitle)}</h2>`:""}
+      <div class="ver">${nexus.guideline_version?`NCCN Version ${escapeHtml(nexus.guideline_version)}`:""}</div>
+    </div>
+    <div class="head-right">
+      <span class="status-pill ${meta.cls}">${meta.icon} ${escapeHtml(meta.label.toUpperCase())}</span>
+      <div class="head-msg">${escapeHtml(headerMessage(nexus))}</div>
+    </div>
+  </div>`;
+}
+
+function mergedCurrentFacts(extraction){
+  const map=new Map();
+  const canon=extraction.canonical_facts_sent_to_engine||{};
+  for(const [k,v] of Object.entries(canon)){
+    if(k==="cancer_type")continue;
+    if(!v||v.status!=="CONFIRMED")continue;
+    map.set(k,v.value);
+  }
+  const aux=extraction.normalized_non_routing_facts||[];
+  const bySeen=new Map();
+  for(const o of aux){
+    if(o.status!=="CONFIRMED")continue;
+    const prev=bySeen.get(o.fact_id);
+    if(!prev||(o.source_context==="CURRENT_OPD")||!prev.observed_at)bySeen.set(o.fact_id,o);
+  }
+  for(const [k,o] of bySeen)if(!map.has(k))map.set(k,o.value);
+  return map;
+}
+
+function clinicalPictureBullets(extraction){
+  const facts=mergedCurrentFacts(extraction);
+  const items=[];
+  for(const [k,v] of facts){
+    if(typeof v==="boolean"){
+      const p=BOOLEAN_PHRASES[k];
+      items.push(p?p[v]:`${factLabel(k)}: ${v?"Yes":"No"}`);
+    }else{
+      items.push(`${factLabel(k)}: ${formatValue(k,v)}`);
+    }
+  }
+  return items;
+}
+
+function changesSincePrevious(extraction){
+  const items=[];
+  for(const f of (extraction.new_facts_from_today||[])){
+    const label=factLabel(f.fact_id);
+    if(typeof f.value==="boolean"){
+      items.push(f.value?`${label} newly documented`:`${label}: newly documented as No`);
+    }else{
+      items.push(`${label} newly documented: ${formatValue(f.fact_id,f.value)}`);
+    }
+  }
+  for(const u of (extraction.updated_facts||[])){
+    const label=factLabel(u.fact_id);
+    const from=formatValue(u.fact_id,u.from?.value);
+    const to=formatValue(u.fact_id,u.to?.value);
+    items.push(`${label} changed from ${from} to ${to}`);
+  }
+  return items;
+}
+
+function renderClinicalPicture(extraction){
+  const bullets=clinicalPictureBullets(extraction);
+  const changes=changesSincePrevious(extraction);
+  const hasHistory=(extraction.historical_facts||[]).length>0;
+  return `
+  <div class="card">
+    <div class="sec-title"><span class="sec-num">1</span><h3>Current Clinical Picture</h3></div>
+    ${bullets.length?`<ul class="plain">${bullets.map(b=>`<li><span class="dot">&bull;</span><span>${escapeHtml(b)}</span></li>`).join("")}</ul>`:`<div class="empty-note">No current clinical facts were confirmed by extraction.</div>`}
+    ${hasHistory&&changes.length?`<hr class="hr"><div class="subhead">Changes since previous assessment</div><ul class="plain">${changes.map(b=>`<li><span class="dot">&bull;</span><span>${escapeHtml(b)}</span></li>`).join("")}</ul>`:""}
+  </div>`;
+}
+
+function pathwayTerminalBox(nexus){
+  const status=nexus.status;
+  if(status==="NEEDS_INFORMATION"){
+    const mf=(nexus.missing_pathway_changing_facts||[])[0];
+    return {text:mf?`⚠ ${factLabel(mf)} unresolved`:"⚠ A pathway-changing fact is unresolved."};
+  }
+  if(status==="RECOMMENDATION"){
+    const cs=nexus.current_clinical_state;
+    const text=(typeof cs==="string"&&cs)?cs:"Pathway resolved — see Applicable NCCN Options.";
+    return {text};
+  }
+  if(status==="REQUIRES_REVIEW")return {text:"⚠ Conflicting information requires clinician review before this pathway can proceed."};
+  return {text:nexus.message||`Pathway status: ${humanizeEnum(status)}`};
+}
+
+function renderPathway(nexus){
+  const trace=nexus.raw_deterministic_response?.trace||[];
+  const steps=trace.filter(t=>t.result===true).map(t=>cleanQuestion(t.label));
+  const term=pathwayTerminalBox(nexus);
+  const stepsHtml=steps.map(s=>`
+    <div class="step"><div class="rail"><div class="dot"></div><div class="line"></div></div><div class="txt">${escapeHtml(s)}</div></div>`).join("");
+  return `
+  <div class="card">
+    <div class="sec-title"><span class="sec-num">2</span><h3>Current NCCN Pathway</h3></div>
+    <div class="stepper">${stepsHtml||'<div class="empty-note">No pathway steps recorded yet.</div>'}</div>
+    <div class="pos-box"><b>Current pathway position</b>${escapeHtml(term.text)}</div>
+    ${nexus.current_pathway_node?`<div class="node-id">Pathway node: <code>${escapeHtml(nexus.current_pathway_node)}</code></div>`:""}
+  </div>`;
+}
+
+function renderOptions(nexus){
+  const options=nexus.applicable_nccn_options||[];
+  let body;
+  if(options.length){
+    const groups={};
+    for(const o of options){
+      const cat=o.preference_category&&PREFERENCE_TIER_META[o.preference_category]?o.preference_category:"__DEFAULT__";
+      (groups[cat]=groups[cat]||[]).push(o);
+    }
+    const order=["PREFERRED","OTHER_RECOMMENDED","USEFUL_IN_CERTAIN_CIRCUMSTANCES","__DEFAULT__"];
+    body=order.filter(k=>groups[k]).map(k=>{
+      const meta=PREFERENCE_TIER_META[k];
+      const rows=groups[k].map(o=>{
+        const text=o.text||o.label||o.option_id||"";
+        if(meta.cls==="preferred")return `<div class="opt-row preferred"><span class="opt-icon">★</span><span>${escapeHtml(text)}</span></div>`;
+        return `<div class="opt-row plain"><span class="opt-icon">○</span><span>${escapeHtml(text)}</span></div>`;
+      }).join("");
+      return `<div class="opt-label">${escapeHtml(meta.title)}${meta.cls==="preferred"?"":":"}</div>${rows}`;
+    }).join("");
+    body+=`<div class="opt-foot">These are guideline-concordant options, not an automatic order.</div>`;
+  }else if(nexus.status==="NEEDS_INFORMATION"){
+    const missing=(nexus.missing_pathway_changing_facts||[]).map(factLabel);
+    body=`<div class="info-box warn">No pathway-specific options released yet.<br><br>NEXUS requires ${missing.length?missing.join(", "):"additional information"} to be resolved before the deterministic pathway can safely release the applicable options.</div>`;
+  }else if(nexus.status==="RECOMMENDATION"){
+    body=`<div class="info-box muted">This pathway resolved without a discrete options list. See Why NEXUS Reached This Pathway / Full Decision Trace below.</div>`;
+  }else{
+    body=`<div class="info-box muted">Options are not available while this pathway's status is ${escapeHtml(humanizeEnum(nexus.status))}.</div>`;
+  }
+  return `
+  <div class="card">
+    <div class="sec-title"><span class="sec-num">3</span><h3>Applicable NCCN Options</h3></div>
+    ${body}
+  </div>`;
+}
+
+function renderWorkup(nexus){
+  const items=nexus.required_workup_information||[];
+  let body;
+  if(!items.length){
+    body=`<div class="empty-note">No additional pathway-required work-up has been released at the current unresolved node.</div>`;
+  }else{
+    body=items.map(it=>{
+      if(typeof it==="string"){
+        const m=WORKUP_STATUS_META.__DEFAULT__;
+        return `<div class="wu-row"><div class="wu-left"><span class="pill-status ${m.cls}">${m.icon}</span><span>${escapeHtml(it)}</span></div><span class="pill-status ${m.cls}">${m.text}</span></div>`;
+      }
+      const label=it.label||it.name||it.fact_id||JSON.stringify(it);
+      const m=WORKUP_STATUS_META[it.status]||WORKUP_STATUS_META.__DEFAULT__;
+      return `<div class="wu-row"><div class="wu-left"><span class="pill-status ${m.cls}">${m.icon}</span><span>${escapeHtml(label)}</span></div><span class="pill-status ${m.cls}">${m.text}</span></div>`;
+    }).join("");
+  }
+  return `
+  <div class="card">
+    <div class="sec-title"><span class="sec-num">4</span><h3>Required Work-Up / Information</h3></div>
+    ${body}
+  </div>`;
+}
+
+function renderMissing(nexus){
+  const missing=nexus.missing_pathway_changing_facts||[];
+  let body;
+  if(!missing.length){
+    if(nexus.status==="REQUIRES_REVIEW"){
+      body=`<div class="info-box muted">Not applicable: this pathway is blocked by conflicting information, not missing information. See Why NEXUS Reached This Pathway.</div>`;
+    }else{
+      body=`<div class="info-box muted" style="background:var(--green-bg);border-color:var(--green-border);color:var(--green)">No pathway-changing information is currently missing.</div>`;
+    }
+  }else{
+    body=missing.map(fid=>{
+      return `
+      <div class="missing-item">
+        <div class="qmark">?</div>
+        <div class="body">
+          <b>${escapeHtml(factLabel(fid))} — Unknown</b>
+          <div class="why"><b>Why this matters:</b> NEXUS cannot safely resolve the next branch of the ${escapeHtml(nexus.guideline||"NCCN")} pathway until this fact is known.</div>
+          <div class="change"><b>Could change:</b> ${escapeHtml(consequenceClauseFor(fid))}</div>
+        </div>
+      </div>`;
+    }).join("");
+  }
+  return `
+  <div class="card">
+    <div class="sec-title"><span class="sec-num">5</span><h3>Pathway-Changing Information Missing</h3></div>
+    ${body}
+  </div>`;
+}
+
+function renderWhyPathway(nexus,extraction){
+  const trace=nexus.raw_deterministic_response?.trace||nexus.why_nexus_reached_this_pathway||[];
+  const rows=trace.map(t=>{
+    let ans,cls="";
+    if(t.result===true)ans="Yes";
+    else if(t.result===false)ans="No";
+    else if(t.result==="CONFLICT"){ans="Conflict";cls="unresolved";}
+    else{ans="Unknown";cls="unresolved";}
+    const icon=cls?"⚠":"✓";
+    return `<div class="check-row ${cls}"><span class="ic">${icon}</span><span>${escapeHtml(cleanQuestion(t.label))}<span class="chip-answer">${ans}</span></span></div>`;
+  }).join("");
+  let therefore="";
+  if(nexus.status==="RECOMMENDATION"){
+    therefore=`NEXUS has resolved the ${escapeHtml(humanizeEnum(nexus.detected_cancer))} pathway to the option(s) shown in Applicable NCCN Options.`;
+  }else if(nexus.status==="NEEDS_INFORMATION"){
+    const mf=(nexus.missing_pathway_changing_facts||[])[0];
+    const rawSite=canonicalFactValue(extraction,"primary_site");
+    const positioned=rawSite?formatValue("primary_site",rawSite):humanizeEnum(nexus.detected_cancer);
+    therefore=`NEXUS has positioned the patient within the ${escapeHtml(positioned)} pathway but cannot safely resolve the next branch until ${escapeHtml(mf?factLabel(mf):"additional information")} is known.`;
+  }else if(nexus.status==="REQUIRES_REVIEW"){
+    therefore="Conflicting information must be reconciled before NEXUS can safely continue.";
+  }else{
+    therefore=escapeHtml(nexus.message||`Status: ${humanizeEnum(nexus.status)}`);
+  }
+  return `
+  <div class="card">
+    <div class="sec-title"><span class="sec-num">6</span><h3>Why NEXUS Reached This Pathway</h3></div>
+    ${rows||'<div class="empty-note">No decision trace recorded.</div>'}
+    <hr class="hr">
+    <div class="therefore"><b>Therefore:</b> ${therefore}</div>
+  </div>`;
+}
+
+// Fixed diagnostic identity facts (what cancer/site this is) don't "change"
+// for a given patient the way a treatment/biomarker/stage status can -- the
+// engine still lists them as inputs to early routing decisions, but they
+// aren't clinically meaningful "what could change" variables.
+const STRUCTURAL_FACTS=new Set(["cancer_type","primary_site","histology"]);
+
+function renderWhatCouldChange(nexus){
+  const wcc=nexus.what_could_change_the_pathway||[];
+  const factIds=[...new Set(wcc.map(x=>x.fact_id).filter(Boolean))].filter(f=>!STRUCTURAL_FACTS.has(f));
+  let body;
+  if(!factIds.length){
+    body=`<div class="empty-note">No pathway-changing variables are currently identified.</div>`;
+  }else{
+    body=factIds.map(fid=>{
+      const text=WHAT_COULD_CHANGE_TEXT[fid]||`${factLabel(fid)} → may alter the applicable NCCN pathway or options`;
+      return `<div class="wcc-row">&bull; ${escapeHtml(text)}</div>`;
+    }).join("");
+  }
+  return `
+  <div class="card">
+    <div class="sec-title"><span class="sec-num">7</span><h3>What Could Change the Pathway?</h3></div>
+    ${body}
+  </div>`;
+}
+
+/* ---------------- evidence dedup + rail ---------------- */
+function dedupEvidence(records){
+  // Extraction can log more than one quote for the same fact+value+context
+  // (eg. a clean short quote and a larger overlapping raw-text chunk). Those
+  // aren't textually identical, so dedupe on fact+value+context and keep the
+  // shortest evidence_text as the cleanest representative quote.
+  const map=new Map();
+  for(const r of records){
+    const key=`${r.fact_id}|${JSON.stringify(r.value)}|${r.source_context}`;
+    const prev=map.get(key);
+    if(!prev||(r.evidence_text||"").length<(prev.evidence_text||"").length)map.set(key,r);
+  }
+  return [...map.values()];
+}
+function allEvidenceFlat(nexus){
+  const byFact=nexus.evidence_used||{};
+  const flat=[];
+  for(const [fid,list] of Object.entries(byFact))for(const r of list)flat.push({...r,fact_id:r.fact_id||fid});
+  return dedupEvidence(flat);
+}
+
+function renderGuidelineSource(nexus){
+  const refs=nexus.source_page_section_references||[];
+  const sections=[...new Set(refs.map(r=>r.section).filter(Boolean))];
+  const pages=[...new Set(refs.flatMap(r=>r.physical_pages||[]))].sort((a,b)=>a-b);
+  return `
+  <div class="card">
+    <div class="rail-title">Guideline Source</div>
+    <div class="src-line strong">NCCN Clinical Practice Guidelines in Oncology</div>
+    <div class="src-line">${escapeHtml(nexus.guideline||"—")}</div>
+    <div class="src-line">${nexus.guideline_version?`Version ${escapeHtml(nexus.guideline_version)}`:""}</div>
+    <div class="src-line" style="margin-top:8px">Pathway references: ${sections.length?escapeHtml(sections.join(", ")):"—"}</div>
+    <div class="src-line">Source pages: ${pages.length?escapeHtml(pages.join(", ")):"—"}</div>
+  </div>`;
+}
+
+function renderEvidenceRail(nexus){
+  const flat=allEvidenceFlat(nexus).filter(r=>r.evidence_text).slice(0,5);
+  const body=flat.length?flat.map(r=>`<div class="quote-card"><span class="quote-mark">&ldquo;</span><span class="qt">${escapeHtml(r.evidence_text)}</span></div>`).join(""):`<div class="empty-note">No source quotes captured.</div>`;
+  return `
+  <div class="card">
+    <div class="rail-title">Evidence Used</div>
+    ${body}
+  </div>`;
+}
+
+/* ---------------- accordions ---------------- */
+function renderEvidenceAccordion(nexus){
+  const flat=allEvidenceFlat(nexus);
+  if(!flat.length)return `<div class="empty-note">No evidence records available.</div>`;
+  const rows=flat.map(r=>`
+    <tr>
+      <td>${escapeHtml(factLabel(r.fact_id))}</td>
+      <td>${escapeHtml(formatValue(r.fact_id,r.value))}</td>
+      <td><span class="src-pill">${escapeHtml((r.source_context||"").replace("_"," "))}</span></td>
+      <td class="evi-quote">${r.evidence_text?`&ldquo;${escapeHtml(r.evidence_text)}&rdquo;`:"—"}</td>
+      <td>${escapeHtml(fmtDate(r.observed_at)||"—")}</td>
+      <td>${escapeHtml(r.status||"—")}</td>
+    </tr>`).join("");
+  return `<div style="overflow-x:auto"><table class="data"><thead><tr><th>Fact</th><th>Value</th><th>Source</th><th>Evidence</th><th>Date</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function renderDecisionTraceAccordion(nexus){
+  const trace=nexus.raw_deterministic_response?.trace||[];
+  if(!trace.length)return `<div class="empty-note">No decision trace available.</div>`;
+  const isTerminal=(i)=>i===trace.length-1&&(nexus.status==="NEEDS_INFORMATION"||nexus.status==="REQUIRES_REVIEW");
+  return trace.map((t,i)=>{
+    let ans;
+    if(t.result===true)ans="TRUE";else if(t.result===false)ans="FALSE";else if(t.result==="CONFLICT")ans="CONFLICT";else ans="UNKNOWN";
+    const src=(t.source_pathways||[]).join(" / ");
+    const stop=isTerminal(i);
+    return `
+    <div class="trace-step${stop?" stop":""}">
+      <div class="q">${i+1}. ${escapeHtml(t.label||t.decision_id||"")}</div>
+      <div class="a">${ans}</div>
+      ${src?`<div class="src">Source: ${escapeHtml(src)}</div>`:""}
+      ${t.missing_facts&&t.missing_facts.length?`<div class="src">Missing fact: ${escapeHtml(t.missing_facts.map(factLabel).join(", "))}</div>`:""}
+      ${stop?`<div class="src"><b>NEXUS stopped here.</b></div>`:""}
+    </div>`;
+  }).join("");
+}
+
+function renderCanonicalFactsAccordion(extraction,nexus){
+  const canon=extraction.canonical_facts_sent_to_engine||{};
+  const missing=nexus.missing_pathway_changing_facts||[];
+  const keys=new Set([...Object.keys(canon).filter(k=>k!=="cancer_type"),...missing]);
+  if(!keys.size)return `<div class="empty-note">No canonical facts recorded.</div>`;
+  const rows=[...keys].sort().map(k=>{
+    const entry=canon[k];
+    let value="—",status="Missing";
+    if(entry){
+      if(entry.status==="CONFIRMED"){value=formatValue(k,entry.value);status="Confirmed";}
+      else if(entry.status==="PENDING"){status="Pending";}
+      else if(entry.status==="CONFLICT"){status="Conflict";}
+    }
+    return `<tr><td>${escapeHtml(factLabel(k))}</td><td>${escapeHtml(value)}</td><td>${escapeHtml(status)}</td></tr>`;
+  }).join("");
+  const cancerRow=canon.cancer_type?`<tr><td>Cancer</td><td>${escapeHtml(formatValue("cancer_type",canon.cancer_type.value))}</td><td>Confirmed</td></tr>`:"";
+  return `<div style="overflow-x:auto"><table class="data"><thead><tr><th>Fact</th><th>Current value</th><th>Status</th></tr></thead><tbody>${cancerRow}${rows}</tbody></table></div>`;
+}
+
+function renderLongitudinalAccordion(extraction){
+  const hist=extraction.historical_facts||[];
+  const cur=extraction.current_verified_facts||[];
+  if(!hist.length&&!cur.length)return `<div class="empty-note">No longitudinal fact history available.</div>`;
+  const group=(title,list)=>{
+    if(!list.length)return "";
+    const lines=dedupEvidence(list).map(o=>`${factLabel(o.fact_id)}: ${formatValue(o.fact_id,o.value)}`);
+    return `<div class="timeline-group"><div class="tg-head">${escapeHtml(title)}</div><ul class="plain">${lines.map(l=>`<li><span class="dot">&bull;</span><span>${escapeHtml(l)}</span></li>`).join("")}</ul></div>`;
+  };
+  const histBlock=group("PATIENT HISTORY",hist);
+  const curBlock=group("CURRENT OPD",cur);
+  return `${histBlock}${histBlock&&curBlock?'<div class="timeline-arrow">&darr;</div>':""}${curBlock}`;
+}
+
+function renderRawAuditAccordion(full){
+  const json=JSON.stringify(full,null,2);
+  return `
+  <div class="acc-actions">
+    <button type="button" data-copy-json>Copy JSON</button>
+    <button type="button" data-download-json>Download Audit JSON</button>
+  </div>
+  <pre class="json-box">${escapeHtml(json)}</pre>`;
+}
+
+function renderAccordions(extraction,nexus,full){
+  const items=[
+    {icon:"📖",label:"Evidence & Source",body:renderEvidenceAccordion(nexus)},
+    {icon:"🔀",label:"Full Decision Trace",body:renderDecisionTraceAccordion(nexus)},
+    {icon:"📄",label:"Canonical Facts",body:renderCanonicalFactsAccordion(extraction,nexus)},
+    {icon:"🕒",label:"Longitudinal Fact History",body:renderLongitudinalAccordion(extraction)},
+    {icon:"🛡",label:"Raw NEXUS Audit",body:renderRawAuditAccordion(full)},
+  ];
+  return `<div class="card accordion-card">${items.map(it=>`
+    <details class="acc">
+      <summary><span class="left">${it.icon} ${escapeHtml(it.label)}</span><span class="chev">&#9662;</span></summary>
+      <div class="acc-body">${it.body}</div>
+    </details>`).join("")}</div>`;
+}
+
+/* ---------------- top-level render ---------------- */
+function render(full){
+  const extraction=full.extraction||{};
+  const nexus=full.nexus_result||{};
+  const main=[
+    renderHeader(nexus,extraction),
+    `<div class="row3">${renderClinicalPicture(extraction)}${renderPathway(nexus)}${renderOptions(nexus)}</div>`,
+    `<div class="row2">${renderWorkup(nexus)}${renderMissing(nexus)}</div>`,
+    `<div class="row2">${renderWhyPathway(nexus,extraction)}${renderWhatCouldChange(nexus)}</div>`,
+    renderAccordions(extraction,nexus,full),
+  ].join("");
+  $("resultMain").innerHTML=main;
+  $("resultRail").innerHTML=renderGuidelineSource(nexus)+renderEvidenceRail(nexus);
+
+  const raw=$("resultMain").querySelector("[data-copy-json]");
+  if(raw){
+    raw.onclick=()=>navigator.clipboard?.writeText(JSON.stringify(full,null,2));
+    const dl=$("resultMain").querySelector("[data-download-json]");
+    dl.onclick=()=>{
+      const blob=new Blob([JSON.stringify(full,null,2)],{type:"application/json"});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");
+      a.href=url;a.download="nexus_audit.json";a.click();
+      URL.revokeObjectURL(url);
+    };
+  }
+}
+
+/* ---------------- wiring ---------------- */
+const $=id=>document.getElementById(id);
+async function health(){
+  try{
+    const r=await fetch('/api/health'),j=await r.json();
+    if(j.status!=='ok'){const n=$('notice');n.style.display='block';n.textContent=j.message||'Deterministic engine not found.'}
+  }catch{}
+}
+$('run').onclick=async()=>{
+  const btn=$('run');btn.disabled=true;
+  $('working').textContent='Running extraction → longitudinal merge → deterministic engine…';
+  $('result').classList.remove('show');
+  try{
+    const r=await fetch('/api/v1/nexus/run',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({patient_history:$('history').value,current_opd_note:$('opd').value})});
+    const j=await r.json();
+    render(j);
+    $('result').classList.add('show');
+  }catch(e){
+    const n=$('notice');n.style.display='block';n.textContent='Run failed: '+e;
+  }finally{
+    btn.disabled=false;$('working').textContent='';
+  }
+};
+health();
+</script>
+</body></html>
