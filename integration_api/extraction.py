@@ -218,7 +218,7 @@ async def _ollama_extract(text: str, pkg: dict[str,Any], source_context: str) ->
 async def _gemini_extract(text: str, pkg: dict[str,Any], source_context: str) -> tuple[list[Observation],list[str]]:
     key=os.getenv("GEMINI_API_KEY","").strip()
     if not key: raise RuntimeError("GEMINI_API_KEY not set")
-    model=os.getenv("GEMINI_MODEL","gemini-2.5-flash")
+    model=os.getenv("GEMINI_MODEL","gemini-3.6-flash")
     schema=_compact_schema(pkg)
     prompt=f'''FACT EXTRACTION ONLY. Do not choose an NCCN pathway, scenario, route, node, treatment, regimen, or recommendation.\nExtract only explicit note-supported facts. Absence is not negative. Pending is pending.\nReturn JSON {{"facts":[{{"fact_id":"...","value":...,"status":"CONFIRMED|PENDING|UNKNOWN|CONFLICT","evidence_text":"short supporting phrase"}}],"unresolved_mentions":[]}}.\nSOURCE_CONTEXT={source_context}\nSCHEMA={json.dumps(schema,separators=(',',':'))}\nNOTE={text}'''
     endpoint=f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}"
