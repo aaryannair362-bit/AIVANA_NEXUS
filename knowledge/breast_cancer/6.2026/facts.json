@@ -1,0 +1,117 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "BREAST_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "diagnosis_class",
+    "value_type": "CODED",
+    "allowed_values": [
+      "DCIS",
+      "INVASIVE",
+      "PHYLLODES",
+      "PAGET",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "WORKUP",
+      "NEW_DIAGNOSIS",
+      "PREOPERATIVE_SYSTEMIC",
+      "POST_PREOPERATIVE",
+      "POST_SURGERY",
+      "SURVEILLANCE",
+      "LOCOREGIONAL_RECURRENCE",
+      "METASTATIC",
+      "PREGNANCY",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "clinical_m",
+    "value_type": "CODED",
+    "allowed_values": [
+      "M0",
+      "M1",
+      "MX"
+    ],
+    "semantic_unknown_values": [
+      "MX"
+    ]
+  },
+  {
+    "key": "inflammatory",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "hr_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "POSITIVE",
+      "NEGATIVE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "her2_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "POSITIVE",
+      "NEGATIVE",
+      "EQUIVOCAL",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "EQUIVOCAL",
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "menopause",
+    "value_type": "CODED",
+    "allowed_values": [
+      "PREMENOPAUSAL",
+      "POSTMENOPAUSAL",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "pathologic_node_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "N0",
+      "N_POSITIVE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "residual_invasive_disease",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "germline_brca_pathogenic",
+    "value_type": "BOOLEAN"
+  }
+]

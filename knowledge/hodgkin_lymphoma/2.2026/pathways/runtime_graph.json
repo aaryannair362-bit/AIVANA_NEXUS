@@ -1,0 +1,715 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Hodgkin lymphoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "HODGKIN_LYMPHOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "hist_nlphl",
+        "FALSE": "outside"
+      }
+    },
+    "hist_nlphl": {
+      "kind": "decision",
+      "label": "NLPHL?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "NLPHL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "nlphl_phase",
+        "FALSE": "hist_chl"
+      }
+    },
+    "hist_chl": {
+      "kind": "decision",
+      "label": "Classic Hodgkin lymphoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "CLASSIC_HODGKIN"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chl_phase_rr",
+        "FALSE": "other"
+      }
+    },
+    "other": {
+      "kind": "status",
+      "label": "Pathology requires a different lymphoma pathway.",
+      "status": "NEEDS_DIFFERENT_PATHWAY"
+    },
+    "nlphl_phase": {
+      "kind": "decision",
+      "label": "Relapsed/refractory NLPHL?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RELAPSED_REFRACTORY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "nlphl_rr",
+        "FALSE": "nlphl_primary"
+      }
+    },
+    "nlphl_primary": {
+      "kind": "action",
+      "label": "NLPHL primary treatment: stage/bulk/symptom-directed observation, ISRT, anti-CD20 therapy and/or systemic therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_nlphl_primary",
+      "source_pathways": [
+        "HODG-11"
+      ],
+      "recommendation": {
+        "title": "NLPHL primary treatment: stage/bulk/symptom-directed observation, ISRT, anti-CD20 therapy and/or systemic therapy.",
+        "options": [
+          {
+            "label": "Stage-directed treatment",
+            "text": "Use separate IA/IIA, bulky/B-symptom, noncontiguous and III-IV branches."
+          },
+          {
+            "label": "Observation",
+            "text": "Only for source-defined completely excised solitary Stage IA situations."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "nlphl_rr": {
+      "kind": "action",
+      "label": "Refractory/suspected relapsed NLPHL: biopsy confirmation when appropriate, then anti-CD20/systemic/RT/HDT-ASCR options based on transformation, symptoms, prior treatment and transplant status.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_nlphl_rr",
+      "source_pathways": [
+        "HODG-16"
+      ],
+      "recommendation": {
+        "title": "Refractory/suspected relapsed NLPHL: biopsy confirmation when appropriate, then anti-CD20/systemic/RT/HDT-ASCR options based on transformation, symptoms, prior treatment and transplant status.",
+        "options": [
+          {
+            "label": "Biopsy and salvage",
+            "text": "Confirm suspected relapse/transformation where appropriate, then use source-directed salvage."
+          },
+          {
+            "label": "Observation",
+            "text": "May be appropriate for selected asymptomatic source-defined states."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "chl_phase_rr": {
+      "kind": "decision",
+      "label": "Relapsed/refractory CHL?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RELAPSED_REFRACTORY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_timing",
+        "FALSE": "chl_phase_follow"
+      }
+    },
+    "rr_timing": {
+      "kind": "decision",
+      "label": "Primary refractory or relapse <3 months?",
+      "expression": {
+        "all": [
+          {
+            "fact": "relapse_timing",
+            "op": "eq",
+            "value": "PRIMARY_REFRACTORY_OR_LT3MO"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_early",
+        "FALSE": "rr_late"
+      }
+    },
+    "rr_early": {
+      "kind": "decision",
+      "label": "Candidate for HDT/ASCR?",
+      "expression": {
+        "all": [
+          {
+            "fact": "transplant_candidate",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr13",
+        "FALSE": "rr15"
+      }
+    },
+    "rr13": {
+      "kind": "action",
+      "label": "Primary refractory CHL / relapse within 3 months and transplant candidate: second-line systemic therapy → response assessment → HDT/ASCR, with post-transplant maintenance only when source high-risk criteria and exposure prerequisites are met.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_rr_early",
+      "source_pathways": [
+        "HODG-13"
+      ],
+      "recommendation": {
+        "title": "Primary refractory CHL / relapse within 3 months and transplant candidate: second-line systemic therapy → response assessment → HDT/ASCR, with post-transplant maintenance only when source high-risk criteria and exposure prerequisites are met.",
+        "options": [
+          {
+            "label": "Second-line therapy",
+            "text": "CPI-based or other source-listed salvage according to prior exposure."
+          },
+          {
+            "label": "HDT/ASCR",
+            "text": "Proceed after adequate response when eligible."
+          },
+          {
+            "label": "Maintenance",
+            "text": "Only when source post-ASCR high-risk criteria and no disqualifying prior exposure are satisfied."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "rr_late": {
+      "kind": "decision",
+      "label": "Candidate for HDT/ASCR?",
+      "expression": {
+        "all": [
+          {
+            "fact": "transplant_candidate",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr14",
+        "FALSE": "rr15"
+      }
+    },
+    "rr14": {
+      "kind": "action",
+      "label": "Biopsy-proven CHL relapse ≥3 months and transplant candidate: second-line therapy (CPI-based preferred when no prior CPI) → response assessment → HDT/ASCR, with maintenance when indicated.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_rr_late",
+      "source_pathways": [
+        "HODG-14"
+      ],
+      "recommendation": {
+        "title": "Biopsy-proven CHL relapse ≥3 months and transplant candidate: second-line therapy (CPI-based preferred when no prior CPI) → response assessment → HDT/ASCR, with maintenance when indicated.",
+        "options": [
+          {
+            "label": "Second-line systemic therapy",
+            "text": "Prefer CPI-based salvage when source prior-exposure condition is met."
+          },
+          {
+            "label": "HDT/ASCR",
+            "text": "Proceed after response if eligible."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "rr15": {
+      "kind": "action",
+      "label": "Relapsed/refractory CHL not a candidate for HDT/ASCR: source-directed systemic therapy, RT, clinical trial, or observation in selected contexts based on prior exposures and symptoms.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_rr_nontransplant",
+      "source_pathways": [
+        "HODG-15"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory CHL not a candidate for HDT/ASCR: source-directed systemic therapy, RT, clinical trial, or observation in selected contexts based on prior exposures and symptoms.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Checkpoint inhibitor/BV/other source options based on prior exposure."
+          },
+          {
+            "label": "RT/observation",
+            "text": "Selected local/asymptomatic settings."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "chl_phase_follow": {
+      "kind": "decision",
+      "label": "Follow-up after completion of therapy?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "FOLLOW_UP"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_INITIAL_THERAPY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "follow_deauville",
+        "FALSE": "chl_phase_interim"
+      }
+    },
+    "follow_deauville": {
+      "kind": "decision",
+      "label": "Post-treatment Deauville 4-5/suspicious residual?",
+      "expression": {
+        "all": [
+          {
+            "fact": "deauville",
+            "op": "eq",
+            "value": "4_5"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_biopsy",
+        "FALSE": "follow"
+      }
+    },
+    "post_biopsy": {
+      "kind": "decision",
+      "label": "Biopsy positive?",
+      "expression": {
+        "all": [
+          {
+            "fact": "biopsy_result",
+            "op": "eq",
+            "value": "POSITIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_timing",
+        "FALSE": "post_bx_neg"
+      }
+    },
+    "post_bx_neg": {
+      "kind": "action",
+      "label": "Residual PET concern with negative biopsy: observe/short-interval reassessment or source-directed local management rather than automatically treating as refractory disease.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_post_biopsy_negative",
+      "source_pathways": [
+        "HODG-17"
+      ],
+      "recommendation": {
+        "title": "Residual PET concern with negative biopsy: observe/short-interval reassessment or source-directed local management rather than automatically treating as refractory disease.",
+        "options": [
+          {
+            "label": "Observation/reassessment",
+            "text": "Use source response follow-up; do not assume active lymphoma from PET alone."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A"
+        ],
+        "next_steps": []
+      }
+    },
+    "follow": {
+      "kind": "action",
+      "label": "Hodgkin lymphoma follow-up and late-effects monitoring.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_followup",
+      "source_pathways": [
+        "HODG-12",
+        "HODG-12A"
+      ],
+      "recommendation": {
+        "title": "Hodgkin lymphoma follow-up and late-effects monitoring.",
+        "options": [
+          {
+            "label": "Clinical/lab follow-up",
+            "text": "Use source schedule through 5 years and beyond."
+          },
+          {
+            "label": "Late effects",
+            "text": "Thyroid, cardiovascular, second malignancy, fertility and other treatment-specific monitoring."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "chl_phase_interim": {
+      "kind": "decision",
+      "label": "Interim response assessment?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "INTERIM_RESPONSE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "interim_deauv",
+        "FALSE": "preg"
+      }
+    },
+    "interim_deauv": {
+      "kind": "decision",
+      "label": "Deauville 4-5?",
+      "expression": {
+        "all": [
+          {
+            "fact": "deauville",
+            "op": "eq",
+            "value": "4_5"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "interim_bx",
+        "FALSE": "interim_good"
+      }
+    },
+    "interim_bx": {
+      "kind": "decision",
+      "label": "Biopsy positive for active CHL?",
+      "expression": {
+        "all": [
+          {
+            "fact": "biopsy_result",
+            "op": "eq",
+            "value": "POSITIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_timing",
+        "FALSE": "interim_adjust"
+      }
+    },
+    "interim_adjust": {
+      "kind": "action",
+      "label": "Interim PET Deauville 4-5 without biopsy-proven refractory disease: use stage/regimen-specific response-adapted continuation/escalation/RT pathway rather than automatic relapse therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_interim_45",
+      "source_pathways": [
+        "HODG-5B",
+        "HODG-6B",
+        "HODG-7A",
+        "HODG-7B",
+        "HODG-7C",
+        "HODG-7D"
+      ],
+      "recommendation": {
+        "title": "Interim PET Deauville 4-5 without biopsy-proven refractory disease: use stage/regimen-specific response-adapted continuation/escalation/RT pathway rather than automatic relapse therapy.",
+        "options": [
+          {
+            "label": "Response-adapted therapy",
+            "text": "Apply the regimen/stage-specific PET-adapted branch and biopsy requirements."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "interim_good": {
+      "kind": "action",
+      "label": "Interim PET Deauville 1-3: continue/de-escalate/add RT according to the exact initial stage/risk/regimen pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_interim_good",
+      "source_pathways": [
+        "HODG-5",
+        "HODG-5A",
+        "HODG-6",
+        "HODG-6A",
+        "HODG-7",
+        "HODG-7A",
+        "HODG-7B",
+        "HODG-7C",
+        "HODG-7D"
+      ],
+      "recommendation": {
+        "title": "Interim PET Deauville 1-3: continue/de-escalate/add RT according to the exact initial stage/risk/regimen pathway.",
+        "options": [
+          {
+            "label": "Continue response-adapted frontline plan",
+            "text": "Use initial risk/regimen-specific Deauville branch."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "preg": {
+      "kind": "decision",
+      "label": "Pregnant?",
+      "expression": {
+        "all": [
+          {
+            "fact": "pregnant",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "preg_action",
+        "FALSE": "older"
+      }
+    },
+    "preg_action": {
+      "kind": "action",
+      "label": "Classic Hodgkin lymphoma during pregnancy: trimester/severity-directed observation or therapy with pregnancy-specific imaging and treatment constraints.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_pregnancy",
+      "source_pathways": [
+        "HODG-10"
+      ],
+      "recommendation": {
+        "title": "Classic Hodgkin lymphoma during pregnancy: trimester/severity-directed observation or therapy with pregnancy-specific imaging and treatment constraints.",
+        "options": [
+          {
+            "label": "Pregnancy-adapted management",
+            "text": "Use source trimester, symptoms/organ compromise, and fetal considerations; refer to expert center."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "older": {
+      "kind": "decision",
+      "label": "Age >60 or unfit for intensive therapy?",
+      "expression": {
+        "all": [
+          {
+            "fact": "age_over_60_or_unfit",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "older_action",
+        "FALSE": "stage_adv"
+      }
+    },
+    "older_action": {
+      "kind": "action",
+      "label": "CHL age >60/unfit: age/fitness-adapted systemic therapy and PET response pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_older",
+      "source_pathways": [
+        "HODG-9"
+      ],
+      "recommendation": {
+        "title": "CHL age >60/unfit: age/fitness-adapted systemic therapy and PET response pathway.",
+        "options": [
+          {
+            "label": "Age/fitness-adapted therapy",
+            "text": "Use source regimen set based on anthracycline candidacy and stage."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "stage_adv": {
+      "kind": "decision",
+      "label": "Stage III-IV?",
+      "expression": {
+        "any": [
+          {
+            "fact": "stage_group",
+            "op": "eq",
+            "value": "III"
+          },
+          {
+            "fact": "stage_group",
+            "op": "eq",
+            "value": "IV"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "adv",
+        "FALSE": "early_fav"
+      }
+    },
+    "adv": {
+      "kind": "action",
+      "label": "Stage III-IV CHL: frontline systemic therapy with regimen-specific interim/end PET adaptation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_advanced",
+      "source_pathways": [
+        "HODG-7"
+      ],
+      "recommendation": {
+        "title": "Stage III-IV CHL: frontline systemic therapy with regimen-specific interim/end PET adaptation.",
+        "options": [
+          {
+            "label": "Frontline systemic therapy",
+            "text": "Use source preferred regimen(s), age/comorbidity and toxicity considerations."
+          },
+          {
+            "label": "PET-adapted management",
+            "text": "Apply HODG-7A-D based on regimen and Deauville response."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "early_fav": {
+      "kind": "decision",
+      "label": "Early favorable disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "early_favorable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "early_fav_action",
+        "FALSE": "early_unfav"
+      }
+    },
+    "early_fav_action": {
+      "kind": "action",
+      "label": "Stage I-II favorable CHL: GHSG/EORTC-specific limited therapy with PET-adapted RT/chemotherapy decisions.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_early_favorable",
+      "source_pathways": [
+        "HODG-5",
+        "HODG-5A"
+      ],
+      "recommendation": {
+        "title": "Stage I-II favorable CHL: GHSG/EORTC-specific limited therapy with PET-adapted RT/chemotherapy decisions.",
+        "options": [
+          {
+            "label": "Combined modality/PET-adapted therapy",
+            "text": "Use GHSG vs EORTC source branch and Deauville response."
+          },
+          {
+            "label": "Deauville 4-5 branch",
+            "text": "Use HODG-5B when applicable."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "early_unfav": {
+      "kind": "action",
+      "label": "Stage I-II unfavorable CHL: risk/bulk/B-symptom-directed systemic therapy with interim PET adaptation ± ISRT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hodgkin_early_unfavorable",
+      "source_pathways": [
+        "HODG-6",
+        "HODG-6A",
+        "HODG-6B"
+      ],
+      "recommendation": {
+        "title": "Stage I-II unfavorable CHL: risk/bulk/B-symptom-directed systemic therapy with interim PET adaptation ± ISRT.",
+        "options": [
+          {
+            "label": "Systemic therapy + PET adaptation",
+            "text": "Use source unfavorable-stage regimen and response branches."
+          },
+          {
+            "label": "ISRT",
+            "text": "Use when source branch indicates based on bulk/response."
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A",
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Hodgkin lymphoma ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

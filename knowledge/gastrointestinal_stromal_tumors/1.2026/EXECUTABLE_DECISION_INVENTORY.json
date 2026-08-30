@@ -1,0 +1,1619 @@
+[
+  {
+    "decision_id": "derived::derive_very_small_gastric_true",
+    "source_section": "GIST-1",
+    "source_page_label": "GIST-1",
+    "source_anchor": "GIST-1:pages:6",
+    "clinical_question": "Should very_small_gastric_lt2cm be deterministically derived as True?",
+    "input_fact_ids": [
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_very_small_gastric_true"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "very_small_gastric_lt2cm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_very_small_gastric_true",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_very_small_gastric_false",
+    "source_section": "GIST-1",
+    "source_page_label": "GIST-1",
+    "source_anchor": "GIST-1:pages:6",
+    "clinical_question": "Should very_small_gastric_lt2cm be deterministically derived as False?",
+    "input_fact_ids": [
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_very_small_gastric_false"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "very_small_gastric_lt2cm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_very_small_gastric_false",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_le2_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'NONE'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_le2_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_le2_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_le2_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'NONE'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_le2_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_le2_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_2to5_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'VERY_LOW'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_2to5_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_2to5_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_2to5_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'MODERATE'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_2to5_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_2to5_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_5to10_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'LOW'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_5to10_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_5to10_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_5to10_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'HIGH'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_5to10_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_5to10_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_gt10_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'MODERATE'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_gt10_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_gt10_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_gastric_gt10_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'HIGH'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_gt10_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_gastric_gt10_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_le2_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'NONE'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_le2_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_le2_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_le2_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'HIGH'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_le2_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_le2_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_2to5_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'LOW'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_2to5_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_2to5_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_2to5_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'HIGH'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_2to5_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_2to5_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_5to10_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'MODERATE'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_5to10_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_5to10_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_5to10_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'HIGH'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_5to10_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_5to10_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_gt10_lowmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'HIGH'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_gt10_lowmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_gt10_lowmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_gist_risk_nongastric_gt10_highmit",
+    "source_section": "GIST-A",
+    "source_page_label": "GIST-A",
+    "source_anchor": "GIST-A:pages:11,12,13",
+    "clinical_question": "Should recurrence_risk be deterministically derived as 'HIGH'?",
+    "input_fact_ids": [
+      "mitotic_rate_per_5mm2",
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_nongastric_gt10_highmit"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recurrence_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_gist_risk_nongastric_gt10_highmit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "scope",
+    "source_section": "GIST-1",
+    "source_page_label": "GIST-1",
+    "source_anchor": "GIST-1:pages:6",
+    "clinical_question": "GIST?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "care_prog",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_prog",
+    "source_section": "GIST-5",
+    "source_page_label": "GIST-5",
+    "source_anchor": "GIST-5:pages:10",
+    "clinical_question": "Progressive disease?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "prog_extent",
+      "care_unres"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_prog",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_unres",
+    "source_section": "GIST-4",
+    "source_page_label": "GIST-4",
+    "source_anchor": "GIST-4:pages:9",
+    "clinical_question": "Unresectable/metastatic/recurrent episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "unres_line",
+      "care_post"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_unres",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_post",
+    "source_section": "GIST-3",
+    "source_page_label": "GIST-3",
+    "source_anchor": "GIST-3:pages:8",
+    "clinical_question": "Postoperative episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "post_complete",
+      "initial_small"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_post",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "initial_small",
+    "source_section": "GIST-1",
+    "source_page_label": "GIST-1",
+    "source_anchor": "GIST-1:pages:6",
+    "clinical_question": "Very small gastric GIST <2 cm?",
+    "input_fact_ids": [
+      "primary_site",
+      "tumor_size_cm"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "small_risk",
+      "initial_resect"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "initial_small",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "small_risk",
+    "source_section": "GIST-1",
+    "source_page_label": "GIST-1",
+    "source_anchor": "GIST-1:pages:6",
+    "clinical_question": "High-risk EUS/biopsy features?",
+    "input_fact_ids": [
+      "high_risk_eus_or_biopsy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_small_resection",
+      "gist_small_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "small_resect",
+      "small_observe"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "small_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "initial_resect",
+    "source_section": "GIST-1",
+    "source_page_label": "GIST-1",
+    "source_anchor": "GIST-1:pages:6",
+    "clinical_question": "Resectable?",
+    "input_fact_ids": [
+      "resectable"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "initial_morbidity",
+      "unres_line"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "initial_resect",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "initial_morbidity",
+    "source_section": "GIST-1",
+    "source_page_label": "GIST-1",
+    "source_anchor": "GIST-1:pages:6",
+    "clinical_question": "Would resection have significant morbidity / is neoadjuvant cytoreduction indicated?",
+    "input_fact_ids": [
+      "significant_surgical_morbidity"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_direct_surgery"
+    ],
+    "internal_transfer_targets": [
+      "neo_genotype",
+      "direct_resection"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "initial_morbidity",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "neo_genotype",
+    "source_section": "GIST-2",
+    "source_page_label": "GIST-2",
+    "source_anchor": "GIST-2:pages:7",
+    "clinical_question": "PDGFRA D842V?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_neo_avapritinib"
+    ],
+    "internal_transfer_targets": [
+      "neo_d842v",
+      "neo_sdh"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "neo_genotype",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "neo_sdh",
+    "source_section": "GIST-2",
+    "source_page_label": "GIST-2",
+    "source_anchor": "GIST-2:pages:7",
+    "clinical_question": "SDH-deficient?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_neo_regorafenib",
+      "gist_neo_sunitinib"
+    ],
+    "internal_transfer_targets": [
+      "neo_sdh_action",
+      "neo_sensitive"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "neo_sdh",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "neo_sensitive",
+    "source_section": "GIST-2",
+    "source_page_label": "GIST-2",
+    "source_anchor": "GIST-2:pages:7",
+    "clinical_question": "KIT/PDGFRA imatinib-sensitive genotype?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_neo_imatinib",
+      "gist_neo_mdt"
+    ],
+    "internal_transfer_targets": [
+      "neo_imatinib",
+      "neo_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "neo_sensitive",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "post_complete",
+    "source_section": "GIST-3",
+    "source_page_label": "GIST-3",
+    "source_anchor": "GIST-3:pages:8",
+    "clinical_question": "Complete postoperative resection?",
+    "input_fact_ids": [
+      "postop_resection_complete"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_residual_systemic"
+    ],
+    "internal_transfer_targets": [
+      "post_rupture",
+      "post_incomplete"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_complete",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "post_risk",
+    "source_section": "GIST-3",
+    "source_page_label": "GIST-3",
+    "source_anchor": "GIST-3:pages:8",
+    "clinical_question": "Moderate/high or significant recurrence risk?",
+    "input_fact_ids": [
+      "recurrence_risk"
+    ],
+    "derived_rule_ids": [
+      "derive_gist_risk_gastric_2to5_highmit",
+      "derive_gist_risk_gastric_2to5_lowmit",
+      "derive_gist_risk_gastric_5to10_highmit",
+      "derive_gist_risk_gastric_5to10_lowmit",
+      "derive_gist_risk_gastric_gt10_highmit",
+      "derive_gist_risk_gastric_gt10_lowmit",
+      "derive_gist_risk_gastric_le2_highmit",
+      "derive_gist_risk_gastric_le2_lowmit",
+      "derive_gist_risk_nongastric_2to5_highmit",
+      "derive_gist_risk_nongastric_2to5_lowmit",
+      "derive_gist_risk_nongastric_5to10_highmit",
+      "derive_gist_risk_nongastric_5to10_lowmit",
+      "derive_gist_risk_nongastric_gt10_highmit",
+      "derive_gist_risk_nongastric_gt10_lowmit",
+      "derive_gist_risk_nongastric_le2_highmit",
+      "derive_gist_risk_nongastric_le2_lowmit"
+    ],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adj_imatinib",
+      "gist_adj_no_imatinib",
+      "gist_post_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "post_adjuvant",
+      "post_surv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "unres_line",
+    "source_section": "GIST-4",
+    "source_page_label": "GIST-4",
+    "source_anchor": "GIST-4:pages:9",
+    "clinical_question": "PDGFRA D842V?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "d842_line_first",
+      "adv_line"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "unres_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "adv_line",
+    "source_section": "GIST-4",
+    "source_page_label": "GIST-4",
+    "source_anchor": "GIST-4:pages:9",
+    "clinical_question": "First-line advanced GIST?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_braf_dt",
+      "gist_adv1_entrectinib",
+      "gist_adv1_imatinib",
+      "gist_adv1_larotrectinib",
+      "gist_adv1_repotrectinib",
+      "gist_adv1_sdh_regorafenib",
+      "gist_adv1_sdh_sunitinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_first",
+      "adv_second_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "adv_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "adv_second_check",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Second-line?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv2_sunitinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_second",
+      "adv_third_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "adv_second_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "adv_third_check",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Third-line?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv3_regorafenib",
+      "gist_adv4_ripretinib",
+      "gist_adv4_ripretinib_escalation"
+    ],
+    "internal_transfer_targets": [
+      "adv_third",
+      "adv_fourth"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "adv_third_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "prog_extent",
+    "source_section": "GIST-5",
+    "source_page_label": "GIST-5",
+    "source_anchor": "GIST-5:pages:10",
+    "clinical_question": "Limited progression amenable to local therapy?",
+    "input_fact_ids": [
+      "progression_extent"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_prog_continue_tki",
+      "gist_prog_local",
+      "gist_prog_nextline",
+      "gist_prog_switch",
+      "gist_prog_trial"
+    ],
+    "internal_transfer_targets": [
+      "prog_limited",
+      "prog_wide"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "prog_extent",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gist_postop_tumor_rupture",
+    "source_section": "GIST-3",
+    "source_page_label": "GIST-3",
+    "source_anchor": "GIST-3:pages:8",
+    "clinical_question": "Preoperative or intraoperative tumor rupture?",
+    "input_fact_ids": [
+      "tumor_rupture"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_residual_systemic"
+    ],
+    "internal_transfer_targets": [
+      "post_incomplete",
+      "post_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_rupture",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gist_d842v_first_line",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "PDGFRA exon 18/D842V disease in first line?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv_avapritinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_d842v",
+      "d842_line_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "d842_line_first",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gist_d842v_second_line",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "PDGFRA exon 18/D842V disease in second line?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_d842v_dasatinib",
+      "gist_d842v_ripretinib",
+      "gist_d842v_trial"
+    ],
+    "internal_transfer_targets": [
+      "d842_second",
+      "d842_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "d842_line_second",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::post_adjuvant::gist_adj_imatinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Adjuvant imatinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adj_imatinib"
+    ],
+    "internal_transfer_targets": [
+      "post_adjuvant"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "post_adjuvant:gist_adj_imatinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::post_adjuvant::gist_adj_no_imatinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Surveillance / genotype-specific management applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adj_no_imatinib"
+    ],
+    "internal_transfer_targets": [
+      "post_adjuvant"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "post_adjuvant:gist_adj_no_imatinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_first::gist_adv1_imatinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Imatinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_imatinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_first:gist_adv1_imatinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_first::gist_adv1_sdh_sunitinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Sunitinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_sdh_sunitinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_first:gist_adv1_sdh_sunitinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_first::gist_adv1_sdh_regorafenib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Regorafenib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_sdh_regorafenib"
+    ],
+    "internal_transfer_targets": [
+      "adv_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_first:gist_adv1_sdh_regorafenib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_first::gist_adv1_larotrectinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:19",
+    "clinical_question": "Is option Larotrectinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_larotrectinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_first:gist_adv1_larotrectinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_first::gist_adv1_entrectinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:19",
+    "clinical_question": "Is option Entrectinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_entrectinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_first:gist_adv1_entrectinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_first::gist_adv1_repotrectinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:19",
+    "clinical_question": "Is option Repotrectinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_repotrectinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_first:gist_adv1_repotrectinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_first::gist_adv1_braf_dt",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:19",
+    "clinical_question": "Is option Dabrafenib + trametinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "genotype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv1_braf_dt"
+    ],
+    "internal_transfer_targets": [
+      "adv_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_first:gist_adv1_braf_dt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_second::gist_adv2_sunitinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Sunitinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_tki"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv2_sunitinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_second:gist_adv2_sunitinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_third::gist_adv3_regorafenib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Regorafenib applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_tki"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv3_regorafenib"
+    ],
+    "internal_transfer_targets": [
+      "adv_third"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_third:gist_adv3_regorafenib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_fourth::gist_adv4_ripretinib",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:18,19,20,21",
+    "clinical_question": "Is option Ripretinib 150 mg daily applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_ripretinib"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv4_ripretinib"
+    ],
+    "internal_transfer_targets": [
+      "adv_fourth"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_fourth:gist_adv4_ripretinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adv_fourth::gist_adv4_ripretinib_escalation",
+    "source_section": "GIST-E",
+    "source_page_label": "GIST-E",
+    "source_anchor": "GIST-E:pages:19",
+    "clinical_question": "Is option Ripretinib dose escalation to 150 mg twice daily applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_ripretinib",
+      "progressed_on_ripretinib"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_adv4_ripretinib_escalation"
+    ],
+    "internal_transfer_targets": [
+      "adv_fourth"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adv_fourth:gist_adv4_ripretinib_escalation",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::prog_limited::gist_prog_switch",
+    "source_section": "GIST-D",
+    "source_page_label": "GIST-D",
+    "source_anchor": "GIST-D:pages:16,17",
+    "clinical_question": "Is option Switch to next-line TKI applicable to the current patient state?",
+    "input_fact_ids": [
+      "local_progression_amenable"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gist_prog_switch"
+    ],
+    "internal_transfer_targets": [
+      "prog_limited"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "prog_limited:gist_prog_switch",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

@@ -1,0 +1,256 @@
+{
+  "TEAM-1": {
+    "code": "TEAM-1",
+    "pages": [
+      5
+    ],
+    "page_count": 1,
+    "source_text_sha256": "e157e315e9f160de3f0d0973a516de3c3d2376c605333d97f307eb855ff83135",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BONE-1": {
+    "code": "BONE-1",
+    "pages": [
+      6
+    ],
+    "page_count": 1,
+    "source_text_sha256": "cc9260781d8140d960ab9e94276942f1a8cc28fed1329f4dd9af87c786a69eb3",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CHON-1": {
+    "code": "CHON-1",
+    "pages": [
+      7
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a78f55abff1265fa9f04c48bc0db402a75446367f79d89022f29b010c64d95cb",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CHON-2": {
+    "code": "CHON-2",
+    "pages": [
+      8
+    ],
+    "page_count": 1,
+    "source_text_sha256": "1205cb4ff6161794234b9a4b6d8785323d9060cb3be52b18a4ba5bf03ada5ea3",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CHON-3": {
+    "code": "CHON-3",
+    "pages": [
+      9
+    ],
+    "page_count": 1,
+    "source_text_sha256": "be1e7c244c199c71f4f7e05ec731c261d8ef3392053e3f37fa2a8de0f2c8a2a7",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CHON-4": {
+    "code": "CHON-4",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3830218208f4edf985c9d5d41f47bea0cc5a2699c3b2a6a35e4543986cbd409c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CHOR-1": {
+    "code": "CHOR-1",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "808279af72ea3ad89c0954d512583e60034baec34c53a91259e69be6a0653fd7",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CHOR-2": {
+    "code": "CHOR-2",
+    "pages": [
+      12
+    ],
+    "page_count": 1,
+    "source_text_sha256": "e6af8fefbe322182e507504b93bd87a897d562484cb965f7e3a4373f1e824f18",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CHOR-3": {
+    "code": "CHOR-3",
+    "pages": [
+      13
+    ],
+    "page_count": 1,
+    "source_text_sha256": "84f149c8d5962f9f6b64696adb39ba2a2c6e6e5ba39e13d7111e0a1098c08c17",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "EW-1": {
+    "code": "EW-1",
+    "pages": [
+      14
+    ],
+    "page_count": 1,
+    "source_text_sha256": "501bc3722e6961251eb8ef677f9227159f3b8ab79de9dee5bf8d30131230ed26",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "EW-2": {
+    "code": "EW-2",
+    "pages": [
+      15
+    ],
+    "page_count": 1,
+    "source_text_sha256": "cb22e06435646e06a9d257a2bb66cad2f951eacb13a360e4057e97898ffb9ecf",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "EW-3": {
+    "code": "EW-3",
+    "pages": [
+      16
+    ],
+    "page_count": 1,
+    "source_text_sha256": "4c946f470bef97773867212d55e1130682712bba72ee315a935524a5ae9614c4",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GCTB-1": {
+    "code": "GCTB-1",
+    "pages": [
+      17
+    ],
+    "page_count": 1,
+    "source_text_sha256": "38efe62bc6e58611272732052cf34dcec39bd99a8955f8f051ea9c3c9c3f79a3",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GCTB-2": {
+    "code": "GCTB-2",
+    "pages": [
+      18
+    ],
+    "page_count": 1,
+    "source_text_sha256": "097ea164d68d78836327629370362823ea79789a0cbaaf42f37557c11796908d",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GCTB-3": {
+    "code": "GCTB-3",
+    "pages": [
+      3,
+      19
+    ],
+    "page_count": 2,
+    "source_text_sha256": "6249492f4f6a5e02f3d342066beadfd99b7d41cf2d34ccea7080c741f7c071af",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "OSTEO-1": {
+    "code": "OSTEO-1",
+    "pages": [
+      20
+    ],
+    "page_count": 1,
+    "source_text_sha256": "59e96f2e1d88eaa059834ae88cc55e2266b317ec30840bab26ca9f35dca3aa75",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "OSTEO-2": {
+    "code": "OSTEO-2",
+    "pages": [
+      21
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3c68e9a88f8cac4028c4a9f49113d0df6e6627372f38b86be6b80e573e6a72ad",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "OSTEO-3": {
+    "code": "OSTEO-3",
+    "pages": [
+      22
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ae658f731f1dc52f9c8bb9cd8e3e1538706f109eae3f20dba5b6adf2bab9b9f5",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "OSTEO-4": {
+    "code": "OSTEO-4",
+    "pages": [
+      23
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ca260ed9ba405cc51f6665868815c3869b327e22bfc8212bf31b8e870ba3329d",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BONE-A": {
+    "code": "BONE-A",
+    "pages": [
+      24
+    ],
+    "page_count": 1,
+    "source_text_sha256": "28899f664da2e77814c2d5d41a6f77c25604031e012efb681540e16237b45bea",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BONE-B": {
+    "code": "BONE-B",
+    "pages": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "page_count": 8,
+    "source_text_sha256": "22215362cbe45703e2c05df04281669fa921883c3eb05c2489e0bf34a427e8ba",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BONE-C": {
+    "code": "BONE-C",
+    "pages": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38
+    ],
+    "page_count": 6,
+    "source_text_sha256": "cbfde07226da9d5ddc11e8a72c37e35ec2c6fa9a66d9e7adeb7d9fb1daaf1747",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BONE-D": {
+    "code": "BONE-D",
+    "pages": [
+      39,
+      40
+    ],
+    "page_count": 2,
+    "source_text_sha256": "6001ca7f47f684842f994ef2dbfde71a629a4f35b8ec1b1c7324798820a9f0aa",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ST-1": {
+    "code": "ST-1",
+    "pages": [
+      41
+    ],
+    "page_count": 1,
+    "source_text_sha256": "d32ffd16cc8c678b8c10df4058fc6cc1649e7c7182455b5f42304001f3009998",
+    "kind": "STAGING",
+    "found": true
+  }
+}

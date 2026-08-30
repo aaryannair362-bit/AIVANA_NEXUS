@@ -1,0 +1,143 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "GASTRIC_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "POST_PREOPERATIVE",
+      "POST_SURGERY",
+      "POST_TREATMENT",
+      "SURVEILLANCE",
+      "RECURRENCE",
+      "PALLIATIVE"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "clinical_t",
+    "value_type": "CODED",
+    "allowed_values": [
+      "TIS",
+      "T1A",
+      "T1B_SUPERFICIAL",
+      "T1B_DEEP",
+      "T2",
+      "T3",
+      "T4A",
+      "T4B",
+      "TX"
+    ],
+    "semantic_unknown_values": [
+      "TX"
+    ]
+  },
+  {
+    "key": "clinical_n",
+    "value_type": "CODED",
+    "allowed_values": [
+      "N0",
+      "N_POS",
+      "NX"
+    ],
+    "semantic_unknown_values": [
+      "NX"
+    ]
+  },
+  {
+    "key": "clinical_m",
+    "value_type": "CODED",
+    "allowed_values": [
+      "M0",
+      "M1",
+      "MX"
+    ],
+    "semantic_unknown_values": [
+      "MX"
+    ]
+  },
+  {
+    "key": "medically_fit",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "potentially_resectable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "endoscopic_resection_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "postop_received_preop_systemic",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "path_margin",
+    "value_type": "CODED",
+    "allowed_values": [
+      "R0",
+      "R1",
+      "R2",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "path_stage_risk",
+    "value_type": "CODED",
+    "allowed_values": [
+      "EARLY_LOW_RISK",
+      "NODE_POSITIVE_OR_T3PLUS",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "response_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "COMPLETE_RESPONSE",
+      "RESIDUAL_RESECTABLE",
+      "UNRESECTABLE",
+      "PROGRESSIVE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "peritoneal_only_disease",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "msi_h_dmmr",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "her2_positive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "pd_l1_positive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "cldn18_2_positive",
+    "value_type": "BOOLEAN"
+  }
+]

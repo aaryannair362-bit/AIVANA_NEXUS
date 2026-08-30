@@ -1,0 +1,716 @@
+[
+  {
+    "decision_id": "scope",
+    "source_section": "ANAL-1",
+    "source_page_label": "ANAL-1",
+    "source_anchor": "ANAL-1:pages:7",
+    "clinical_question": "Anal carcinoma?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "hist",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hist",
+    "source_section": "ANAL-1",
+    "source_page_label": "ANAL-1",
+    "source_anchor": "ANAL-1:pages:7",
+    "clinical_question": "Squamous cell carcinoma?",
+    "input_fact_ids": [
+      "histology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "care_met",
+      "other_hist"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hist",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_met",
+    "source_section": "ANAL-1",
+    "source_page_label": "ANAL-1",
+    "source_anchor": "ANAL-1:pages:7",
+    "clinical_question": "Current metastatic episode?",
+    "input_fact_ids": [
+      "clinical_m",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_line",
+      "care_recur"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_met",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_recur",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Current recurrence episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "rec_site",
+      "care_post"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_recur",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_post",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Post-chemoradiation response assessment?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "post_resp",
+      "site"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_post",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site",
+    "source_section": "ANAL-1",
+    "source_page_label": "ANAL-1",
+    "source_anchor": "ANAL-1:pages:7",
+    "clinical_question": "Anal canal primary?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "canal_m",
+      "perianal_confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "perianal_confirm",
+    "source_section": "ANAL-2",
+    "source_page_label": "ANAL-2",
+    "source_anchor": "ANAL-2:pages:8",
+    "clinical_question": "Perianal primary?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "perianal_m",
+      "need_site"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "perianal_confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "canal_m",
+    "source_section": "ANAL-1",
+    "source_page_label": "ANAL-1",
+    "source_anchor": "ANAL-1:pages:7",
+    "clinical_question": "Metastatic disease?",
+    "input_fact_ids": [
+      "clinical_m"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_5fu_mmc_rt",
+      "anal_cape_mmc_rt",
+      "anal_cis_5fu_rt"
+    ],
+    "internal_transfer_targets": [
+      "met_line",
+      "canal_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "canal_m",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "perianal_m",
+    "source_section": "ANAL-2",
+    "source_page_label": "ANAL-2",
+    "source_anchor": "ANAL-2:pages:8",
+    "clinical_question": "Metastatic disease?",
+    "input_fact_ids": [
+      "clinical_m"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_line",
+      "perianal_early"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "perianal_m",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "perianal_early",
+    "source_section": "ANAL-2",
+    "source_page_label": "ANAL-2",
+    "source_anchor": "ANAL-2:pages:8",
+    "clinical_question": "T1N0 well/moderately differentiated or select T2N0 appropriate for local excision?",
+    "input_fact_ids": [
+      "perianal_early_local_excision_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_peri_5fu_mmc_rt",
+      "anal_peri_cape_mmc_rt",
+      "anal_peri_cis_5fu_rt"
+    ],
+    "internal_transfer_targets": [
+      "perianal_excision",
+      "perianal_definitive"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "perianal_early",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "perianal_excision",
+    "source_section": "ANAL-2",
+    "source_page_label": "ANAL-2",
+    "source_anchor": "ANAL-2:pages:8",
+    "clinical_question": "Adequate excision margins?",
+    "input_fact_ids": [
+      "excision_margin_adequate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_local_rt",
+      "anal_reexcision",
+      "anal_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "perianal_observe",
+      "perianal_inadequate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "perianal_excision",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "post_resp",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Complete remission?",
+    "input_fact_ids": [
+      "post_chemoradiation_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_followup"
+    ],
+    "internal_transfer_targets": [
+      "surv",
+      "post_persistent"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_resp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "post_persistent",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Persistent disease without progression?",
+    "input_fact_ids": [
+      "post_chemoradiation_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_persist_reassess"
+    ],
+    "internal_transfer_targets": [
+      "persistent_obs",
+      "post_progressive"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_persistent",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "post_progressive",
+    "source_section": "ANAL-4",
+    "source_page_label": "ANAL-4",
+    "source_anchor": "ANAL-4:pages:10",
+    "clinical_question": "Progressive disease?",
+    "input_fact_ids": [
+      "post_chemoradiation_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_apr",
+      "anal_groin_dissection"
+    ],
+    "internal_transfer_targets": [
+      "progressive_salvage",
+      "need_postresp"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_progressive",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "rec_site",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Recurrence site?",
+    "input_fact_ids": [
+      "recurrence_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "rec_local",
+      "rec_inguinal_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rec_site",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "rec_inguinal_check",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Inguinal recurrence?",
+    "input_fact_ids": [
+      "recurrence_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_ing_dissection",
+      "anal_ing_retifanlimab",
+      "anal_ing_rt"
+    ],
+    "internal_transfer_targets": [
+      "rec_inguinal",
+      "rec_met_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rec_inguinal_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "rec_met_check",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Metastatic recurrence?",
+    "input_fact_ids": [
+      "recurrence_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_line",
+      "need_recsite"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rec_met_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "rec_local",
+    "source_section": "ANAL-3",
+    "source_page_label": "ANAL-3",
+    "source_anchor": "ANAL-3:pages:9",
+    "clinical_question": "Local recurrence resectable for salvage APR?",
+    "input_fact_ids": [
+      "resectable_local_recurrence"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_rec_apr",
+      "anal_rec_reirradiation",
+      "anal_rec_systemic"
+    ],
+    "internal_transfer_targets": [
+      "local_apr",
+      "local_nonresect"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rec_local",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "met_line",
+    "source_section": "ANAL-B",
+    "source_page_label": "ANAL-B",
+    "source_anchor": "ANAL-B:pages:12,13,14,15,16",
+    "clinical_question": "First-line metastatic therapy?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_later_chemo",
+      "anal_later_cpi",
+      "anal_met_capeox",
+      "anal_met_carbotax",
+      "anal_met_folc",
+      "anal_met_folfox",
+      "anal_met_mdcf",
+      "anal_met_retifanlimab"
+    ],
+    "internal_transfer_targets": [
+      "met_first",
+      "met_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::progressive_salvage::anal_groin_dissection",
+    "source_section": "ANAL-A",
+    "source_page_label": "ANAL-A",
+    "source_anchor": "ANAL-A:pages:11",
+    "clinical_question": "Is option Groin dissection if involved nodes applicable to the current patient state?",
+    "input_fact_ids": [
+      "suspicious_inguinal_nodes"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_groin_dissection"
+    ],
+    "internal_transfer_targets": [
+      "progressive_salvage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "progressive_salvage:anal_groin_dissection",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::local_nonresect::anal_rec_reirradiation",
+    "source_section": "ANAL-B",
+    "source_page_label": "ANAL-B",
+    "source_anchor": "ANAL-B:pages:12,13,14,15,16",
+    "clinical_question": "Is option Individualized RT/chemoradiation applicable to the current patient state?",
+    "input_fact_ids": [
+      "definitive_rt_possible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_rec_reirradiation"
+    ],
+    "internal_transfer_targets": [
+      "local_nonresect"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "local_nonresect:anal_rec_reirradiation",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rec_inguinal::anal_ing_rt",
+    "source_section": "ANAL-A",
+    "source_page_label": "ANAL-A",
+    "source_anchor": "ANAL-A:pages:11",
+    "clinical_question": "Is option Definitive RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "definitive_rt_possible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_ing_rt"
+    ],
+    "internal_transfer_targets": [
+      "rec_inguinal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rec_inguinal:anal_ing_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rec_inguinal::anal_ing_dissection",
+    "source_section": "ANAL-A",
+    "source_page_label": "ANAL-A",
+    "source_anchor": "ANAL-A:pages:11",
+    "clinical_question": "Is option Groin dissection applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_ing_dissection"
+    ],
+    "internal_transfer_targets": [
+      "rec_inguinal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rec_inguinal:anal_ing_dissection",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_later::anal_later_cpi",
+    "source_section": "ANAL-B",
+    "source_page_label": "ANAL-B",
+    "source_anchor": "ANAL-B:pages:12,13,14,15,16",
+    "clinical_question": "Is option Checkpoint inhibitor (cemiplimab, dostarlimab, nivolumab, pembrolizumab, penpulimab, retifanlimab, tislelizumab, or toripalimab) applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_immunotherapy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "anal_later_cpi"
+    ],
+    "internal_transfer_targets": [
+      "met_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_later:anal_later_cpi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

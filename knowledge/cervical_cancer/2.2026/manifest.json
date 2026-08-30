@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_CERVICAL",
+  "title": "Cervical Cancer",
+  "version": "2.2026",
+  "cancer_type": "CERVICAL_CANCER",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 50,
+    "implemented_decisions": 50,
+    "tested_decisions": 50,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "cervical(6).pdf",
+    "sha256": "720abc1b1c3794294ab7af063edae613240a7f06affcdbae8b2002b93b29f4ee",
+    "pdf_pages": 138
+  },
+  "primary_expected": 16,
+  "supporting_expected": 8
+}

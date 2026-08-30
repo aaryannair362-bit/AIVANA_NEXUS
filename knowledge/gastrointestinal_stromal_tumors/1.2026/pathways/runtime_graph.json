@@ -1,0 +1,567 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Confirmed GIST?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "GIST"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase",
+        "FALSE": "outside"
+      }
+    },
+    "phase": {
+      "kind": "decision",
+      "label": "Progressive disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "PROGRESSIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "prog_extent",
+        "FALSE": "phase_unres"
+      }
+    },
+    "phase_unres": {
+      "kind": "decision",
+      "label": "Unresectable/metastatic episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "UNRESECTABLE_METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "unres_response",
+        "FALSE": "phase_postop"
+      }
+    },
+    "phase_postop": {
+      "kind": "decision",
+      "label": "Postoperative episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POSTOPERATIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "postop_risk",
+        "FALSE": "initial_small"
+      }
+    },
+    "initial_small": {
+      "kind": "decision",
+      "label": "Very small gastric GIST <2 cm?",
+      "expression": {
+        "all": [
+          {
+            "fact": "very_small_gastric_lt2cm",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "small_risk",
+        "FALSE": "resectable_check"
+      }
+    },
+    "small_risk": {
+      "kind": "decision",
+      "label": "High-risk EUS/biopsy features?",
+      "expression": {
+        "all": [
+          {
+            "fact": "high_risk_eus_or_biopsy",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "small_resect",
+        "FALSE": "small_observe"
+      }
+    },
+    "small_resect": {
+      "kind": "action",
+      "label": "Very small gastric GIST with high-risk features: proceed to complete surgical resection pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_small_highrisk_resection",
+      "source_pathways": [
+        "GIST-1"
+      ],
+      "recommendation": {
+        "title": "Very small gastric GIST with high-risk features: proceed to complete surgical resection pathway.",
+        "options": [
+          {
+            "label": "Surgery",
+            "text": "Complete resection when appropriate; use GIST-C surgical principles."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-A",
+          "GIST-C",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "small_observe": {
+      "kind": "action",
+      "label": "Very small gastric GIST without high-risk features: periodic endoscopic or radiographic surveillance can be considered.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_small_surveillance",
+      "source_pathways": [
+        "GIST-1"
+      ],
+      "recommendation": {
+        "title": "Very small gastric GIST without high-risk features: periodic endoscopic or radiographic surveillance can be considered.",
+        "options": [
+          {
+            "label": "Surveillance",
+            "text": "Periodic endoscopic or radiographic surveillance."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-A",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "resectable_check": {
+      "kind": "decision",
+      "label": "Resectable disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "morbidity",
+        "FALSE": "unres_primary"
+      }
+    },
+    "morbidity": {
+      "kind": "decision",
+      "label": "Would immediate resection have significant morbidity?",
+      "expression": {
+        "all": [
+          {
+            "fact": "significant_surgical_morbidity",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "geno",
+        "FALSE": "resect_direct"
+      }
+    },
+    "resect_direct": {
+      "kind": "action",
+      "label": "Resectable GIST with minimal morbidity: complete resection, then postoperative risk-directed management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_resectable_primary",
+      "source_pathways": [
+        "GIST-1"
+      ],
+      "recommendation": {
+        "title": "Resectable GIST with minimal morbidity: complete resection, then postoperative risk-directed management.",
+        "options": [
+          {
+            "label": "Complete resection",
+            "text": "Proceed to surgery with GIST surgical principles, then GIST-3 postoperative pathway."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-C",
+          "GIST-F"
+        ],
+        "next_steps": [
+          "GIST-3"
+        ]
+      }
+    },
+    "geno": {
+      "kind": "decision",
+      "label": "PDGFRA D842V?",
+      "expression": {
+        "all": [
+          {
+            "fact": "genotype",
+            "op": "eq",
+            "value": "PDGFRA_D842V"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "neo_d842v",
+        "FALSE": "geno_sdh"
+      }
+    },
+    "geno_sdh": {
+      "kind": "decision",
+      "label": "SDH-deficient GIST?",
+      "expression": {
+        "all": [
+          {
+            "fact": "genotype",
+            "op": "eq",
+            "value": "SDH_DEFICIENT"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "neo_sdh",
+        "FALSE": "geno_sensitive"
+      }
+    },
+    "geno_sensitive": {
+      "kind": "decision",
+      "label": "KIT/PDGFRA imatinib-sensitive genotype?",
+      "expression": {
+        "all": [
+          {
+            "fact": "genotype",
+            "op": "eq",
+            "value": "KIT_PDGFRA_SENSITIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "neo_imatinib",
+        "FALSE": "neo_other"
+      }
+    },
+    "neo_d842v": {
+      "kind": "action",
+      "label": "Resectable GIST with significant morbidity and PDGFRA D842V: use genotype-specific neoadjuvant pathway rather than imatinib.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_neoadjuvant_d842v",
+      "source_pathways": [
+        "GIST-2"
+      ],
+      "recommendation": {
+        "title": "Resectable GIST with significant morbidity and PDGFRA D842V: use genotype-specific neoadjuvant pathway rather than imatinib.",
+        "options": [
+          {
+            "label": "Genotype-directed therapy",
+            "text": "Use the PDGFRA D842V-specific neoadjuvant option in GIST-E before reassessing surgery."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-B",
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "neo_sdh": {
+      "kind": "action",
+      "label": "Resectable GIST with significant morbidity and SDH-deficient disease: use SDH-specific neoadjuvant options and reassess resectability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_neoadjuvant_sdh",
+      "source_pathways": [
+        "GIST-2"
+      ],
+      "recommendation": {
+        "title": "Resectable GIST with significant morbidity and SDH-deficient disease: use SDH-specific neoadjuvant options and reassess resectability.",
+        "options": [
+          {
+            "label": "SDH-directed TKI strategy",
+            "text": "Use source-listed SDH-deficient options and multidisciplinary reassessment."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-B",
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "neo_imatinib": {
+      "kind": "action",
+      "label": "Resectable GIST with significant morbidity and imatinib-sensitive genotype: neoadjuvant imatinib pathway with interval response assessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_neoadjuvant_imatinib",
+      "source_pathways": [
+        "GIST-2"
+      ],
+      "recommendation": {
+        "title": "Resectable GIST with significant morbidity and imatinib-sensitive genotype: neoadjuvant imatinib pathway with interval response assessment.",
+        "options": [
+          {
+            "label": "Neoadjuvant imatinib",
+            "text": "Use until maximal response/appropriate surgical timing, then resect when feasible."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-B",
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "neo_other": {
+      "kind": "action",
+      "label": "Resectable GIST with significant morbidity and nonstandard/unknown genotype: expert multidisciplinary genotype-directed planning; do not assume imatinib sensitivity.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_neoadjuvant_other",
+      "source_pathways": [
+        "GIST-2"
+      ],
+      "recommendation": {
+        "title": "Resectable GIST with significant morbidity and nonstandard/unknown genotype: expert multidisciplinary genotype-directed planning; do not assume imatinib sensitivity.",
+        "options": [],
+        "supporting_sections": [
+          "GIST-B",
+          "GIST-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "postop_risk": {
+      "kind": "decision",
+      "label": "Moderate/high recurrence risk?",
+      "expression": {
+        "any": [
+          {
+            "fact": "recurrence_risk",
+            "op": "eq",
+            "value": "MODERATE"
+          },
+          {
+            "fact": "recurrence_risk",
+            "op": "eq",
+            "value": "HIGH"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "postop_adj",
+        "FALSE": "postop_surv"
+      }
+    },
+    "postop_adj": {
+      "kind": "action",
+      "label": "Postoperative GIST with meaningful recurrence risk: adjuvant genotype-sensitive therapy and surveillance per GIST-3.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_postop_adjuvant",
+      "source_pathways": [
+        "GIST-3"
+      ],
+      "recommendation": {
+        "title": "Postoperative GIST with meaningful recurrence risk: adjuvant genotype-sensitive therapy and surveillance per GIST-3.",
+        "options": [
+          {
+            "label": "Adjuvant therapy",
+            "text": "Use genotype/risk-directed adjuvant therapy when sensitive; duration per source risk/therapy principles."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-A",
+          "GIST-B",
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "postop_surv": {
+      "kind": "action",
+      "label": "Postoperative very-low/low-risk GIST: surveillance pathway; adjuvant therapy is not automatically indicated.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_postop_surveillance",
+      "source_pathways": [
+        "GIST-3"
+      ],
+      "recommendation": {
+        "title": "Postoperative very-low/low-risk GIST: surveillance pathway; adjuvant therapy is not automatically indicated.",
+        "options": [
+          {
+            "label": "Surveillance",
+            "text": "Risk-adapted imaging follow-up."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-A",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "unres_primary": {
+      "kind": "action",
+      "label": "Unresectable or metastatic GIST: initiate genotype-directed TKI therapy and assess response/resectability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_unresectable_primary",
+      "source_pathways": [
+        "GIST-4"
+      ],
+      "recommendation": {
+        "title": "Unresectable or metastatic GIST: initiate genotype-directed TKI therapy and assess response/resectability.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use genotype/line-specific therapy from GIST-E."
+          },
+          {
+            "label": "Local therapy in selected response",
+            "text": "Consider resection/ablation when source criteria are met."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-B",
+          "GIST-D",
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "unres_response": {
+      "kind": "decision",
+      "label": "Progression on current therapy?",
+      "expression": {
+        "all": [
+          {
+            "fact": "response_status",
+            "op": "eq",
+            "value": "PROGRESSION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "prog_extent",
+        "FALSE": "unres_continue"
+      }
+    },
+    "unres_continue": {
+      "kind": "action",
+      "label": "Unresectable/metastatic GIST with response or stable disease: continue active TKI and reassess for local therapy when appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_unres_response",
+      "source_pathways": [
+        "GIST-4"
+      ],
+      "recommendation": {
+        "title": "Unresectable/metastatic GIST with response or stable disease: continue active TKI and reassess for local therapy when appropriate.",
+        "options": [
+          {
+            "label": "Continue active therapy",
+            "text": "Continue source-appropriate TKI while benefiting; use imaging principles."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-D",
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "prog_extent": {
+      "kind": "decision",
+      "label": "Limited progression?",
+      "expression": {
+        "all": [
+          {
+            "fact": "progression_extent",
+            "op": "eq",
+            "value": "LIMITED"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "prog_limited",
+        "FALSE": "prog_wide"
+      }
+    },
+    "prog_limited": {
+      "kind": "action",
+      "label": "Limited GIST progression: integrate local control with line-appropriate systemic therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_progression_limited",
+      "source_pathways": [
+        "GIST-5"
+      ],
+      "recommendation": {
+        "title": "Limited GIST progression: integrate local control with line-appropriate systemic therapy.",
+        "options": [
+          {
+            "label": "Local control",
+            "text": "Surgery/ablation/RT when feasible for limited progression."
+          },
+          {
+            "label": "Systemic line change",
+            "text": "Switch/continue TKI according to prior exposure and genotype."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-D",
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "prog_wide": {
+      "kind": "action",
+      "label": "Widespread GIST progression: change to next line of genotype/prior-exposure appropriate systemic therapy; supportive/local palliation as needed.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gist_progression_widespread",
+      "source_pathways": [
+        "GIST-5"
+      ],
+      "recommendation": {
+        "title": "Widespread GIST progression: change to next line of genotype/prior-exposure appropriate systemic therapy; supportive/local palliation as needed.",
+        "options": [
+          {
+            "label": "Next-line systemic therapy",
+            "text": "Use GIST-E line-specific therapy based on prior exposure/genotype."
+          }
+        ],
+        "supporting_sections": [
+          "GIST-E",
+          "GIST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside GIST ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

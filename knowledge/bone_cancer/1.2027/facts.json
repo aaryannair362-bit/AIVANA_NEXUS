@@ -1,0 +1,79 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "BONE_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "tumor_subtype",
+    "value_type": "CODED",
+    "allowed_values": [
+      "CHONDROSARCOMA",
+      "CHORDOMA",
+      "EWING_SARCOMA",
+      "GIANT_CELL_TUMOR_BONE",
+      "OSTEOSARCOMA",
+      "UNCLASSIFIED",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "WORKUP",
+      "NEW_DIAGNOSIS",
+      "POST_PRIMARY",
+      "RECURRENT",
+      "METASTATIC"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "metastatic",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "resectable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "progressive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "grade_group",
+    "value_type": "CODED",
+    "allowed_values": [
+      "LOW",
+      "HIGH",
+      "DEDifferentiated",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "location",
+    "value_type": "CODED",
+    "allowed_values": [
+      "APPENDICULAR",
+      "AXIAL",
+      "PELVIS_SACRUM",
+      "SKULL_BASE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  }
+]

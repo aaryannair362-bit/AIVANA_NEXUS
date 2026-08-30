@@ -1,0 +1,3764 @@
+{
+  "schema_version": "nexus-full-pathway/2.0",
+  "guideline_id": "NCCN_BILIARY",
+  "title": "Biliary Tract Cancers",
+  "version": "1.2026",
+  "cancer_type": "BILIARY_TRACT_CANCER",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 42,
+      "implemented_decisions": 42,
+      "tested_decisions": 42,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "BILIARY_TRACT_CANCER",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "primary_site",
+      "value_type": "CODED",
+      "allowed_values": [
+        "GALLBLADDER",
+        "INTRAHEPATIC_CHOLANGIOCARCINOMA",
+        "EXTRAHEPATIC_CHOLANGIOCARCINOMA",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEW_DIAGNOSIS",
+        "INCIDENTAL_POST_CHOLECYSTECTOMY",
+        "POST_RESECTION",
+        "RECURRENT_UNRESECTABLE_METASTATIC",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "resectable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "metastatic",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "jaundice_or_biliary_obstruction",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "gallbladder_t_stage",
+      "value_type": "CODED",
+      "allowed_values": [
+        "TIS",
+        "T1A",
+        "T1B",
+        "T2",
+        "T3",
+        "T4",
+        "TX"
+      ],
+      "semantic_unknown_values": [
+        "TX"
+      ],
+      "fact_role": "PROVENANCE_ONLY",
+      "fact_role_rationale": "Canonical postresection gallbladder routing uses pathologic_t; gallbladder_t_stage is retained as source-normalization provenance."
+    },
+    {
+      "key": "margin_status",
+      "value_type": "CODED",
+      "allowed_values": [
+        "R0",
+        "R1",
+        "R2",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "NON_ROUTING_CONTEXT",
+      "fact_role_rationale": "Legacy normalization alias only. Canonical executable routing uses postop_margin; do not extract or route on this alias.",
+      "deprecated_alias_for": "postop_margin",
+      "extraction_allowed": false
+    },
+    {
+      "key": "nodes_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "NON_ROUTING_CONTEXT",
+      "fact_role_rationale": "Legacy normalization alias only. Canonical executable routing uses postop_nodes_positive; do not extract or route on this alias.",
+      "deprecated_alias_for": "postop_nodes_positive",
+      "extraction_allowed": false
+    },
+    {
+      "key": "cis_at_margin",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "molecular_actionable_alteration",
+      "value_type": "BOOLEAN",
+      "fact_role": "PROVENANCE_ONLY",
+      "fact_role_rationale": "Exact biomarker facts (FGFR2, IDH1, HER2, BRAF, NTRK, RET, KRAS G12C, NRG1, MSI/dMMR/TMB) drive option applicability; this summary is not guideline authority."
+    },
+    {
+      "key": "msi_h_dmmr",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "performance_status_good",
+      "value_type": "BOOLEAN",
+      "fact_role": "NON_ROUTING_CONTEXT",
+      "fact_role_rationale": "BIL-C requires regimen selection in clinical context; no single binary performance-status threshold is specified for all listed regimens, so the generic boolean is not used to invent exclusions."
+    },
+    {
+      "key": "presentation",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "INCIDENTAL_INTRAOP",
+        "INCIDENTAL_PATHOLOGY",
+        "MASS_ON_IMAGING",
+        "JAUNDICE",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "gallbladder_path_t",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "TIS",
+        "T1A",
+        "T1B",
+        "T2",
+        "T3",
+        "T4",
+        "TX"
+      ],
+      "semantic_unknown_values": [
+        "TX"
+      ]
+    },
+    {
+      "key": "postop_margin",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "R0",
+        "R1",
+        "R2",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "postop_nodes_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "disease_progression",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "systemic_line",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "FIRST",
+        "SUBSEQUENT",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "cisplatin_eligible",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_checkpoint_inhibitor",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "tmb_high",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "her2_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "fgfr2_fusion",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "idh1_mutation",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "ntrk_fusion",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "ret_fusion",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "braf_v600e",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "kras_g12c",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "nrg1_fusion",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Biliary tract cancer?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "BILIARY_TRACT_CANCER"
+      },
+      "on": {
+        "TRUE": "site_gb",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "GALL-1",
+        "INTRA-1",
+        "EXTRA-1"
+      ],
+      "decision_id": "scope"
+    },
+    "site_gb": {
+      "kind": "decision",
+      "label": "Gallbladder cancer?",
+      "expression": {
+        "fact": "primary_site",
+        "op": "eq",
+        "value": "GALLBLADDER"
+      },
+      "on": {
+        "TRUE": "gb_care",
+        "FALSE": "site_i"
+      },
+      "source_pathways": [
+        "GALL-1"
+      ],
+      "decision_id": "site_gb"
+    },
+    "site_i": {
+      "kind": "decision",
+      "label": "Intrahepatic cholangiocarcinoma?",
+      "expression": {
+        "fact": "primary_site",
+        "op": "eq",
+        "value": "INTRAHEPATIC_CHOLANGIOCARCINOMA"
+      },
+      "on": {
+        "TRUE": "i_care",
+        "FALSE": "site_e"
+      },
+      "source_pathways": [
+        "INTRA-1"
+      ],
+      "decision_id": "site_i"
+    },
+    "site_e": {
+      "kind": "decision",
+      "label": "Extrahepatic cholangiocarcinoma?",
+      "expression": {
+        "fact": "primary_site",
+        "op": "eq",
+        "value": "EXTRAHEPATIC_CHOLANGIOCARCINOMA"
+      },
+      "on": {
+        "TRUE": "e_care",
+        "FALSE": "need_site"
+      },
+      "source_pathways": [
+        "EXTRA-1"
+      ],
+      "decision_id": "site_e"
+    },
+    "need_site": {
+      "kind": "status",
+      "label": "Biliary primary site must be classified as gallbladder, intrahepatic CCA, or extrahepatic CCA.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "GALL-1",
+        "INTRA-1",
+        "EXTRA-1"
+      ]
+    },
+    "gb_care": {
+      "kind": "decision",
+      "label": "Current unresectable/recurrent/metastatic episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT_UNRESECTABLE_METASTATIC"
+          },
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "sys_line",
+        "FALSE": "gb_post"
+      },
+      "source_pathways": [
+        "GALL-5",
+        "BIL-C"
+      ],
+      "decision_id": "gb_care"
+    },
+    "gb_post": {
+      "kind": "decision",
+      "label": "Post-cholecystectomy/incidental pathology episode?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "in",
+        "value": [
+          "INCIDENTAL_POST_CHOLECYSTECTOMY",
+          "POST_RESECTION"
+        ]
+      },
+      "on": {
+        "TRUE": "gb_post_t",
+        "FALSE": "gb_presentation"
+      },
+      "source_pathways": [
+        "GALL-3",
+        "GALL-6"
+      ],
+      "decision_id": "gb_post"
+    },
+    "gb_presentation": {
+      "kind": "decision",
+      "label": "Incidental intraoperative suspicious mass?",
+      "expression": {
+        "fact": "presentation",
+        "op": "eq",
+        "value": "INCIDENTAL_INTRAOP"
+      },
+      "on": {
+        "TRUE": "gb_intraop_resect",
+        "FALSE": "gb_mass"
+      },
+      "source_pathways": [
+        "GALL-1",
+        "GALL-2"
+      ],
+      "decision_id": "gb_presentation"
+    },
+    "gb_intraop_resect": {
+      "kind": "decision",
+      "label": "Hepatobiliary surgery expertise/resectability permits definitive resection?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "gb_intraop_surg",
+        "FALSE": "gb_defer"
+      },
+      "source_pathways": [
+        "GALL-1",
+        "GALL-2"
+      ],
+      "decision_id": "gb_intraop_resect"
+    },
+    "gb_intraop_surg": {
+      "kind": "action",
+      "label": "Suspicious gallbladder mass found during surgery with hepatobiliary expertise: definitive oncologic resection/staging if appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gb_intraop_surg",
+      "source_pathways": [
+        "GALL-1"
+      ],
+      "recommendation": {
+        "title": "Suspicious gallbladder mass found during surgery with hepatobiliary expertise: definitive oncologic resection/staging if appropriate.",
+        "options": [
+          {
+            "option_id": "gb_onc_resection",
+            "label": "Oncologic resection with appropriate liver/lymph-node surgery",
+            "text": "Oncologic resection with appropriate liver/lymph-node surgery",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "GALL-A",
+              "page_label": "GALL-A",
+              "physical_pages": [
+                13,
+                14
+              ],
+              "source_anchor": "GALL-A:pages:13,14"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GALL-A",
+          "GALL-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GALLBLADDER_INTRAOP_RESECTABLE"
+    },
+    "gb_defer": {
+      "kind": "action",
+      "label": "Suspicious gallbladder mass when definitive hepatobiliary expertise/resection unavailable: avoid non-oncologic definitive manipulation; obtain appropriate staging/referral.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gb_defer",
+      "source_pathways": [
+        "GALL-2"
+      ],
+      "recommendation": {
+        "title": "Suspicious gallbladder mass when definitive hepatobiliary expertise/resection unavailable: avoid non-oncologic definitive manipulation; obtain appropriate staging/referral.",
+        "options": [
+          {
+            "option_id": "gb_referral",
+            "label": "Refer to hepatobiliary multidisciplinary team",
+            "text": "Refer to hepatobiliary multidisciplinary team",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "GALL-A",
+              "page_label": "GALL-A",
+              "physical_pages": [
+                13,
+                14
+              ],
+              "source_anchor": "GALL-A:pages:13,14"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GALL-A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GALLBLADDER_INTRAOP_REFERRAL"
+    },
+    "gb_mass": {
+      "kind": "decision",
+      "label": "Mass on imaging or jaundice presentation?",
+      "expression": {
+        "any": [
+          {
+            "any": [
+              {
+                "fact": "presentation",
+                "op": "in",
+                "value": [
+                  "MASS_ON_IMAGING",
+                  "JAUNDICE",
+                  "OTHER"
+                ]
+              },
+              {
+                "fact": "jaundice_or_biliary_obstruction",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "fact": "jaundice_or_biliary_obstruction",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gb_primary_resect",
+        "FALSE": "need_present"
+      },
+      "source_pathways": [
+        "GALL-4",
+        "GALL-5"
+      ],
+      "decision_id": "gb_mass"
+    },
+    "need_present": {
+      "kind": "status",
+      "label": "Gallbladder presentation type is required.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "GALL-1",
+        "GALL-3",
+        "GALL-4",
+        "GALL-5"
+      ]
+    },
+    "gb_primary_resect": {
+      "kind": "decision",
+      "label": "Resectable nonmetastatic gallbladder cancer?",
+      "expression": {
+        "all": [
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gb_primary_action",
+        "FALSE": "sys_line"
+      },
+      "source_pathways": [
+        "GALL-4",
+        "GALL-5"
+      ],
+      "decision_id": "gb_primary_resect"
+    },
+    "gb_primary_action": {
+      "kind": "action",
+      "label": "Resectable gallbladder cancer: oncologic resection; selected patients may receive individualized neoadjuvant systemic therapy/clinical trial.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gb_primary_action",
+      "source_pathways": [
+        "GALL-4"
+      ],
+      "recommendation": {
+        "title": "Resectable gallbladder cancer: oncologic resection; selected patients may receive individualized neoadjuvant systemic therapy/clinical trial.",
+        "options": [
+          {
+            "option_id": "gb_primary_surgery",
+            "label": "Oncologic resection",
+            "text": "Oncologic resection",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "GALL-A",
+              "page_label": "GALL-A",
+              "physical_pages": [
+                13,
+                14
+              ],
+              "source_anchor": "GALL-A:pages:13,14"
+            }
+          },
+          {
+            "option_id": "gb_neoadj",
+            "label": "Consider neoadjuvant systemic therapy/clinical trial",
+            "text": "Individualized with MDT.",
+            "decision_relevant": false,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "GALL-A",
+              "page_label": "GALL-A",
+              "physical_pages": [
+                13,
+                14
+              ],
+              "source_anchor": "GALL-A:pages:13,14"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GALL-A",
+          "BIL-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GALLBLADDER_RESECTABLE"
+    },
+    "gb_post_t": {
+      "kind": "decision",
+      "label": "Incidental/postresection pathologic Tis/T1a?",
+      "expression": {
+        "fact": "gallbladder_path_t",
+        "op": "in",
+        "value": [
+          "TIS",
+          "T1A"
+        ]
+      },
+      "on": {
+        "TRUE": "gb_post_early",
+        "FALSE": "gb_post_adv"
+      },
+      "source_pathways": [
+        "GALL-3",
+        "GALL-6"
+      ],
+      "decision_id": "gb_post_t"
+    },
+    "gb_post_early": {
+      "kind": "action",
+      "label": "Incidental pTis/pT1a gallbladder cancer with adequate cholecystectomy: observation/surveillance if no other adverse surgical/pathologic finding.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gb_post_early",
+      "source_pathways": [
+        "GALL-3",
+        "GALL-6"
+      ],
+      "recommendation": {
+        "title": "Incidental pTis/pT1a gallbladder cancer with adequate cholecystectomy: observation/surveillance if no other adverse surgical/pathologic finding.",
+        "options": [
+          {
+            "option_id": "gb_post_observe",
+            "label": "Observation/surveillance",
+            "text": "Observation/surveillance",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "GALL-3",
+              "page_label": "GALL-3",
+              "physical_pages": [
+                9
+              ],
+              "source_anchor": "GALL-3:pages:9"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "GALLBLADDER_EARLY_POSTOP"
+    },
+    "gb_post_adv": {
+      "kind": "decision",
+      "label": "Postoperative R0?",
+      "expression": {
+        "fact": "postop_margin",
+        "op": "eq",
+        "value": "R0"
+      },
+      "on": {
+        "TRUE": "gb_r0_nodes",
+        "FALSE": "gb_r1"
+      },
+      "source_pathways": [
+        "GALL-6"
+      ],
+      "decision_id": "gb_post_adv"
+    },
+    "gb_r0_nodes": {
+      "kind": "decision",
+      "label": "Node positive?",
+      "expression": {
+        "fact": "postop_nodes_positive",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "gb_r0_high",
+        "FALSE": "gb_r0_action"
+      },
+      "source_pathways": [
+        "GALL-6"
+      ],
+      "decision_id": "gb_r0_nodes"
+    },
+    "gb_r0_action": {
+      "kind": "action",
+      "label": "Resected gallbladder cancer R0/node-negative beyond T1a: adjuvant systemic therapy or observation according to pathologic risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gb_r0_action",
+      "source_pathways": [
+        "GALL-6"
+      ],
+      "recommendation": {
+        "title": "Resected gallbladder cancer R0/node-negative beyond T1a: adjuvant systemic therapy or observation according to pathologic risk.",
+        "options": [
+          {
+            "option_id": "gb_adj_capecitabine",
+            "label": "Adjuvant capecitabine",
+            "text": "Preferred/category 1 systemic option.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "gb_adj_observe",
+            "label": "Observation",
+            "text": "For source-defined lower-risk selected cases.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GALLBLADDER_R0_NODE_NEG"
+    },
+    "gb_r0_high": {
+      "kind": "action",
+      "label": "Resected gallbladder cancer with node-positive disease: adjuvant systemic therapy, with chemoradiation considered in selected high-risk settings.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gb_r0_high",
+      "source_pathways": [
+        "GALL-6"
+      ],
+      "recommendation": {
+        "title": "Resected gallbladder cancer with node-positive disease: adjuvant systemic therapy, with chemoradiation considered in selected high-risk settings.",
+        "options": [
+          {
+            "option_id": "gb_adj_node_cap",
+            "label": "Adjuvant capecitabine",
+            "text": "Preferred/category 1.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "gb_adj_node_crt",
+            "label": "Chemotherapy + chemoradiation",
+            "text": "Source-defined selected high-risk option.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GALLBLADDER_NODE_POS"
+    },
+    "gb_r1": {
+      "kind": "action",
+      "label": "Gallbladder cancer with positive margin/residual disease: adjuvant systemic therapy +/- fluoropyrimidine-based chemoradiation; gross/metastatic residual routes to palliative systemic therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gb_r1",
+      "source_pathways": [
+        "GALL-6"
+      ],
+      "recommendation": {
+        "title": "Gallbladder cancer with positive margin/residual disease: adjuvant systemic therapy +/- fluoropyrimidine-based chemoradiation; gross/metastatic residual routes to palliative systemic therapy.",
+        "options": [
+          {
+            "option_id": "gb_r1_cap",
+            "label": "Adjuvant capecitabine",
+            "text": "Adjuvant capecitabine",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "gb_r1_crt",
+            "label": "Fluoropyrimidine-based chemoradiation",
+            "text": "Fluoropyrimidine-based chemoradiation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "gb_r2_sys",
+            "label": "Palliative systemic therapy",
+            "text": "For gross residual/metastatic disease.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "postop_margin",
+              "op": "eq",
+              "value": "R2"
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GALLBLADDER_POSITIVE_MARGIN"
+    },
+    "i_care": {
+      "kind": "decision",
+      "label": "Current post-resection episode?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_RESECTION"
+      },
+      "on": {
+        "TRUE": "i_post_margin",
+        "FALSE": "i_active"
+      },
+      "source_pathways": [
+        "INTRA-2"
+      ],
+      "decision_id": "i_care"
+    },
+    "i_active": {
+      "kind": "decision",
+      "label": "Unresectable/metastatic/recurrent iCCA?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT_UNRESECTABLE_METASTATIC"
+          },
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "sys_line",
+        "FALSE": "i_resect"
+      },
+      "source_pathways": [
+        "INTRA-1"
+      ],
+      "decision_id": "i_active"
+    },
+    "i_resect": {
+      "kind": "action",
+      "label": "Resectable intrahepatic cholangiocarcinoma: hepatic resection with regional lymph-node evaluation; transplant/locoregional strategies only in source-defined selected settings.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "i_resect",
+      "source_pathways": [
+        "INTRA-1"
+      ],
+      "recommendation": {
+        "title": "Resectable intrahepatic cholangiocarcinoma: hepatic resection with regional lymph-node evaluation; transplant/locoregional strategies only in source-defined selected settings.",
+        "options": [
+          {
+            "option_id": "i_resection",
+            "label": "Hepatic resection + lymph-node evaluation",
+            "text": "Hepatic resection + lymph-node evaluation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "INTRA-A",
+              "page_label": "INTRA-A",
+              "physical_pages": [
+                18
+              ],
+              "source_anchor": "INTRA-A:pages:18"
+            }
+          },
+          {
+            "option_id": "i_neoadj_trial",
+            "label": "Consider neoadjuvant systemic therapy/clinical trial",
+            "text": "Selected patients.",
+            "decision_relevant": false,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "INTRA-A",
+              "page_label": "INTRA-A",
+              "physical_pages": [
+                18
+              ],
+              "source_anchor": "INTRA-A:pages:18"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "INTRA-A",
+          "INTRA-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ICCA_RESECTABLE"
+    },
+    "i_post_margin": {
+      "kind": "decision",
+      "label": "R0 resection?",
+      "expression": {
+        "fact": "postop_margin",
+        "op": "eq",
+        "value": "R0"
+      },
+      "on": {
+        "TRUE": "i_post_r0",
+        "FALSE": "i_post_r1"
+      },
+      "source_pathways": [
+        "INTRA-2"
+      ],
+      "decision_id": "i_post_margin"
+    },
+    "i_post_r0": {
+      "kind": "action",
+      "label": "Resected iCCA with R0 margin: adjuvant capecitabine preferred; surveillance after adjuvant therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "i_post_r0",
+      "source_pathways": [
+        "INTRA-2"
+      ],
+      "recommendation": {
+        "title": "Resected iCCA with R0 margin: adjuvant capecitabine preferred; surveillance after adjuvant therapy.",
+        "options": [
+          {
+            "option_id": "i_adj_cap",
+            "label": "Capecitabine",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ICCA_POSTOP_R0"
+    },
+    "i_post_r1": {
+      "kind": "action",
+      "label": "Resected iCCA with positive margin/node-positive high-risk findings: adjuvant chemotherapy +/- chemoradiation according to source.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "i_post_r1",
+      "source_pathways": [
+        "INTRA-2"
+      ],
+      "recommendation": {
+        "title": "Resected iCCA with positive margin/node-positive high-risk findings: adjuvant chemotherapy +/- chemoradiation according to source.",
+        "options": [
+          {
+            "option_id": "i_adj_sys",
+            "label": "Adjuvant systemic therapy",
+            "text": "Adjuvant systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "i_adj_crt",
+            "label": "Chemoradiation",
+            "text": "For selected margin-positive disease.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ICCA_POSTOP_HIGH_RISK"
+    },
+    "e_care": {
+      "kind": "decision",
+      "label": "Current post-resection episode?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_RESECTION"
+      },
+      "on": {
+        "TRUE": "e_post_margin",
+        "FALSE": "e_active"
+      },
+      "source_pathways": [
+        "EXTRA-2"
+      ],
+      "decision_id": "e_care"
+    },
+    "e_active": {
+      "kind": "decision",
+      "label": "Unresectable/metastatic/recurrent eCCA?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT_UNRESECTABLE_METASTATIC"
+          },
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "sys_line",
+        "FALSE": "e_resect"
+      },
+      "source_pathways": [
+        "EXTRA-1"
+      ],
+      "decision_id": "e_active"
+    },
+    "e_resect": {
+      "kind": "action",
+      "label": "Resectable extrahepatic cholangiocarcinoma: site-appropriate oncologic resection with regional lymphadenectomy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "e_resect",
+      "source_pathways": [
+        "EXTRA-1"
+      ],
+      "recommendation": {
+        "title": "Resectable extrahepatic cholangiocarcinoma: site-appropriate oncologic resection with regional lymphadenectomy.",
+        "options": [
+          {
+            "option_id": "e_resection",
+            "label": "Oncologic resection + regional lymphadenectomy",
+            "text": "Oncologic resection + regional lymphadenectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "EXTRA-A",
+              "page_label": "EXTRA-A",
+              "physical_pages": [
+                25
+              ],
+              "source_anchor": "EXTRA-A:pages:25"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "EXTRA-A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ECCA_RESECTABLE"
+    },
+    "e_post_margin": {
+      "kind": "decision",
+      "label": "R0 and node-negative?",
+      "expression": {
+        "all": [
+          {
+            "fact": "postop_margin",
+            "op": "eq",
+            "value": "R0"
+          },
+          {
+            "fact": "postop_nodes_positive",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "e_post_r0",
+        "FALSE": "e_post_high"
+      },
+      "source_pathways": [
+        "EXTRA-2"
+      ],
+      "decision_id": "e_post_margin"
+    },
+    "e_post_r0": {
+      "kind": "action",
+      "label": "Resected extrahepatic cholangiocarcinoma R0/node-negative: adjuvant capecitabine preferred/observation in source-defined settings.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "e_post_r0",
+      "source_pathways": [
+        "EXTRA-2"
+      ],
+      "recommendation": {
+        "title": "Resected extrahepatic cholangiocarcinoma R0/node-negative: adjuvant capecitabine preferred/observation in source-defined settings.",
+        "options": [
+          {
+            "option_id": "e_adj_cap",
+            "label": "Capecitabine",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "btc_extra_cis_margin_crt",
+            "label": "Fluoropyrimidine-based chemoradiation",
+            "text": "Source postoperative extrahepatic route considers chemoradiation for R1/CIS-at-margin contexts.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "EXTRA-2",
+              "page_label": "EXTRA-2",
+              "physical_pages": [
+                24
+              ],
+              "source_anchor": "EXTRA-2:pages:24"
+            },
+            "applicability": {
+              "fact": "cis_at_margin",
+              "op": "eq",
+              "value": true
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ECCA_POSTOP_R0"
+    },
+    "e_post_high": {
+      "kind": "action",
+      "label": "Resected extrahepatic cholangiocarcinoma with positive nodes or margins: adjuvant systemic therapy and consider chemoradiation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "e_post_high",
+      "source_pathways": [
+        "EXTRA-2"
+      ],
+      "recommendation": {
+        "title": "Resected extrahepatic cholangiocarcinoma with positive nodes or margins: adjuvant systemic therapy and consider chemoradiation.",
+        "options": [
+          {
+            "option_id": "e_adj_sys",
+            "label": "Adjuvant systemic therapy",
+            "text": "Adjuvant systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "e_adj_crt",
+            "label": "Chemoradiation",
+            "text": "Selected margin-positive/high-risk disease.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-C",
+              "page_label": "BIL-C",
+              "physical_pages": [
+                36,
+                37,
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "BIL-C:pages:36,37,38,39,40"
+            }
+          },
+          {
+            "option_id": "btc_extra_cis_margin_crt",
+            "label": "Fluoropyrimidine-based chemoradiation",
+            "text": "Source postoperative extrahepatic route considers chemoradiation for R1/CIS-at-margin contexts.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "EXTRA-2",
+              "page_label": "EXTRA-2",
+              "physical_pages": [
+                24
+              ],
+              "source_anchor": "EXTRA-2:pages:24"
+            },
+            "applicability": {
+              "fact": "cis_at_margin",
+              "op": "eq",
+              "value": true
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ECCA_POSTOP_HIGH_RISK"
+    },
+    "sys_line": {
+      "kind": "decision",
+      "label": "First-line unresectable/metastatic biliary therapy?",
+      "expression": {
+        "fact": "systemic_line",
+        "op": "eq",
+        "value": "FIRST"
+      },
+      "on": {
+        "TRUE": "sys_first",
+        "FALSE": "sys_later"
+      },
+      "source_pathways": [
+        "BIL-C"
+      ],
+      "decision_id": "sys_line"
+    },
+    "sys_first": {
+      "kind": "action",
+      "label": "First-line unresectable/metastatic biliary tract cancer: preferred gemcitabine/cisplatin + checkpoint inhibitor backbones with biomarker-directed useful options.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "sys_first",
+      "source_pathways": [
+        "GALL-5",
+        "INTRA-1",
+        "EXTRA-1"
+      ],
+      "recommendation": {
+        "title": "First-line unresectable/metastatic biliary tract cancer: preferred gemcitabine/cisplatin + checkpoint inhibitor backbones with biomarker-directed useful options.",
+        "options": [
+          {
+            "option_id": "btc_cisgem_durva",
+            "label": "Cisplatin + gemcitabine + durvalumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": false,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "cisplatin_eligible",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_cisgem_pembro",
+            "label": "Cisplatin + gemcitabine + pembrolizumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": false,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "cisplatin_eligible",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_cisgem",
+            "label": "Cisplatin + gemcitabine",
+            "text": "Category 1 preferred.",
+            "decision_relevant": false,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "cisplatin_eligible",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_carbo_sub",
+            "label": "Carboplatin may substitute for cisplatin",
+            "text": "If cisplatin-ineligible.",
+            "decision_relevant": false,
+            "applicability": {
+              "fact": "cisplatin_eligible",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_ntrk_first",
+            "label": "NTRK inhibitor (entrectinib/larotrectinib/repotrectinib)",
+            "text": "Useful in certain circumstances.",
+            "decision_relevant": false,
+            "preference_category": "USEFUL_IN_CERTAIN_CIRCUMSTANCES",
+            "applicability": {
+              "fact": "ntrk_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_msi_first",
+            "label": "Pembrolizumab",
+            "text": "MSI-H/dMMR.",
+            "decision_relevant": false,
+            "preference_category": "USEFUL_IN_CERTAIN_CIRCUMSTANCES",
+            "applicability": {
+              "fact": "msi_h_dmmr",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_tmb_first",
+            "label": "Ipilimumab + nivolumab",
+            "text": "TMB-H, category 2B.",
+            "decision_relevant": false,
+            "evidence_category": "CATEGORY_2B",
+            "applicability": {
+              "fact": "tmb_high",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_ret_first",
+            "label": "RET inhibitor",
+            "text": "RET fusion, category 2B options.",
+            "decision_relevant": false,
+            "evidence_category": "CATEGORY_2B",
+            "applicability": {
+              "fact": "ret_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_nrg1_first",
+            "label": "Zenocutuzumab-zbco",
+            "text": "CCA with NRG1 fusion, category 2B.",
+            "decision_relevant": false,
+            "evidence_category": "CATEGORY_2B",
+            "applicability": {
+              "fact": "nrg1_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-B",
+          "BIL-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BTC_ADVANCED_FIRST_LINE"
+    },
+    "sys_later": {
+      "kind": "action",
+      "label": "Progressive biliary tract cancer subsequent-line therapy: FOLFOX preferred plus exact molecularly applicable targeted therapies.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "sys_later",
+      "source_pathways": [
+        "GALL-5",
+        "INTRA-1",
+        "EXTRA-1"
+      ],
+      "recommendation": {
+        "title": "Progressive biliary tract cancer subsequent-line therapy: FOLFOX preferred plus exact molecularly applicable targeted therapies.",
+        "options": [
+          {
+            "option_id": "btc_folfox",
+            "label": "FOLFOX",
+            "text": "Preferred subsequent-line.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_folfiri",
+            "label": "FOLFIRI",
+            "text": "FOLFIRI",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_naliri",
+            "label": "Fluorouracil/leucovorin/liposomal irinotecan",
+            "text": "Category 2B.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_ntrk",
+            "label": "NTRK inhibitor",
+            "text": "NTRK inhibitor",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "ntrk_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_msi",
+            "label": "Pembrolizumab / dostarlimab",
+            "text": "MSI-H/dMMR; checkpoint inhibitor use requires prior-exposure consideration.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "msi_h_dmmr",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_checkpoint_inhibitor",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_tmb",
+            "label": "Pembrolizumab or ipilimumab+nivolumab",
+            "text": "TMB-H.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "tmb_high",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_checkpoint_inhibitor",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_braf",
+            "label": "Dabrafenib + trametinib",
+            "text": "BRAF V600E.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "braf_v600e",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_her2",
+            "label": "HER2-directed therapy",
+            "text": "HER2-positive.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "her2_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_ret",
+            "label": "Selpercatinib/pralsetinib",
+            "text": "RET fusion.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "ret_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_krasg12c",
+            "label": "Adagrasib",
+            "text": "KRAS G12C.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "kras_g12c",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_fgfr2",
+            "label": "FGFR inhibitor (futibatinib/pemigatinib/erdafitinib)",
+            "text": "CCA with FGFR2 fusion/rearrangement.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "fgfr2_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_idh1",
+            "label": "Ivosidenib",
+            "text": "CCA with IDH1 mutation; category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "idh1_mutation",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          },
+          {
+            "option_id": "btc_nrg1",
+            "label": "Zenocutuzumab-zbco",
+            "text": "CCA with NRG1 fusion.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "nrg1_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Biliary Tract Cancers",
+              "version": "1.2026",
+              "section": "BIL-B",
+              "page_label": "BIL-B",
+              "physical_pages": [
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35
+              ],
+              "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BIL-B",
+          "BIL-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BTC_ADVANCED_SUBSEQUENT"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside biliary tract cancer package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "GALL-1"
+      ]
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "GALL-1": {
+        "code": "GALL-1",
+        "pages": [
+          7
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ebc499a55d7fdd1ad641b04345b35eebb3ad9559a0125ff74d97266d24c29a18",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GALL-2": {
+        "code": "GALL-2",
+        "pages": [
+          8
+        ],
+        "page_count": 1,
+        "source_text_sha256": "86543b363158523edb0df017f160d01ab23ea1d3b5a06574845a5245f891a5d0",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GALL-3": {
+        "code": "GALL-3",
+        "pages": [
+          9
+        ],
+        "page_count": 1,
+        "source_text_sha256": "dd79684c527af65e2bdcfe1aa9ca1e1dbcc0ddeee2c1d5517a560f076168db63",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GALL-4": {
+        "code": "GALL-4",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "3c2889e1a605a00bbce975a09e1ee82d20938f09641da22d31a4dbd65c6a2cc4",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GALL-5": {
+        "code": "GALL-5",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "1fcbcecd15867993e7481284f8576734e6a7132e158a3e446496aab584cfad1a",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GALL-6": {
+        "code": "GALL-6",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "e3d5aaf78f4f4a7b2fcbd268dc375b61e361cd1ff012bd19f4b2117426ed772b",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "INTRA-1": {
+        "code": "INTRA-1",
+        "pages": [
+          16
+        ],
+        "page_count": 1,
+        "source_text_sha256": "75e41a646a4a8010fd1cec27852e23321dcc736258fd5a65f5f308f34f906982",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "INTRA-2": {
+        "code": "INTRA-2",
+        "pages": [
+          17
+        ],
+        "page_count": 1,
+        "source_text_sha256": "14829efb3f772cb67db835cd5e7dc9d654733d879c12866e2b11e5f2ba35d02f",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "EXTRA-1": {
+        "code": "EXTRA-1",
+        "pages": [
+          23
+        ],
+        "page_count": 1,
+        "source_text_sha256": "7240ad77ad36866d304bf606be70f4b88005d7721a3efa028b987dabed3357b0",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "EXTRA-2": {
+        "code": "EXTRA-2",
+        "pages": [
+          24
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d0050585c204972ec2724f7b72d9f8f79dbd7dbc274ab7044087bf3c85e315dd",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "GALL-A": {
+        "code": "GALL-A",
+        "pages": [
+          13,
+          14
+        ],
+        "page_count": 2,
+        "source_text_sha256": "b6c0b633358c1ad329675dc1abe976f6e33613d0a5694b58bcc4cf78ae1a9f66",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GALL-B": {
+        "code": "GALL-B",
+        "pages": [
+          15
+        ],
+        "page_count": 1,
+        "source_text_sha256": "6c98e8bcf5c8cad0de568ab71fa9f5999ccc0fcca412de74542be9468aed4702",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "INTRA-A": {
+        "code": "INTRA-A",
+        "pages": [
+          18
+        ],
+        "page_count": 1,
+        "source_text_sha256": "7565b61429922e43f19796c587650ae4f488fc389018c5108e6906d53b6f5bcc",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "INTRA-B": {
+        "code": "INTRA-B",
+        "pages": [
+          19,
+          20
+        ],
+        "page_count": 2,
+        "source_text_sha256": "dfebbdf385268737d5a3c88f40b7cd9c0ca7da727787b300675b32ef8288e535",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "INTRA-C": {
+        "code": "INTRA-C",
+        "pages": [
+          21
+        ],
+        "page_count": 1,
+        "source_text_sha256": "9ea19b69ab6b94aed610536b19a3f00b4ac380f4ac49629a9af758e0269bb098",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "INTRA-D": {
+        "code": "INTRA-D",
+        "pages": [
+          22
+        ],
+        "page_count": 1,
+        "source_text_sha256": "cacb27417395d293e467f1e323becfe5809db95e9114fe5af3b4756bba7eb2c3",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "EXTRA-A": {
+        "code": "EXTRA-A",
+        "pages": [
+          25
+        ],
+        "page_count": 1,
+        "source_text_sha256": "82137e3ab16b89f648d15238fbb4c33816587872fed7410805a87ae1a4dfb470",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "EXTRA-B": {
+        "code": "EXTRA-B",
+        "pages": [
+          26
+        ],
+        "page_count": 1,
+        "source_text_sha256": "0e70fc925622d582e4b70359decb9b776e19e004299a84623f9f5c6c36fc3671",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BIL-A": {
+        "code": "BIL-A",
+        "pages": [
+          27
+        ],
+        "page_count": 1,
+        "source_text_sha256": "96c738d11f16d2513ffe2f9e7ef78a19e97e385cbe8963e6ffa8a7d8124476c0",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BIL-B": {
+        "code": "BIL-B",
+        "pages": [
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "page_count": 8,
+        "source_text_sha256": "04245180cb41b96393d280eca7de62c53457803bec741420145b064da8cd8ec5",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BIL-C": {
+        "code": "BIL-C",
+        "pages": [
+          36,
+          37,
+          38,
+          39,
+          40
+        ],
+        "page_count": 5,
+        "source_text_sha256": "b3f8c9293fbb755c31be06f488bd22ef2e60d67a2e93fbf20fe91c9de07eb1be",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BIL-D": {
+        "code": "BIL-D",
+        "pages": [
+          3,
+          41
+        ],
+        "page_count": 2,
+        "source_text_sha256": "ad6e24433198f79ce7709b853d207dec41ac58f89078cab138492e9eab1cf12c",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ST-1": {
+        "code": "ST-1",
+        "pages": [
+          42
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d13ad342806109d6c7d23ae211f0357d8709040584f5e51b385edc5a2723c0d6",
+        "kind": "STAGING",
+        "found": true
+      },
+      "ST-2": {
+        "code": "ST-2",
+        "pages": [
+          43
+        ],
+        "page_count": 1,
+        "source_text_sha256": "f8956c93766f247354d6d955d6d838e7124762df0428d0ed1012f69bf9291b0b",
+        "kind": "STAGING",
+        "found": true
+      },
+      "ST-3": {
+        "code": "ST-3",
+        "pages": [
+          44
+        ],
+        "page_count": 1,
+        "source_text_sha256": "6870ee5289ffb5cac279c7cb6c19bdcc90dcb83d742267fa943b0a801a805d67",
+        "kind": "STAGING",
+        "found": true
+      },
+      "ST-4": {
+        "code": "ST-4",
+        "pages": [
+          45
+        ],
+        "page_count": 1,
+        "source_text_sha256": "5205f4a23f8ea2500f9b9e032122f1d931a0a6414ea597f0fcc83df9f0439ac1",
+        "kind": "STAGING",
+        "found": true
+      }
+    },
+    "primary_expected": 10,
+    "supporting_expected": 16
+  },
+  "source": {
+    "filename": "btc(5).pdf",
+    "sha256": "69cf24af73c4020d0d79ce4b4ffe56dee3e47a0f42f8715d3e159726caeee0b7",
+    "pdf_pages": 108
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true
+  },
+  "derived_rules": [],
+  "consistency_rules": [
+    {
+      "id": "btc_margin_duplicate_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "margin_status",
+            "op": "neq",
+            "value": "UNKNOWN"
+          },
+          {
+            "fact": "postop_margin",
+            "op": "neq",
+            "value": "UNKNOWN"
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "all": [
+                    {
+                      "fact": "margin_status",
+                      "op": "eq",
+                      "value": "R0"
+                    },
+                    {
+                      "fact": "postop_margin",
+                      "op": "eq",
+                      "value": "R0"
+                    }
+                  ]
+                },
+                {
+                  "all": [
+                    {
+                      "fact": "margin_status",
+                      "op": "eq",
+                      "value": "R1"
+                    },
+                    {
+                      "fact": "postop_margin",
+                      "op": "eq",
+                      "value": "R1"
+                    }
+                  ]
+                },
+                {
+                  "all": [
+                    {
+                      "fact": "margin_status",
+                      "op": "eq",
+                      "value": "R2"
+                    },
+                    {
+                      "fact": "postop_margin",
+                      "op": "eq",
+                      "value": "R2"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "message": "Duplicate postoperative margin facts disagree; reconcile source pathology before routing.",
+      "source_pathways": [
+        "GALL-6",
+        "INTRA-2",
+        "EXTRA-2"
+      ]
+    },
+    {
+      "id": "btc_progression_firstline_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "disease_progression",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "systemic_line",
+            "op": "eq",
+            "value": "FIRST"
+          }
+        ]
+      },
+      "message": "Documented progression conflicts with FIRST-line current treatment state; reconcile line/episode before option routing.",
+      "source_pathways": [
+        "BIL-C"
+      ]
+    }
+  ],
+  "executable_decisions": [
+    {
+      "decision_id": "scope",
+      "source_section": "GALL-1",
+      "source_page_label": "GALL-1",
+      "source_anchor": "GALL-1:pages:7",
+      "clinical_question": "Biliary tract cancer?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "site_gb",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "site_gb",
+      "source_section": "GALL-1",
+      "source_page_label": "GALL-1",
+      "source_anchor": "GALL-1:pages:7",
+      "clinical_question": "Gallbladder cancer?",
+      "input_fact_ids": [
+        "primary_site"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "gb_care",
+        "site_i"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "site_gb",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "site_i",
+      "source_section": "INTRA-1",
+      "source_page_label": "INTRA-1",
+      "source_anchor": "INTRA-1:pages:16",
+      "clinical_question": "Intrahepatic cholangiocarcinoma?",
+      "input_fact_ids": [
+        "primary_site"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "i_care",
+        "site_e"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "site_i",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "site_e",
+      "source_section": "EXTRA-1",
+      "source_page_label": "EXTRA-1",
+      "source_anchor": "EXTRA-1:pages:23",
+      "clinical_question": "Extrahepatic cholangiocarcinoma?",
+      "input_fact_ids": [
+        "primary_site"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "e_care",
+        "need_site"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "site_e",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_care",
+      "source_section": "GALL-5",
+      "source_page_label": "GALL-5",
+      "source_anchor": "GALL-5:pages:11",
+      "clinical_question": "Current unresectable/recurrent/metastatic episode?",
+      "input_fact_ids": [
+        "metastatic",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "sys_line",
+        "gb_post"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_post",
+      "source_section": "GALL-3",
+      "source_page_label": "GALL-3",
+      "source_anchor": "GALL-3:pages:9",
+      "clinical_question": "Post-cholecystectomy/incidental pathology episode?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "gb_post_t",
+        "gb_presentation"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_post",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_presentation",
+      "source_section": "GALL-1",
+      "source_page_label": "GALL-1",
+      "source_anchor": "GALL-1:pages:7",
+      "clinical_question": "Incidental intraoperative suspicious mass?",
+      "input_fact_ids": [
+        "presentation"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "gb_intraop_resect",
+        "gb_mass"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_presentation",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_intraop_resect",
+      "source_section": "GALL-1",
+      "source_page_label": "GALL-1",
+      "source_anchor": "GALL-1:pages:7",
+      "clinical_question": "Hepatobiliary surgery expertise/resectability permits definitive resection?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gb_onc_resection",
+        "gb_referral"
+      ],
+      "internal_transfer_targets": [
+        "gb_intraop_surg",
+        "gb_defer"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_intraop_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_mass",
+      "source_section": "GALL-4",
+      "source_page_label": "GALL-4",
+      "source_anchor": "GALL-4:pages:10",
+      "clinical_question": "Mass on imaging or jaundice presentation?",
+      "input_fact_ids": [
+        "jaundice_or_biliary_obstruction",
+        "presentation"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "gb_primary_resect",
+        "need_present"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_mass",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_primary_resect",
+      "source_section": "GALL-4",
+      "source_page_label": "GALL-4",
+      "source_anchor": "GALL-4:pages:10",
+      "clinical_question": "Resectable nonmetastatic gallbladder cancer?",
+      "input_fact_ids": [
+        "metastatic",
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gb_neoadj",
+        "gb_primary_surgery"
+      ],
+      "internal_transfer_targets": [
+        "gb_primary_action",
+        "sys_line"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_primary_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_post_t",
+      "source_section": "GALL-3",
+      "source_page_label": "GALL-3",
+      "source_anchor": "GALL-3:pages:9",
+      "clinical_question": "Incidental/postresection pathologic Tis/T1a?",
+      "input_fact_ids": [
+        "gallbladder_path_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gb_post_observe"
+      ],
+      "internal_transfer_targets": [
+        "gb_post_early",
+        "gb_post_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_post_t",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_post_adv",
+      "source_section": "GALL-6",
+      "source_page_label": "GALL-6",
+      "source_anchor": "GALL-6:pages:12",
+      "clinical_question": "Postoperative R0?",
+      "input_fact_ids": [
+        "postop_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gb_r1_cap",
+        "gb_r1_crt",
+        "gb_r2_sys"
+      ],
+      "internal_transfer_targets": [
+        "gb_r0_nodes",
+        "gb_r1"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_post_adv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gb_r0_nodes",
+      "source_section": "GALL-6",
+      "source_page_label": "GALL-6",
+      "source_anchor": "GALL-6:pages:12",
+      "clinical_question": "Node positive?",
+      "input_fact_ids": [
+        "postop_nodes_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gb_adj_capecitabine",
+        "gb_adj_node_cap",
+        "gb_adj_node_crt",
+        "gb_adj_observe"
+      ],
+      "internal_transfer_targets": [
+        "gb_r0_high",
+        "gb_r0_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gb_r0_nodes",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "i_care",
+      "source_section": "INTRA-2",
+      "source_page_label": "INTRA-2",
+      "source_anchor": "INTRA-2:pages:17",
+      "clinical_question": "Current post-resection episode?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "i_post_margin",
+        "i_active"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "i_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "i_active",
+      "source_section": "INTRA-1",
+      "source_page_label": "INTRA-1",
+      "source_anchor": "INTRA-1:pages:16",
+      "clinical_question": "Unresectable/metastatic/recurrent iCCA?",
+      "input_fact_ids": [
+        "metastatic",
+        "resectable",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "i_neoadj_trial",
+        "i_resection"
+      ],
+      "internal_transfer_targets": [
+        "sys_line",
+        "i_resect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "i_active",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "i_post_margin",
+      "source_section": "INTRA-2",
+      "source_page_label": "INTRA-2",
+      "source_anchor": "INTRA-2:pages:17",
+      "clinical_question": "R0 resection?",
+      "input_fact_ids": [
+        "postop_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "i_adj_cap",
+        "i_adj_crt",
+        "i_adj_sys"
+      ],
+      "internal_transfer_targets": [
+        "i_post_r0",
+        "i_post_r1"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "i_post_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "e_care",
+      "source_section": "EXTRA-2",
+      "source_page_label": "EXTRA-2",
+      "source_anchor": "EXTRA-2:pages:24",
+      "clinical_question": "Current post-resection episode?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "e_post_margin",
+        "e_active"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "e_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "e_active",
+      "source_section": "EXTRA-1",
+      "source_page_label": "EXTRA-1",
+      "source_anchor": "EXTRA-1:pages:23",
+      "clinical_question": "Unresectable/metastatic/recurrent eCCA?",
+      "input_fact_ids": [
+        "metastatic",
+        "resectable",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "e_resection"
+      ],
+      "internal_transfer_targets": [
+        "sys_line",
+        "e_resect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "e_active",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "e_post_margin",
+      "source_section": "EXTRA-2",
+      "source_page_label": "EXTRA-2",
+      "source_anchor": "EXTRA-2:pages:24",
+      "clinical_question": "R0 and node-negative?",
+      "input_fact_ids": [
+        "postop_margin",
+        "postop_nodes_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_extra_cis_margin_crt",
+        "e_adj_cap",
+        "e_adj_crt",
+        "e_adj_sys"
+      ],
+      "internal_transfer_targets": [
+        "e_post_r0",
+        "e_post_high"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "e_post_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sys_line",
+      "source_section": "BIL-C",
+      "source_page_label": "BIL-C",
+      "source_anchor": "BIL-C:pages:36,37,38,39,40",
+      "clinical_question": "First-line unresectable/metastatic biliary therapy?",
+      "input_fact_ids": [
+        "systemic_line"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_braf",
+        "btc_carbo_sub",
+        "btc_cisgem",
+        "btc_cisgem_durva",
+        "btc_cisgem_pembro",
+        "btc_fgfr2",
+        "btc_folfiri",
+        "btc_folfox",
+        "btc_her2",
+        "btc_idh1",
+        "btc_krasg12c",
+        "btc_msi",
+        "btc_msi_first",
+        "btc_naliri",
+        "btc_nrg1",
+        "btc_nrg1_first",
+        "btc_ntrk",
+        "btc_ntrk_first",
+        "btc_ret",
+        "btc_ret_first",
+        "btc_tmb",
+        "btc_tmb_first"
+      ],
+      "internal_transfer_targets": [
+        "sys_first",
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sys_line",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::gb_r1::gb_r2_sys",
+      "source_section": "BIL-C",
+      "source_page_label": "BIL-C",
+      "source_anchor": "BIL-C:pages:36,37,38,39,40",
+      "clinical_question": "Is option Palliative systemic therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "postop_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gb_r2_sys"
+      ],
+      "internal_transfer_targets": [
+        "gb_r1"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "gb_r1:gb_r2_sys",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::e_post_r0::btc_extra_cis_margin_crt",
+      "source_section": "EXTRA-2",
+      "source_page_label": "EXTRA-2",
+      "source_anchor": "EXTRA-2:pages:24",
+      "clinical_question": "Is option Fluoropyrimidine-based chemoradiation applicable to the current patient state?",
+      "input_fact_ids": [
+        "cis_at_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_extra_cis_margin_crt"
+      ],
+      "internal_transfer_targets": [
+        "e_post_r0"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "e_post_r0:btc_extra_cis_margin_crt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::e_post_high::btc_extra_cis_margin_crt",
+      "source_section": "EXTRA-2",
+      "source_page_label": "EXTRA-2",
+      "source_anchor": "EXTRA-2:pages:24",
+      "clinical_question": "Is option Fluoropyrimidine-based chemoradiation applicable to the current patient state?",
+      "input_fact_ids": [
+        "cis_at_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_extra_cis_margin_crt"
+      ],
+      "internal_transfer_targets": [
+        "e_post_high"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "e_post_high:btc_extra_cis_margin_crt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_cisgem_durva",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Cisplatin + gemcitabine + durvalumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "cisplatin_eligible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_cisgem_durva"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_cisgem_durva",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_cisgem_pembro",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Cisplatin + gemcitabine + pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "cisplatin_eligible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_cisgem_pembro"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_cisgem_pembro",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_cisgem",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Cisplatin + gemcitabine applicable to the current patient state?",
+      "input_fact_ids": [
+        "cisplatin_eligible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_cisgem"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_cisgem",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_carbo_sub",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Carboplatin may substitute for cisplatin applicable to the current patient state?",
+      "input_fact_ids": [
+        "cisplatin_eligible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_carbo_sub"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_carbo_sub",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_ntrk_first",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option NTRK inhibitor (entrectinib/larotrectinib/repotrectinib) applicable to the current patient state?",
+      "input_fact_ids": [
+        "ntrk_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_ntrk_first"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_ntrk_first",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_msi_first",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "msi_h_dmmr"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_msi_first"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_msi_first",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_tmb_first",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Ipilimumab + nivolumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "tmb_high"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_tmb_first"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_tmb_first",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_ret_first",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option RET inhibitor applicable to the current patient state?",
+      "input_fact_ids": [
+        "ret_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_ret_first"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_ret_first",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_first::btc_nrg1_first",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Zenocutuzumab-zbco applicable to the current patient state?",
+      "input_fact_ids": [
+        "nrg1_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_nrg1_first"
+      ],
+      "internal_transfer_targets": [
+        "sys_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_first:btc_nrg1_first",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_ntrk",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option NTRK inhibitor applicable to the current patient state?",
+      "input_fact_ids": [
+        "ntrk_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_ntrk"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_ntrk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_msi",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Pembrolizumab / dostarlimab applicable to the current patient state?",
+      "input_fact_ids": [
+        "msi_h_dmmr",
+        "prior_checkpoint_inhibitor"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_msi"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_msi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_tmb",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Pembrolizumab or ipilimumab+nivolumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_checkpoint_inhibitor",
+        "tmb_high"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_tmb"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_tmb",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_braf",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Dabrafenib + trametinib applicable to the current patient state?",
+      "input_fact_ids": [
+        "braf_v600e"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_braf"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_braf",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_her2",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option HER2-directed therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "her2_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_her2"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_her2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_ret",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Selpercatinib/pralsetinib applicable to the current patient state?",
+      "input_fact_ids": [
+        "ret_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_ret"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_ret",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_krasg12c",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Adagrasib applicable to the current patient state?",
+      "input_fact_ids": [
+        "kras_g12c"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_krasg12c"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_krasg12c",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_fgfr2",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option FGFR inhibitor (futibatinib/pemigatinib/erdafitinib) applicable to the current patient state?",
+      "input_fact_ids": [
+        "fgfr2_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_fgfr2"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_fgfr2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_idh1",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Ivosidenib applicable to the current patient state?",
+      "input_fact_ids": [
+        "idh1_mutation"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_idh1"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_idh1",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::sys_later::btc_nrg1",
+      "source_section": "BIL-B",
+      "source_page_label": "BIL-B",
+      "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+      "clinical_question": "Is option Zenocutuzumab-zbco applicable to the current patient state?",
+      "input_fact_ids": [
+        "nrg1_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "btc_nrg1"
+      ],
+      "internal_transfer_targets": [
+        "sys_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "sys_later:btc_nrg1",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

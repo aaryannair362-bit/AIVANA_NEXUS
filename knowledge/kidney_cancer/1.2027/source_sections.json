@@ -1,0 +1,185 @@
+{
+  "KID-1": {
+    "code": "KID-1",
+    "pages": [
+      7
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8f1f6e5afc42ca72c2d211cd12940f1c714db5a47fe8b2e54cf9068195dca166",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "KID-2": {
+    "code": "KID-2",
+    "pages": [
+      8
+    ],
+    "page_count": 1,
+    "source_text_sha256": "e6be77faff78d65bc7b00d13d8fa35359a57a1139402aca60427cffeef9e1098",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "KID-3": {
+    "code": "KID-3",
+    "pages": [
+      9
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0ce00a361eb61849467eda9072d08a7d928e17f403eeb2a9800420b050518a2e",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "KID-4": {
+    "code": "KID-4",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8a0006344e15076660a6e613edce2d636180979ac4f4317b383d3ff4aa0ee427",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HERED-RCC-1": {
+    "code": "HERED-RCC-1",
+    "pages": [
+      26
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a55c3c1a85fa50d5ad6042da097b573da57f3108665cd4b317151f228d81be52",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "HERED-RCC-2": {
+    "code": "HERED-RCC-2",
+    "pages": [
+      27
+    ],
+    "page_count": 1,
+    "source_text_sha256": "d4dac7d64f7d213805e1234bea9284ff0058b80da32af296353f0970a5138f0f",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "GENE-1": {
+    "code": "GENE-1",
+    "pages": [
+      28
+    ],
+    "page_count": 1,
+    "source_text_sha256": "7ecdc771b8953da12355ab0c7fc72286699b8da9237831dff30d051d3466b0dc",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HERED-RCC-B": {
+    "code": "HERED-RCC-B",
+    "pages": [
+      30,
+      31
+    ],
+    "page_count": 2,
+    "source_text_sha256": "d1e7e1c08466c4d02375afcaf22c07a0684a7b5bc618b682e1bd0324ea5e263c",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "HERED-RCC-C": {
+    "code": "HERED-RCC-C",
+    "pages": [
+      32,
+      33
+    ],
+    "page_count": 2,
+    "source_text_sha256": "adf51dcafd000ba084ec97ee6dc0bfbd98da9c76085a2efef6d2d76daa681110",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "HERED-RCC-D": {
+    "code": "HERED-RCC-D",
+    "pages": [
+      3,
+      34
+    ],
+    "page_count": 2,
+    "source_text_sha256": "df1d8ea9376fdfc1b8fe5f078dfc75fdca61efe192174ed245704098abff89fa",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "KID-A": {
+    "code": "KID-A",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "4a5539e77a6c2588f975f0f1d185542e0ea35fb29ebd4d7027074dfae1a8a95d",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "KID-B": {
+    "code": "KID-B",
+    "pages": [
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "page_count": 5,
+    "source_text_sha256": "fbe97de8c8aacaa2cc16c2a5310adca65f0eb1c36efda348fa280ea486f41dcf",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "KID-C": {
+    "code": "KID-C",
+    "pages": [
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "page_count": 5,
+    "source_text_sha256": "3e79d58a87e6e0aef3078c110eaa9bfe37e30ccb72e27bdf27cf504a5e10ebb2",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "KID-D": {
+    "code": "KID-D",
+    "pages": [
+      22,
+      23,
+      24
+    ],
+    "page_count": 3,
+    "source_text_sha256": "13d9280198da978bd8a8f9d10ca41b9b064cd365a0b9e8acf0af5339e53ca764",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "KID-E": {
+    "code": "KID-E",
+    "pages": [
+      25
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0aa45cca06b319be9d63254d37131c5be3b01a993add8c897164de59cb9ae1fb",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "HERED-RCC-A": {
+    "code": "HERED-RCC-A",
+    "pages": [
+      29
+    ],
+    "page_count": 1,
+    "source_text_sha256": "e2e06f9afb6140b25149c726bd2f17ff5be25c90302910bdadfb84a64c630c94",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ST-1": {
+    "code": "ST-1",
+    "pages": [
+      35
+    ],
+    "page_count": 1,
+    "source_text_sha256": "eafcc8f31977d6a9793c4933187f48813a6ca66c99ea64c8ffee0d317883f4be",
+    "kind": "STAGING",
+    "found": true
+  }
+}

@@ -1,0 +1,4647 @@
+{
+  "schema_version": "nexus-full-pathway/2.1",
+  "guideline_id": "NCCN_GASTRIC",
+  "title": "Gastric Cancer",
+  "version": "3.2026",
+  "cancer_type": "GASTRIC_CANCER",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 48,
+      "implemented_decisions": 48,
+      "tested_decisions": 48,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "GASTRIC_CANCER",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEW_DIAGNOSIS",
+        "POST_PREOPERATIVE",
+        "POST_SURGERY",
+        "POST_TREATMENT",
+        "SURVEILLANCE",
+        "RECURRENCE",
+        "PALLIATIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "clinical_t",
+      "value_type": "CODED",
+      "allowed_values": [
+        "TIS",
+        "T1A",
+        "T1B_SUPERFICIAL",
+        "T1B_DEEP",
+        "T2",
+        "T3",
+        "T4A",
+        "T4B",
+        "TX"
+      ],
+      "semantic_unknown_values": [
+        "TX"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "clinical_n",
+      "value_type": "CODED",
+      "allowed_values": [
+        "N0",
+        "N_POS",
+        "NX"
+      ],
+      "semantic_unknown_values": [
+        "NX"
+      ],
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "clinical_m",
+      "value_type": "CODED",
+      "allowed_values": [
+        "M0",
+        "M1",
+        "MX"
+      ],
+      "semantic_unknown_values": [
+        "MX"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "medically_fit",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "potentially_resectable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "endoscopic_resection_candidate",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "postop_received_preop_systemic",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "path_margin",
+      "value_type": "CODED",
+      "allowed_values": [
+        "R0",
+        "R1",
+        "R2",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "path_stage_risk",
+      "value_type": "CODED",
+      "allowed_values": [
+        "EARLY_LOW_RISK",
+        "NODE_POSITIVE_OR_T3PLUS",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "NON_ROUTING_CONTEXT",
+      "fact_role_rationale": "Legacy summary only; executable postoperative routing uses explicit pathologic T/N/margin and prior-therapy facts.",
+      "extraction_allowed": false
+    },
+    {
+      "key": "response_status",
+      "value_type": "CODED",
+      "allowed_values": [
+        "COMPLETE_RESPONSE",
+        "RESIDUAL_RESECTABLE",
+        "UNRESECTABLE",
+        "PROGRESSIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "peritoneal_only_disease",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "msi_h_dmmr",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "her2_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "pd_l1_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "cldn18_2_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "surgery_type_d2",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "pathologic_t",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "TIS",
+        "T1A",
+        "T1B_SUPERFICIAL",
+        "T1B_DEEP",
+        "T2",
+        "T3",
+        "T4",
+        "TX"
+      ],
+      "semantic_unknown_values": [
+        "TX"
+      ]
+    },
+    {
+      "key": "pathologic_n",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "N0",
+        "N_POS",
+        "NX"
+      ],
+      "semantic_unknown_values": [
+        "NX"
+      ]
+    },
+    {
+      "key": "lvi_or_neural_or_highgrade_or_young",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "nonoperative_msi_management",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "disease_amenable_to_local_therapy",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "systemic_line",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "FIRST",
+        "SECOND",
+        "THIRD_PLUS",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "fgfr2b_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "NON_ROUTING_CONTEXT",
+      "fact_role_rationale": "No patient-specific FGFR2b treatment branch identified in the authorized Gastric v3.2026 source package; retained as non-routing context."
+    },
+    {
+      "key": "tumor_agnostic_targetable_marker",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_trastuzumab",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_immunotherapy",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_cldn18_2_therapy",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Gastric adenocarcinoma package?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "GASTRIC_CANCER"
+      },
+      "on": {
+        "TRUE": "care_m1",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "GAST-1",
+        "GAST-1A"
+      ],
+      "decision_id": "scope"
+    },
+    "care_m1": {
+      "kind": "decision",
+      "label": "Current metastatic/advanced palliative episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "PALLIATIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "pall_line",
+        "FALSE": "care_recur"
+      },
+      "source_pathways": [
+        "GAST-2",
+        "GAST-9"
+      ],
+      "decision_id": "care_m1"
+    },
+    "care_recur": {
+      "kind": "decision",
+      "label": "Current recurrence?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "RECURRENCE"
+      },
+      "on": {
+        "TRUE": "rec_local",
+        "FALSE": "care_posttx"
+      },
+      "source_pathways": [
+        "GAST-8"
+      ],
+      "decision_id": "care_recur"
+    },
+    "care_posttx": {
+      "kind": "decision",
+      "label": "Post-treatment assessment after nonsurgical/definitive treatment?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_TREATMENT"
+      },
+      "on": {
+        "TRUE": "posttx_resp",
+        "FALSE": "care_postpre"
+      },
+      "source_pathways": [
+        "GAST-6"
+      ],
+      "decision_id": "care_posttx"
+    },
+    "care_postpre": {
+      "kind": "decision",
+      "label": "Response assessment after preoperative/perioperative treatment?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_PREOPERATIVE"
+      },
+      "on": {
+        "TRUE": "postpre_resp",
+        "FALSE": "care_postop"
+      },
+      "source_pathways": [
+        "GAST-3"
+      ],
+      "decision_id": "care_postpre"
+    },
+    "care_postop": {
+      "kind": "decision",
+      "label": "Postoperative pathologic management?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_SURGERY"
+      },
+      "on": {
+        "TRUE": "postop_preop",
+        "FALSE": "care_surv"
+      },
+      "source_pathways": [
+        "GAST-4",
+        "GAST-5"
+      ],
+      "decision_id": "care_postop"
+    },
+    "care_surv": {
+      "kind": "decision",
+      "label": "Surveillance?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "SURVEILLANCE"
+      },
+      "on": {
+        "TRUE": "surv",
+        "FALSE": "initial_stage"
+      },
+      "source_pathways": [
+        "GAST-7"
+      ],
+      "decision_id": "care_surv"
+    },
+    "initial_stage": {
+      "kind": "decision",
+      "label": "Clinical M0?",
+      "expression": {
+        "fact": "clinical_m",
+        "op": "eq",
+        "value": "M0"
+      },
+      "on": {
+        "TRUE": "early_tis",
+        "FALSE": "pall_line"
+      },
+      "source_pathways": [
+        "GAST-2",
+        "GAST-1A"
+      ],
+      "decision_id": "initial_stage"
+    },
+    "early_tis": {
+      "kind": "decision",
+      "label": "cTis/cT1a/superficial cT1b?",
+      "expression": {
+        "fact": "clinical_t",
+        "op": "in",
+        "value": [
+          "TIS",
+          "T1A",
+          "T1B_SUPERFICIAL"
+        ]
+      },
+      "on": {
+        "TRUE": "endo_fit",
+        "FALSE": "locoreg_fit"
+      },
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "decision_id": "early_tis"
+    },
+    "endo_fit": {
+      "kind": "decision",
+      "label": "Endoscopic resection candidate?",
+      "expression": {
+        "fact": "endoscopic_resection_candidate",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "endo",
+        "FALSE": "locoreg_fit"
+      },
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "decision_id": "endo_fit"
+    },
+    "endo": {
+      "kind": "action",
+      "label": "Early gastric lesion appropriate for endoscopic resection: endoscopic resection followed by pathology-directed surveillance/additional surgery.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "endo",
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "recommendation": {
+        "title": "Early gastric lesion appropriate for endoscopic resection: endoscopic resection followed by pathology-directed surveillance/additional surgery.",
+        "options": [
+          {
+            "option_id": "gastric_er",
+            "label": "Endoscopic resection",
+            "text": "Endoscopic resection",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-A",
+              "page_label": "GAST-A",
+              "physical_pages": [
+                22,
+                23,
+                24,
+                25
+              ],
+              "source_anchor": "GAST-A:pages:22,23,24,25"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-A",
+          "GAST-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_EARLY_ENDOSCOPIC"
+    },
+    "locoreg_fit": {
+      "kind": "decision",
+      "label": "Medically fit for major surgery?",
+      "expression": {
+        "fact": "medically_fit",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "locoreg_resect",
+        "FALSE": "nonsurgical"
+      },
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "decision_id": "locoreg_fit"
+    },
+    "locoreg_resect": {
+      "kind": "decision",
+      "label": "Potentially resectable locoregional disease?",
+      "expression": {
+        "fact": "potentially_resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "locoreg_t",
+        "FALSE": "unresect"
+      },
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "decision_id": "locoreg_resect"
+    },
+    "locoreg_t": {
+      "kind": "decision",
+      "label": "Deep cT1b?",
+      "expression": {
+        "fact": "clinical_t",
+        "op": "eq",
+        "value": "T1B_DEEP"
+      },
+      "on": {
+        "TRUE": "deep_t1b",
+        "FALSE": "t2plus"
+      },
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "decision_id": "locoreg_t"
+    },
+    "deep_t1b": {
+      "kind": "action",
+      "label": "Deep cT1b potentially resectable gastric cancer: surgery as primary treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "deep_t1b",
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "recommendation": {
+        "title": "Deep cT1b potentially resectable gastric cancer: surgery as primary treatment.",
+        "options": [
+          {
+            "option_id": "gastric_deep_t1b_surgery",
+            "label": "Gastrectomy with appropriate lymphadenectomy",
+            "text": "Gastrectomy with appropriate lymphadenectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-C",
+              "page_label": "GAST-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37
+              ],
+              "source_anchor": "GAST-C:pages:33,34,35,36,37"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_DEEP_T1B_RESECTABLE"
+    },
+    "t2plus": {
+      "kind": "decision",
+      "label": "cT2 or higher?",
+      "expression": {
+        "fact": "clinical_t",
+        "op": "in",
+        "value": [
+          "T2",
+          "T3",
+          "T4A",
+          "T4B"
+        ]
+      },
+      "on": {
+        "TRUE": "locoreg_msi",
+        "FALSE": "need_t"
+      },
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "decision_id": "t2plus"
+    },
+    "need_t": {
+      "kind": "status",
+      "label": "Clinical T classification is required for locoregional primary treatment.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "GAST-2"
+      ]
+    },
+    "locoreg_msi": {
+      "kind": "decision",
+      "label": "MSI-H/dMMR?",
+      "expression": {
+        "fact": "msi_h_dmmr",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "locoreg_msi_action",
+        "FALSE": "locoreg_standard"
+      },
+      "source_pathways": [
+        "GAST-2",
+        "GAST-2A"
+      ],
+      "decision_id": "locoreg_msi"
+    },
+    "locoreg_msi_action": {
+      "kind": "action",
+      "label": "Resectable cT2+ MSI-H/dMMR gastric cancer: perioperative/neoadjuvant immune checkpoint inhibitor can be considered in MDT; gastrectomy remains standard outside prospective organ-preservation trials.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "locoreg_msi_action",
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "recommendation": {
+        "title": "Resectable cT2+ MSI-H/dMMR gastric cancer: perioperative/neoadjuvant immune checkpoint inhibitor can be considered in MDT; gastrectomy remains standard outside prospective organ-preservation trials.",
+        "options": [
+          {
+            "option_id": "gastric_msi_peri_ici",
+            "label": "Consider neoadjuvant/perioperative immune checkpoint inhibitor",
+            "text": "Consider neoadjuvant/perioperative immune checkpoint inhibitor",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_msi_surgery",
+            "label": "Gastrectomy with lymphadenectomy",
+            "text": "Gastrectomy with lymphadenectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_staging_laparoscopy_cT3_or_cNpos",
+            "label": "Staging laparoscopy with peritoneal washings/cytology for cT3 and/or cN+ potentially resectable disease",
+            "text": "Staging laparoscopy with peritoneal washings/cytology for cT3 and/or cN+ potentially resectable disease",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-C",
+              "page_label": "GAST-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37
+              ],
+              "source_anchor": "GAST-C:pages:33,34,35,36,37"
+            },
+            "applicability": {
+              "any": [
+                {
+                  "fact": "clinical_t",
+                  "op": "in",
+                  "value": [
+                    "T3",
+                    "T4A",
+                    "T4B"
+                  ]
+                },
+                {
+                  "fact": "clinical_n",
+                  "op": "eq",
+                  "value": "N_POS"
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_RESECTABLE_MSI"
+    },
+    "locoreg_standard": {
+      "kind": "action",
+      "label": "Resectable cT2+ gastric cancer: perioperative systemic therapy (category 1) or surgery in source-defined circumstances.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "locoreg_standard",
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "recommendation": {
+        "title": "Resectable cT2+ gastric cancer: perioperative systemic therapy (category 1) or surgery in source-defined circumstances.",
+        "options": [
+          {
+            "option_id": "gastric_peri_systemic",
+            "label": "Perioperative systemic therapy",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-C",
+              "page_label": "GAST-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37
+              ],
+              "source_anchor": "GAST-C:pages:33,34,35,36,37"
+            }
+          },
+          {
+            "option_id": "gastric_primary_surgery",
+            "label": "Surgery",
+            "text": "Source-defined alternative for appropriate cases.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-C",
+              "page_label": "GAST-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37
+              ],
+              "source_anchor": "GAST-C:pages:33,34,35,36,37"
+            }
+          },
+          {
+            "option_id": "gastric_staging_laparoscopy_cT3_or_cNpos",
+            "label": "Staging laparoscopy with peritoneal washings/cytology for cT3 and/or cN+ potentially resectable disease",
+            "text": "Staging laparoscopy with peritoneal washings/cytology for cT3 and/or cN+ potentially resectable disease",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-C",
+              "page_label": "GAST-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37
+              ],
+              "source_anchor": "GAST-C:pages:33,34,35,36,37"
+            },
+            "applicability": {
+              "any": [
+                {
+                  "fact": "clinical_t",
+                  "op": "in",
+                  "value": [
+                    "T3",
+                    "T4A",
+                    "T4B"
+                  ]
+                },
+                {
+                  "fact": "clinical_n",
+                  "op": "eq",
+                  "value": "N_POS"
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-C",
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_RESECTABLE_STANDARD"
+    },
+    "unresect": {
+      "kind": "action",
+      "label": "Medically fit but surgically unresectable locoregional gastric cancer: chemoradiation or systemic therapy followed by reassessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "unresect",
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "recommendation": {
+        "title": "Medically fit but surgically unresectable locoregional gastric cancer: chemoradiation or systemic therapy followed by reassessment.",
+        "options": [
+          {
+            "option_id": "gastric_unres_crt",
+            "label": "Chemoradiation",
+            "text": "Chemoradiation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_unres_sys",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_UNRESECTABLE_LOCOREGIONAL"
+    },
+    "nonsurgical": {
+      "kind": "action",
+      "label": "Nonsurgical gastric cancer candidate: chemoradiation or systemic therapy according to disease state and tolerance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nonsurgical",
+      "source_pathways": [
+        "GAST-2"
+      ],
+      "recommendation": {
+        "title": "Nonsurgical gastric cancer candidate: chemoradiation or systemic therapy according to disease state and tolerance.",
+        "options": [
+          {
+            "option_id": "gastric_nonsurg_crt",
+            "label": "Chemoradiation",
+            "text": "Chemoradiation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_nonsurg_sys",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_NONSURGICAL"
+    },
+    "postpre_resp": {
+      "kind": "decision",
+      "label": "New metastatic disease after preoperative treatment?",
+      "expression": {
+        "fact": "response_status",
+        "op": "eq",
+        "value": "PROGRESSIVE"
+      },
+      "on": {
+        "TRUE": "pall_line",
+        "FALSE": "postpre_unres"
+      },
+      "source_pathways": [
+        "GAST-3"
+      ],
+      "decision_id": "postpre_resp"
+    },
+    "postpre_unres": {
+      "kind": "decision",
+      "label": "Unresectable disease after preoperative treatment?",
+      "expression": {
+        "fact": "response_status",
+        "op": "eq",
+        "value": "UNRESECTABLE"
+      },
+      "on": {
+        "TRUE": "pall_line",
+        "FALSE": "postpre_resect"
+      },
+      "source_pathways": [
+        "GAST-3"
+      ],
+      "decision_id": "postpre_unres"
+    },
+    "postpre_resect": {
+      "kind": "decision",
+      "label": "Residual/resectable or no-evidence disease?",
+      "expression": {
+        "fact": "response_status",
+        "op": "in",
+        "value": [
+          "RESIDUAL_RESECTABLE",
+          "COMPLETE_RESPONSE"
+        ]
+      },
+      "on": {
+        "TRUE": "postpre_msi_nonop",
+        "FALSE": "need_response"
+      },
+      "source_pathways": [
+        "GAST-3"
+      ],
+      "decision_id": "postpre_resect"
+    },
+    "need_response": {
+      "kind": "status",
+      "label": "Post-preoperative response state is required.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "GAST-3"
+      ]
+    },
+    "postpre_msi_nonop": {
+      "kind": "decision",
+      "label": "MSI-H/dMMR complete-response patient undergoing prospective nonoperative management?",
+      "expression": {
+        "all": [
+          {
+            "fact": "msi_h_dmmr",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "response_status",
+            "op": "eq",
+            "value": "COMPLETE_RESPONSE"
+          },
+          {
+            "fact": "nonoperative_msi_management",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "msi_nonop",
+        "FALSE": "postpre_surgery"
+      },
+      "source_pathways": [
+        "GAST-3",
+        "GAST-3A"
+      ],
+      "decision_id": "postpre_msi_nonop"
+    },
+    "msi_nonop": {
+      "kind": "action",
+      "label": "MSI-H/dMMR nonoperative management after complete response: continue immunotherapy to at least 1 year total and intensive CT/endoscopic-biopsy surveillance per source.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "msi_nonop",
+      "source_pathways": [
+        "GAST-3"
+      ],
+      "recommendation": {
+        "title": "MSI-H/dMMR nonoperative management after complete response: continue immunotherapy to at least 1 year total and intensive CT/endoscopic-biopsy surveillance per source.",
+        "options": [
+          {
+            "option_id": "gastric_msi_continue_ici",
+            "label": "Continue immunotherapy to at least 1 year total",
+            "text": "Continue immunotherapy to at least 1 year total",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-A",
+              "page_label": "GAST-A",
+              "physical_pages": [
+                22,
+                23,
+                24,
+                25
+              ],
+              "source_anchor": "GAST-A:pages:22,23,24,25"
+            }
+          },
+          {
+            "option_id": "gastric_msi_nonop_surv",
+            "label": "CT + EGD/biopsy every 12 weeks for 2 years then every 6 months to year 5",
+            "text": "CT + EGD/biopsy every 12 weeks for 2 years then every 6 months to year 5",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-A",
+              "page_label": "GAST-A",
+              "physical_pages": [
+                22,
+                23,
+                24,
+                25
+              ],
+              "source_anchor": "GAST-A:pages:22,23,24,25"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-A",
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_MSI_NONOPERATIVE"
+    },
+    "postpre_surgery": {
+      "kind": "action",
+      "label": "Resectable gastric cancer after preoperative therapy: surgery preferred/standard, then pathologic postoperative management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "postpre_surgery",
+      "source_pathways": [
+        "GAST-3"
+      ],
+      "recommendation": {
+        "title": "Resectable gastric cancer after preoperative therapy: surgery preferred/standard, then pathologic postoperative management.",
+        "options": [
+          {
+            "option_id": "gastric_postpre_surgery",
+            "label": "Gastrectomy with appropriate lymphadenectomy",
+            "text": "Preferred/standard where operable.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-C",
+              "page_label": "GAST-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37
+              ],
+              "source_anchor": "GAST-C:pages:33,34,35,36,37"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-C"
+        ],
+        "next_steps": [
+          "GAST-5"
+        ]
+      },
+      "pathway_id": "GAST_POSTPRE_RESECTABLE"
+    },
+    "postop_preop": {
+      "kind": "decision",
+      "label": "Preoperative systemic therapy received?",
+      "expression": {
+        "fact": "postop_received_preop_systemic",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "postop_pre_margin",
+        "FALSE": "postop_no_pre_margin"
+      },
+      "source_pathways": [
+        "GAST-4",
+        "GAST-5"
+      ],
+      "decision_id": "postop_preop"
+    },
+    "postop_pre_margin": {
+      "kind": "decision",
+      "label": "Postoperative margin R0?",
+      "expression": {
+        "fact": "path_margin",
+        "op": "eq",
+        "value": "R0"
+      },
+      "on": {
+        "TRUE": "postpre_r0",
+        "FALSE": "postop_pre_r1"
+      },
+      "source_pathways": [
+        "GAST-5"
+      ],
+      "decision_id": "postop_pre_margin"
+    },
+    "postop_pre_r1": {
+      "kind": "decision",
+      "label": "Margin R1?",
+      "expression": {
+        "fact": "path_margin",
+        "op": "eq",
+        "value": "R1"
+      },
+      "on": {
+        "TRUE": "postpre_r1",
+        "FALSE": "postpre_r2"
+      },
+      "source_pathways": [
+        "GAST-5"
+      ],
+      "decision_id": "postop_pre_r1"
+    },
+    "postpre_r0": {
+      "kind": "action",
+      "label": "After preoperative therapy and R0 resection: systemic therapy (category 1) then follow-up according to source.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "postpre_r0",
+      "source_pathways": [
+        "GAST-5"
+      ],
+      "recommendation": {
+        "title": "After preoperative therapy and R0 resection: systemic therapy (category 1) then follow-up according to source.",
+        "options": [
+          {
+            "option_id": "gastric_yp_r0_systemic",
+            "label": "Postoperative systemic therapy",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_POSTPRE_R0"
+    },
+    "postpre_r1": {
+      "kind": "action",
+      "label": "After preoperative therapy and R1 resection: fluoropyrimidine-based chemoradiation or consider re-resection.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "postpre_r1",
+      "source_pathways": [
+        "GAST-5"
+      ],
+      "recommendation": {
+        "title": "After preoperative therapy and R1 resection: fluoropyrimidine-based chemoradiation or consider re-resection.",
+        "options": [
+          {
+            "option_id": "gastric_yp_r1_crt",
+            "label": "Fluoropyrimidine-based chemoradiation",
+            "text": "Fluoropyrimidine-based chemoradiation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_yp_r1_reresect",
+            "label": "Consider re-resection",
+            "text": "Consider re-resection",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_POSTPRE_R1"
+    },
+    "postpre_r2": {
+      "kind": "action",
+      "label": "R2 resection/ypM1 after preoperative therapy: palliative management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "postpre_r2",
+      "source_pathways": [
+        "GAST-5"
+      ],
+      "recommendation": {
+        "title": "R2 resection/ypM1 after preoperative therapy: palliative management.",
+        "options": [
+          {
+            "option_id": "gastric_yp_r2_pall",
+            "label": "Palliative systemic/supportive management",
+            "text": "Palliative systemic/supportive management",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-J"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_POSTPRE_R2_M1"
+    },
+    "postop_no_pre_margin": {
+      "kind": "decision",
+      "label": "R0 resection?",
+      "expression": {
+        "fact": "path_margin",
+        "op": "eq",
+        "value": "R0"
+      },
+      "on": {
+        "TRUE": "r0_stage",
+        "FALSE": "r1_check"
+      },
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "decision_id": "postop_no_pre_margin"
+    },
+    "r1_check": {
+      "kind": "decision",
+      "label": "R1 resection?",
+      "expression": {
+        "fact": "path_margin",
+        "op": "eq",
+        "value": "R1"
+      },
+      "on": {
+        "TRUE": "r1_action",
+        "FALSE": "r2_action"
+      },
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "decision_id": "r1_check"
+    },
+    "r0_stage": {
+      "kind": "decision",
+      "label": "pTis/pT1a/superficial pT1b N0?",
+      "expression": {
+        "all": [
+          {
+            "fact": "pathologic_t",
+            "op": "in",
+            "value": [
+              "TIS",
+              "T1A",
+              "T1B_SUPERFICIAL"
+            ]
+          },
+          {
+            "fact": "pathologic_n",
+            "op": "eq",
+            "value": "N0"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "r0_observe",
+        "FALSE": "r0_deep"
+      },
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "decision_id": "r0_stage"
+    },
+    "r0_observe": {
+      "kind": "action",
+      "label": "R0 early pathologic gastric cancer (pTis/pT1a/superficial pT1b N0): observation/follow-up.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "r0_observe",
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "recommendation": {
+        "title": "R0 early pathologic gastric cancer (pTis/pT1a/superficial pT1b N0): observation/follow-up.",
+        "options": [
+          {
+            "option_id": "gastric_r0_observe",
+            "label": "Observation",
+            "text": "Observation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-4",
+              "page_label": "GAST-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "GAST-4:pages:15"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_R0_EARLY"
+    },
+    "r0_deep": {
+      "kind": "decision",
+      "label": "Deep pT1b or pT2 N0?",
+      "expression": {
+        "all": [
+          {
+            "fact": "pathologic_t",
+            "op": "in",
+            "value": [
+              "T1B_DEEP",
+              "T2"
+            ]
+          },
+          {
+            "fact": "pathologic_n",
+            "op": "eq",
+            "value": "N0"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "r0_deep_risk",
+        "FALSE": "r0_adv"
+      },
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "decision_id": "r0_deep"
+    },
+    "r0_deep_risk": {
+      "kind": "decision",
+      "label": "High-risk features or inadequate (<D2) lymphadenectomy?",
+      "expression": {
+        "any": [
+          {
+            "fact": "lvi_or_neural_or_highgrade_or_young",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "surgery_type_d2",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "r0_deep_adjuvant",
+        "FALSE": "r0_observe2"
+      },
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "decision_id": "r0_deep_risk"
+    },
+    "r0_observe2": {
+      "kind": "action",
+      "label": "R0 deep pT1b/pT2 N0 without source-defined high-risk features after adequate surgery: observation is an option.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "r0_observe2",
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "recommendation": {
+        "title": "R0 deep pT1b/pT2 N0 without source-defined high-risk features after adequate surgery: observation is an option.",
+        "options": [
+          {
+            "option_id": "gastric_deep_observe",
+            "label": "Observation",
+            "text": "Observation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-4",
+              "page_label": "GAST-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "GAST-4:pages:15"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_R0_DEEP_LOW_RISK"
+    },
+    "r0_deep_adjuvant": {
+      "kind": "action",
+      "label": "R0 deep pT1b/pT2 N0 with source-defined high-risk/inadequate nodal surgery: fluoropyrimidine-based postoperative chemoradiation sequence can be considered.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "r0_deep_adjuvant",
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "recommendation": {
+        "title": "R0 deep pT1b/pT2 N0 with source-defined high-risk/inadequate nodal surgery: fluoropyrimidine-based postoperative chemoradiation sequence can be considered.",
+        "options": [
+          {
+            "option_id": "gastric_deep_adj_crt",
+            "label": "Fluoropyrimidine -> chemoradiation -> fluoropyrimidine",
+            "text": "Fluoropyrimidine -> chemoradiation -> fluoropyrimidine",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_R0_DEEP_HIGH_RISK"
+    },
+    "r0_adv": {
+      "kind": "action",
+      "label": "R0 pT3/pT4 or node-positive gastric cancer without preoperative therapy: category 1 adjuvant chemotherapy after D2 or category 1 fluoropyrimidine-based chemoradiation sequence if <D2.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "r0_adv",
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "recommendation": {
+        "title": "R0 pT3/pT4 or node-positive gastric cancer without preoperative therapy: category 1 adjuvant chemotherapy after D2 or category 1 fluoropyrimidine-based chemoradiation sequence if <D2.",
+        "options": [
+          {
+            "option_id": "gastric_adv_d2_chemo",
+            "label": "Adjuvant chemotherapy",
+            "text": "Category 1 after primary D2 dissection.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "surgery_type_d2",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_adv_nond2_crt",
+            "label": "Fluoropyrimidine -> chemoradiation -> fluoropyrimidine",
+            "text": "Category 1 if less than D2.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "surgery_type_d2",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_R0_ADVANCED"
+    },
+    "r1_action": {
+      "kind": "action",
+      "label": "R1 resection without prior systemic therapy: fluoropyrimidine-based chemoradiation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "r1_action",
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "recommendation": {
+        "title": "R1 resection without prior systemic therapy: fluoropyrimidine-based chemoradiation.",
+        "options": [
+          {
+            "option_id": "gastric_r1_crt",
+            "label": "Fluoropyrimidine-based chemoradiation",
+            "text": "Fluoropyrimidine-based chemoradiation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_R1"
+    },
+    "r2_action": {
+      "kind": "action",
+      "label": "R2 resection or pM1: chemoradiation as clinically indicated or palliative management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "r2_action",
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "recommendation": {
+        "title": "R2 resection or pM1: chemoradiation as clinically indicated or palliative management.",
+        "options": [
+          {
+            "option_id": "gastric_r2_crt",
+            "label": "Chemoradiation",
+            "text": "As clinically indicated.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_r2_pall",
+            "label": "Palliative management",
+            "text": "Palliative management",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G",
+          "GAST-J"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_R2_M1"
+    },
+    "posttx_resp": {
+      "kind": "decision",
+      "label": "Resectable and medically operable after nonsurgical primary treatment?",
+      "expression": {
+        "all": [
+          {
+            "fact": "response_status",
+            "op": "in",
+            "value": [
+              "COMPLETE_RESPONSE",
+              "RESIDUAL_RESECTABLE"
+            ]
+          },
+          {
+            "fact": "medically_fit",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "potentially_resectable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "posttx_resect",
+        "FALSE": "posttx_unres"
+      },
+      "source_pathways": [
+        "GAST-6"
+      ],
+      "decision_id": "posttx_resp"
+    },
+    "posttx_resect": {
+      "kind": "action",
+      "label": "Previously unresectable/nonsurgical patient now resectable and medically operable: consider surgery then pathologic management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "posttx_resect",
+      "source_pathways": [
+        "GAST-6"
+      ],
+      "recommendation": {
+        "title": "Previously unresectable/nonsurgical patient now resectable and medically operable: consider surgery then pathologic management.",
+        "options": [
+          {
+            "option_id": "gastric_conversion_surgery",
+            "label": "Surgery",
+            "text": "Surgery",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-C",
+              "page_label": "GAST-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37
+              ],
+              "source_anchor": "GAST-C:pages:33,34,35,36,37"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_CONVERSION_RESECTABLE"
+    },
+    "posttx_unres": {
+      "kind": "action",
+      "label": "Persistent unresectable/medically inoperable disease after primary treatment: palliative management or continued surveillance if no evidence of disease as source-directed.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "posttx_unres",
+      "source_pathways": [
+        "GAST-6"
+      ],
+      "recommendation": {
+        "title": "Persistent unresectable/medically inoperable disease after primary treatment: palliative management or continued surveillance if no evidence of disease as source-directed.",
+        "options": [
+          {
+            "option_id": "gastric_posttx_pall",
+            "label": "Palliative management",
+            "text": "Palliative management",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-J"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_POSTTX_UNRESECTABLE"
+    },
+    "surv": {
+      "kind": "action",
+      "label": "Gastric cancer follow-up/surveillance after curative-intent treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "surv",
+      "source_pathways": [
+        "GAST-7"
+      ],
+      "recommendation": {
+        "title": "Gastric cancer follow-up/surveillance after curative-intent treatment.",
+        "options": [
+          {
+            "option_id": "gastric_surveillance",
+            "label": "Source-defined clinical/imaging/endoscopic/nutritional surveillance",
+            "text": "Source-defined clinical/imaging/endoscopic/nutritional surveillance",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-H",
+              "page_label": "GAST-H",
+              "physical_pages": [
+                55,
+                56
+              ],
+              "source_anchor": "GAST-H:pages:55,56"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-H",
+          "GAST-I"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_SURVEILLANCE"
+    },
+    "rec_local": {
+      "kind": "decision",
+      "label": "Peritoneal-only recurrence/disease?",
+      "expression": {
+        "fact": "peritoneal_only_disease",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "peritoneal",
+        "FALSE": "rec_local_amenable"
+      },
+      "source_pathways": [
+        "GAST-8",
+        "GAST-10"
+      ],
+      "decision_id": "rec_local"
+    },
+    "rec_local_amenable": {
+      "kind": "decision",
+      "label": "Recurrence amenable to local therapy?",
+      "expression": {
+        "fact": "disease_amenable_to_local_therapy",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "rec_local_action",
+        "FALSE": "pall_line"
+      },
+      "source_pathways": [
+        "GAST-8"
+      ],
+      "decision_id": "rec_local_amenable"
+    },
+    "rec_local_action": {
+      "kind": "action",
+      "label": "Selected localized gastric recurrence amenable to local therapy: multidisciplinary local treatment +/- systemic therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rec_local_action",
+      "source_pathways": [
+        "GAST-8"
+      ],
+      "recommendation": {
+        "title": "Selected localized gastric recurrence amenable to local therapy: multidisciplinary local treatment +/- systemic therapy.",
+        "options": [
+          {
+            "option_id": "gastric_rec_local",
+            "label": "Surgery/RT/local therapy as source appropriate",
+            "text": "Surgery/RT/local therapy as source appropriate",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_rec_systemic",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_LOCAL_RECURRENCE"
+    },
+    "peritoneal": {
+      "kind": "action",
+      "label": "Peritoneal carcinoma as only disease: palliative systemic therapy/supportive care; selected intraperitoneal/local strategies only as source-defined/clinical trial.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "peritoneal",
+      "source_pathways": [
+        "GAST-10"
+      ],
+      "recommendation": {
+        "title": "Peritoneal carcinoma as only disease: palliative systemic therapy/supportive care; selected intraperitoneal/local strategies only as source-defined/clinical trial.",
+        "options": [
+          {
+            "option_id": "gastric_peritoneal_systemic",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_peritoneal_trial",
+            "label": "Clinical trial/selected peritoneal-directed strategy",
+            "text": "Clinical trial/selected peritoneal-directed strategy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-J"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_PERITONEAL_ONLY"
+    },
+    "pall_line": {
+      "kind": "decision",
+      "label": "First-line palliative systemic therapy?",
+      "expression": {
+        "fact": "systemic_line",
+        "op": "eq",
+        "value": "FIRST"
+      },
+      "on": {
+        "TRUE": "pall_first_her2",
+        "FALSE": "pall_later"
+      },
+      "source_pathways": [
+        "GAST-9",
+        "GAST-F"
+      ],
+      "decision_id": "pall_line"
+    },
+    "pall_first_her2": {
+      "kind": "decision",
+      "label": "HER2-positive?",
+      "expression": {
+        "fact": "her2_positive",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "pall_her2",
+        "FALSE": "pall_first_cldn"
+      },
+      "source_pathways": [
+        "GAST-F"
+      ],
+      "decision_id": "pall_first_her2"
+    },
+    "pall_her2": {
+      "kind": "action",
+      "label": "First-line advanced HER2-positive gastric cancer: fluoropyrimidine/platinum + trastuzumab with checkpoint inhibitor when source biomarker/eligibility criteria apply.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pall_her2",
+      "source_pathways": [
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "First-line advanced HER2-positive gastric cancer: fluoropyrimidine/platinum + trastuzumab with checkpoint inhibitor when source biomarker/eligibility criteria apply.",
+        "options": [
+          {
+            "option_id": "gastric_her2_trast_chemo",
+            "label": "Fluoropyrimidine + platinum + trastuzumab",
+            "text": "Preferred source backbone.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_her2_pembro",
+            "label": "Add pembrolizumab",
+            "text": "For source-defined PD-L1-positive/appropriate HER2-positive disease.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "pd_l1_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_ADV_HER2_FIRST"
+    },
+    "pall_first_cldn": {
+      "kind": "decision",
+      "label": "CLDN18.2-positive?",
+      "expression": {
+        "fact": "cldn18_2_positive",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "pall_cldn",
+        "FALSE": "pall_first_msi"
+      },
+      "source_pathways": [
+        "GAST-F"
+      ],
+      "decision_id": "pall_first_cldn"
+    },
+    "pall_cldn": {
+      "kind": "action",
+      "label": "First-line advanced HER2-negative CLDN18.2-positive gastric cancer: zolbetuximab-containing fluoropyrimidine/platinum option, plus immunotherapy according to PD-L1/MSI.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pall_cldn",
+      "source_pathways": [
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "First-line advanced HER2-negative CLDN18.2-positive gastric cancer: zolbetuximab-containing fluoropyrimidine/platinum option, plus immunotherapy according to PD-L1/MSI.",
+        "options": [
+          {
+            "option_id": "gastric_cldn_zolb",
+            "label": "Zolbetuximab + fluoropyrimidine/platinum",
+            "text": "CLDN18.2-directed option.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_cldn_pdl1_ici",
+            "label": "Checkpoint inhibitor + chemotherapy",
+            "text": "For source-defined PD-L1-positive disease.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "pd_l1_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_cldn_msi_ici",
+            "label": "Immune checkpoint inhibitor strategy",
+            "text": "For MSI-H/dMMR disease.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "msi_h_dmmr",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_ADV_CLDN_FIRST"
+    },
+    "pall_first_msi": {
+      "kind": "decision",
+      "label": "MSI-H/dMMR?",
+      "expression": {
+        "fact": "msi_h_dmmr",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "pall_msi",
+        "FALSE": "pall_pdl1"
+      },
+      "source_pathways": [
+        "GAST-F"
+      ],
+      "decision_id": "pall_first_msi"
+    },
+    "pall_msi": {
+      "kind": "action",
+      "label": "Advanced MSI-H/dMMR gastric cancer: checkpoint inhibitor-containing systemic therapy is a biomarker-directed option.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pall_msi",
+      "source_pathways": [
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "Advanced MSI-H/dMMR gastric cancer: checkpoint inhibitor-containing systemic therapy is a biomarker-directed option.",
+        "options": [
+          {
+            "option_id": "gastric_msi_ici_adv",
+            "label": "Immune checkpoint inhibitor-containing systemic therapy",
+            "text": "Immune checkpoint inhibitor-containing systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_ADV_MSI"
+    },
+    "pall_pdl1": {
+      "kind": "decision",
+      "label": "PD-L1 positive per source threshold?",
+      "expression": {
+        "fact": "pd_l1_positive",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "pall_pdl1_action",
+        "FALSE": "pall_standard"
+      },
+      "source_pathways": [
+        "GAST-F"
+      ],
+      "decision_id": "pall_pdl1"
+    },
+    "pall_pdl1_action": {
+      "kind": "action",
+      "label": "First-line advanced HER2-negative PD-L1-positive gastric cancer: fluoropyrimidine/platinum + checkpoint inhibitor according to source-defined threshold/regimen.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pall_pdl1_action",
+      "source_pathways": [
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "First-line advanced HER2-negative PD-L1-positive gastric cancer: fluoropyrimidine/platinum + checkpoint inhibitor according to source-defined threshold/regimen.",
+        "options": [
+          {
+            "option_id": "gastric_pdl1_ici_chemo",
+            "label": "Checkpoint inhibitor + fluoropyrimidine/platinum",
+            "text": "Checkpoint inhibitor + fluoropyrimidine/platinum",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_ADV_PDL1_FIRST"
+    },
+    "pall_standard": {
+      "kind": "action",
+      "label": "First-line advanced gastric cancer without currently qualifying HER2/CLDN18.2/MSI/PD-L1-directed branch: source-listed fluoropyrimidine/platinum systemic therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pall_standard",
+      "source_pathways": [
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "First-line advanced gastric cancer without currently qualifying HER2/CLDN18.2/MSI/PD-L1-directed branch: source-listed fluoropyrimidine/platinum systemic therapy.",
+        "options": [
+          {
+            "option_id": "gastric_adv_chemo",
+            "label": "Fluoropyrimidine + platinum systemic therapy",
+            "text": "Fluoropyrimidine + platinum systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_ADV_STANDARD_FIRST"
+    },
+    "pall_later": {
+      "kind": "action",
+      "label": "Second/subsequent-line advanced gastric cancer: line- and biomarker-directed therapy; HER2-directed and tumor-agnostic options only when applicable.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pall_later",
+      "source_pathways": [
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "Second/subsequent-line advanced gastric cancer: line- and biomarker-directed therapy; HER2-directed and tumor-agnostic options only when applicable.",
+        "options": [
+          {
+            "option_id": "gastric_later_ram_pac",
+            "label": "Ramucirumab + paclitaxel",
+            "text": "Preferred source option.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_later_her2",
+            "label": "HER2-directed later-line therapy",
+            "text": "For HER2-positive disease after prior HER2 treatment/context.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "her2_positive",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_trastuzumab",
+                      "op": "eq",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_trastuzumab",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_later_targeted",
+            "label": "Tumor-agnostic targeted therapy",
+            "text": "For source-defined actionable marker.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "tumor_agnostic_targetable_marker",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_later_ici",
+            "label": "Checkpoint inhibitor for MSI-H/dMMR or source-defined indication",
+            "text": "Checkpoint inhibitor for MSI-H/dMMR or source-defined indication",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "msi_h_dmmr",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_immunotherapy",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_immunotherapy",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            }
+          },
+          {
+            "option_id": "gastric_later_post_trastuzumab_her2",
+            "label": "HER2-directed later-line therapy after trastuzumab exposure",
+            "text": "For HER2-positive disease after prior trastuzumab, use source-listed later-line HER2-directed therapy.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "her2_positive",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_trastuzumab",
+                      "op": "eq",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_trastuzumab",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "gastric_later_ici_if_naive",
+            "label": "Checkpoint inhibitor option when source biomarker-eligible and not previously used",
+            "text": "Avoid presenting this as a re-use option after prior immunotherapy unless source specifically supports it.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "any": [
+                        {
+                          "fact": "msi_h_dmmr",
+                          "op": "eq",
+                          "value": true
+                        },
+                        {
+                          "fact": "pd_l1_positive",
+                          "op": "eq",
+                          "value": true
+                        }
+                      ]
+                    },
+                    {
+                      "fact": "prior_immunotherapy",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_immunotherapy",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "gastric_later_cldn_if_naive",
+            "label": "CLDN18.2-directed therapy when source-eligible and not previously used",
+            "text": "Only for CLDN18.2-positive disease without prior CLDN18.2-directed therapy.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Gastric Cancer",
+              "version": "3.2026",
+              "section": "GAST-F",
+              "page_label": "GAST-F",
+              "physical_pages": [
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49
+              ],
+              "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "cldn18_2_positive",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_cldn18_2_therapy",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_cldn18_2_therapy",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GAST_ADV_LATER"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside gastric cancer package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "GAST-1"
+      ]
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "GAST-1": {
+        "code": "GAST-1",
+        "pages": [
+          9
+        ],
+        "page_count": 1,
+        "source_text_sha256": "4b7ecf1bc454a8d23a4f02edb818ae70d4d663a70f5b9dc644cdc71ba1d541bc",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-1A": {
+        "code": "GAST-1A",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "59ce5eb64d9b20ff87860358567195919dfa5eb272cee259506b512342d66275",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-2": {
+        "code": "GAST-2",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d86d7f18f068c473eb22c6a0aa7c099aecff425fc07f17e74f846776cf4bb42d",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-2A": {
+        "code": "GAST-2A",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "29511af5ba899908618a08b0e2088f8ef099407d3a5a1dbb7be702dc69cb7623",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-3": {
+        "code": "GAST-3",
+        "pages": [
+          13
+        ],
+        "page_count": 1,
+        "source_text_sha256": "12c2e24c7455e9e24a2d2e5a366d51127bb68fff57a1da75c10efa23c4523696",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-3A": {
+        "code": "GAST-3A",
+        "pages": [
+          14
+        ],
+        "page_count": 1,
+        "source_text_sha256": "56faba3a170a337365b83f05026b5fa21071dfa6b02a5bcf7e4d4ba2b7c9511f",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-4": {
+        "code": "GAST-4",
+        "pages": [
+          15
+        ],
+        "page_count": 1,
+        "source_text_sha256": "88c1b989d587e0a8d9371ffdb5c29b67f5fcc2ec938398a6fd079781ad60664b",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-5": {
+        "code": "GAST-5",
+        "pages": [
+          16
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ee8472c822a1b63a544521c946349ae6be5d28fbf2505592f0e5b8ad54bcd565",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-6": {
+        "code": "GAST-6",
+        "pages": [
+          17
+        ],
+        "page_count": 1,
+        "source_text_sha256": "86098153c2f5c234327cab033bb8d210fc34678e4da562a20d4b1dfc55fcb590",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-7": {
+        "code": "GAST-7",
+        "pages": [
+          18
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a298643186fcb3a390267b71cf683d122497517179a961909b918919cae83197",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-8": {
+        "code": "GAST-8",
+        "pages": [
+          19
+        ],
+        "page_count": 1,
+        "source_text_sha256": "4e23e9ece74eabbc6c6235c6a4cdc7b4715d8daad58fa86ae086bd860da63eab",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-9": {
+        "code": "GAST-9",
+        "pages": [
+          20
+        ],
+        "page_count": 1,
+        "source_text_sha256": "6ac4332d4d58b0a87dbece447adbaad0ca4d21cffb5d9bcfc2d62f7cf7e5940c",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GAST-10": {
+        "code": "GAST-10",
+        "pages": [
+          21
+        ],
+        "page_count": 1,
+        "source_text_sha256": "f2e2b06a5ff776352915d57f0010e285240ed4eb3957daf85468dd926fabd4f2",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "GAST-A": {
+        "code": "GAST-A",
+        "pages": [
+          22,
+          23,
+          24,
+          25
+        ],
+        "page_count": 4,
+        "source_text_sha256": "1633c226d73cb114c2c8fc777a0e1432eea84672bd8247f24ee2a69a587c3065",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-B": {
+        "code": "GAST-B",
+        "pages": [
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "page_count": 7,
+        "source_text_sha256": "b6594853d7040f1de4aed21e935882fe51be685fd876f6b7c0c60e914ef1629f",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-C": {
+        "code": "GAST-C",
+        "pages": [
+          33,
+          34,
+          35,
+          36,
+          37
+        ],
+        "page_count": 5,
+        "source_text_sha256": "792f5e2d9dc1c14c357cf4fd874ded8228ec1822d0d4ce15f2b6416297511a62",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-D": {
+        "code": "GAST-D",
+        "pages": [
+          38
+        ],
+        "page_count": 1,
+        "source_text_sha256": "354353692d0cd9bde023381910add32401e9aeaa4b771847c2a566e9ba53e55b",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-E": {
+        "code": "GAST-E",
+        "pages": [
+          39
+        ],
+        "page_count": 1,
+        "source_text_sha256": "40113330920b0da7a84fd70cbc43b47235b43b70fff3341b3f47246f88eb0db5",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-F": {
+        "code": "GAST-F",
+        "pages": [
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ],
+        "page_count": 10,
+        "source_text_sha256": "603b508e5494bb32e32507d60cfcb5016c68539c022e73f308217501e6c58e8e",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-G": {
+        "code": "GAST-G",
+        "pages": [
+          50,
+          51,
+          52,
+          53,
+          54
+        ],
+        "page_count": 5,
+        "source_text_sha256": "82d16085afa432547a79965762ae6a1eeec025156b4b027476e7ecc7f02fa761",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-H": {
+        "code": "GAST-H",
+        "pages": [
+          55,
+          56
+        ],
+        "page_count": 2,
+        "source_text_sha256": "268b65f80c522c428336db6d7bdd25f49b347ea9679ae02f498e5123216b9edd",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-I": {
+        "code": "GAST-I",
+        "pages": [
+          57,
+          58,
+          59,
+          60
+        ],
+        "page_count": 4,
+        "source_text_sha256": "28fab4c06ff090e218434d03f2df60f91dc41944f297dbeac232b982758611ed",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GAST-J": {
+        "code": "GAST-J",
+        "pages": [
+          61,
+          62,
+          63
+        ],
+        "page_count": 3,
+        "source_text_sha256": "21d0b9ab0b820c8d7478e41f185a219abeb31ee9465d3a87e9a15328951b1550",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ST-1": {
+        "code": "ST-1",
+        "pages": [
+          64
+        ],
+        "page_count": 1,
+        "source_text_sha256": "653976d3ca4634bf45ce1a6e97bf192c867b6db21f1aefaa9b304778887afbcf",
+        "kind": "STAGING",
+        "found": true
+      }
+    },
+    "primary_expected": 13,
+    "supporting_expected": 11
+  },
+  "source": {
+    "filename": "Gastric(5).pdf",
+    "sha256": "bcb9c9b5a81fd604ec2b5eff1e348919429ea8d211873df93e63065e38bdfe27",
+    "pdf_pages": 140
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true,
+    "cross_state_consistency_gate": true
+  },
+  "consistency_rules": [
+    {
+      "id": "gastric_m1_curative_surv",
+      "when": {
+        "all": [
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "SURVEILLANCE"
+          }
+        ]
+      },
+      "message": "Active M1 disease conflicts with routine curative-intent surveillance.",
+      "source_pathways": [
+        "GAST-7",
+        "GAST-9"
+      ]
+    }
+  ],
+  "derived_rules": [],
+  "executable_decisions": [
+    {
+      "decision_id": "scope",
+      "source_section": "GAST-1",
+      "source_page_label": "GAST-1",
+      "source_anchor": "GAST-1:pages:9",
+      "clinical_question": "Gastric adenocarcinoma package?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "care_m1",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_m1",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "Current metastatic/advanced palliative episode?",
+      "input_fact_ids": [
+        "clinical_m",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "pall_line",
+        "care_recur"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_m1",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_recur",
+      "source_section": "GAST-8",
+      "source_page_label": "GAST-8",
+      "source_anchor": "GAST-8:pages:19",
+      "clinical_question": "Current recurrence?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "rec_local",
+        "care_posttx"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_recur",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_posttx",
+      "source_section": "GAST-6",
+      "source_page_label": "GAST-6",
+      "source_anchor": "GAST-6:pages:17",
+      "clinical_question": "Post-treatment assessment after nonsurgical/definitive treatment?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "posttx_resp",
+        "care_postpre"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_posttx",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_postpre",
+      "source_section": "GAST-3",
+      "source_page_label": "GAST-3",
+      "source_anchor": "GAST-3:pages:13",
+      "clinical_question": "Response assessment after preoperative/perioperative treatment?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "postpre_resp",
+        "care_postop"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_postpre",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_postop",
+      "source_section": "GAST-4",
+      "source_page_label": "GAST-4",
+      "source_anchor": "GAST-4:pages:15",
+      "clinical_question": "Postoperative pathologic management?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "postop_preop",
+        "care_surv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_postop",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_surv",
+      "source_section": "GAST-7",
+      "source_page_label": "GAST-7",
+      "source_anchor": "GAST-7:pages:18",
+      "clinical_question": "Surveillance?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_surveillance"
+      ],
+      "internal_transfer_targets": [
+        "surv",
+        "initial_stage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_surv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "initial_stage",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "Clinical M0?",
+      "input_fact_ids": [
+        "clinical_m"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_tis",
+        "pall_line"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "initial_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "early_tis",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "cTis/cT1a/superficial cT1b?",
+      "input_fact_ids": [
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "endo_fit",
+        "locoreg_fit"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "early_tis",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "endo_fit",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "Endoscopic resection candidate?",
+      "input_fact_ids": [
+        "endoscopic_resection_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_er"
+      ],
+      "internal_transfer_targets": [
+        "endo",
+        "locoreg_fit"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "endo_fit",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "locoreg_fit",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "Medically fit for major surgery?",
+      "input_fact_ids": [
+        "medically_fit"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_nonsurg_crt",
+        "gastric_nonsurg_sys"
+      ],
+      "internal_transfer_targets": [
+        "locoreg_resect",
+        "nonsurgical"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "locoreg_fit",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "locoreg_resect",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "Potentially resectable locoregional disease?",
+      "input_fact_ids": [
+        "potentially_resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_unres_crt",
+        "gastric_unres_sys"
+      ],
+      "internal_transfer_targets": [
+        "locoreg_t",
+        "unresect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "locoreg_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "locoreg_t",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "Deep cT1b?",
+      "input_fact_ids": [
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_deep_t1b_surgery"
+      ],
+      "internal_transfer_targets": [
+        "deep_t1b",
+        "t2plus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "locoreg_t",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "t2plus",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "cT2 or higher?",
+      "input_fact_ids": [
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "locoreg_msi",
+        "need_t"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t2plus",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "locoreg_msi",
+      "source_section": "GAST-2",
+      "source_page_label": "GAST-2",
+      "source_anchor": "GAST-2:pages:11",
+      "clinical_question": "MSI-H/dMMR?",
+      "input_fact_ids": [
+        "msi_h_dmmr"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_msi_peri_ici",
+        "gastric_msi_surgery",
+        "gastric_peri_systemic",
+        "gastric_primary_surgery",
+        "gastric_staging_laparoscopy_cT3_or_cNpos"
+      ],
+      "internal_transfer_targets": [
+        "locoreg_msi_action",
+        "locoreg_standard"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "locoreg_msi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postpre_resp",
+      "source_section": "GAST-3",
+      "source_page_label": "GAST-3",
+      "source_anchor": "GAST-3:pages:13",
+      "clinical_question": "New metastatic disease after preoperative treatment?",
+      "input_fact_ids": [
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "pall_line",
+        "postpre_unres"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postpre_resp",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postpre_unres",
+      "source_section": "GAST-3",
+      "source_page_label": "GAST-3",
+      "source_anchor": "GAST-3:pages:13",
+      "clinical_question": "Unresectable disease after preoperative treatment?",
+      "input_fact_ids": [
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "pall_line",
+        "postpre_resect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postpre_unres",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postpre_resect",
+      "source_section": "GAST-3",
+      "source_page_label": "GAST-3",
+      "source_anchor": "GAST-3:pages:13",
+      "clinical_question": "Residual/resectable or no-evidence disease?",
+      "input_fact_ids": [
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "postpre_msi_nonop",
+        "need_response"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postpre_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postpre_msi_nonop",
+      "source_section": "GAST-3",
+      "source_page_label": "GAST-3",
+      "source_anchor": "GAST-3:pages:13",
+      "clinical_question": "MSI-H/dMMR complete-response patient undergoing prospective nonoperative management?",
+      "input_fact_ids": [
+        "msi_h_dmmr",
+        "nonoperative_msi_management",
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_msi_continue_ici",
+        "gastric_msi_nonop_surv",
+        "gastric_postpre_surgery"
+      ],
+      "internal_transfer_targets": [
+        "msi_nonop",
+        "postpre_surgery"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postpre_msi_nonop",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postop_preop",
+      "source_section": "GAST-4",
+      "source_page_label": "GAST-4",
+      "source_anchor": "GAST-4:pages:15",
+      "clinical_question": "Preoperative systemic therapy received?",
+      "input_fact_ids": [
+        "postop_received_preop_systemic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "postop_pre_margin",
+        "postop_no_pre_margin"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postop_preop",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postop_pre_margin",
+      "source_section": "GAST-5",
+      "source_page_label": "GAST-5",
+      "source_anchor": "GAST-5:pages:16",
+      "clinical_question": "Postoperative margin R0?",
+      "input_fact_ids": [
+        "path_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_yp_r0_systemic"
+      ],
+      "internal_transfer_targets": [
+        "postpre_r0",
+        "postop_pre_r1"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postop_pre_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postop_pre_r1",
+      "source_section": "GAST-5",
+      "source_page_label": "GAST-5",
+      "source_anchor": "GAST-5:pages:16",
+      "clinical_question": "Margin R1?",
+      "input_fact_ids": [
+        "path_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_yp_r1_crt",
+        "gastric_yp_r1_reresect",
+        "gastric_yp_r2_pall"
+      ],
+      "internal_transfer_targets": [
+        "postpre_r1",
+        "postpre_r2"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postop_pre_r1",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "postop_no_pre_margin",
+      "source_section": "GAST-4",
+      "source_page_label": "GAST-4",
+      "source_anchor": "GAST-4:pages:15",
+      "clinical_question": "R0 resection?",
+      "input_fact_ids": [
+        "path_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "r0_stage",
+        "r1_check"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "postop_no_pre_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "r1_check",
+      "source_section": "GAST-4",
+      "source_page_label": "GAST-4",
+      "source_anchor": "GAST-4:pages:15",
+      "clinical_question": "R1 resection?",
+      "input_fact_ids": [
+        "path_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_r1_crt",
+        "gastric_r2_crt",
+        "gastric_r2_pall"
+      ],
+      "internal_transfer_targets": [
+        "r1_action",
+        "r2_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "r1_check",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "r0_stage",
+      "source_section": "GAST-4",
+      "source_page_label": "GAST-4",
+      "source_anchor": "GAST-4:pages:15",
+      "clinical_question": "pTis/pT1a/superficial pT1b N0?",
+      "input_fact_ids": [
+        "pathologic_n",
+        "pathologic_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_r0_observe"
+      ],
+      "internal_transfer_targets": [
+        "r0_observe",
+        "r0_deep"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "r0_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "r0_deep",
+      "source_section": "GAST-4",
+      "source_page_label": "GAST-4",
+      "source_anchor": "GAST-4:pages:15",
+      "clinical_question": "Deep pT1b or pT2 N0?",
+      "input_fact_ids": [
+        "pathologic_n",
+        "pathologic_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_adv_d2_chemo",
+        "gastric_adv_nond2_crt"
+      ],
+      "internal_transfer_targets": [
+        "r0_deep_risk",
+        "r0_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "r0_deep",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "r0_deep_risk",
+      "source_section": "GAST-4",
+      "source_page_label": "GAST-4",
+      "source_anchor": "GAST-4:pages:15",
+      "clinical_question": "High-risk features or inadequate (<D2) lymphadenectomy?",
+      "input_fact_ids": [
+        "lvi_or_neural_or_highgrade_or_young",
+        "surgery_type_d2"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_deep_adj_crt",
+        "gastric_deep_observe"
+      ],
+      "internal_transfer_targets": [
+        "r0_deep_adjuvant",
+        "r0_observe2"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "r0_deep_risk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "posttx_resp",
+      "source_section": "GAST-6",
+      "source_page_label": "GAST-6",
+      "source_anchor": "GAST-6:pages:17",
+      "clinical_question": "Resectable and medically operable after nonsurgical primary treatment?",
+      "input_fact_ids": [
+        "medically_fit",
+        "potentially_resectable",
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_conversion_surgery",
+        "gastric_posttx_pall"
+      ],
+      "internal_transfer_targets": [
+        "posttx_resect",
+        "posttx_unres"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "posttx_resp",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "rec_local",
+      "source_section": "GAST-8",
+      "source_page_label": "GAST-8",
+      "source_anchor": "GAST-8:pages:19",
+      "clinical_question": "Peritoneal-only recurrence/disease?",
+      "input_fact_ids": [
+        "peritoneal_only_disease"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_peritoneal_systemic",
+        "gastric_peritoneal_trial"
+      ],
+      "internal_transfer_targets": [
+        "peritoneal",
+        "rec_local_amenable"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rec_local",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "rec_local_amenable",
+      "source_section": "GAST-8",
+      "source_page_label": "GAST-8",
+      "source_anchor": "GAST-8:pages:19",
+      "clinical_question": "Recurrence amenable to local therapy?",
+      "input_fact_ids": [
+        "disease_amenable_to_local_therapy"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_rec_local",
+        "gastric_rec_systemic"
+      ],
+      "internal_transfer_targets": [
+        "rec_local_action",
+        "pall_line"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rec_local_amenable",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "pall_line",
+      "source_section": "GAST-9",
+      "source_page_label": "GAST-9",
+      "source_anchor": "GAST-9:pages:20",
+      "clinical_question": "First-line palliative systemic therapy?",
+      "input_fact_ids": [
+        "systemic_line"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_later_cldn_if_naive",
+        "gastric_later_her2",
+        "gastric_later_ici",
+        "gastric_later_ici_if_naive",
+        "gastric_later_post_trastuzumab_her2",
+        "gastric_later_ram_pac",
+        "gastric_later_targeted"
+      ],
+      "internal_transfer_targets": [
+        "pall_first_her2",
+        "pall_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "pall_line",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "pall_first_her2",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "HER2-positive?",
+      "input_fact_ids": [
+        "her2_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_her2_pembro",
+        "gastric_her2_trast_chemo"
+      ],
+      "internal_transfer_targets": [
+        "pall_her2",
+        "pall_first_cldn"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "pall_first_her2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "pall_first_cldn",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "CLDN18.2-positive?",
+      "input_fact_ids": [
+        "cldn18_2_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_cldn_msi_ici",
+        "gastric_cldn_pdl1_ici",
+        "gastric_cldn_zolb"
+      ],
+      "internal_transfer_targets": [
+        "pall_cldn",
+        "pall_first_msi"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "pall_first_cldn",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "pall_first_msi",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "MSI-H/dMMR?",
+      "input_fact_ids": [
+        "msi_h_dmmr"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_msi_ici_adv"
+      ],
+      "internal_transfer_targets": [
+        "pall_msi",
+        "pall_pdl1"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "pall_first_msi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "pall_pdl1",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "PD-L1 positive per source threshold?",
+      "input_fact_ids": [
+        "pd_l1_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_adv_chemo",
+        "gastric_pdl1_ici_chemo"
+      ],
+      "internal_transfer_targets": [
+        "pall_pdl1_action",
+        "pall_standard"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "pall_pdl1",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::locoreg_msi_action::gastric_staging_laparoscopy_cT3_or_cNpos",
+      "source_section": "GAST-C",
+      "source_page_label": "GAST-C",
+      "source_anchor": "GAST-C:pages:33,34,35,36,37",
+      "clinical_question": "Is option Staging laparoscopy with peritoneal washings/cytology for cT3 and/or cN+ potentially resectable disease applicable to the current patient state?",
+      "input_fact_ids": [
+        "clinical_n",
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_staging_laparoscopy_cT3_or_cNpos"
+      ],
+      "internal_transfer_targets": [
+        "locoreg_msi_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "locoreg_msi_action:gastric_staging_laparoscopy_cT3_or_cNpos",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::locoreg_standard::gastric_staging_laparoscopy_cT3_or_cNpos",
+      "source_section": "GAST-C",
+      "source_page_label": "GAST-C",
+      "source_anchor": "GAST-C:pages:33,34,35,36,37",
+      "clinical_question": "Is option Staging laparoscopy with peritoneal washings/cytology for cT3 and/or cN+ potentially resectable disease applicable to the current patient state?",
+      "input_fact_ids": [
+        "clinical_n",
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_staging_laparoscopy_cT3_or_cNpos"
+      ],
+      "internal_transfer_targets": [
+        "locoreg_standard"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "locoreg_standard:gastric_staging_laparoscopy_cT3_or_cNpos",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::r0_adv::gastric_adv_d2_chemo",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Adjuvant chemotherapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "surgery_type_d2"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_adv_d2_chemo"
+      ],
+      "internal_transfer_targets": [
+        "r0_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "r0_adv:gastric_adv_d2_chemo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::r0_adv::gastric_adv_nond2_crt",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Fluoropyrimidine -> chemoradiation -> fluoropyrimidine applicable to the current patient state?",
+      "input_fact_ids": [
+        "surgery_type_d2"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_adv_nond2_crt"
+      ],
+      "internal_transfer_targets": [
+        "r0_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "r0_adv:gastric_adv_nond2_crt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_her2::gastric_her2_pembro",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Add pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "pd_l1_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_her2_pembro"
+      ],
+      "internal_transfer_targets": [
+        "pall_her2"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_her2:gastric_her2_pembro",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_cldn::gastric_cldn_pdl1_ici",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Checkpoint inhibitor + chemotherapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "pd_l1_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_cldn_pdl1_ici"
+      ],
+      "internal_transfer_targets": [
+        "pall_cldn"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_cldn:gastric_cldn_pdl1_ici",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_cldn::gastric_cldn_msi_ici",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Immune checkpoint inhibitor strategy applicable to the current patient state?",
+      "input_fact_ids": [
+        "msi_h_dmmr"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_cldn_msi_ici"
+      ],
+      "internal_transfer_targets": [
+        "pall_cldn"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_cldn:gastric_cldn_msi_ici",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_later::gastric_later_her2",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option HER2-directed later-line therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "her2_positive",
+        "prior_trastuzumab"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_later_her2"
+      ],
+      "internal_transfer_targets": [
+        "pall_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_later:gastric_later_her2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_later::gastric_later_targeted",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Tumor-agnostic targeted therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "tumor_agnostic_targetable_marker"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_later_targeted"
+      ],
+      "internal_transfer_targets": [
+        "pall_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_later:gastric_later_targeted",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_later::gastric_later_ici",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Checkpoint inhibitor for MSI-H/dMMR or source-defined indication applicable to the current patient state?",
+      "input_fact_ids": [
+        "msi_h_dmmr",
+        "prior_immunotherapy"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_later_ici"
+      ],
+      "internal_transfer_targets": [
+        "pall_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_later:gastric_later_ici",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_later::gastric_later_post_trastuzumab_her2",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option HER2-directed later-line therapy after trastuzumab exposure applicable to the current patient state?",
+      "input_fact_ids": [
+        "her2_positive",
+        "prior_trastuzumab"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_later_post_trastuzumab_her2"
+      ],
+      "internal_transfer_targets": [
+        "pall_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_later:gastric_later_post_trastuzumab_her2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_later::gastric_later_ici_if_naive",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option Checkpoint inhibitor option when source biomarker-eligible and not previously used applicable to the current patient state?",
+      "input_fact_ids": [
+        "msi_h_dmmr",
+        "pd_l1_positive",
+        "prior_immunotherapy"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_later_ici_if_naive"
+      ],
+      "internal_transfer_targets": [
+        "pall_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_later:gastric_later_ici_if_naive",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pall_later::gastric_later_cldn_if_naive",
+      "source_section": "GAST-F",
+      "source_page_label": "GAST-F",
+      "source_anchor": "GAST-F:pages:40,41,42,43,44,45,46,47,48,49",
+      "clinical_question": "Is option CLDN18.2-directed therapy when source-eligible and not previously used applicable to the current patient state?",
+      "input_fact_ids": [
+        "cldn18_2_positive",
+        "prior_cldn18_2_therapy"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gastric_later_cldn_if_naive"
+      ],
+      "internal_transfer_targets": [
+        "pall_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pall_later:gastric_later_cldn_if_naive",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

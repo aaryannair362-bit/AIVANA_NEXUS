@@ -1,0 +1,715 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Primary bone tumor?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "BONE_CANCER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase_workup",
+        "FALSE": "outside"
+      }
+    },
+    "phase_workup": {
+      "kind": "decision",
+      "label": "Diagnostic workup phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "WORKUP"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "workup",
+        "FALSE": "phase_post"
+      }
+    },
+    "phase_post": {
+      "kind": "decision",
+      "label": "Post-primary surveillance phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_PRIMARY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_primary",
+        "FALSE": "phase_active"
+      }
+    },
+    "phase_active": {
+      "kind": "decision",
+      "label": "Active new/recurrent/metastatic phase?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "sub_chon",
+        "FALSE": "phase_unknown"
+      }
+    },
+    "post_primary": {
+      "kind": "action",
+      "label": "Post-primary bone tumor care: subtype-specific surveillance and response assessment; route proven recurrence to the recurrence pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_post_primary",
+      "source_pathways": [
+        "CHOR-3",
+        "EW-2",
+        "GCTB-3",
+        "OSTEO-4"
+      ],
+      "recommendation": {
+        "title": "Post-primary bone tumor care: subtype-specific surveillance and response assessment; route proven recurrence to the recurrence pathway.",
+        "options": [
+          {
+            "label": "Subtype-specific surveillance",
+            "text": "Use imaging/clinical schedule and late-effects monitoring from the relevant source pathway."
+          },
+          {
+            "label": "Re-biopsy/re-stage suspected relapse",
+            "text": "Do not assume recurrent disease without source-required confirmation."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-A",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "phase_unknown": {
+      "kind": "status",
+      "label": "Bone tumor care phase is not established.",
+      "status": "NEEDS_INFORMATION"
+    },
+    "sub_chon": {
+      "kind": "decision",
+      "label": "Chondrosarcoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "tumor_subtype",
+            "op": "eq",
+            "value": "CHONDROSARCOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chon_phase",
+        "FALSE": "sub_chor"
+      }
+    },
+    "chon_phase": {
+      "kind": "decision",
+      "label": "Metastatic?",
+      "expression": {
+        "any": [
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chon_met",
+        "FALSE": "chon_primary"
+      }
+    },
+    "chon_primary": {
+      "kind": "action",
+      "label": "Chondrosarcoma: subtype/grade/location-directed surgical pathway; systemic/RT options vary by histology.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_chondrosarcoma",
+      "source_pathways": [
+        "CHON-1",
+        "CHON-2",
+        "CHON-3"
+      ],
+      "recommendation": {
+        "title": "Chondrosarcoma: subtype/grade/location-directed surgical pathway; systemic/RT options vary by histology.",
+        "options": [
+          {
+            "label": "Surgery",
+            "text": "Use curettage or wide resection based on grade, compartment, and site."
+          },
+          {
+            "label": "Adjunct systemic/RT",
+            "text": "Use only for source-defined histologies/settings."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-A",
+          "BONE-B",
+          "BONE-C",
+          "BONE-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "chon_met": {
+      "kind": "action",
+      "label": "Metastatic chondrosarcoma: histology/molecularly directed systemic therapy, local control, or clinical trial.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_chondrosarcoma_met",
+      "source_pathways": [
+        "CHON-4"
+      ],
+      "recommendation": {
+        "title": "Metastatic chondrosarcoma: histology/molecularly directed systemic therapy, local control, or clinical trial.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use BONE-B subtype-specific options including targeted therapy when alteration-specific."
+          },
+          {
+            "label": "Local therapy",
+            "text": "Surgery/RT/ablation for selected metastatic sites."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "sub_chor": {
+      "kind": "decision",
+      "label": "Chordoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "tumor_subtype",
+            "op": "eq",
+            "value": "CHORDOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chor_phase",
+        "FALSE": "sub_ew"
+      }
+    },
+    "chor_phase": {
+      "kind": "decision",
+      "label": "Recurrent/progressive?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT"
+          },
+          {
+            "fact": "progressive",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chor_rec",
+        "FALSE": "chor_primary"
+      }
+    },
+    "chor_primary": {
+      "kind": "action",
+      "label": "Chordoma: histologic subtype/site-directed maximal safe resection and high-dose RT strategy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_chordoma_primary",
+      "source_pathways": [
+        "CHOR-1",
+        "CHOR-2"
+      ],
+      "recommendation": {
+        "title": "Chordoma: histologic subtype/site-directed maximal safe resection and high-dose RT strategy.",
+        "options": [
+          {
+            "label": "Surgery",
+            "text": "Maximal safe en bloc/complete resection when feasible."
+          },
+          {
+            "label": "RT",
+            "text": "Use highly conformal dose-escalated RT in appropriate pre/postoperative or unresectable settings."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C",
+          "BONE-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "chor_rec": {
+      "kind": "action",
+      "label": "Chordoma surveillance/recurrence: resect, re-irradiate, ablate or use systemic therapy according to site/prior treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_chordoma_recurrence",
+      "source_pathways": [
+        "CHOR-3"
+      ],
+      "recommendation": {
+        "title": "Chordoma surveillance/recurrence: resect, re-irradiate, ablate or use systemic therapy according to site/prior treatment.",
+        "options": [
+          {
+            "label": "Local salvage",
+            "text": "Surgery and/or RT/ablative therapy."
+          },
+          {
+            "label": "Systemic therapy",
+            "text": "Use BONE-B options for unresectable/progressive disease."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "sub_ew": {
+      "kind": "decision",
+      "label": "Ewing sarcoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "tumor_subtype",
+            "op": "eq",
+            "value": "EWING_SARCOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "ew_phase",
+        "FALSE": "sub_gctb"
+      }
+    },
+    "ew_phase": {
+      "kind": "decision",
+      "label": "Metastatic?",
+      "expression": {
+        "any": [
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "ew_met",
+        "FALSE": "ew_rec"
+      }
+    },
+    "ew_rec": {
+      "kind": "decision",
+      "label": "Recurrent/progressive?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT"
+          },
+          {
+            "fact": "progressive",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "ew_rel",
+        "FALSE": "ew_primary"
+      }
+    },
+    "ew_primary": {
+      "kind": "action",
+      "label": "Localized Ewing sarcoma: systemic therapy + local control (surgery and/or RT) with restaging and completion therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_ewing_primary",
+      "source_pathways": [
+        "EW-1",
+        "EW-2"
+      ],
+      "recommendation": {
+        "title": "Localized Ewing sarcoma: systemic therapy + local control (surgery and/or RT) with restaging and completion therapy.",
+        "options": [
+          {
+            "label": "Multiagent systemic therapy",
+            "text": "Use source-listed Ewing regimen."
+          },
+          {
+            "label": "Local control",
+            "text": "Surgery and/or RT based on anatomy/response/margins."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "ew_rel": {
+      "kind": "action",
+      "label": "Relapsed/refractory Ewing sarcoma: salvage systemic therapy and site-specific local control/palliation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_ewing_relapse",
+      "source_pathways": [
+        "EW-2"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory Ewing sarcoma: salvage systemic therapy and site-specific local control/palliation.",
+        "options": [
+          {
+            "label": "Salvage systemic therapy",
+            "text": "Use source-listed second-line regimens."
+          },
+          {
+            "label": "Local control",
+            "text": "RT/surgery/ablation for progressive sites where appropriate."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "ew_met": {
+      "kind": "action",
+      "label": "Metastatic Ewing sarcoma: systemic therapy with primary/metastatic site local control based on distribution and response.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_ewing_met",
+      "source_pathways": [
+        "EW-3"
+      ],
+      "recommendation": {
+        "title": "Metastatic Ewing sarcoma: systemic therapy with primary/metastatic site local control based on distribution and response.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use Ewing multiagent therapy."
+          },
+          {
+            "label": "Metastasis-directed therapy",
+            "text": "Consider lung/bone/site-directed RT/surgery in source-defined settings."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "sub_gctb": {
+      "kind": "decision",
+      "label": "Giant cell tumor of bone?",
+      "expression": {
+        "all": [
+          {
+            "fact": "tumor_subtype",
+            "op": "eq",
+            "value": "GIANT_CELL_TUMOR_BONE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gctb_phase",
+        "FALSE": "sub_osteo"
+      }
+    },
+    "gctb_phase": {
+      "kind": "decision",
+      "label": "Recurrent?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gctb_rec",
+        "FALSE": "gctb_primary"
+      }
+    },
+    "gctb_primary": {
+      "kind": "action",
+      "label": "Giant cell tumor of bone: resection/curettage when feasible; denosumab, embolization, RT or ablation for selected unresectable/morbid sites.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_gctb_primary",
+      "source_pathways": [
+        "GCTB-1",
+        "GCTB-2"
+      ],
+      "recommendation": {
+        "title": "Giant cell tumor of bone: resection/curettage when feasible; denosumab, embolization, RT or ablation for selected unresectable/morbid sites.",
+        "options": [
+          {
+            "label": "Surgery",
+            "text": "Preferred when acceptable morbidity."
+          },
+          {
+            "label": "Denosumab/embolization",
+            "text": "Preferred/selected for unresectable or unacceptable morbidity axial lesions."
+          },
+          {
+            "label": "RT/ablation",
+            "text": "Selected circumstances."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "gctb_rec": {
+      "kind": "action",
+      "label": "Recurrent GCTB: repeat local therapy and/or denosumab/embolization/RT based on site and resectability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_gctb_recurrence",
+      "source_pathways": [
+        "GCTB-3"
+      ],
+      "recommendation": {
+        "title": "Recurrent GCTB: repeat local therapy and/or denosumab/embolization/RT based on site and resectability.",
+        "options": [
+          {
+            "label": "Recurrence treatment",
+            "text": "Use source-defined surgery/systemic/local options."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "sub_osteo": {
+      "kind": "decision",
+      "label": "Osteosarcoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "tumor_subtype",
+            "op": "eq",
+            "value": "OSTEOSARCOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "osteo_phase",
+        "FALSE": "workup"
+      }
+    },
+    "osteo_phase": {
+      "kind": "decision",
+      "label": "Metastatic?",
+      "expression": {
+        "any": [
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "osteo_met",
+        "FALSE": "osteo_rec"
+      }
+    },
+    "osteo_rec": {
+      "kind": "decision",
+      "label": "Recurrent?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "osteo_rel",
+        "FALSE": "osteo_primary"
+      }
+    },
+    "osteo_primary": {
+      "kind": "action",
+      "label": "Localized osteosarcoma: neoadjuvant systemic therapy, complete surgical resection, then response-directed adjuvant therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_osteo_primary",
+      "source_pathways": [
+        "OSTEO-1",
+        "OSTEO-2"
+      ],
+      "recommendation": {
+        "title": "Localized osteosarcoma: neoadjuvant systemic therapy, complete surgical resection, then response-directed adjuvant therapy.",
+        "options": [
+          {
+            "label": "Neoadjuvant chemotherapy",
+            "text": "Use source osteosarcoma regimen(s)."
+          },
+          {
+            "label": "Definitive surgery",
+            "text": "Complete resection with limb-sparing when oncologically feasible."
+          },
+          {
+            "label": "Adjuvant therapy",
+            "text": "Continue/adjust per histologic response and source protocol."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "osteo_met": {
+      "kind": "action",
+      "label": "Metastatic osteosarcoma: systemic therapy plus aggressive local control of primary and resectable metastases when feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_osteo_met",
+      "source_pathways": [
+        "OSTEO-3"
+      ],
+      "recommendation": {
+        "title": "Metastatic osteosarcoma: systemic therapy plus aggressive local control of primary and resectable metastases when feasible.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use osteosarcoma systemic regimen."
+          },
+          {
+            "label": "Metastasectomy/local therapy",
+            "text": "For resectable pulmonary/other metastatic disease when appropriate."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "osteo_rel": {
+      "kind": "action",
+      "label": "Relapsed osteosarcoma: complete resection of relapse when feasible plus source-listed systemic/RT/local options.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_osteo_relapse",
+      "source_pathways": [
+        "OSTEO-4"
+      ],
+      "recommendation": {
+        "title": "Relapsed osteosarcoma: complete resection of relapse when feasible plus source-listed systemic/RT/local options.",
+        "options": [
+          {
+            "label": "Surgical salvage",
+            "text": "Preferred for resectable recurrence when feasible."
+          },
+          {
+            "label": "Systemic/RT",
+            "text": "Use source-listed salvage options for unresectable/progressive disease."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "workup": {
+      "kind": "action",
+      "label": "Unclassified/suspected primary bone tumor: multidisciplinary orthopedic-oncology workup and biopsy at treating center before subtype-specific treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bone_workup",
+      "source_pathways": [
+        "TEAM-1",
+        "BONE-1"
+      ],
+      "recommendation": {
+        "title": "Unclassified/suspected primary bone tumor: multidisciplinary orthopedic-oncology workup and biopsy at treating center before subtype-specific treatment.",
+        "options": [
+          {
+            "label": "Multidisciplinary evaluation",
+            "text": "Orthopedic oncology, pathology, radiology and oncology review."
+          },
+          {
+            "label": "Biopsy at treating center",
+            "text": "Plan biopsy with definitive surgery in mind."
+          }
+        ],
+        "supporting_sections": [
+          "BONE-A",
+          "BONE-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Bone cancer ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

@@ -1,0 +1,140 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "BLADDER_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "primary_site",
+    "value_type": "CODED",
+    "allowed_values": [
+      "BLADDER",
+      "RENAL_PELVIS",
+      "URETER",
+      "PROSTATE_URETHRA",
+      "URETHRA",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "histology",
+    "value_type": "CODED",
+    "allowed_values": [
+      "UROTHELIAL",
+      "NON_UROTHELIAL",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "POST_INTRAVESICAL",
+      "POST_CYSTECTOMY",
+      "RECURRENT_METASTATIC"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "clinical_t",
+    "value_type": "CODED",
+    "allowed_values": [
+      "TA",
+      "TIS",
+      "T1",
+      "T2",
+      "T3",
+      "T4A",
+      "T4B",
+      "TX"
+    ],
+    "semantic_unknown_values": [
+      "TX"
+    ]
+  },
+  {
+    "key": "clinical_n",
+    "value_type": "CODED",
+    "allowed_values": [
+      "N0",
+      "N1",
+      "N2",
+      "N3",
+      "NX"
+    ],
+    "semantic_unknown_values": [
+      "NX"
+    ]
+  },
+  {
+    "key": "clinical_m",
+    "value_type": "CODED",
+    "allowed_values": [
+      "M0",
+      "M1A",
+      "M1B",
+      "MX"
+    ],
+    "semantic_unknown_values": [
+      "MX"
+    ]
+  },
+  {
+    "key": "nmibc_risk",
+    "value_type": "CODED",
+    "allowed_values": [
+      "LOW",
+      "INTERMEDIATE",
+      "HIGH",
+      "VERY_HIGH",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "bcg_unresponsive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "adequate_bcg_received",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "cisplatin_eligible",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "radical_cystectomy_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "bladder_preservation_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "complete_turbt_feasible",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "ctdna_mrd_positive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "fgfr3_alteration",
+    "value_type": "BOOLEAN"
+  }
+]

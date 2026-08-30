@@ -1,0 +1,164 @@
+{
+  "summary": {
+    "packages": 15,
+    "failed": 0,
+    "decisions": 984,
+    "implemented": 984,
+    "tested": 984,
+    "unused": 0,
+    "deferred": 0,
+    "shortcuts": 0
+  },
+  "packages": {
+    "nexus_acute_lymphoblastic_leukemia_v2_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 70,
+      "implemented_source_decisions": 70,
+      "tested_source_decisions": 70,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_acute_myeloid_leukemia_v5_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 111,
+      "implemented_source_decisions": 111,
+      "tested_source_decisions": 111,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_anal_carcinoma_v2_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 24,
+      "implemented_source_decisions": 24,
+      "tested_source_decisions": 24,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_b_cell_lymphomas_v4_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 219,
+      "implemented_source_decisions": 219,
+      "tested_source_decisions": 219,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_basal_cell_skin_cancer_v1_2027.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 37,
+      "implemented_source_decisions": 37,
+      "tested_source_decisions": 37,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_biliary_tract_cancers_v1_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 42,
+      "implemented_source_decisions": 42,
+      "tested_source_decisions": 42,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_bladder_cancer_v3_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 61,
+      "implemented_source_decisions": 61,
+      "tested_source_decisions": 61,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_bone_cancer_v1_2027.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 56,
+      "implemented_source_decisions": 56,
+      "tested_source_decisions": 56,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_breast_cancer_v6_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 92,
+      "implemented_source_decisions": 92,
+      "tested_source_decisions": 92,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_cervical_cancer_v2_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 50,
+      "implemented_source_decisions": 50,
+      "tested_source_decisions": 50,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_gastric_cancer_v3_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 48,
+      "implemented_source_decisions": 48,
+      "tested_source_decisions": 48,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_gastrointestinal_stromal_tumors_v1_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 53,
+      "implemented_source_decisions": 53,
+      "tested_source_decisions": 53,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_hodgkin_lymphoma_v2_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 56,
+      "implemented_source_decisions": 56,
+      "tested_source_decisions": 56,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_kidney_cancer_v1_2027.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 37,
+      "implemented_source_decisions": 37,
+      "tested_source_decisions": 37,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    },
+    "nexus_myeloproliferative_neoplasms_v2_2026.json": {
+      "errors": [],
+      "warnings": [],
+      "total_source_decisions": 28,
+      "implemented_source_decisions": 28,
+      "tested_source_decisions": 28,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0
+    }
+  }
+}

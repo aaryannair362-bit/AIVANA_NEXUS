@@ -1,0 +1,80 @@
+{
+  "packages": {
+    "nexus_acute_lymphoblastic_leukemia_v2_2026.json": {
+      "required_facts": 7,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_acute_myeloid_leukemia_v5_2026.json": {
+      "required_facts": 16,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_anal_carcinoma_v2_2026.json": {
+      "required_facts": 9,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_b_cell_lymphomas_v4_2026.json": {
+      "required_facts": 11,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_basal_cell_skin_cancer_v1_2027.json": {
+      "required_facts": 14,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_biliary_tract_cancers_v1_2026.json": {
+      "required_facts": 15,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_bladder_cancer_v3_2026.json": {
+      "required_facts": 14,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_bone_cancer_v1_2027.json": {
+      "required_facts": 8,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_breast_cancer_v6_2026.json": {
+      "required_facts": 14,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_cervical_cancer_v2_2026.json": {
+      "required_facts": 22,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_gastric_cancer_v3_2026.json": {
+      "required_facts": 13,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_gastrointestinal_stromal_tumors_v1_2026.json": {
+      "required_facts": 13,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_hodgkin_lymphoma_v2_2026.json": {
+      "required_facts": 18,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_kidney_cancer_v1_2027.json": {
+      "required_facts": 13,
+      "errors": [],
+      "status": "PASS"
+    },
+    "nexus_myeloproliferative_neoplasms_v2_2026.json": {
+      "required_facts": 10,
+      "errors": [],
+      "status": "PASS"
+    }
+  },
+  "failed_packages": 0
+}

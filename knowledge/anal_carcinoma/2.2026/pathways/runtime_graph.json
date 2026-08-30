@@ -1,0 +1,299 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Anal carcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "ANAL_CARCINOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "hist",
+        "FALSE": "outside"
+      }
+    },
+    "hist": {
+      "kind": "decision",
+      "label": "Squamous histology?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "SQUAMOUS_CELL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase_met",
+        "FALSE": "different"
+      }
+    },
+    "phase_met": {
+      "kind": "decision",
+      "label": "Metastatic episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "METASTATIC"
+          },
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "met",
+        "FALSE": "phase_post"
+      }
+    },
+    "phase_post": {
+      "kind": "decision",
+      "label": "Post-chemoradiation or recurrence episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_CHEMORADIATION"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_status",
+        "FALSE": "site"
+      }
+    },
+    "site": {
+      "kind": "decision",
+      "label": "Perianal primary?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "PERIANAL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "perianal",
+        "FALSE": "canal"
+      }
+    },
+    "canal": {
+      "kind": "action",
+      "label": "Nonmetastatic anal canal squamous cell carcinoma: definitive concurrent chemoradiation pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "anal_canal_primary",
+      "source_pathways": [
+        "ANAL-1"
+      ],
+      "recommendation": {
+        "title": "Nonmetastatic anal canal squamous cell carcinoma: definitive concurrent chemoradiation pathway.",
+        "options": [
+          {
+            "label": "Definitive chemoradiation",
+            "text": "Use fluoropyrimidine/mitomycin-based concurrent treatment per source; RT technique/dose per ANAL-C."
+          }
+        ],
+        "supporting_sections": [
+          "ANAL-B",
+          "ANAL-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "perianal": {
+      "kind": "action",
+      "label": "Perianal squamous cell carcinoma: stage/size-directed local excision or chemoradiation pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "anal_perianal_primary",
+      "source_pathways": [
+        "ANAL-2"
+      ],
+      "recommendation": {
+        "title": "Perianal squamous cell carcinoma: stage/size-directed local excision or chemoradiation pathway.",
+        "options": [
+          {
+            "label": "Local excision",
+            "text": "For source-defined small, well-differentiated, margin-clear lesions."
+          },
+          {
+            "label": "Chemoradiation",
+            "text": "For lesions not meeting local-excision criteria or with adverse features."
+          }
+        ],
+        "supporting_sections": [
+          "ANAL-A",
+          "ANAL-B",
+          "ANAL-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "post_status": {
+      "kind": "decision",
+      "label": "Complete clinical response?",
+      "expression": {
+        "all": [
+          {
+            "fact": "post_chemoradiation_status",
+            "op": "eq",
+            "value": "COMPLETE_RESPONSE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "surv",
+        "FALSE": "post_noncr"
+      }
+    },
+    "surv": {
+      "kind": "action",
+      "label": "Complete response after definitive therapy: surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "anal_surveillance",
+      "source_pathways": [
+        "ANAL-3"
+      ],
+      "recommendation": {
+        "title": "Complete response after definitive therapy: surveillance.",
+        "options": [
+          {
+            "label": "Surveillance",
+            "text": "Clinical exam and indicated imaging per source schedule."
+          }
+        ],
+        "supporting_sections": [
+          "ANAL-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "post_noncr": {
+      "kind": "decision",
+      "label": "Persistent/progressive locoregional disease?",
+      "expression": {
+        "any": [
+          {
+            "fact": "post_chemoradiation_status",
+            "op": "eq",
+            "value": "PERSISTENT"
+          },
+          {
+            "fact": "post_chemoradiation_status",
+            "op": "eq",
+            "value": "PROGRESSIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "salvage",
+        "FALSE": "recurrence"
+      }
+    },
+    "salvage": {
+      "kind": "action",
+      "label": "Persistent/progressive local anal SCC after chemoradiation: biopsy/re-staging and salvage surgery pathway when feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "anal_persistent_salvage",
+      "source_pathways": [
+        "ANAL-3"
+      ],
+      "recommendation": {
+        "title": "Persistent/progressive local anal SCC after chemoradiation: biopsy/re-staging and salvage surgery pathway when feasible.",
+        "options": [
+          {
+            "label": "Salvage APR",
+            "text": "Use when persistent/progressive localized disease is confirmed and operable."
+          }
+        ],
+        "supporting_sections": [
+          "ANAL-A",
+          "ANAL-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "recurrence": {
+      "kind": "action",
+      "label": "Anal SCC recurrence: site-specific salvage using surgery, RT/re-irradiation, and/or systemic therapy based on prior treatment and extent.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "anal_recurrence",
+      "source_pathways": [
+        "ANAL-4"
+      ],
+      "recommendation": {
+        "title": "Anal SCC recurrence: site-specific salvage using surgery, RT/re-irradiation, and/or systemic therapy based on prior treatment and extent.",
+        "options": [
+          {
+            "label": "Locoregional salvage",
+            "text": "Use source-defined surgery/RT/systemic options."
+          },
+          {
+            "label": "Systemic therapy",
+            "text": "Use metastatic/subsequent options when disease is not locally salvageable."
+          }
+        ],
+        "supporting_sections": [
+          "ANAL-A",
+          "ANAL-B",
+          "ANAL-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "met": {
+      "kind": "action",
+      "label": "Metastatic anal SCC: systemic therapy with source-preferred first-line regimen and subsequent immunotherapy/chemotherapy options.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "anal_metastatic",
+      "source_pathways": [
+        "ANAL-4"
+      ],
+      "recommendation": {
+        "title": "Metastatic anal SCC: systemic therapy with source-preferred first-line regimen and subsequent immunotherapy/chemotherapy options.",
+        "options": [
+          {
+            "label": "First-line systemic therapy",
+            "text": "Use source-preferred metastatic regimen."
+          },
+          {
+            "label": "Subsequent therapy",
+            "text": "Use biomarker/prior-exposure appropriate options from ANAL-B."
+          }
+        ],
+        "supporting_sections": [
+          "ANAL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "different": {
+      "kind": "status",
+      "label": "Non-squamous anal malignancy requires a different histology-specific pathway.",
+      "status": "NEEDS_DIFFERENT_PATHWAY"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Anal carcinoma ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

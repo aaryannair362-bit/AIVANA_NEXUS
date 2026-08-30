@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_MPN",
+  "title": "Myeloproliferative Neoplasms",
+  "version": "2.2026",
+  "cancer_type": "MYELOPROLIFERATIVE_NEOPLASM",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 28,
+    "implemented_decisions": 28,
+    "tested_decisions": 28,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "mpn(1).pdf",
+    "sha256": "cbe5e08d1dc8575095b9396f30f725388cf9e6b97f22c2dbddfd9a74b41f5fef",
+    "pdf_pages": 125
+  },
+  "primary_expected": 13,
+  "supporting_expected": 16
+}

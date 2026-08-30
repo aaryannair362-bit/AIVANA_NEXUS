@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_BONE",
+  "title": "Bone Cancer",
+  "version": "1.2027",
+  "cancer_type": "BONE_CANCER",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 56,
+    "implemented_decisions": 56,
+    "tested_decisions": 56,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "bone(6).pdf",
+    "sha256": "de19ff207fcc49dd790528b23366ec24513774e6ab777b7974d23b7011ce6495",
+    "pdf_pages": 129
+  },
+  "primary_expected": 19,
+  "supporting_expected": 5
+}

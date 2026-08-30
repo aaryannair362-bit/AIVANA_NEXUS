@@ -1,0 +1,56 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "BASAL_CELL_SKIN_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "POST_TREATMENT",
+      "RECURRENCE"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "disease_extent",
+    "value_type": "CODED",
+    "allowed_values": [
+      "LOCAL",
+      "LOCALLY_ADVANCED",
+      "NODAL",
+      "METASTATIC",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "high_risk_any",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "resectable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "candidate_for_curative_rt",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "prior_hhi",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "hhi_intolerant_or_progressed",
+    "value_type": "BOOLEAN"
+  }
+]

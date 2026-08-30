@@ -1,0 +1,267 @@
+{
+  "acute_lymphoblastic_leukemia": {
+    "filename": "all(6).pdf",
+    "sha256": "e2113144f4c51c4e6600cdef05561d31c94df50e2b84a3a81fa73f8447ad3bb9",
+    "pdf_pages": 170,
+    "clinical_section_pages": 68,
+    "section_count": 18,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 5,
+      "DISCUSSION": 98,
+      "ALGORITHM": 11,
+      "PRINCIPLE": 42,
+      "REFERENCE": 8,
+      "ABBREVIATIONS": 2,
+      "CATEGORY_REFERENCE": 1
+    }
+  },
+  "acute_myeloid_leukemia": {
+    "filename": "aml(5).pdf",
+    "sha256": "55e4cf96396423f94cc1754161261eb4c78518118e66086b3d2e72874bd109dd",
+    "pdf_pages": 213,
+    "clinical_section_pages": 82,
+    "section_count": 45,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 2,
+      "PRINCIPLE": 43,
+      "DISCUSSION": 128,
+      "UPDATES": 6,
+      "ALGORITHM": 27,
+      "REFERENCE": 4,
+      "ABBREVIATIONS": 2,
+      "CATEGORY_REFERENCE": 1
+    }
+  },
+  "anal_carcinoma": {
+    "filename": "anal(5).pdf",
+    "sha256": "7ce9b2bed3bd0920fc2f8e28331b5b17762fcd15ce47ce766486b73a4d1d5ee7",
+    "pdf_pages": 69,
+    "clinical_section_pages": 21,
+    "section_count": 9,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 3,
+      "ALGORITHM": 4,
+      "PRINCIPLE": 10,
+      "REFERENCE": 4,
+      "STAGING": 1,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 42
+    }
+  },
+  "b_cell_lymphomas": {
+    "filename": "b-cell(6).pdf",
+    "sha256": "3f60b89fe36bfb1fc212a43cff8a25d6d2792a9285df6377c5166a3659bd8003",
+    "pdf_pages": 369,
+    "clinical_section_pages": 133,
+    "section_count": 81,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 10,
+      "ALGORITHM": 57,
+      "PRINCIPLE": 49,
+      "REFERENCE": 12,
+      "STAGING": 5,
+      "ABBREVIATIONS": 2,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 230
+    }
+  },
+  "basal_cell_skin_cancer": {
+    "filename": "basal(6).pdf",
+    "sha256": "1e3e3ce45917a8d95b7c1d08d6a376e373e064df05c8b6d49ff41ae9970a0fe4",
+    "pdf_pages": 64,
+    "clinical_section_pages": 17,
+    "section_count": 12,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 1,
+      "ALGORITHM": 7,
+      "PRINCIPLE": 7,
+      "REFERENCE": 2,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 42
+    }
+  },
+  "bladder_cancer": {
+    "filename": "bladder(6).pdf",
+    "sha256": "b29179a4f6d7334a45db2b1ad24158e5154b2a3556961670868fcac68243b507",
+    "pdf_pages": 142,
+    "clinical_section_pages": 62,
+    "section_count": 31,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 4,
+      "ALGORITHM": 19,
+      "PRINCIPLE": 33,
+      "REFERENCE": 4,
+      "STAGING": 3,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 74
+    }
+  },
+  "bone_cancer": {
+    "filename": "bone(6).pdf",
+    "sha256": "de19ff207fcc49dd790528b23366ec24513774e6ab777b7974d23b7011ce6495",
+    "pdf_pages": 129,
+    "clinical_section_pages": 39,
+    "section_count": 25,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 2,
+      "ALGORITHM": 20,
+      "DISCUSSION": 86,
+      "PRINCIPLE": 10,
+      "REFERENCE": 7,
+      "STAGING": 2,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1
+    }
+  },
+  "breast_cancer": {
+    "filename": "breast(8).pdf",
+    "sha256": "e8de443ba1000368fc9c2057b90ee15b9680e9fa24c8547534ee88f9ba480221",
+    "pdf_pages": 278,
+    "clinical_section_pages": 123,
+    "section_count": 66,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 2,
+      "ALGORITHM": 38,
+      "UPDATES": 8,
+      "PRINCIPLE": 61,
+      "REFERENCE": 5,
+      "STAGING": 11,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 151
+    }
+  },
+  "biliary_tract_cancers": {
+    "filename": "btc(5).pdf",
+    "sha256": "69cf24af73c4020d0d79ce4b4ffe56dee3e47a0f42f8715d3e159726caeee0b7",
+    "pdf_pages": 108,
+    "clinical_section_pages": 40,
+    "section_count": 26,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 2,
+      "PRINCIPLE": 21,
+      "UPDATES": 3,
+      "ALGORITHM": 10,
+      "REFERENCE": 5,
+      "STAGING": 4,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 61
+    }
+  },
+  "cervical_cancer": {
+    "filename": "cervical(6).pdf",
+    "sha256": "720abc1b1c3794294ab7af063edae613240a7f06affcdbae8b2002b93b29f4ee",
+    "pdf_pages": 138,
+    "clinical_section_pages": 56,
+    "section_count": 24,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 5,
+      "DISCUSSION": 73,
+      "ALGORITHM": 16,
+      "PRINCIPLE": 30,
+      "REFERENCE": 7,
+      "STAGING": 1,
+      "ABBREVIATIONS": 2,
+      "CATEGORY_REFERENCE": 1
+    }
+  },
+  "gastric_cancer": {
+    "filename": "Gastric(5).pdf",
+    "sha256": "bcb9c9b5a81fd604ec2b5eff1e348919429ea8d211873df93e63065e38bdfe27",
+    "pdf_pages": 140,
+    "clinical_section_pages": 61,
+    "section_count": 25,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 5,
+      "ALGORITHM": 13,
+      "PRINCIPLE": 32,
+      "REFERENCE": 10,
+      "STAGING": 2,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 73
+    }
+  },
+  "gastrointestinal_stromal_tumors": {
+    "filename": "gist(4).pdf",
+    "sha256": "f7318182d10c58672fbcc9cc3b8a7923d7d2ad7953aaa058b2fa71e955d40cd3",
+    "pdf_pages": 54,
+    "clinical_section_pages": 22,
+    "section_count": 12,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 2,
+      "ALGORITHM": 5,
+      "PRINCIPLE": 10,
+      "REFERENCE": 2,
+      "STAGING": 1,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 29
+    }
+  },
+  "hodgkin_lymphoma": {
+    "filename": "hodgkins(5).pdf",
+    "sha256": "32ecb6c74f4908d02bf701a612b6f930df4798b781cbbc5a96bc530ff8695dfb",
+    "pdf_pages": 124,
+    "clinical_section_pages": 58,
+    "section_count": 32,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 3,
+      "DISCUSSION": 61,
+      "ALGORITHM": 27,
+      "REFERENCE": 8,
+      "PRINCIPLE": 19,
+      "STAGING": 1,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1
+    }
+  },
+  "kidney_cancer": {
+    "filename": "kidney(3).pdf",
+    "sha256": "8113c2636a8bfb8e69b88b3e9fd18d059c9e88936e02c362d1fc18587ebcfe44",
+    "pdf_pages": 100,
+    "clinical_section_pages": 32,
+    "section_count": 17,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 2,
+      "PRINCIPLE": 20,
+      "UPDATES": 3,
+      "ALGORITHM": 5,
+      "REFERENCE": 4,
+      "STAGING": 1,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 63
+    }
+  },
+  "myeloproliferative_neoplasms": {
+    "filename": "mpn(1).pdf",
+    "sha256": "cbe5e08d1dc8575095b9396f30f725388cf9e6b97f22c2dbddfd9a74b41f5fef",
+    "pdf_pages": 125,
+    "clinical_section_pages": 50,
+    "section_count": 29,
+    "page_role_counts": {
+      "OTHER_NONCLINICAL": 3,
+      "UPDATES": 2,
+      "ALGORITHM": 12,
+      "PRINCIPLE": 27,
+      "REFERENCE": 3,
+      "ABBREVIATIONS": 1,
+      "CATEGORY_REFERENCE": 1,
+      "DISCUSSION": 76
+    }
+  }
+}

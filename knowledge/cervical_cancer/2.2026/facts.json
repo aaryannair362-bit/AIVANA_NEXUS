@@ -1,0 +1,109 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "CERVICAL_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "histology",
+    "value_type": "CODED",
+    "allowed_values": [
+      "SQUAMOUS_ADENO_ADENOSQUAMOUS",
+      "SMALL_CELL_NEUROENDOCRINE",
+      "OTHER",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "POST_SURGERY",
+      "INCIDENTAL_POST_HYSTERECTOMY",
+      "SURVEILLANCE",
+      "LOCAL_REGIONAL_RECURRENCE",
+      "DISTANT_METASTATIC_RECURRENCE"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "figo_stage",
+    "value_type": "CODED",
+    "allowed_values": [
+      "IA1",
+      "IA2",
+      "IB1",
+      "IB2",
+      "IB3",
+      "IIA1",
+      "IIA2",
+      "IIB",
+      "IIIC1",
+      "IIIC2",
+      "III",
+      "IVA",
+      "IVB",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "lvsi",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "fertility_sparing_desired",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "conservative_surgery_criteria_met",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "medically_operable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "positive_nodes",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "positive_margin",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "positive_parametrium",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "distant_metastases",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "prior_pelvic_rt",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "recurrence_resectable_or_local_treatable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "pd_l1_positive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "msi_h_dmmr_or_tmbh",
+    "value_type": "BOOLEAN"
+  }
+]

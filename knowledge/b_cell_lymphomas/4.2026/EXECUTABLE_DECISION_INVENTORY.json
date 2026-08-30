@@ -1,0 +1,6589 @@
+[
+  {
+    "decision_id": "bcell_scope",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "B-cell lymphoma?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "diag",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_diagnosis",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "B-cell lymphoma diagnosis confirmed?",
+    "input_fact_ids": [
+      "diagnosis_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcell_workup_path",
+      "bcell_workup_stage"
+    ],
+    "internal_transfer_targets": [
+      "sub_foll",
+      "workup"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "diag",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_follicular",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "FOLLICULAR subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "foll_entry",
+      "sub_mzlg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_foll",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_mzl_gastric",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "MZL_GASTRIC subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzlg_entry",
+      "sub_mzlng"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_mzlg",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_mzl_nongastric",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "MZL_NONGASTRIC subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzlng_entry",
+      "sub_nmzl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_mzlng",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_mzl_nodal",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "MZL_NODAL subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "nmzl_entry",
+      "sub_smzl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_nmzl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_mzl_splenic",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "MZL_SPLENIC subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "smzl_entry",
+      "sub_mcl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_smzl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_mantle_cell",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "MANTLE_CELL subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mcl_entry",
+      "sub_dlbcl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_mcl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_dlbcl",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "DLBCL subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_cutaneous_check",
+      "sub_pmbl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_dlbcl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_pmbl",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "PMBL subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "pmbl_entry",
+      "sub_trans"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_pmbl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_transformed_dlbcl",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "TRANSFORMED_DLBCL subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "trans_entry",
+      "sub_hgbl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_trans",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_high_grade_b_cell",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "HIGH_GRADE_B_CELL subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "hgbl_entry",
+      "sub_burk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_hgbl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_burkitt",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "BURKITT subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "burk_entry",
+      "sub_hiv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_burk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_hiv_related_b_cell",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "HIV_RELATED_B_CELL subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "hiv_entry",
+      "sub_blast"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_hiv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_lymphoblastic_lymphoma",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "LYMPHOBLASTIC_LYMPHOMA subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "blast_entry",
+      "sub_ptld"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_blast",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_subtype_ptld",
+    "source_section": "DIAG-1",
+    "source_page_label": "DIAG-1",
+    "source_anchor": "DIAG-1:pages:14",
+    "clinical_question": "PTLD subtype?",
+    "input_fact_ids": [
+      "lymphoma_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "ptld_entry",
+      "need_subtype"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_ptld",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_pediatric_type",
+    "source_section": "FOLL-1",
+    "source_page_label": "FOLL-1",
+    "source_anchor": "FOLL-1:pages:15",
+    "clinical_question": "Pediatric-type follicular lymphoma?",
+    "input_fact_ids": [
+      "pediatric_type_follicular"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "foll_pediatric",
+      "foll_care_rr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_care_rr",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "Current relapsed/refractory/progressive episode?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "foll_rr_line",
+      "foll_care_response"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_care_rr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_care_response",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "Current response assessment?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "foll_response",
+      "foll_care_surv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_care_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_care_surveillance",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "Surveillance episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "foll_surv",
+      "foll_stage_limited"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_care_surv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_stage_limited",
+    "source_section": "FOLL-2",
+    "source_page_label": "FOLL-2",
+    "source_anchor": "FOLL-2:pages:16",
+    "clinical_question": "Stage I/II?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "foll_limited_contig",
+      "foll_stage_advanced"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_stage_limited",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_stage_advanced",
+    "source_section": "FOLL-2",
+    "source_page_label": "FOLL-2",
+    "source_anchor": "FOLL-2:pages:16",
+    "clinical_question": "Stage III/IV?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "foll_adv_indication",
+      "foll_need_stage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_stage_advanced",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_limited_contiguous",
+    "source_section": "FOLL-3",
+    "source_page_label": "FOLL-3",
+    "source_anchor": "FOLL-3:pages:17",
+    "clinical_question": "Stage I or contiguous stage II?",
+    "input_fact_ids": [
+      "limited_contiguous"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_anti_cd20_chemo",
+      "foll_isrt",
+      "foll_isrt_anti_cd20",
+      "foll_limited_observe"
+    ],
+    "internal_transfer_targets": [
+      "foll_limited_contig_action",
+      "foll_limited_noncontig"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_limited_contig",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_noncontiguous_indication",
+    "source_section": "FOLL-3",
+    "source_page_label": "FOLL-3",
+    "source_anchor": "FOLL-3:pages:17",
+    "clinical_question": "Treatment indication present?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_active_surveillance",
+      "foll_noncontig_anti_cd20"
+    ],
+    "internal_transfer_targets": [
+      "foll_limited_noncontig_treat",
+      "foll_limited_observe"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_limited_noncontig",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_advanced_treatment_indication",
+    "source_section": "FOLL-4",
+    "source_page_label": "FOLL-4",
+    "source_anchor": "FOLL-4:pages:18",
+    "clinical_question": "Advanced follicular lymphoma treatment indication present?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_adv_active_surv",
+      "foll_br",
+      "foll_chop_anti_cd20",
+      "foll_cvp_anti_cd20",
+      "foll_infirm_ritux",
+      "foll_len_obin",
+      "foll_r2",
+      "foll_ritux_lowburden"
+    ],
+    "internal_transfer_targets": [
+      "foll_first_opts",
+      "foll_adv_observe"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_adv_indication",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_response_transformation",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "Histologic transformation confirmed?",
+    "input_fact_ids": [
+      "histologic_transformation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "trans_entry",
+      "foll_response_cr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_response_cr",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "CR after therapy?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "foll_surv",
+      "foll_response_pr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_response_cr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_response_pr",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "PR after therapy?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "foll_surv",
+      "foll_response_prog"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_response_pr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_response_nr_progressive",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "NR/progressive disease?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "foll_rr_line",
+      "foll_need_response"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_response_prog",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_rr_line",
+    "source_section": "FOLL-5",
+    "source_page_label": "FOLL-5",
+    "source_anchor": "FOLL-5:pages:19",
+    "clinical_question": "Third-line or later follicular lymphoma?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_2_br",
+      "foll_2_chop",
+      "foll_2_cvp",
+      "foll_2_len",
+      "foll_2_r2_epi",
+      "foll_2_r2_tafa",
+      "foll_3_allohct",
+      "foll_3_cart",
+      "foll_3_epcor",
+      "foll_3_mosun",
+      "foll_3_zanu_obin"
+    ],
+    "internal_transfer_targets": [
+      "foll_third",
+      "foll_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_rr_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "foll_pediatric_localized",
+    "source_section": "FOLL-6",
+    "source_page_label": "FOLL-6",
+    "source_anchor": "FOLL-6:pages:20",
+    "clinical_question": "Localized stage I/II pediatric-type follicular lymphoma?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_ped_excision",
+      "foll_ped_isrt",
+      "foll_ped_rchop"
+    ],
+    "internal_transfer_targets": [
+      "foll_ped_action",
+      "foll_ped_out"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "foll_pediatric",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_response_phase",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Current response assessment after H. pylori/local therapy?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzlg_resp_hp",
+      "mzlg_rr_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_relapse",
+    "source_section": "EMZLG-6",
+    "source_page_label": "EMZLG-6",
+    "source_anchor": "EMZLG-6:pages:34",
+    "clinical_question": "Relapsed/progressive gastric MZL?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzlg_recur_pattern",
+      "mzlg_stage_limited"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_rr_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_stage",
+    "source_section": "EMZLG-2",
+    "source_page_label": "EMZLG-2",
+    "source_anchor": "EMZLG-2:pages:30",
+    "clinical_question": "Localized gastric MZL?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzlg_hp",
+      "mzlg_stage_adv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_stage_limited",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_advanced_confirm",
+    "source_section": "EMZLG-3",
+    "source_page_label": "EMZLG-3",
+    "source_anchor": "EMZLG-3:pages:31",
+    "clinical_question": "Advanced gastric MZL?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzlg_adv_ind",
+      "mzlg_need_stage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_stage_adv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_h_pylori",
+    "source_section": "EMZLG-2",
+    "source_page_label": "EMZLG-2",
+    "source_anchor": "EMZLG-2:pages:30",
+    "clinical_question": "H. pylori positive?",
+    "input_fact_ids": [
+      "h_pylori_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_hpneg_isrt",
+      "mzlg_hpneg_ritux"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_t1118",
+      "mzlg_hpneg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_hp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_t1118",
+    "source_section": "EMZLG-2",
+    "source_page_label": "EMZLG-2",
+    "source_anchor": "EMZLG-2:pages:30",
+    "clinical_question": "t(11;18) positive?",
+    "input_fact_ids": [
+      "malt1_t1118_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_antibiotics",
+      "mzlg_tpos_abx",
+      "mzlg_tpos_isrt",
+      "mzlg_tpos_ritux"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_hp_tpos",
+      "mzlg_abx"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_t1118",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_advanced_indication",
+    "source_section": "EMZLG-3",
+    "source_page_label": "EMZLG-3",
+    "source_anchor": "EMZLG-3:pages:31",
+    "clinical_question": "Advanced gastric MZL treatment indication?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_br",
+      "mzl_r2",
+      "mzl_rchop",
+      "mzl_rcvp",
+      "mzl_ritux",
+      "mzlg_adv_watch"
+    ],
+    "internal_transfer_targets": [
+      "mzl_first_systemic",
+      "mzlg_adv_surv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_adv_ind",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_response_hp",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "H. pylori remains positive?",
+    "input_fact_ids": [
+      "h_pylori_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzlg_resp_lymph_poshp",
+      "mzlg_resp_lymph_neghp"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_resp_hp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_response_lymphoma_poshp",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Lymphoma persists?",
+    "input_fact_ids": [
+      "lymphoma_present"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_hp_only_abx"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_resp_both_pos",
+      "mzlg_hp_only"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_resp_lymph_poshp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_response_lymphoma_neghp",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Lymphoma persists?",
+    "input_fact_ids": [
+      "lymphoma_present"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_observe"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_lymph_only",
+      "mzlg_both_neg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_resp_lymph_neghp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_persistent_symptoms",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Symptomatic/progressive persistent lymphoma?",
+    "input_fact_ids": [
+      "symptomatic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_persist_isrt",
+      "mzlg_second_abx",
+      "mzlg_second_abx2"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_both_pos_treat",
+      "mzlg_both_pos_abx"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_resp_both_pos",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_residual_lymphoma_symptoms",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Symptomatic/progressive residual lymphoma?",
+    "input_fact_ids": [
+      "symptomatic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_repeat_scope",
+      "mzlg_resid_isrt",
+      "mzlg_stable_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_lymph_only_isrt",
+      "mzlg_lymph_only_watch"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_lymph_only",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlg_recurrence_pattern",
+    "source_section": "EMZLG-6",
+    "source_page_label": "EMZLG-6",
+    "source_anchor": "EMZLG-6:pages:34",
+    "clinical_question": "Local gastric MZL recurrence?",
+    "input_fact_ids": [
+      "recurrence_pattern"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_rec_isrt",
+      "mzlg_rec_mzl_systemic",
+      "mzlg_rec_systemic"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_local_recur",
+      "mzlg_systemic_recur"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlg_recur_pattern",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzl_rr_line",
+    "source_section": "MZL-A",
+    "source_page_label": "MZL-A",
+    "source_anchor": "MZL-A:pages:46,47,48,49",
+    "clinical_question": "Third-line or later MZL?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_2_br",
+      "mzl_2_r2",
+      "mzl_2_rchop",
+      "mzl_2_rcvp",
+      "mzl_2_zanu",
+      "mzl_3_allohct",
+      "mzl_3_cart",
+      "mzl_3_unused"
+    ],
+    "internal_transfer_targets": [
+      "mzl_third",
+      "mzl_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzl_rr_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlng_rr",
+    "source_section": "EMZLNG-3",
+    "source_page_label": "EMZLNG-3",
+    "source_anchor": "EMZLNG-3:pages:38",
+    "clinical_question": "Relapsed/progressive nongastric extranodal MZL?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzl_rr_line",
+      "mzlng_stage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlng_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlng_stage",
+    "source_section": "EMZLNG-2",
+    "source_page_label": "EMZLNG-2",
+    "source_anchor": "EMZLNG-2:pages:37",
+    "clinical_question": "Localized stage IE/contiguous IIE?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlng_isrt",
+      "mzlng_ritux",
+      "mzlng_surgery",
+      "mzlng_watch"
+    ],
+    "internal_transfer_targets": [
+      "mzlng_local",
+      "mzlng_advanced"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlng_stage",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mzlng_advanced_indication",
+    "source_section": "EMZLNG-2",
+    "source_page_label": "EMZLNG-2",
+    "source_anchor": "EMZLNG-2:pages:37",
+    "clinical_question": "Advanced/multifocal nongastric extranodal MZL treatment indication?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_br",
+      "mzl_r2",
+      "mzl_rchop",
+      "mzl_rcvp",
+      "mzl_ritux",
+      "mzlng_adv_watch"
+    ],
+    "internal_transfer_targets": [
+      "mzl_first_systemic",
+      "mzlng_watch_adv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mzlng_advanced",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_rr",
+    "source_section": "NMZL-4",
+    "source_page_label": "NMZL-4",
+    "source_anchor": "NMZL-4:pages:42",
+    "clinical_question": "Relapsed/progressive nodal MZL?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "nmzl_trans_check",
+      "nmzl_response_phase"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_transformation_rr",
+    "source_section": "NMZL-4",
+    "source_page_label": "NMZL-4",
+    "source_anchor": "NMZL-4:pages:42",
+    "clinical_question": "Histologic transformation confirmed?",
+    "input_fact_ids": [
+      "histologic_transformation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "trans_entry",
+      "mzl_rr_line"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_trans_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_response_phase",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "Response assessment?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "nmzl_response",
+      "nmzl_stage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_response_phase",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_stage",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "Stage I/II?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "nmzl_limited_contig",
+      "nmzl_adv_confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_stage",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_limited_contiguous",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "Stage I or contiguous stage II?",
+    "input_fact_ids": [
+      "limited_contiguous"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "nmzl_isrt",
+      "nmzl_isrt_sys",
+      "nmzl_sys"
+    ],
+    "internal_transfer_targets": [
+      "nmzl_local_contig",
+      "nmzl_noncontig_ind"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_limited_contig",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_noncontiguous_indication",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "Treatment indication present?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_br",
+      "mzl_r2",
+      "mzl_rchop",
+      "mzl_rcvp",
+      "mzl_ritux",
+      "nmzl_noncontig_watchopt"
+    ],
+    "internal_transfer_targets": [
+      "mzl_first_systemic",
+      "nmzl_noncontig_watch"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_noncontig_ind",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_stage_advanced",
+    "source_section": "NMZL-3",
+    "source_page_label": "NMZL-3",
+    "source_anchor": "NMZL-3:pages:41",
+    "clinical_question": "Stage III/IV?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "nmzl_adv_ind",
+      "nmzl_need_stage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_adv_confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_advanced_indication",
+    "source_section": "NMZL-3",
+    "source_page_label": "NMZL-3",
+    "source_anchor": "NMZL-3:pages:41",
+    "clinical_question": "Treatment indication present?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_br",
+      "mzl_r2",
+      "mzl_rchop",
+      "mzl_rcvp",
+      "mzl_ritux",
+      "nmzl_adv_watchopt"
+    ],
+    "internal_transfer_targets": [
+      "mzl_first_systemic",
+      "nmzl_adv_watch"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_adv_ind",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_response_transformation",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "Histologic transformation?",
+    "input_fact_ids": [
+      "histologic_transformation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "trans_entry",
+      "nmzl_resp_cr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_response_crpr",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "CR or PR?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "nmzl_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "nmzl_surv",
+      "nmzl_resp_nr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_resp_cr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmzl_response_nr",
+    "source_section": "NMZL-4",
+    "source_page_label": "NMZL-4",
+    "source_anchor": "NMZL-4:pages:42",
+    "clinical_question": "NR/progressive?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mzl_rr_line",
+      "nmzl_need_resp"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmzl_resp_nr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "smzl_rr",
+    "source_section": "SMZL-3",
+    "source_page_label": "SMZL-3",
+    "source_anchor": "SMZL-3:pages:45",
+    "clinical_question": "Relapsed/progressive splenic MZL?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "smzl_rr_ind",
+      "smzl_asym_no_spleen"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "smzl_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "smzl_asymptomatic",
+    "source_section": "SMZL-2",
+    "source_page_label": "SMZL-2",
+    "source_anchor": "SMZL-2:pages:44",
+    "clinical_question": "Asymptomatic without progressive cytopenia and no splenomegaly?",
+    "input_fact_ids": [
+      "progressive_cytopenia",
+      "splenomegaly",
+      "symptomatic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "smzl_followopt"
+    ],
+    "internal_transfer_targets": [
+      "smzl_follow",
+      "smzl_spleen"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "smzl_asym_no_spleen",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "smzl_splenomegaly",
+    "source_section": "SMZL-2",
+    "source_page_label": "SMZL-2",
+    "source_anchor": "SMZL-2:pages:44",
+    "clinical_question": "Splenomegaly present?",
+    "input_fact_ids": [
+      "splenomegaly"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "smzl_hcv",
+      "smzl_need_state"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "smzl_spleen",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "smzl_hepatitis_c",
+    "source_section": "SMZL-2",
+    "source_page_label": "SMZL-2",
+    "source_anchor": "SMZL-2:pages:44",
+    "clinical_question": "Hepatitis C positive?",
+    "input_fact_ids": [
+      "hepatitis_c_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "smzl_hcv_eligible",
+      "smzl_symptom"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "smzl_hcv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "smzl_hcv_treatment_eligible",
+    "source_section": "SMZL-2",
+    "source_page_label": "SMZL-2",
+    "source_anchor": "SMZL-2:pages:44",
+    "clinical_question": "Eligible for hepatitis C treatment?",
+    "input_fact_ids": [
+      "hepatitis_treatment_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "smzl_hcv_therapy"
+    ],
+    "internal_transfer_targets": [
+      "smzl_hcv_treat",
+      "smzl_symptom"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "smzl_hcv_eligible",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "smzl_symptoms",
+    "source_section": "SMZL-2",
+    "source_page_label": "SMZL-2",
+    "source_anchor": "SMZL-2:pages:44",
+    "clinical_question": "Symptoms/clinically significant disease present?",
+    "input_fact_ids": [
+      "symptomatic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "smzl_followopt",
+      "smzl_ritux",
+      "smzl_splenectomy"
+    ],
+    "internal_transfer_targets": [
+      "smzl_treat",
+      "smzl_follow"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "smzl_symptom",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "smzl_recurrence_indication",
+    "source_section": "SMZL-3",
+    "source_page_label": "SMZL-3",
+    "source_anchor": "SMZL-3:pages:45",
+    "clinical_question": "Treatment indication at recurrence?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "smzl_followopt"
+    ],
+    "internal_transfer_targets": [
+      "mzl_rr_line",
+      "smzl_follow"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "smzl_rr_ind",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_rr",
+    "source_section": "MANT-6A",
+    "source_page_label": "MANT-6A",
+    "source_anchor": "MANT-6A:pages:55",
+    "clinical_question": "Relapsed/refractory/progressive MCL?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mcl_rr_prior_cbtki",
+      "mcl_response_phase"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_response_phase",
+    "source_section": "MANT-2",
+    "source_page_label": "MANT-2",
+    "source_anchor": "MANT-2:pages:51",
+    "clinical_question": "Response assessment?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mcl_response",
+      "mcl_stage_limited"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_response_phase",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_stage",
+    "source_section": "MANT-1",
+    "source_page_label": "MANT-1",
+    "source_anchor": "MANT-1:pages:50",
+    "clinical_question": "Stage I/II?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mcl_limited_contig",
+      "mcl_advanced"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_stage_limited",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_limited_contiguous",
+    "source_section": "MANT-2",
+    "source_page_label": "MANT-2",
+    "source_anchor": "MANT-2:pages:51",
+    "clinical_question": "Stage I/II nonbulky contiguous?",
+    "input_fact_ids": [
+      "bulky_disease",
+      "limited_contiguous"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_isrt",
+      "mcl_less_aggressive"
+    ],
+    "internal_transfer_targets": [
+      "mcl_limited_action",
+      "mcl_limited_noncontig"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_limited_contig",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_noncontiguous_indication",
+    "source_section": "MANT-2",
+    "source_page_label": "MANT-2",
+    "source_anchor": "MANT-2:pages:51",
+    "clinical_question": "Symptomatic or other treatment indication?",
+    "input_fact_ids": [
+      "indications_for_treatment"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_less_aggressive_regimens",
+      "mcl_watch"
+    ],
+    "internal_transfer_targets": [
+      "mcl_less_aggressive_action",
+      "mcl_local_watch"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_limited_noncontig",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_indolent",
+    "source_section": "MANT-3",
+    "source_page_label": "MANT-3",
+    "source_anchor": "MANT-3:pages:52",
+    "clinical_question": "Asymptomatic indolent MCL without treatment indication?",
+    "input_fact_ids": [
+      "indications_for_treatment",
+      "indolent_mcl"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_adv_watchopt"
+    ],
+    "internal_transfer_targets": [
+      "mcl_adv_watch",
+      "mcl_tp53"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_advanced",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_tp53",
+    "source_section": "MANT-3",
+    "source_page_label": "MANT-3",
+    "source_anchor": "MANT-3:pages:52",
+    "clinical_question": "TP53 mutated?",
+    "input_fact_ids": [
+      "tp53_mutated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_tp53_induction",
+      "mcl_tp53_trial"
+    ],
+    "internal_transfer_targets": [
+      "mcl_tp53_action",
+      "mcl_aggressive_fit"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_tp53",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_aggressive_candidate",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "Suitable for aggressive induction?",
+    "input_fact_ids": [
+      "aggressive_induction_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_aggr_regimen",
+      "mcl_aggr_trial",
+      "mcl_less_regimen_adv"
+    ],
+    "internal_transfer_targets": [
+      "mcl_aggressive",
+      "mcl_less_aggressive_adv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_aggressive_fit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_response_cr",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "Complete response?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mcl_cr_strategy",
+      "mcl_resp_pr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_mrd_umrd",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "MRD status after aggressive induction available?",
+    "input_fact_ids": [
+      "mcl_mrd_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_umrd_maintenance"
+    ],
+    "internal_transfer_targets": [
+      "mcl_umrd",
+      "mcl_mrd_detect"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_cr_mrd",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_mrd_dmrd",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "Detectable MRD at 10^-6?",
+    "input_fact_ids": [
+      "mcl_mrd_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_dmrd_ascr",
+      "mcl_dmrd_maintenance",
+      "mcl_ritux_maintenance"
+    ],
+    "internal_transfer_targets": [
+      "mcl_dmrd",
+      "mcl_cr_maintenance"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_mrd_detect",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_response_pr",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "Partial response?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mcl_pr_vgood",
+      "mcl_resp_prog"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_resp_pr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_vgood_pr",
+    "source_section": "MANT-6A",
+    "source_page_label": "MANT-6A",
+    "source_anchor": "MANT-6A:pages:55",
+    "clinical_question": "Very good PR?",
+    "input_fact_ids": [
+      "very_good_pr"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_vgood_watch"
+    ],
+    "internal_transfer_targets": [
+      "mcl_pr_watch",
+      "mcl_rr_prior_cbtki"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_pr_vgood",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_response_progressive",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "No response/progressive?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mcl_rr_prior_cbtki",
+      "mcl_need_resp"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_resp_prog",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_prior_cbtki",
+    "source_section": "MANT-6A",
+    "source_page_label": "MANT-6A",
+    "source_anchor": "MANT-6A:pages:55",
+    "clinical_question": "Previously exposed to a covalent BTKi?",
+    "input_fact_ids": [
+      "prior_cbtki"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_rr_cart",
+      "mcl_rr_cbtki",
+      "mcl_rr_continuous",
+      "mcl_rr_fixed",
+      "mcl_rr_isrt",
+      "mcl_rr_noncbtki"
+    ],
+    "internal_transfer_targets": [
+      "mcl_rr_interval",
+      "mcl_rr_late"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_rr_prior_cbtki",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_cbtki_interval",
+    "source_section": "MANT-6A",
+    "source_page_label": "MANT-6A",
+    "source_anchor": "MANT-6A:pages:55",
+    "clinical_question": "Relapse <24 months after prior covalent BTKi or progression on it?",
+    "input_fact_ids": [
+      "cbtki_relapse_interval_months"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_early_bispecific",
+      "mcl_early_cart",
+      "mcl_early_isrt",
+      "mcl_early_noncbtki",
+      "mcl_early_other",
+      "mcl_rr_cart",
+      "mcl_rr_cbtki",
+      "mcl_rr_continuous",
+      "mcl_rr_fixed",
+      "mcl_rr_isrt",
+      "mcl_rr_noncbtki"
+    ],
+    "internal_transfer_targets": [
+      "mcl_rr_early",
+      "mcl_rr_late"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_rr_interval",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_rr",
+    "source_section": "BCEL-7",
+    "source_page_label": "BCEL-7",
+    "source_anchor": "BCEL-7:pages:68",
+    "clinical_question": "Current primary refractory/relapsed DLBCL?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_rr_line_check",
+      "dlbcl_response_phase"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_rr_line",
+    "source_section": "BCEL-9",
+    "source_page_label": "BCEL-9",
+    "source_anchor": "BCEL-9:pages:70",
+    "clinical_question": "Relapse #2 or later?",
+    "input_fact_ids": [
+      "treatment_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_3_allohct",
+      "dlbcl_3_cart",
+      "dlbcl_3_epcor",
+      "dlbcl_3_glofit",
+      "dlbcl_3_lonca",
+      "dlbcl_3_selinexor",
+      "dlbcl_post_ascr_bispecific",
+      "dlbcl_post_ascr_selinexor"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_third_plus",
+      "dlbcl_relapse_interval"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_rr_line_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_response_phase",
+    "source_section": "BCEL-4",
+    "source_page_label": "BCEL-4",
+    "source_anchor": "BCEL-4:pages:65",
+    "clinical_question": "Response assessment after first-line therapy?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_resp_stage",
+      "dlbcl_stage_limited"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_response_phase",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_stage",
+    "source_section": "BCEL-2",
+    "source_page_label": "BCEL-2",
+    "source_anchor": "BCEL-2:pages:63",
+    "clinical_question": "Stage I/II?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_limited_bulky",
+      "dlbcl_advanced_confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_stage_limited",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_bulky",
+    "source_section": "BCEL-3",
+    "source_page_label": "BCEL-3",
+    "source_anchor": "BCEL-3:pages:64",
+    "clinical_question": "Bulky (\u22657.5 cm) or extensive mesenteric disease?",
+    "input_fact_ids": [
+      "bulky_disease"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_bulky_rchop"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_bulky_first",
+      "dlbcl_smipi"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_limited_bulky",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_smipi",
+    "source_section": "BCEL-3",
+    "source_page_label": "BCEL-3",
+    "source_anchor": "BCEL-3:pages:64",
+    "clinical_question": "smIPI >1?",
+    "input_fact_ids": [
+      "smipi_gt1"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_cns_integrated",
+      "dlbcl_da_epoch_r",
+      "dlbcl_frail_regimen",
+      "dlbcl_pola_rchp",
+      "dlbcl_poorlv_regimen",
+      "dlbcl_rchop3",
+      "dlbcl_rchop6"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_full_first",
+      "dlbcl_short_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_smipi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_advanced_stage",
+    "source_section": "BCEL-3",
+    "source_page_label": "BCEL-3",
+    "source_anchor": "BCEL-3:pages:64",
+    "clinical_question": "Stage III/IV or extensive stage II?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_cns_integrated",
+      "dlbcl_da_epoch_r",
+      "dlbcl_frail_regimen",
+      "dlbcl_pola_rchp",
+      "dlbcl_poorlv_regimen",
+      "dlbcl_rchop6"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_full_first",
+      "dlbcl_need_stage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_advanced_confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_response_limited_nonbulky",
+    "source_section": "BCEL-4",
+    "source_page_label": "BCEL-4",
+    "source_anchor": "BCEL-4:pages:65",
+    "clinical_question": "Was the initial pathway limited nonbulky smIPI 0\u20131?",
+    "input_fact_ids": [
+      "bulky_disease",
+      "smipi_gt1",
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_limited_pet",
+      "dlbcl_resp_bulky_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_resp_stage",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_response_bulky",
+    "source_section": "BCEL-5",
+    "source_page_label": "BCEL-5",
+    "source_anchor": "BCEL-5:pages:66",
+    "clinical_question": "Was limited-stage disease bulky?",
+    "input_fact_ids": [
+      "bulky_disease",
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_bulky_pet",
+      "dlbcl_adv_pet"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_resp_bulky_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_limited_pet_cr",
+    "source_section": "BCEL-4",
+    "source_page_label": "BCEL-4",
+    "source_anchor": "BCEL-4:pages:65",
+    "clinical_question": "PET 5-PS 1\u20133?",
+    "input_fact_ids": [
+      "pet_5ps"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_isrt_after3",
+      "dlbcl_rchop1_more"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_limited_cr",
+      "dlbcl_limited_pet4"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_limited_pet",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_limited_pet4",
+    "source_section": "BCEL-4",
+    "source_page_label": "BCEL-4",
+    "source_anchor": "BCEL-4:pages:65",
+    "clinical_question": "PET 5-PS 4?",
+    "input_fact_ids": [
+      "pet_5ps"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_isrt_pr",
+      "dlbcl_rchop_total46"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_limited_pr",
+      "dlbcl_pet5_biopsy"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_limited_pet4",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_bulky_pet_cr",
+    "source_section": "BCEL-5",
+    "source_page_label": "BCEL-5",
+    "source_anchor": "BCEL-5:pages:66",
+    "clinical_question": "PET 5-PS 1\u20133 after limited bulky therapy?",
+    "input_fact_ids": [
+      "pet_5ps"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_bulky_complete",
+      "dlbcl_bulky_isrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_bulky_cr",
+      "dlbcl_bulky_pet4"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_bulky_pet",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_bulky_pet4",
+    "source_section": "BCEL-5",
+    "source_page_label": "BCEL-5",
+    "source_anchor": "BCEL-5:pages:66",
+    "clinical_question": "PET 5-PS 4?",
+    "input_fact_ids": [
+      "pet_5ps"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_bulky_pr_complete",
+      "dlbcl_bulky_pr_isrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_bulky_pr",
+      "dlbcl_pet5_biopsy"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_bulky_pet4",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_advanced_response",
+    "source_section": "BCEL-6",
+    "source_page_label": "BCEL-6",
+    "source_anchor": "BCEL-6:pages:67",
+    "clinical_question": "CR/PR at interim or end treatment?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_continue6",
+      "dlbcl_selected_isrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_adv_response",
+      "dlbcl_pet5_biopsy"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_adv_pet",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_residual_biopsy",
+    "source_section": "BCEL-4",
+    "source_page_label": "BCEL-4",
+    "source_anchor": "BCEL-4:pages:65",
+    "clinical_question": "Residual/progressive PET-positive disease biopsy positive?",
+    "input_fact_ids": [
+      "biopsy_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_negative_biopsy_follow"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_relapse_interval",
+      "dlbcl_biopsy_negative"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_pet5_biopsy",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_relapse_interval",
+    "source_section": "BCEL-7",
+    "source_page_label": "BCEL-7",
+    "source_anchor": "BCEL-7:pages:68",
+    "clinical_question": "Primary refractory or relapse <12 months?",
+    "input_fact_ids": [
+      "relapse_interval_months"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_early_cart_candidate",
+      "dlbcl_late_transplant_intent"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_relapse_interval",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_early_cart_candidate",
+    "source_section": "BCEL-7",
+    "source_page_label": "BCEL-7",
+    "source_anchor": "BCEL-7:pages:68",
+    "clinical_question": "CAR T-cell candidate?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_axi",
+      "dlbcl_bridge",
+      "dlbcl_early_gemox_epi",
+      "dlbcl_early_gemox_glo",
+      "dlbcl_early_pallrt",
+      "dlbcl_early_pola",
+      "dlbcl_early_tafa_len",
+      "dlbcl_early_trial",
+      "dlbcl_liso"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_early_cart",
+      "dlbcl_early_noncart"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_early_cart_candidate",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_late_transplant_intent",
+    "source_section": "BCEL-8",
+    "source_page_label": "BCEL-8",
+    "source_anchor": "BCEL-8:pages:69",
+    "clinical_question": "Intention/eligibility to proceed to transplant?",
+    "input_fact_ids": [
+      "transplant_candidate",
+      "transplant_intent"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_dha",
+      "dlbcl_gdp",
+      "dlbcl_hdt_ascr",
+      "dlbcl_ice",
+      "dlbcl_late_liso",
+      "dlbcl_late_nontx_regimens"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_late_salvage",
+      "dlbcl_late_nontransplant"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_late_transplant_intent",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_primary_cutaneous_leg_type",
+    "source_section": "BCEL-10",
+    "source_page_label": "BCEL-10",
+    "source_anchor": "BCEL-10:pages:71",
+    "clinical_question": "Primary cutaneous DLBCL, leg type?",
+    "input_fact_ids": [
+      "primary_cutaneous_leg_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dlbcl_cutaneous_local",
+      "dlbcl_entry"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_cutaneous_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "dlbcl_cutaneous_localized",
+    "source_section": "BCEL-10",
+    "source_page_label": "BCEL-10",
+    "source_anchor": "BCEL-10:pages:71",
+    "clinical_question": "Localized cutaneous disease?",
+    "input_fact_ids": [
+      "localized_disease"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcdlbcl_isrt",
+      "pcdlbcl_rchop",
+      "pcdlbcl_systemic"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_cutaneous_local_action",
+      "dlbcl_cutaneous_general"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dlbcl_cutaneous_local",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pmbl_response_phase",
+    "source_section": "PMBL-1",
+    "source_page_label": "PMBL-1",
+    "source_anchor": "PMBL-1:pages:84",
+    "clinical_question": "Response assessment after PMBL first-line therapy?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "pmbl_pet",
+      "pmbl_rr_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pmbl_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pmbl_rr",
+    "source_section": "PMBL-1",
+    "source_page_label": "PMBL-1",
+    "source_anchor": "PMBL-1:pages:84",
+    "clinical_question": "Relapsed/refractory PMBL?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pmbl_da_epoch_r",
+      "pmbl_dlbcl_rr",
+      "pmbl_nivo_bv",
+      "pmbl_pembro",
+      "pmbl_rchop14",
+      "pmbl_rchop21"
+    ],
+    "internal_transfer_targets": [
+      "pmbl_rr",
+      "pmbl_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pmbl_rr_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pmbl_pet_cr",
+    "source_section": "PMBL-1",
+    "source_page_label": "PMBL-1",
+    "source_anchor": "PMBL-1:pages:84",
+    "clinical_question": "PET 5-PS 1\u20133 complete response?",
+    "input_fact_ids": [
+      "pet_5ps"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pmbl_follow"
+    ],
+    "internal_transfer_targets": [
+      "pmbl_surv",
+      "pmbl_pet4"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pmbl_pet",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pmbl_pet4",
+    "source_section": "PMBL-1",
+    "source_page_label": "PMBL-1",
+    "source_anchor": "PMBL-1:pages:84",
+    "clinical_question": "PET 5-PS 4 partial response?",
+    "input_fact_ids": [
+      "pet_5ps"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pmbl_pr_isrt",
+      "pmbl_pr_watch"
+    ],
+    "internal_transfer_targets": [
+      "pmbl_pr",
+      "pmbl_biopsy"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pmbl_pet4",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pmbl_residual_biopsy",
+    "source_section": "PMBL-1",
+    "source_page_label": "PMBL-1",
+    "source_anchor": "PMBL-1:pages:84",
+    "clinical_question": "PET 5 residual/progressive mass biopsy positive?",
+    "input_fact_ids": [
+      "biopsy_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pmbl_dlbcl_rr",
+      "pmbl_follow",
+      "pmbl_nivo_bv",
+      "pmbl_pembro"
+    ],
+    "internal_transfer_targets": [
+      "pmbl_rr",
+      "pmbl_surv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pmbl_biopsy",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "trans_response_phase",
+    "source_section": "HTBCEL-1",
+    "source_page_label": "HTBCEL-1",
+    "source_anchor": "HTBCEL-1:pages:86",
+    "clinical_question": "Current transformed-lymphoma response assessment?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "trans_response",
+      "trans_prior_lines_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "trans_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "trans_prior_lines",
+    "source_section": "HTBCEL-1",
+    "source_page_label": "HTBCEL-1",
+    "source_anchor": "HTBCEL-1:pages:86",
+    "clinical_question": "Transformation after multiple prior indolent-lymphoma lines?",
+    "input_fact_ids": [
+      "prior_indolent_lines"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "trans_multi",
+      "trans_doublehit_bcl2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "trans_prior_lines_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "trans_double_hit",
+    "source_section": "HTBCEL-1",
+    "source_page_label": "HTBCEL-1",
+    "source_anchor": "HTBCEL-1:pages:86",
+    "clinical_question": "MYC + BCL2 rearranged?",
+    "input_fact_ids": [
+      "hgbcl_bcl2_rearranged",
+      "myc_rearranged"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_anthracycline",
+      "trans_isrt"
+    ],
+    "internal_transfer_targets": [
+      "hgbl_entry",
+      "trans_minimal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "trans_doublehit_bcl2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "trans_multi_candidate",
+    "source_section": "HTBCEL-3",
+    "source_page_label": "HTBCEL-3",
+    "source_anchor": "HTBCEL-3:pages:88",
+    "clinical_question": "Candidate for additional active therapy?",
+    "input_fact_ids": [
+      "systemic_therapy_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_allohct",
+      "trans_bscopt",
+      "trans_cart",
+      "trans_rt",
+      "trans_sys",
+      "trans_trial"
+    ],
+    "internal_transfer_targets": [
+      "trans_multi_treat",
+      "trans_bsc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "trans_multi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "trans_response_cr",
+    "source_section": "HTBCEL-2",
+    "source_page_label": "HTBCEL-2",
+    "source_anchor": "HTBCEL-2:pages:87",
+    "clinical_question": "Transformed lymphoma complete response?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_rebiopsy",
+      "trans_salvage_cart",
+      "trans_surv"
+    ],
+    "internal_transfer_targets": [
+      "trans_cr",
+      "trans_noncr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "trans_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hgbl_myc_bcl2",
+    "source_section": "HGBL-1",
+    "source_page_label": "HGBL-1",
+    "source_anchor": "HGBL-1:pages:91",
+    "clinical_question": "HGBL with MYC + BCL2 rearrangements?",
+    "input_fact_ids": [
+      "hgbcl_bcl2_rearranged",
+      "myc_rearranged"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hgbl_da_epoch_r",
+      "hgbl_isrt",
+      "hgbl_mini_rchop",
+      "hgbl_rchop_lowrisk",
+      "hgbl_trial"
+    ],
+    "internal_transfer_targets": [
+      "hgbl_doublehit",
+      "hgbl_bcl6"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hgbl_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "burk_rr",
+    "source_section": "BURK-3",
+    "source_page_label": "BURK-3",
+    "source_anchor": "BURK-3:pages:95",
+    "clinical_question": "Relapsed/refractory Burkitt lymphoma?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "burk_rr_interval",
+      "burk_lowrisk_all"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "burk_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "burk_ldh",
+    "source_section": "BURK-2",
+    "source_page_label": "BURK-2",
+    "source_anchor": "BURK-2:pages:94",
+    "clinical_question": "Normal LDH?",
+    "input_fact_ids": [
+      "burkitt_ldh_normal"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "burk_hi_codoxivac",
+      "burk_hi_daepoch",
+      "burk_hi_hypercvad"
+    ],
+    "internal_transfer_targets": [
+      "burk_lowrisk_stage",
+      "burk_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "burk_lowrisk_all",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "burk_stage_lowrisk",
+    "source_section": "BURK-2",
+    "source_page_label": "BURK-2",
+    "source_anchor": "BURK-2:pages:94",
+    "clinical_question": "Stage I/limited?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "burk_hi_codoxivac",
+      "burk_hi_daepoch",
+      "burk_hi_hypercvad"
+    ],
+    "internal_transfer_targets": [
+      "burk_abdominal",
+      "burk_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "burk_lowrisk_stage",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "burk_abdominal",
+    "source_section": "BURK-2",
+    "source_page_label": "BURK-2",
+    "source_anchor": "BURK-2:pages:94",
+    "clinical_question": "Abdominal presentation?",
+    "input_fact_ids": [
+      "burkitt_abdominal_mass"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "burk_abd_resect",
+      "burk_mass_lt10"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "burk_abdominal",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "burk_abdominal_resection",
+    "source_section": "BURK-2",
+    "source_page_label": "BURK-2",
+    "source_anchor": "BURK-2:pages:94",
+    "clinical_question": "Abdominal lesion completely resected?",
+    "input_fact_ids": [
+      "abdominal_lesion_completely_resected"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "burk_hi_codoxivac",
+      "burk_hi_daepoch",
+      "burk_hi_hypercvad",
+      "burk_low_codox",
+      "burk_low_daepoch",
+      "burk_low_hypercvad"
+    ],
+    "internal_transfer_targets": [
+      "burk_low",
+      "burk_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "burk_abd_resect",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "burk_mass_threshold",
+    "source_section": "BURK-2",
+    "source_page_label": "BURK-2",
+    "source_anchor": "BURK-2:pages:94",
+    "clinical_question": "Single extra-abdominal mass <10 cm?",
+    "input_fact_ids": [
+      "burkitt_mass_cm"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "burk_hi_codoxivac",
+      "burk_hi_daepoch",
+      "burk_hi_hypercvad",
+      "burk_low_codox",
+      "burk_low_daepoch",
+      "burk_low_hypercvad"
+    ],
+    "internal_transfer_targets": [
+      "burk_low",
+      "burk_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "burk_mass_lt10",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "burk_relapse_interval",
+    "source_section": "BURK-3",
+    "source_page_label": "BURK-3",
+    "source_anchor": "BURK-3:pages:95",
+    "clinical_question": "Relapse >6 months?",
+    "input_fact_ids": [
+      "relapse_interval_months"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "burk_early_bsc",
+      "burk_early_trial",
+      "burk_rr_allo",
+      "burk_rr_ascr",
+      "burk_rr_second",
+      "burk_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "burk_rr_late",
+      "burk_rr_early"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "burk_rr_interval",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_histology_burkitt",
+    "source_section": "HIVLYM-2",
+    "source_page_label": "HIVLYM-2",
+    "source_anchor": "HIVLYM-2:pages:100",
+    "clinical_question": "HIV-related lymphoma histology: Burkitt?",
+    "input_fact_ids": [
+      "hiv_lymphoma_histology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_burk_regimens"
+    ],
+    "internal_transfer_targets": [
+      "hiv_burk",
+      "hiv_hist_dlbcl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_histology_dlbcl",
+    "source_section": "HIVLYM-2",
+    "source_page_label": "HIVLYM-2",
+    "source_anchor": "HIVLYM-2:pages:100",
+    "clinical_question": "HIV-related histology DLBCL?",
+    "input_fact_ids": [
+      "hiv_lymphoma_histology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "hiv_dlbcl",
+      "hiv_hist_hhv8"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_hist_dlbcl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_histology_hhv8_dlbcl",
+    "source_section": "HIVLYM-2",
+    "source_page_label": "HIVLYM-2",
+    "source_anchor": "HIVLYM-2:pages:100",
+    "clinical_question": "HIV-related histology HHV8_DLBCL?",
+    "input_fact_ids": [
+      "hiv_lymphoma_histology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "hiv_dlbcl",
+      "hiv_hist_pel"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_hist_hhv8",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_histology_primary_effusion",
+    "source_section": "HIVLYM-2",
+    "source_page_label": "HIVLYM-2",
+    "source_anchor": "HIVLYM-2:pages:100",
+    "clinical_question": "HIV-related histology PRIMARY_EFFUSION?",
+    "input_fact_ids": [
+      "hiv_lymphoma_histology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "hiv_dlbcl",
+      "hiv_hist_plasma"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_hist_pel",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_histology_plasmablastic",
+    "source_section": "HIVLYM-2",
+    "source_page_label": "HIVLYM-2",
+    "source_anchor": "HIVLYM-2:pages:100",
+    "clinical_question": "HIV-related histology PLASMABLASTIC?",
+    "input_fact_ids": [
+      "hiv_lymphoma_histology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_plasma_epoch",
+      "hiv_plasma_hct",
+      "hiv_plasma_isrt"
+    ],
+    "internal_transfer_targets": [
+      "hiv_plasma",
+      "hiv_hist_pcnsl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_hist_plasma",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_histology_primary_cns",
+    "source_section": "HIVLYM-2",
+    "source_page_label": "HIVLYM-2",
+    "source_anchor": "HIVLYM-2:pages:100",
+    "clinical_question": "HIV-related histology PRIMARY_CNS?",
+    "input_fact_ids": [
+      "hiv_lymphoma_histology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "hiv_pcnsl",
+      "hiv_need_hist"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_hist_pcnsl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_dlbcl_rr",
+    "source_section": "HIVLYM-2",
+    "source_page_label": "HIVLYM-2",
+    "source_anchor": "HIVLYM-2:pages:100",
+    "clinical_question": "Relapsed/refractory HIV-related DLBCL/HHV8 DLBCL/primary effusion lymphoma?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_dlbcl_regimen",
+      "hiv_dlbcl_ritux"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_relapse_interval",
+      "hiv_dlbcl_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_dlbcl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "hiv_pcnsl_systemic_candidate",
+    "source_section": "HIVLYM-3",
+    "source_page_label": "HIVLYM-3",
+    "source_anchor": "HIVLYM-3:pages:101",
+    "clinical_question": "Candidate for systemic high-dose methotrexate?",
+    "input_fact_ids": [
+      "systemic_therapy_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_pcnsl_bsc",
+      "hiv_pcnsl_hdmtx",
+      "hiv_pcnsl_rtopt"
+    ],
+    "internal_transfer_targets": [
+      "hiv_pcnsl_mtx",
+      "hiv_pcnsl_rt"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hiv_pcnsl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "blast_lineage",
+    "source_section": "BLAST-1",
+    "source_page_label": "BLAST-1",
+    "source_anchor": "BLAST-1:pages:106",
+    "clinical_question": "B-lymphoblastic lymphoma lineage?",
+    "input_fact_ids": [
+      "lymphoblastic_lineage"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "blast_b_all_program",
+      "blast_t_all_program"
+    ],
+    "internal_transfer_targets": [
+      "blast_b",
+      "blast_t"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "blast_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_subtype_polymorphic_b",
+    "source_section": "PTLD-1",
+    "source_page_label": "PTLD-1",
+    "source_anchor": "PTLD-1:pages:107",
+    "clinical_question": "PTLD subtype POLYMORPHIC_B?",
+    "input_fact_ids": [
+      "ptld_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "ptld_poly_action",
+      "ptld_mono_b"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_poly",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_subtype_monomorphic_b",
+    "source_section": "PTLD-1",
+    "source_page_label": "PTLD-1",
+    "source_anchor": "PTLD-1:pages:107",
+    "clinical_question": "PTLD subtype MONOMORPHIC_B?",
+    "input_fact_ids": [
+      "ptld_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "ptld_mono_b_action",
+      "ptld_mono_t"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_mono_b",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_subtype_monomorphic_t",
+    "source_section": "PTLD-1",
+    "source_page_label": "PTLD-1",
+    "source_anchor": "PTLD-1:pages:107",
+    "clinical_question": "PTLD subtype MONOMORPHIC_T?",
+    "input_fact_ids": [
+      "ptld_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_t_external"
+    ],
+    "internal_transfer_targets": [
+      "ptld_mono_t_action",
+      "ptld_chl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_mono_t",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_subtype_chl_type",
+    "source_section": "PTLD-1",
+    "source_page_label": "PTLD-1",
+    "source_anchor": "PTLD-1:pages:107",
+    "clinical_question": "PTLD subtype CHL_TYPE?",
+    "input_fact_ids": [
+      "ptld_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_chl_external"
+    ],
+    "internal_transfer_targets": [
+      "ptld_chl_action",
+      "ptld_cns"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_chl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_subtype_primary_cns",
+    "source_section": "PTLD-1",
+    "source_page_label": "PTLD-1",
+    "source_anchor": "PTLD-1:pages:107",
+    "clinical_question": "PTLD subtype PRIMARY_CNS?",
+    "input_fact_ids": [
+      "ptld_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_cns_local",
+      "ptld_cns_mtx_r"
+    ],
+    "internal_transfer_targets": [
+      "ptld_cns_action",
+      "ptld_need_sub"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_cns",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_subtype_nondestructive",
+    "source_section": "PTLD-1",
+    "source_page_label": "PTLD-1",
+    "source_anchor": "PTLD-1:pages:107",
+    "clinical_question": "PTLD subtype NONDESTRUCTIVE?",
+    "input_fact_ids": [
+      "ptld_subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_non_ris",
+      "ptld_non_ritux"
+    ],
+    "internal_transfer_targets": [
+      "ptld_non_action",
+      "ptld_poly"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_entry",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_polymorphic_localized",
+    "source_section": "PTLD-3",
+    "source_page_label": "PTLD-3",
+    "source_anchor": "PTLD-3:pages:109",
+    "clinical_question": "Localized polymorphic PTLD?",
+    "input_fact_ids": [
+      "localized_disease"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_poly_ebvctl",
+      "ptld_poly_isrt",
+      "ptld_poly_ris",
+      "ptld_poly_ritux",
+      "ptld_poly_surg",
+      "ptld_poly_sys_ris",
+      "ptld_poly_sys_ritux"
+    ],
+    "internal_transfer_targets": [
+      "ptld_poly_local",
+      "ptld_poly_systemic"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_poly_action",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_mono_initial_ris",
+    "source_section": "PTLD-2",
+    "source_page_label": "PTLD-2",
+    "source_anchor": "PTLD-2:pages:108",
+    "clinical_question": "Initial PTLD therapy was reduction of immunosuppression alone?",
+    "input_fact_ids": [
+      "initial_ptld_therapy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_mono_chemo",
+      "ptld_mono_ritux"
+    ],
+    "internal_transfer_targets": [
+      "ptld_mono_after_ris",
+      "ptld_mono_ritux_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_mono_b_action",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ptld_mono_initial_ritux",
+    "source_section": "PTLD-2",
+    "source_page_label": "PTLD-2",
+    "source_anchor": "PTLD-2:pages:108",
+    "clinical_question": "Initial therapy rituximab?",
+    "input_fact_ids": [
+      "initial_ptld_therapy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_mono_afterritux_chemo",
+      "ptld_mono_continue_ritux",
+      "ptld_mono_dlbcl_rr",
+      "ptld_mono_ebvctl"
+    ],
+    "internal_transfer_targets": [
+      "ptld_mono_after_ritux",
+      "ptld_mono_after_chemo"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ptld_mono_ritux_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcell_hgbl_myc_bcl6",
+    "source_section": "HGBL-1",
+    "source_page_label": "HGBL-1",
+    "source_anchor": "HGBL-1:pages:91",
+    "clinical_question": "HGBL with MYC and BCL6 rearrangements (without MYC/BCL2 double-hit)?",
+    "input_fact_ids": [
+      "hgbcl_bcl6_rearranged"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hgbl_bcl6_daepochr",
+      "hgbl_bcl6_isrt",
+      "hgbl_bcl6_polarchp",
+      "hgbl_bcl6_rchop",
+      "hgbl_bcl6_trial",
+      "hgbl_other_daepoch",
+      "hgbl_other_pola",
+      "hgbl_other_rchop",
+      "hgbl_other_trial"
+    ],
+    "internal_transfer_targets": [
+      "hgbl_bcl6_action",
+      "hgbl_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "hgbl_bcl6",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mcl_cr_induction_strategy",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "Was the current MCL response assessed after aggressive induction?",
+    "input_fact_ids": [
+      "mcl_induction_strategy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_ritux_maintenance"
+    ],
+    "internal_transfer_targets": [
+      "mcl_cr_mrd",
+      "mcl_cr_maintenance"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mcl_cr_strategy",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_limited_contig_action::foll_isrt",
+    "source_section": "FOLL-3",
+    "source_page_label": "FOLL-3",
+    "source_anchor": "FOLL-3:pages:17",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "single_field_rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_isrt"
+    ],
+    "internal_transfer_targets": [
+      "foll_limited_contig_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_limited_contig_action:foll_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_limited_contig_action::foll_isrt_anti_cd20",
+    "source_section": "FOLL-3",
+    "source_page_label": "FOLL-3",
+    "source_anchor": "FOLL-3:pages:17",
+    "clinical_question": "Is option ISRT + anti-CD20 monoclonal antibody \u00b1 chemotherapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "single_field_rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_isrt_anti_cd20"
+    ],
+    "internal_transfer_targets": [
+      "foll_limited_contig_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_limited_contig_action:foll_isrt_anti_cd20",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_first_opts::foll_ritux_lowburden",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option Rituximab alone applicable to the current patient state?",
+    "input_fact_ids": [
+      "bulky_disease"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_ritux_lowburden"
+    ],
+    "internal_transfer_targets": [
+      "foll_first_opts"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_first_opts:foll_ritux_lowburden",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_first_opts::foll_infirm_ritux",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option Rituximab applicable to the current patient state?",
+    "input_fact_ids": [
+      "older_or_infirm"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_infirm_ritux"
+    ],
+    "internal_transfer_targets": [
+      "foll_first_opts"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_first_opts:foll_infirm_ritux",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_second::foll_2_br",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option Bendamustine + anti-CD20 applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_bendamustine"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_2_br"
+    ],
+    "internal_transfer_targets": [
+      "foll_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_second:foll_2_br",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_second::foll_2_r2_tafa",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option Lenalidomide + rituximab + tafasitamab-cxix applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_anti_cd20"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_2_r2_tafa"
+    ],
+    "internal_transfer_targets": [
+      "foll_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_second:foll_2_r2_tafa",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_third::foll_3_epcor",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option Epcoritamab-bysp applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd20_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_3_epcor"
+    ],
+    "internal_transfer_targets": [
+      "foll_third"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_third:foll_3_epcor",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_third::foll_3_mosun",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option Mosunetuzumab-axgb (IV or SC) applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd20_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_3_mosun"
+    ],
+    "internal_transfer_targets": [
+      "foll_third"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_third:foll_3_mosun",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_third::foll_3_cart",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option CD19 CAR T-cell therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_3_cart"
+    ],
+    "internal_transfer_targets": [
+      "foll_third"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_third:foll_3_cart",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_third::foll_3_allohct",
+    "source_section": "FOLL-B",
+    "source_page_label": "FOLL-B",
+    "source_anchor": "FOLL-B:pages:22,23,24,25,26,27",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_3_allohct"
+    ],
+    "internal_transfer_targets": [
+      "foll_third"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_third:foll_3_allohct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_ped_action::foll_ped_excision",
+    "source_section": "FOLL-6",
+    "source_page_label": "FOLL-6",
+    "source_anchor": "FOLL-6:pages:20",
+    "clinical_question": "Is option Complete excision applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_ped_excision"
+    ],
+    "internal_transfer_targets": [
+      "foll_ped_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_ped_action:foll_ped_excision",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_ped_action::foll_ped_isrt",
+    "source_section": "FOLL-6",
+    "source_page_label": "FOLL-6",
+    "source_anchor": "FOLL-6:pages:20",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_ped_isrt"
+    ],
+    "internal_transfer_targets": [
+      "foll_ped_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_ped_action:foll_ped_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::foll_ped_action::foll_ped_rchop",
+    "source_section": "FOLL-6",
+    "source_page_label": "FOLL-6",
+    "source_anchor": "FOLL-6:pages:20",
+    "clinical_question": "Is option RCHOP applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible",
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "foll_ped_rchop"
+    ],
+    "internal_transfer_targets": [
+      "foll_ped_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "foll_ped_action:foll_ped_rchop",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_hp_tpos::mzlg_tpos_isrt",
+    "source_section": "EMZLG-2",
+    "source_page_label": "EMZLG-2",
+    "source_anchor": "EMZLG-2:pages:30",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_tpos_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_hp_tpos"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_hp_tpos:mzlg_tpos_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_hp_tpos::mzlg_tpos_ritux",
+    "source_section": "EMZLG-2",
+    "source_page_label": "EMZLG-2",
+    "source_anchor": "EMZLG-2:pages:30",
+    "clinical_question": "Is option Rituximab applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_tpos_ritux"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_hp_tpos"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_hp_tpos:mzlg_tpos_ritux",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_hpneg::mzlg_hpneg_isrt",
+    "source_section": "EMZLG-2",
+    "source_page_label": "EMZLG-2",
+    "source_anchor": "EMZLG-2:pages:30",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_hpneg_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_hpneg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_hpneg:mzlg_hpneg_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_hpneg::mzlg_hpneg_ritux",
+    "source_section": "EMZLG-2",
+    "source_page_label": "EMZLG-2",
+    "source_anchor": "EMZLG-2:pages:30",
+    "clinical_question": "Is option Rituximab applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_hpneg_ritux"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_hpneg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_hpneg:mzlg_hpneg_ritux",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_both_pos_treat::mzlg_persist_isrt",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_persist_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_both_pos_treat"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_both_pos_treat:mzlg_persist_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_lymph_only_watch::mzlg_stable_isrt",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_stable_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_lymph_only_watch"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_lymph_only_watch:mzlg_stable_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_lymph_only_isrt::mzlg_resid_isrt",
+    "source_section": "EMZLG-4",
+    "source_page_label": "EMZLG-4",
+    "source_anchor": "EMZLG-4:pages:32",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_resid_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_lymph_only_isrt"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_lymph_only_isrt:mzlg_resid_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlg_local_recur::mzlg_rec_isrt",
+    "source_section": "EMZLG-6",
+    "source_page_label": "EMZLG-6",
+    "source_anchor": "EMZLG-6:pages:34",
+    "clinical_question": "Is option ISRT if not previously irradiated applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlg_rec_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlg_local_recur"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlg_local_recur:mzlg_rec_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzl_second::mzl_2_zanu",
+    "source_section": "MZL-A",
+    "source_page_label": "MZL-A",
+    "source_anchor": "MZL-A:pages:46,47,48,49",
+    "clinical_question": "Is option Zanubrutinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_anti_cd20"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_2_zanu"
+    ],
+    "internal_transfer_targets": [
+      "mzl_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzl_second:mzl_2_zanu",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzl_third::mzl_3_cart",
+    "source_section": "MZL-A",
+    "source_page_label": "MZL-A",
+    "source_anchor": "MZL-A:pages:46,47,48,49",
+    "clinical_question": "Is option CAR T-cell therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_3_cart"
+    ],
+    "internal_transfer_targets": [
+      "mzl_third"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzl_third:mzl_3_cart",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzl_third::mzl_3_allohct",
+    "source_section": "MZL-A",
+    "source_page_label": "MZL-A",
+    "source_anchor": "MZL-A:pages:46,47,48,49",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzl_3_allohct"
+    ],
+    "internal_transfer_targets": [
+      "mzl_third"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzl_third:mzl_3_allohct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlng_local::mzlng_isrt",
+    "source_section": "EMZLNG-2",
+    "source_page_label": "EMZLNG-2",
+    "source_anchor": "EMZLNG-2:pages:37",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible",
+      "single_field_rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlng_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mzlng_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlng_local:mzlng_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mzlng_local::mzlng_surgery",
+    "source_section": "EMZLNG-2",
+    "source_page_label": "EMZLNG-2",
+    "source_anchor": "EMZLNG-2:pages:37",
+    "clinical_question": "Is option Surgery for selected sites applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mzlng_surgery"
+    ],
+    "internal_transfer_targets": [
+      "mzlng_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mzlng_local:mzlng_surgery",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nmzl_local_contig::nmzl_isrt",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible",
+      "single_field_rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "nmzl_isrt"
+    ],
+    "internal_transfer_targets": [
+      "nmzl_local_contig"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nmzl_local_contig:nmzl_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nmzl_local_contig::nmzl_isrt_sys",
+    "source_section": "NMZL-2",
+    "source_page_label": "NMZL-2",
+    "source_anchor": "NMZL-2:pages:40",
+    "clinical_question": "Is option ISRT + anti-CD20 \u00b1 chemotherapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "single_field_rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "nmzl_isrt_sys"
+    ],
+    "internal_transfer_targets": [
+      "nmzl_local_contig"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nmzl_local_contig:nmzl_isrt_sys",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::smzl_treat::smzl_splenectomy",
+    "source_section": "SMZL-2",
+    "source_page_label": "SMZL-2",
+    "source_anchor": "SMZL-2:pages:44",
+    "clinical_question": "Is option Splenectomy applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "smzl_splenectomy"
+    ],
+    "internal_transfer_targets": [
+      "smzl_treat"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "smzl_treat:smzl_splenectomy",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mcl_limited_action::mcl_isrt",
+    "source_section": "MANT-2",
+    "source_page_label": "MANT-2",
+    "source_anchor": "MANT-2:pages:51",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mcl_limited_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mcl_limited_action:mcl_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mcl_dmrd::mcl_dmrd_ascr",
+    "source_section": "MANT-4",
+    "source_page_label": "MANT-4",
+    "source_anchor": "MANT-4:pages:53",
+    "clinical_question": "Is option Consider HDT/ASCR applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_dmrd_ascr"
+    ],
+    "internal_transfer_targets": [
+      "mcl_dmrd"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mcl_dmrd:mcl_dmrd_ascr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mcl_rr_late::mcl_rr_cbtki",
+    "source_section": "MANT-A",
+    "source_page_label": "MANT-A",
+    "source_anchor": "MANT-A:pages:57,58,59,60,61",
+    "clinical_question": "Is option Covalent BTKi-containing therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_cbtki"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_rr_cbtki"
+    ],
+    "internal_transfer_targets": [
+      "mcl_rr_late"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mcl_rr_late:mcl_rr_cbtki",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mcl_rr_late::mcl_rr_isrt",
+    "source_section": "MANT-6A",
+    "source_page_label": "MANT-6A",
+    "source_anchor": "MANT-6A:pages:55",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_rr_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mcl_rr_late"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mcl_rr_late:mcl_rr_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mcl_rr_late::mcl_rr_cart",
+    "source_section": "MANT-A",
+    "source_page_label": "MANT-A",
+    "source_anchor": "MANT-A:pages:57,58,59,60,61",
+    "clinical_question": "Is option CAR T-cell therapy for refractory/subsequent state applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_rr_cart"
+    ],
+    "internal_transfer_targets": [
+      "mcl_rr_late"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mcl_rr_late:mcl_rr_cart",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mcl_rr_early::mcl_early_cart",
+    "source_section": "MANT-A",
+    "source_page_label": "MANT-A",
+    "source_anchor": "MANT-A:pages:57,58,59,60,61",
+    "clinical_question": "Is option CAR T-cell therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_early_cart"
+    ],
+    "internal_transfer_targets": [
+      "mcl_rr_early"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mcl_rr_early:mcl_early_cart",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mcl_rr_early::mcl_early_isrt",
+    "source_section": "MANT-6B",
+    "source_page_label": "MANT-6B",
+    "source_anchor": "MANT-6B:pages:56",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mcl_early_isrt"
+    ],
+    "internal_transfer_targets": [
+      "mcl_rr_early"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mcl_rr_early:mcl_early_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_full_first::dlbcl_pola_rchp",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Polatuzumab vedotin + R-CHP applicable to the current patient state?",
+    "input_fact_ids": [
+      "ipi_ge2"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_pola_rchp"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_full_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_full_first:dlbcl_pola_rchp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_full_first::dlbcl_poorlv_regimen",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Poor-LV-function regimen (DA-EPOCH-R/CDOP-R/CEOP-R/GCVP-R) applicable to the current patient state?",
+    "input_fact_ids": [
+      "poor_lvef"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_poorlv_regimen"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_full_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_full_first:dlbcl_poorlv_regimen",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_full_first::dlbcl_frail_regimen",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Frail/>80 regimen (CDOP-R/mini-RCHOP/GCVP-R) applicable to the current patient state?",
+    "input_fact_ids": [
+      "very_frail_or_over80"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_frail_regimen"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_full_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_full_first:dlbcl_frail_regimen",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_full_first::dlbcl_cns_integrated",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Systemic regimen integrated with CNS-directed therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "concurrent_cns_disease"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_cns_integrated"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_full_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_full_first:dlbcl_cns_integrated",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_limited_cr::dlbcl_isrt_after3",
+    "source_section": "BCEL-4",
+    "source_page_label": "BCEL-4",
+    "source_anchor": "BCEL-4:pages:65",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_isrt_after3"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_limited_cr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_limited_cr:dlbcl_isrt_after3",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_limited_pr::dlbcl_isrt_pr",
+    "source_section": "BCEL-4",
+    "source_page_label": "BCEL-4",
+    "source_anchor": "BCEL-4:pages:65",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_isrt_pr"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_limited_pr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_limited_pr:dlbcl_isrt_pr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_bulky_cr::dlbcl_bulky_isrt",
+    "source_section": "BCEL-5",
+    "source_page_label": "BCEL-5",
+    "source_anchor": "BCEL-5:pages:66",
+    "clinical_question": "Is option Consider ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_bulky_isrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_bulky_cr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_bulky_cr:dlbcl_bulky_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_bulky_pr::dlbcl_bulky_pr_isrt",
+    "source_section": "BCEL-5",
+    "source_page_label": "BCEL-5",
+    "source_anchor": "BCEL-5:pages:66",
+    "clinical_question": "Is option Consider ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_bulky_pr_isrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_bulky_pr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_bulky_pr:dlbcl_bulky_pr_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_adv_response::dlbcl_selected_isrt",
+    "source_section": "BCEL-6",
+    "source_page_label": "BCEL-6",
+    "source_anchor": "BCEL-6:pages:67",
+    "clinical_question": "Is option ISRT to selected bulky/isolated bone sites applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_selected_isrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_adv_response"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_adv_response:dlbcl_selected_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_early_noncart::dlbcl_early_tafa_len",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Lenalidomide + tafasitamab-cxix applicable to the current patient state?",
+    "input_fact_ids": [
+      "relapse_interval_months"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_early_tafa_len"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_early_noncart"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_early_noncart:dlbcl_early_tafa_len",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_early_noncart::dlbcl_early_pallrt",
+    "source_section": "BCEL-7",
+    "source_page_label": "BCEL-7",
+    "source_anchor": "BCEL-7:pages:68",
+    "clinical_question": "Is option Palliative RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_early_pallrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_early_noncart"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_early_noncart:dlbcl_early_pallrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_late_nontransplant::dlbcl_late_liso",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Lisocabtagene maraleucel if CAR T eligible applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_late_liso"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_late_nontransplant"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_late_nontransplant:dlbcl_late_liso",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_third_plus::dlbcl_3_cart",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option CD19 CAR T-cell therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_3_cart"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_third_plus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_third_plus:dlbcl_3_cart",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_third_plus::dlbcl_3_epcor",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Epcoritamab-bysp applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd20_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_3_epcor"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_third_plus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_third_plus:dlbcl_3_epcor",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_third_plus::dlbcl_3_glofit",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Glofitamab applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd20_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_3_glofit"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_third_plus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_third_plus:dlbcl_3_glofit",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_third_plus::dlbcl_3_allohct",
+    "source_section": "BCEL-9",
+    "source_page_label": "BCEL-9",
+    "source_anchor": "BCEL-9:pages:70",
+    "clinical_question": "Is option Allogeneic HCT in selected responders applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_3_allohct"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_third_plus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_third_plus:dlbcl_3_allohct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_third_plus::dlbcl_post_ascr_bispecific",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Bispecific antibody therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hdt_ascr"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_post_ascr_bispecific"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_third_plus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_third_plus:dlbcl_post_ascr_bispecific",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_third_plus::dlbcl_post_ascr_selinexor",
+    "source_section": "BCEL-C",
+    "source_page_label": "BCEL-C",
+    "source_anchor": "BCEL-C:pages:77,78,79,80,81,82,83",
+    "clinical_question": "Is option Selinexor applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hdt_ascr"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dlbcl_post_ascr_selinexor"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_third_plus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_third_plus:dlbcl_post_ascr_selinexor",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dlbcl_cutaneous_local_action::pcdlbcl_isrt",
+    "source_section": "BCEL-10",
+    "source_page_label": "BCEL-10",
+    "source_anchor": "BCEL-10:pages:71",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcdlbcl_isrt"
+    ],
+    "internal_transfer_targets": [
+      "dlbcl_cutaneous_local_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dlbcl_cutaneous_local_action:pcdlbcl_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::pmbl_pr::pmbl_pr_isrt",
+    "source_section": "PMBL-1",
+    "source_page_label": "PMBL-1",
+    "source_anchor": "PMBL-1:pages:84",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pmbl_pr_isrt"
+    ],
+    "internal_transfer_targets": [
+      "pmbl_pr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "pmbl_pr:pmbl_pr_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::trans_minimal::trans_isrt",
+    "source_section": "HTBCEL-1",
+    "source_page_label": "HTBCEL-1",
+    "source_anchor": "HTBCEL-1:pages:86",
+    "clinical_question": "Is option ISRT for localized/bulky/osseous disease applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_isrt"
+    ],
+    "internal_transfer_targets": [
+      "trans_minimal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "trans_minimal:trans_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::trans_multi_treat::trans_cart",
+    "source_section": "HTBCEL-3",
+    "source_page_label": "HTBCEL-3",
+    "source_anchor": "HTBCEL-3:pages:88",
+    "clinical_question": "Is option CAR T-cell therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_cart"
+    ],
+    "internal_transfer_targets": [
+      "trans_multi_treat"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "trans_multi_treat:trans_cart",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::trans_multi_treat::trans_allohct",
+    "source_section": "HTBCEL-3",
+    "source_page_label": "HTBCEL-3",
+    "source_anchor": "HTBCEL-3:pages:88",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_allohct"
+    ],
+    "internal_transfer_targets": [
+      "trans_multi_treat"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "trans_multi_treat:trans_allohct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::trans_multi_treat::trans_rt",
+    "source_section": "HTBCEL-3",
+    "source_page_label": "HTBCEL-3",
+    "source_anchor": "HTBCEL-3:pages:88",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_rt"
+    ],
+    "internal_transfer_targets": [
+      "trans_multi_treat"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "trans_multi_treat:trans_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::trans_noncr::trans_salvage_cart",
+    "source_section": "HTBCEL-2",
+    "source_page_label": "HTBCEL-2",
+    "source_anchor": "HTBCEL-2:pages:87",
+    "clinical_question": "Is option CAR T-cell therapy when eligible applicable to the current patient state?",
+    "input_fact_ids": [
+      "car_t_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "trans_salvage_cart"
+    ],
+    "internal_transfer_targets": [
+      "trans_noncr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "trans_noncr:trans_salvage_cart",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hgbl_doublehit::hgbl_rchop_lowrisk",
+    "source_section": "HGBL-1",
+    "source_page_label": "HGBL-1",
+    "source_anchor": "HGBL-1:pages:91",
+    "clinical_question": "Is option RCHOP applicable to the current patient state?",
+    "input_fact_ids": [
+      "ipi_0_2"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hgbl_rchop_lowrisk"
+    ],
+    "internal_transfer_targets": [
+      "hgbl_doublehit"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hgbl_doublehit:hgbl_rchop_lowrisk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hgbl_doublehit::hgbl_mini_rchop",
+    "source_section": "HGBL-1",
+    "source_page_label": "HGBL-1",
+    "source_anchor": "HGBL-1:pages:91",
+    "clinical_question": "Is option Mini-RCHOP applicable to the current patient state?",
+    "input_fact_ids": [
+      "very_frail_or_over80"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hgbl_mini_rchop"
+    ],
+    "internal_transfer_targets": [
+      "hgbl_doublehit"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hgbl_doublehit:hgbl_mini_rchop",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hgbl_doublehit::hgbl_isrt",
+    "source_section": "HGBL-1",
+    "source_page_label": "HGBL-1",
+    "source_anchor": "HGBL-1:pages:91",
+    "clinical_question": "Is option Consolidative ISRT for localized disease applicable to the current patient state?",
+    "input_fact_ids": [
+      "localized_disease",
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hgbl_isrt"
+    ],
+    "internal_transfer_targets": [
+      "hgbl_doublehit"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hgbl_doublehit:hgbl_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::burk_rr_late::burk_rr_ascr",
+    "source_section": "BURK-3",
+    "source_page_label": "BURK-3",
+    "source_anchor": "BURK-3:pages:95",
+    "clinical_question": "Is option HDT/ASCR after CR applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "burk_rr_ascr"
+    ],
+    "internal_transfer_targets": [
+      "burk_rr_late"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "burk_rr_late:burk_rr_ascr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::burk_rr_late::burk_rr_allo",
+    "source_section": "BURK-3",
+    "source_page_label": "BURK-3",
+    "source_anchor": "BURK-3:pages:95",
+    "clinical_question": "Is option Allogeneic HCT in selected responders applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "burk_rr_allo"
+    ],
+    "internal_transfer_targets": [
+      "burk_rr_late"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "burk_rr_late:burk_rr_allo",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hiv_dlbcl_first::hiv_dlbcl_ritux",
+    "source_section": "HIVLYM-A",
+    "source_page_label": "HIVLYM-A",
+    "source_anchor": "HIVLYM-A:pages:103,104",
+    "clinical_question": "Is option Rituximab when CD20 positive applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd20_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_dlbcl_ritux"
+    ],
+    "internal_transfer_targets": [
+      "hiv_dlbcl_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hiv_dlbcl_first:hiv_dlbcl_ritux",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hiv_plasma::hiv_plasma_hct",
+    "source_section": "HIVLYM-4",
+    "source_page_label": "HIVLYM-4",
+    "source_anchor": "HIVLYM-4:pages:102",
+    "clinical_question": "Is option Consider HCT in first CR for high-risk disease applicable to the current patient state?",
+    "input_fact_ids": [
+      "high_risk_plasmablastic",
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_plasma_hct"
+    ],
+    "internal_transfer_targets": [
+      "hiv_plasma"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hiv_plasma:hiv_plasma_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hiv_plasma::hiv_plasma_isrt",
+    "source_section": "HIVLYM-4",
+    "source_page_label": "HIVLYM-4",
+    "source_anchor": "HIVLYM-4:pages:102",
+    "clinical_question": "Is option ISRT for localized disease applicable to the current patient state?",
+    "input_fact_ids": [
+      "localized_disease",
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_plasma_isrt"
+    ],
+    "internal_transfer_targets": [
+      "hiv_plasma"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hiv_plasma:hiv_plasma_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hiv_pcnsl_rt::hiv_pcnsl_rtopt",
+    "source_section": "HIVLYM-3",
+    "source_page_label": "HIVLYM-3",
+    "source_anchor": "HIVLYM-3:pages:101",
+    "clinical_question": "Is option RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hiv_pcnsl_rtopt"
+    ],
+    "internal_transfer_targets": [
+      "hiv_pcnsl_rt"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hiv_pcnsl_rt:hiv_pcnsl_rtopt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_non_action::ptld_non_ritux",
+    "source_section": "PTLD-2",
+    "source_page_label": "PTLD-2",
+    "source_anchor": "PTLD-2:pages:108",
+    "clinical_question": "Is option Rituximab for persistent/progressive disease applicable to the current patient state?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_non_ritux"
+    ],
+    "internal_transfer_targets": [
+      "ptld_non_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_non_action:ptld_non_ritux",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_poly_local::ptld_poly_isrt",
+    "source_section": "PTLD-3",
+    "source_page_label": "PTLD-3",
+    "source_anchor": "PTLD-3:pages:109",
+    "clinical_question": "Is option ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "rt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_poly_isrt"
+    ],
+    "internal_transfer_targets": [
+      "ptld_poly_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_poly_local:ptld_poly_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_poly_local::ptld_poly_surg",
+    "source_section": "PTLD-3",
+    "source_page_label": "PTLD-3",
+    "source_anchor": "PTLD-3:pages:109",
+    "clinical_question": "Is option Surgery applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_poly_surg"
+    ],
+    "internal_transfer_targets": [
+      "ptld_poly_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_poly_local:ptld_poly_surg",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_poly_systemic::ptld_poly_ebvctl",
+    "source_section": "PTLD-3",
+    "source_page_label": "PTLD-3",
+    "source_anchor": "PTLD-3:pages:109",
+    "clinical_question": "Is option EBV-specific cytotoxic T lymphocytes applicable to the current patient state?",
+    "input_fact_ids": [
+      "ebv_driven"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_poly_ebvctl"
+    ],
+    "internal_transfer_targets": [
+      "ptld_poly_systemic"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_poly_systemic:ptld_poly_ebvctl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_mono_after_ritux::ptld_mono_continue_ritux",
+    "source_section": "PTLD-2",
+    "source_page_label": "PTLD-2",
+    "source_anchor": "PTLD-2:pages:108",
+    "clinical_question": "Is option Continue rituximab in selected IPI 0\u20132 disease applicable to the current patient state?",
+    "input_fact_ids": [
+      "ipi_0_2"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_mono_continue_ritux"
+    ],
+    "internal_transfer_targets": [
+      "ptld_mono_after_ritux"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_mono_after_ritux:ptld_mono_continue_ritux",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_mono_after_ritux::ptld_mono_ebvctl",
+    "source_section": "PTLD-2",
+    "source_page_label": "PTLD-2",
+    "source_anchor": "PTLD-2:pages:108",
+    "clinical_question": "Is option EBV-specific cellular therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "ebv_driven"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_mono_ebvctl"
+    ],
+    "internal_transfer_targets": [
+      "ptld_mono_after_ritux"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_mono_after_ritux:ptld_mono_ebvctl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_cns_action::ptld_cns_mtx_r",
+    "source_section": "PTLD-A",
+    "source_page_label": "PTLD-A",
+    "source_anchor": "PTLD-A:pages:110",
+    "clinical_question": "Is option High-dose methotrexate + rituximab applicable to the current patient state?",
+    "input_fact_ids": [
+      "systemic_therapy_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_cns_mtx_r"
+    ],
+    "internal_transfer_targets": [
+      "ptld_cns_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_cns_action:ptld_cns_mtx_r",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ptld_cns_action::ptld_cns_local",
+    "source_section": "PTLD-A",
+    "source_page_label": "PTLD-A",
+    "source_anchor": "PTLD-A:pages:110",
+    "clinical_question": "Is option RT/palliative approach when systemic therapy is not feasible applicable to the current patient state?",
+    "input_fact_ids": [
+      "systemic_therapy_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ptld_cns_local"
+    ],
+    "internal_transfer_targets": [
+      "ptld_cns_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ptld_cns_action:ptld_cns_local",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::hgbl_bcl6_action::hgbl_bcl6_isrt",
+    "source_section": "HGBL-1",
+    "source_page_label": "HGBL-1",
+    "source_anchor": "HGBL-1:pages:91",
+    "clinical_question": "Is option Consolidative ISRT applicable to the current patient state?",
+    "input_fact_ids": [
+      "stage_group"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "hgbl_bcl6_isrt"
+    ],
+    "internal_transfer_targets": [
+      "hgbl_bcl6_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "hgbl_bcl6_action:hgbl_bcl6_isrt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

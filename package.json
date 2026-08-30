@@ -1,0 +1,16 @@
+{
+  "name": "nexus-history-opd-manual-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXUS History + Current OPD manual test integration. No cancer dropdown; deterministic pathway authority remains in existing NEXUS engine.",
+  "scripts": {
+    "dev": "node tooling/dev.mjs",
+    "doctor": "node tooling/doctor.mjs",
+    "test": "python3 tests/test_pipeline.py && python3 tests/test_integration_contract.py && python3 tests/test_extraction_delta_patch.py && python3 tests/test_smoke.py && python3 tests/test_phase_safety.py && python3 tests/test_nccn_15_free_text_acceptance.py",
+    "test:integration": "python3 tests/test_integration_contract.py",
+    "test:acceptance": "python3 tests/test_nccn_15_free_text_acceptance.py"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

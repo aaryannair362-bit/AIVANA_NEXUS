@@ -1,0 +1,102 @@
+{
+  "ANAL-1": {
+    "code": "ANAL-1",
+    "pages": [
+      7
+    ],
+    "page_count": 1,
+    "source_text_sha256": "f786903d4cce1ae7c94d35ec9b6d4cd95f10f0a61bb8b6e249068e8fe2d12cae",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ANAL-2": {
+    "code": "ANAL-2",
+    "pages": [
+      8
+    ],
+    "page_count": 1,
+    "source_text_sha256": "f27df1697616e220cfbc96e61a1e4201d02db2346e93d892f96346b318acb004",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ANAL-3": {
+    "code": "ANAL-3",
+    "pages": [
+      9
+    ],
+    "page_count": 1,
+    "source_text_sha256": "224b5d1d9e88f6f9a508ba1455342fdc8d04080c2e11a7f4ebfa01346d94c860",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ANAL-4": {
+    "code": "ANAL-4",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "66981a1a674460540cfc6b3ff997f0562dee102ccebf6806d252ff51f81e1c96",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ANAL-A": {
+    "code": "ANAL-A",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "504b8136cfaaec4eb475b6690b906281c3d29c2d35b6c4d4930f0d099c3e531b",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ANAL-B": {
+    "code": "ANAL-B",
+    "pages": [
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "page_count": 5,
+    "source_text_sha256": "62a5300f65a2df6c5c12f942ecda6ebdc0f4c836d7c734af703c261afba08acf",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ANAL-C": {
+    "code": "ANAL-C",
+    "pages": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22
+    ],
+    "page_count": 6,
+    "source_text_sha256": "00317406f8fdcf4303a6eca83d1bfb2009e8977ca4e687b8685d872a192c1d88",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ANAL-D": {
+    "code": "ANAL-D",
+    "pages": [
+      23,
+      24
+    ],
+    "page_count": 2,
+    "source_text_sha256": "bbebc15c38d53bba44575b9a006ad39eb7988011bec22868779b333dd0819e33",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ST-1": {
+    "code": "ST-1",
+    "pages": [
+      25
+    ],
+    "page_count": 1,
+    "source_text_sha256": "592800296f683372dd71e7ed24d8d549e90a10d6425d2d4672a2a721ed4b5a65",
+    "kind": "STAGING",
+    "found": true
+  }
+}

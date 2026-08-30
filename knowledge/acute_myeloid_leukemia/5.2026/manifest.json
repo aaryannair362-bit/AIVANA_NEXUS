@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_AML",
+  "title": "Acute Myeloid Leukemia",
+  "version": "5.2026",
+  "cancer_type": "ACUTE_MYELOID_LEUKEMIA",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 111,
+    "implemented_decisions": 111,
+    "tested_decisions": 111,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "aml(5).pdf",
+    "sha256": "55e4cf96396423f94cc1754161261eb4c78518118e66086b3d2e72874bd109dd",
+    "pdf_pages": 213
+  },
+  "primary_expected": 29,
+  "supporting_expected": 15
+}

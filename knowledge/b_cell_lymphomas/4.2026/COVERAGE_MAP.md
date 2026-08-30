@@ -1,0 +1,93 @@
+# B-Cell Lymphomas 4.2026 - Coverage Map
+
+- Primary algorithm sections expected: 57
+- Supporting/staging sections expected: 24
+- Clinical status: REQUIRES_CLINICAL_REVIEW
+- Runtime eligible: false (engineering preview only)
+
+## Primary algorithms
+
+- [x] DIAG-1 - source page(s) [14] - runtime-referenced
+- [x] FOLL-1 - source page(s) [15] - runtime-referenced
+- [x] FOLL-2 - source page(s) [16] - runtime-referenced
+- [x] FOLL-3 - source page(s) [17] - runtime-referenced
+- [x] FOLL-4 - source page(s) [18] - runtime-referenced
+- [x] FOLL-5 - source page(s) [19] - runtime-referenced
+- [x] FOLL-6 - source page(s) [20] - runtime-referenced
+- [x] MZL-1 - source page(s) [28] - runtime-referenced
+- [x] EMZLG-1 - source page(s) [29] - runtime-referenced
+- [x] EMZLG-2 - source page(s) [30] - runtime-referenced
+- [x] EMZLG-3 - source page(s) [31] - runtime-referenced
+- [x] EMZLG-4 - source page(s) [32] - runtime-referenced
+- [x] EMZLG-5 - source page(s) [33] - runtime-referenced
+- [x] EMZLG-6 - source page(s) [34] - runtime-referenced
+- [x] EMZLNG-1 - source page(s) [36] - runtime-referenced
+- [x] EMZLNG-2 - source page(s) [37] - runtime-referenced
+- [x] EMZLNG-3 - source page(s) [38] - runtime-referenced
+- [x] NMZL-1 - source page(s) [39] - runtime-referenced
+- [x] NMZL-2 - source page(s) [40] - runtime-referenced
+- [x] NMZL-3 - source page(s) [41] - runtime-referenced
+- [x] NMZL-4 - source page(s) [42] - runtime-referenced
+- [x] SMZL-1 - source page(s) [43] - runtime-referenced
+- [x] SMZL-2 - source page(s) [44] - runtime-referenced
+- [x] SMZL-3 - source page(s) [45] - runtime-referenced
+- [x] MANT-1 - source page(s) [50] - runtime-referenced
+- [x] MANT-2 - source page(s) [51] - runtime-referenced
+- [x] MANT-3 - source page(s) [52] - runtime-referenced
+- [x] MANT-4 - source page(s) [53] - runtime-referenced
+- [x] MANT-5 - source page(s) [54] - runtime-referenced
+- [x] MANT-6A - source page(s) [55] - runtime-referenced
+- [x] MANT-6B - source page(s) [56] - runtime-referenced
+- [x] BCEL-1 - source page(s) [62] - runtime-referenced
+- [x] BCEL-2 - source page(s) [63] - runtime-referenced
+- [x] BCEL-3 - source page(s) [64] - runtime-referenced
+- [x] BCEL-4 - source page(s) [65] - runtime-referenced
+- [x] BCEL-5 - source page(s) [66] - runtime-referenced
+- [x] BCEL-6 - source page(s) [67] - runtime-referenced
+- [x] BCEL-7 - source page(s) [68] - runtime-referenced
+- [x] BCEL-8 - source page(s) [69] - runtime-referenced
+- [x] BCEL-9 - source page(s) [70] - runtime-referenced
+- [x] BCEL-10 - source page(s) [71] - runtime-referenced
+- [x] PMBL-1 - source page(s) [84] - runtime-referenced
+- [x] HTBCEL-1 - source page(s) [86] - runtime-referenced
+- [x] HTBCEL-2 - source page(s) [87] - runtime-referenced
+- [x] HTBCEL-3 - source page(s) [88] - runtime-referenced
+- [x] HGBL-1 - source page(s) [91] - runtime-referenced
+- [x] BURK-1 - source page(s) [93] - runtime-referenced
+- [x] BURK-2 - source page(s) [94] - runtime-referenced
+- [x] BURK-3 - source page(s) [95] - runtime-referenced
+- [x] HIVLYM-1 - source page(s) [99] - runtime-referenced
+- [x] HIVLYM-2 - source page(s) [100] - runtime-referenced
+- [x] HIVLYM-3 - source page(s) [101] - runtime-referenced
+- [x] HIVLYM-4 - source page(s) [102] - runtime-referenced
+- [x] BLAST-1 - source page(s) [106] - runtime-referenced
+- [x] PTLD-1 - source page(s) [107] - runtime-referenced
+- [x] PTLD-2 - source page(s) [108] - runtime-referenced
+- [x] PTLD-3 - source page(s) [109] - runtime-referenced
+
+## Supporting principles / staging
+
+- [x] FOLL-A - source page(s) [21] - runtime-referenced
+- [x] FOLL-B - source page(s) [22, 23, 24, 25, 26, 27] - runtime-referenced
+- [x] EMZLG-A - source page(s) [35] - runtime-referenced
+- [x] MZL-A - source page(s) [46, 47, 48, 49] - runtime-referenced
+- [x] MANT-A - source page(s) [57, 58, 59, 60, 61] - runtime-referenced
+- [x] BCEL-A - source page(s) [72, 73, 74] - runtime-referenced
+- [x] BCEL-B - source page(s) [75, 76] - runtime-referenced
+- [x] BCEL-C - source page(s) [77, 78, 79, 80, 81, 82, 83] - runtime-referenced
+- [x] PMBL-A - source page(s) [85] - runtime-referenced
+- [x] HTBCEL-A - source page(s) [89, 90] - runtime-referenced
+- [x] HGBL-A - source page(s) [92] - runtime-referenced
+- [x] BURK-A - source page(s) [96, 97, 98] - runtime-referenced
+- [x] HIVLYM-A - source page(s) [103, 104] - runtime-referenced
+- [x] HIVLYM-B - source page(s) [105] - runtime-referenced
+- [x] PTLD-A - source page(s) [110] - runtime-referenced
+- [x] NHODG-A - source page(s) [111, 112, 113, 114, 115, 116, 117, 118] - runtime-referenced
+- [x] NHODG-B - source page(s) [119, 120, 121, 122, 123] - runtime-referenced
+- [x] NHODG-C - source page(s) [124, 125, 126] - runtime-referenced
+- [x] NHODG-D - source page(s) [127, 128, 129, 130, 131] - runtime-referenced
+- [x] ST-1 - source page(s) [132] - runtime-referenced
+- [x] ST-2 - source page(s) [133] - runtime-referenced
+- [x] ST-3 - source page(s) [134] - runtime-referenced
+- [x] ST-4 - source page(s) [135] - runtime-referenced
+- [x] ST-5 - source page(s) [136] - runtime-referenced

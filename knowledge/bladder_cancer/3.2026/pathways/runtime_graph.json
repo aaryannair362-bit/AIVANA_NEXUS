@@ -1,0 +1,675 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Bladder/urothelial tract cancer?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "BLADDER_CANCER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "site",
+        "FALSE": "outside"
+      }
+    },
+    "site": {
+      "kind": "decision",
+      "label": "Bladder primary?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "BLADDER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "hist",
+        "FALSE": "site_pelvis"
+      }
+    },
+    "site_pelvis": {
+      "kind": "decision",
+      "label": "Renal pelvis primary?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "RENAL_PELVIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "utt_pelvis",
+        "FALSE": "site_ureter"
+      }
+    },
+    "utt_pelvis": {
+      "kind": "action",
+      "label": "Upper tract urothelial carcinoma of renal pelvis: risk/stage-directed endoscopic or nephroureterectomy/systemic pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_utt_pelvis",
+      "source_pathways": [
+        "UTT-1",
+        "UTT-2"
+      ],
+      "recommendation": {
+        "title": "Upper tract urothelial carcinoma of renal pelvis: risk/stage-directed endoscopic or nephroureterectomy/systemic pathway.",
+        "options": [
+          {
+            "label": "Upper tract management",
+            "text": "Use source-defined low/high-risk evaluation, surgery, perioperative systemic therapy, and surveillance."
+          }
+        ],
+        "supporting_sections": [
+          "BL-A",
+          "BL-C",
+          "BL-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "site_ureter": {
+      "kind": "decision",
+      "label": "Ureter primary?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "URETER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "utt_ureter",
+        "FALSE": "site_ucp"
+      }
+    },
+    "utt_ureter": {
+      "kind": "action",
+      "label": "Urothelial carcinoma of ureter: segment/site/risk-directed surgery or kidney-sparing management plus perioperative therapy as appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_utt_ureter",
+      "source_pathways": [
+        "UTT-3",
+        "UTT-4"
+      ],
+      "recommendation": {
+        "title": "Urothelial carcinoma of ureter: segment/site/risk-directed surgery or kidney-sparing management plus perioperative therapy as appropriate.",
+        "options": [
+          {
+            "label": "Ureter cancer management",
+            "text": "Use source stage/risk-directed surgery, systemic therapy, and surveillance."
+          }
+        ],
+        "supporting_sections": [
+          "BL-A",
+          "BL-C",
+          "BL-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "site_ucp": {
+      "kind": "decision",
+      "label": "Urothelial carcinoma of prostate/prostatic urethra?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "PROSTATE_URETHRA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "ucp",
+        "FALSE": "site_urethra"
+      }
+    },
+    "ucp": {
+      "kind": "action",
+      "label": "Urothelial carcinoma of the prostate/prostatic urethra: depth/location-directed TUR, intravesical therapy, or radical surgery/systemic pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_ucp",
+      "source_pathways": [
+        "UCP-1"
+      ],
+      "recommendation": {
+        "title": "Urothelial carcinoma of the prostate/prostatic urethra: depth/location-directed TUR, intravesical therapy, or radical surgery/systemic pathway.",
+        "options": [
+          {
+            "label": "Site-specific management",
+            "text": "Use UCP-1 based on mucosal/ductal/stromal involvement."
+          }
+        ],
+        "supporting_sections": [
+          "BL-F",
+          "BL-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "site_urethra": {
+      "kind": "decision",
+      "label": "Primary urethral carcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "URETHRA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "pcu",
+        "FALSE": "site_missing"
+      }
+    },
+    "pcu": {
+      "kind": "action",
+      "label": "Primary carcinoma of urethra: sex/site/stage-directed surgery, RT/chemoradiation, and systemic therapy pathways.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_pcu",
+      "source_pathways": [
+        "PCU-1",
+        "PCU-2",
+        "PCU-3"
+      ],
+      "recommendation": {
+        "title": "Primary carcinoma of urethra: sex/site/stage-directed surgery, RT/chemoradiation, and systemic therapy pathways.",
+        "options": [
+          {
+            "label": "Urethral cancer pathway",
+            "text": "Use primary urethral site/stage-specific multimodality options."
+          }
+        ],
+        "supporting_sections": [
+          "BL-G",
+          "BL-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "hist": {
+      "kind": "decision",
+      "label": "Urothelial histology?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "UROTHELIAL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase_met",
+        "FALSE": "nonuro"
+      }
+    },
+    "nonuro": {
+      "kind": "status",
+      "label": "Non-urothelial bladder histology requires BL-D histology-specific pathway.",
+      "status": "NEEDS_DIFFERENT_PATHWAY"
+    },
+    "phase_met": {
+      "kind": "decision",
+      "label": "Metastatic/recurrent metastatic episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT_METASTATIC"
+          },
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1A"
+          },
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1B"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "met",
+        "FALSE": "phase_postcyst"
+      }
+    },
+    "phase_postcyst": {
+      "kind": "decision",
+      "label": "Post-cystectomy episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_CYSTECTOMY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_cyst",
+        "FALSE": "phase_postintr"
+      }
+    },
+    "phase_postintr": {
+      "kind": "decision",
+      "label": "Post-intravesical episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_INTRAVESICAL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mibc",
+        "FALSE": "phase_new"
+      }
+    },
+    "phase_new": {
+      "kind": "decision",
+      "label": "New-diagnosis bladder episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mibc",
+        "FALSE": "phase_unknown"
+      }
+    },
+    "mibc": {
+      "kind": "decision",
+      "label": "Muscle-invasive T2+ disease?",
+      "expression": {
+        "any": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T2"
+          },
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T3"
+          },
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T4A"
+          },
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T4B"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mibc_stage",
+        "FALSE": "nmibc"
+      }
+    },
+    "nmibc": {
+      "kind": "decision",
+      "label": "High/very-high risk NMIBC?",
+      "expression": {
+        "any": [
+          {
+            "fact": "nmibc_risk",
+            "op": "eq",
+            "value": "HIGH"
+          },
+          {
+            "fact": "nmibc_risk",
+            "op": "eq",
+            "value": "VERY_HIGH"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "nmibc_high",
+        "FALSE": "nmibc_lowint"
+      }
+    },
+    "nmibc_lowint": {
+      "kind": "action",
+      "label": "Low/intermediate-risk NMIBC: complete TURBT with risk-adapted intravesical therapy or surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_nmibc_lowint",
+      "source_pathways": [
+        "BL-2",
+        "BL-3"
+      ],
+      "recommendation": {
+        "title": "Low/intermediate-risk NMIBC: complete TURBT with risk-adapted intravesical therapy or surveillance.",
+        "options": [
+          {
+            "label": "TURBT",
+            "text": "Complete visible resection when feasible."
+          },
+          {
+            "label": "Intravesical chemotherapy/other local option",
+            "text": "Use risk-appropriate source regimen and schedule."
+          },
+          {
+            "label": "Surveillance",
+            "text": "Cystoscopic surveillance per BL-E."
+          }
+        ],
+        "supporting_sections": [
+          "BL-B",
+          "BL-E",
+          "BL-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "nmibc_high": {
+      "kind": "decision",
+      "label": "BCG-unresponsive after adequate BCG?",
+      "expression": {
+        "all": [
+          {
+            "fact": "adequate_bcg_received",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "bcg_unresponsive",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "bcg_unresp",
+        "FALSE": "bcg_primary"
+      }
+    },
+    "bcg_primary": {
+      "kind": "action",
+      "label": "High-risk BCG-naive/BCG-responsive NMIBC: BCG-based intravesical management with early cystectomy discussion for very-high-risk states.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_nmibc_high_bcg",
+      "source_pathways": [
+        "BL-3",
+        "BL-4"
+      ],
+      "recommendation": {
+        "title": "High-risk BCG-naive/BCG-responsive NMIBC: BCG-based intravesical management with early cystectomy discussion for very-high-risk states.",
+        "options": [
+          {
+            "label": "BCG induction/maintenance",
+            "text": "Use source-defined high-risk BCG regimen."
+          },
+          {
+            "label": "Early radical cystectomy",
+            "text": "Discuss for source-defined highest-risk features."
+          }
+        ],
+        "supporting_sections": [
+          "BL-F",
+          "BL-B",
+          "BL-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "bcg_unresp": {
+      "kind": "action",
+      "label": "BCG-unresponsive high-risk NMIBC: radical cystectomy preferred for eligible patients; bladder-preserving approved intravesical/systemic options for selected patients.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_bcg_unresponsive",
+      "source_pathways": [
+        "BL-4"
+      ],
+      "recommendation": {
+        "title": "BCG-unresponsive high-risk NMIBC: radical cystectomy preferred for eligible patients; bladder-preserving approved intravesical/systemic options for selected patients.",
+        "options": [
+          {
+            "label": "Radical cystectomy",
+            "text": "Preferred oncologic option in appropriate candidates."
+          },
+          {
+            "label": "Bladder-preserving alternatives",
+            "text": "Use source-listed options when cystectomy is declined/ineligible."
+          }
+        ],
+        "supporting_sections": [
+          "BL-F",
+          "BL-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "mibc_stage": {
+      "kind": "decision",
+      "label": "T4b or N2/N3 locally advanced?",
+      "expression": {
+        "any": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T4B"
+          },
+          {
+            "fact": "clinical_n",
+            "op": "eq",
+            "value": "N2"
+          },
+          {
+            "fact": "clinical_n",
+            "op": "eq",
+            "value": "N3"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "locally_adv",
+        "FALSE": "mibc_cis"
+      }
+    },
+    "mibc_cis": {
+      "kind": "decision",
+      "label": "Cisplatin eligible?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cisplatin_eligible",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mibc_cis_therapy",
+        "FALSE": "mibc_non_cis"
+      }
+    },
+    "mibc_cis_therapy": {
+      "kind": "action",
+      "label": "Stage II/IIIA muscle-invasive bladder cancer, cisplatin-eligible: perioperative systemic therapy + radical cystectomy or selected trimodality bladder preservation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_mibc_cis",
+      "source_pathways": [
+        "BL-6",
+        "BL-7"
+      ],
+      "recommendation": {
+        "title": "Stage II/IIIA muscle-invasive bladder cancer, cisplatin-eligible: perioperative systemic therapy + radical cystectomy or selected trimodality bladder preservation.",
+        "options": [
+          {
+            "label": "Neoadjuvant/perioperative systemic therapy + cystectomy",
+            "text": "Use source-preferred regimen and surgical sequence."
+          },
+          {
+            "label": "Trimodality therapy",
+            "text": "Maximal TURBT + concurrent chemoradiation for appropriate candidates."
+          }
+        ],
+        "supporting_sections": [
+          "BL-G",
+          "BL-H",
+          "BL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "mibc_non_cis": {
+      "kind": "action",
+      "label": "Muscle-invasive bladder cancer not eligible for cisplatin: use current perioperative non-cisplatin systemic option(s), cystectomy, or trimodality based on eligibility.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_mibc_non_cis",
+      "source_pathways": [
+        "BL-6",
+        "BL-7"
+      ],
+      "recommendation": {
+        "title": "Muscle-invasive bladder cancer not eligible for cisplatin: use current perioperative non-cisplatin systemic option(s), cystectomy, or trimodality based on eligibility.",
+        "options": [
+          {
+            "label": "Perioperative systemic therapy + cystectomy",
+            "text": "Use source current EV/pembrolizumab eligibility/sequence when applicable."
+          },
+          {
+            "label": "Trimodality",
+            "text": "For appropriate bladder-preservation candidates."
+          },
+          {
+            "label": "Cystectomy alone",
+            "text": "When systemic therapy is not appropriate."
+          }
+        ],
+        "supporting_sections": [
+          "BL-G",
+          "BL-H",
+          "BL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "locally_adv": {
+      "kind": "action",
+      "label": "Stage IIIB/IVA nonmetastatic or M1a nodal bladder cancer: systemic therapy is central, with consolidative local therapy in selected responders.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_locally_advanced",
+      "source_pathways": [
+        "BL-8",
+        "BL-9"
+      ],
+      "recommendation": {
+        "title": "Stage IIIB/IVA nonmetastatic or M1a nodal bladder cancer: systemic therapy is central, with consolidative local therapy in selected responders.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use current preferred urothelial systemic therapy."
+          },
+          {
+            "label": "Consolidative surgery/RT",
+            "text": "Consider in selected responders and disease distributions."
+          }
+        ],
+        "supporting_sections": [
+          "BL-G",
+          "BL-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "post_cyst": {
+      "kind": "action",
+      "label": "Post-cystectomy bladder cancer: pathology/prior-treatment/ctDNA-MRD-directed adjuvant therapy or surveillance, then recurrence management if detected.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_post_cystectomy",
+      "source_pathways": [
+        "BL-7",
+        "BL-11"
+      ],
+      "recommendation": {
+        "title": "Post-cystectomy bladder cancer: pathology/prior-treatment/ctDNA-MRD-directed adjuvant therapy or surveillance, then recurrence management if detected.",
+        "options": [
+          {
+            "label": "Adjuvant therapy",
+            "text": "Use source nivolumab/pembrolizumab/ctDNA-directed atezolizumab criteria as applicable."
+          },
+          {
+            "label": "Surveillance",
+            "text": "Follow BL-E schedule when no adjuvant indication."
+          }
+        ],
+        "supporting_sections": [
+          "BL-E",
+          "BL-G",
+          "BL-I"
+        ],
+        "next_steps": []
+      }
+    },
+    "met": {
+      "kind": "action",
+      "label": "Metastatic urothelial carcinoma: first-line systemic therapy and biomarker/prior-exposure-directed subsequent therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bladder_metastatic",
+      "source_pathways": [
+        "BL-10"
+      ],
+      "recommendation": {
+        "title": "Metastatic urothelial carcinoma: first-line systemic therapy and biomarker/prior-exposure-directed subsequent therapy.",
+        "options": [
+          {
+            "label": "First-line systemic therapy",
+            "text": "Use source-preferred EV + pembrolizumab or other eligible regimen."
+          },
+          {
+            "label": "Subsequent therapy",
+            "text": "Use platinum/IO/ADC/FGFR-directed options according to prior exposure and FGFR status."
+          }
+        ],
+        "supporting_sections": [
+          "BL-G",
+          "BL-I"
+        ],
+        "next_steps": []
+      }
+    },
+    "phase_unknown": {
+      "kind": "status",
+      "label": "Bladder/urothelial treatment phase is not established.",
+      "status": "NEEDS_INFORMATION"
+    },
+    "site_missing": {
+      "kind": "status",
+      "label": "Urothelial primary site is not established.",
+      "status": "NEEDS_INFORMATION"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Bladder/urothelial ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

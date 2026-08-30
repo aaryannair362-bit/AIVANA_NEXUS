@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_ANAL",
+  "title": "Anal Carcinoma",
+  "version": "2.2026",
+  "cancer_type": "ANAL_CARCINOMA",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 24,
+    "implemented_decisions": 24,
+    "tested_decisions": 24,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "anal(5).pdf",
+    "sha256": "7ce9b2bed3bd0920fc2f8e28331b5b17762fcd15ce47ce766486b73a4d1d5ee7",
+    "pdf_pages": 69
+  },
+  "primary_expected": 4,
+  "supporting_expected": 5
+}

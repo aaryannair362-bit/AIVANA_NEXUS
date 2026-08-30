@@ -1,0 +1,14 @@
+.venv/
+.engine_cache/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.env.local
+.DS_Store
+node_modules/
+*.log
+
+# License-restricted NCCN source guideline PDFs (see resources/guidelines/SOURCE_FILES_NOTICE.md).
+# Keep these local-only; do not publish them.
+resources/guidelines/*.pdf

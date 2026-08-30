@@ -1,0 +1,864 @@
+{
+  "extraction": {
+    "detected_cancer": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+    "cancer_detection_status": "SUPPORTED",
+    "cancer_detection_evidence": [
+      "PATIENT_HISTORY: acute lymphoblastic leukemia",
+      "PATIENT_HISTORY: B-ALL",
+      "PATIENT_HISTORY: B-ALL",
+      "PATIENT_HISTORY: ALL",
+      "PATIENT_HISTORY: ALL",
+      "PATIENT_HISTORY: ALL"
+    ],
+    "current_verified_facts": [
+      {
+        "fact_id": "cns_involvement",
+        "value": false,
+        "status": "CONFIRMED",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "ble at 0.06%. No new neurologic symptoms and no evidence of CNS leukemia. ABL1 kinase-domain mutation testing has been sent and is pending.",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "mrd_quantitative_percent",
+        "value": 0.06,
+        "status": "CONFIRMED",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "MRD remains positive with BCR::ABL1 detectable at 0.06%",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": false,
+        "unit": "%"
+      },
+      {
+        "fact_id": "mrd_status",
+        "value": "POSITIVE",
+        "status": "CONFIRMED",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "ologic complete remission. Current molecular MRD remains positive with BCR::ABL1 detectable at 0.06%. No new neurologic symptoms and no",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "ph_status",
+        "value": "POSITIVE",
+        "status": "CONFIRMED",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "ete remission. Current molecular MRD remains positive with BCR::ABL1 detectable at 0.06%. No new neurologic symptoms and no evidence of CN",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "response_status",
+        "value": "CR",
+        "status": "CONFIRMED",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "2,100/\u00b5L. Bone marrow demonstrates continued morphologic complete remission. Current molecular MRD remains positive with BCR::ABL1 detectable at",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      }
+    ],
+    "current_pending_unverified_facts": [
+      {
+        "fact_id": "abl1_kinase_domain_mutation",
+        "value": null,
+        "status": "PENDING",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "ic symptoms and no evidence of CNS leukemia. ABL1 kinase-domain mutation testing has been sent and is pending.",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": false,
+        "unit": null
+      }
+    ],
+    "historical_facts": [
+      {
+        "fact_id": "age_years",
+        "value": 32.0,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "32-year-old",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "cns_involvement",
+        "value": false,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "with Philadelphia chromosome-positive B-ALL. No CNS involvement was identified at diagnosis. Patient received frontline induction con",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "diagnosis_confirmed",
+        "value": true,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "32-year-old male diagnosed 4 months ago with B-cell acute lymphoblastic leukemia. Bone marrow at diagnosis showed",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "lineage",
+        "value": "B_ALL",
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "B-cell acute lymphoblastic leukemia",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "mrd_quantitative_percent",
+        "value": 0.18,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "MRD testing after induction remained detectable at 0.18%",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": false,
+        "unit": "%"
+      },
+      {
+        "fact_id": "mrd_status",
+        "value": "POSITIVE",
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "ction showed morphologic complete remission. MRD testing after induction remained detectable at 0.18%. Patient has an HLA-matched sibling and has previously been",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "ph_status",
+        "value": "POSITIVE",
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "emonstrated BCR::ABL1 fusion consistent with Philadelphia chromosome-positive B-ALL. No CNS involvement was identified at diagnosis. Patient receiv",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "prior_hct",
+        "value": false,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "a potential allogeneic transplant candidate. No previous allogeneic transplant.",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "response_status",
+        "value": "CR",
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "therapy. Bone marrow after induction showed morphologic complete remission. MRD testing after induction remained detectable at 0.18%. Patient ha",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "transplant_candidate",
+        "value": true,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "ibling and has previously been assessed as a potential allogeneic transplant candidate. No previous allogeneic transplant.",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      },
+      {
+        "fact_id": "treatment_phase",
+        "value": "POST_INDUCTION",
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "bitor with ALL-directed therapy. Bone marrow after induction showed morphologic complete remission. MRD testing after induction re",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": true,
+        "unit": null
+      }
+    ],
+    "new_facts_from_today": [],
+    "updated_facts": [
+      {
+        "fact_id": "mrd_quantitative_percent",
+        "from": {
+          "fact_id": "mrd_quantitative_percent",
+          "value": 0.18,
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "MRD testing after induction remained detectable at 0.18%",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": false,
+          "unit": "%"
+        },
+        "to": {
+          "fact_id": "mrd_quantitative_percent",
+          "value": 0.06,
+          "status": "CONFIRMED",
+          "source_context": "CURRENT_OPD",
+          "evidence_text": "MRD remains positive with BCR::ABL1 detectable at 0.06%",
+          "temporal_scope": "CURRENT",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": false,
+          "unit": "%"
+        }
+      }
+    ],
+    "superseded_facts": [
+      {
+        "fact_id": "mrd_quantitative_percent",
+        "value": 0.18,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "MRD testing after induction remained detectable at 0.18%",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": false,
+        "unit": "%"
+      }
+    ],
+    "conflicting_facts": [],
+    "unresolved_clinical_mentions": [],
+    "provider_warnings": [],
+    "normalized_non_routing_facts": [
+      {
+        "fact_id": "abl1_kinase_domain_mutation",
+        "value": null,
+        "status": "PENDING",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "ic symptoms and no evidence of CNS leukemia. ABL1 kinase-domain mutation testing has been sent and is pending.",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": false,
+        "unit": null
+      },
+      {
+        "fact_id": "mrd_quantitative_percent",
+        "value": 0.18,
+        "status": "CONFIRMED",
+        "source_context": "PATIENT_HISTORY",
+        "evidence_text": "MRD testing after induction remained detectable at 0.18%",
+        "temporal_scope": "HISTORICAL",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": false,
+        "unit": "%"
+      },
+      {
+        "fact_id": "mrd_quantitative_percent",
+        "value": 0.06,
+        "status": "CONFIRMED",
+        "source_context": "CURRENT_OPD",
+        "evidence_text": "MRD remains positive with BCR::ABL1 detectable at 0.06%",
+        "temporal_scope": "CURRENT",
+        "observed_at": null,
+        "confidence": null,
+        "engine_authoritative": false,
+        "unit": "%"
+      }
+    ],
+    "canonical_facts_sent_to_engine": {
+      "cancer_type": {
+        "status": "CONFIRMED",
+        "value": "ACUTE_LYMPHOBLASTIC_LEUKEMIA"
+      },
+      "age_years": {
+        "status": "CONFIRMED",
+        "value": 32.0
+      },
+      "cns_involvement": {
+        "status": "CONFIRMED",
+        "value": false
+      },
+      "diagnosis_confirmed": {
+        "status": "CONFIRMED",
+        "value": true
+      },
+      "lineage": {
+        "status": "CONFIRMED",
+        "value": "B_ALL"
+      },
+      "mrd_status": {
+        "status": "CONFIRMED",
+        "value": "POSITIVE"
+      },
+      "ph_status": {
+        "status": "CONFIRMED",
+        "value": "POSITIVE"
+      },
+      "response_status": {
+        "status": "CONFIRMED",
+        "value": "CR"
+      }
+    },
+    "provider": {
+      "history": "deterministic",
+      "current_opd": "deterministic"
+    },
+    "extraction_mode_warning": "Conservative explicit-only extraction is active because the configured AI extractor was unavailable or not selected. Deterministic NEXUS routing remains active, but extraction recall may be lower than the product-like LLM extraction mode."
+  },
+  "nexus_result": {
+    "status": "NEEDS_INFORMATION",
+    "detected_cancer": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+    "guideline": "Acute Lymphoblastic Leukemia",
+    "guideline_id": "NCCN_ALL",
+    "guideline_version": "2.2026",
+    "package_file": "nexus_acute_lymphoblastic_leukemia_v2_2026.json",
+    "current_clinical_state": {
+      "response_status": {
+        "status": "CONFIRMED",
+        "value": "CR"
+      }
+    },
+    "current_nccn_pathway": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+    "current_pathway_node": "care_rr",
+    "applicable_nccn_options": [],
+    "required_workup_information": [],
+    "missing_pathway_changing_facts": [
+      "treatment_phase"
+    ],
+    "conflicting_information": [],
+    "evidence_used": {
+      "abl1_kinase_domain_mutation": [
+        {
+          "fact_id": "abl1_kinase_domain_mutation",
+          "value": null,
+          "status": "PENDING",
+          "source_context": "CURRENT_OPD",
+          "evidence_text": "ic symptoms and no evidence of CNS leukemia. ABL1 kinase-domain mutation testing has been sent and is pending.",
+          "temporal_scope": "CURRENT",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": false,
+          "unit": null
+        }
+      ],
+      "age_years": [
+        {
+          "fact_id": "age_years",
+          "value": 32.0,
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "32-year-old",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "cns_involvement": [
+        {
+          "fact_id": "cns_involvement",
+          "value": false,
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "with Philadelphia chromosome-positive B-ALL. No CNS involvement was identified at diagnosis. Patient received frontline induction con",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        },
+        {
+          "fact_id": "cns_involvement",
+          "value": false,
+          "status": "CONFIRMED",
+          "source_context": "CURRENT_OPD",
+          "evidence_text": "ble at 0.06%. No new neurologic symptoms and no evidence of CNS leukemia. ABL1 kinase-domain mutation testing has been sent and is pending.",
+          "temporal_scope": "CURRENT",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "diagnosis_confirmed": [
+        {
+          "fact_id": "diagnosis_confirmed",
+          "value": true,
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "32-year-old male diagnosed 4 months ago with B-cell acute lymphoblastic leukemia. Bone marrow at diagnosis showed",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "lineage": [
+        {
+          "fact_id": "lineage",
+          "value": "B_ALL",
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "B-cell acute lymphoblastic leukemia",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "mrd_quantitative_percent": [
+        {
+          "fact_id": "mrd_quantitative_percent",
+          "value": 0.18,
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "MRD testing after induction remained detectable at 0.18%",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": false,
+          "unit": "%"
+        },
+        {
+          "fact_id": "mrd_quantitative_percent",
+          "value": 0.06,
+          "status": "CONFIRMED",
+          "source_context": "CURRENT_OPD",
+          "evidence_text": "MRD remains positive with BCR::ABL1 detectable at 0.06%",
+          "temporal_scope": "CURRENT",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": false,
+          "unit": "%"
+        }
+      ],
+      "mrd_status": [
+        {
+          "fact_id": "mrd_status",
+          "value": "POSITIVE",
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "ction showed morphologic complete remission. MRD testing after induction remained detectable at 0.18%. Patient has an HLA-matched sibling and has previously been",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        },
+        {
+          "fact_id": "mrd_status",
+          "value": "POSITIVE",
+          "status": "CONFIRMED",
+          "source_context": "CURRENT_OPD",
+          "evidence_text": "ologic complete remission. Current molecular MRD remains positive with BCR::ABL1 detectable at 0.06%. No new neurologic symptoms and no",
+          "temporal_scope": "CURRENT",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "ph_status": [
+        {
+          "fact_id": "ph_status",
+          "value": "POSITIVE",
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "emonstrated BCR::ABL1 fusion consistent with Philadelphia chromosome-positive B-ALL. No CNS involvement was identified at diagnosis. Patient receiv",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        },
+        {
+          "fact_id": "ph_status",
+          "value": "POSITIVE",
+          "status": "CONFIRMED",
+          "source_context": "CURRENT_OPD",
+          "evidence_text": "ete remission. Current molecular MRD remains positive with BCR::ABL1 detectable at 0.06%. No new neurologic symptoms and no evidence of CN",
+          "temporal_scope": "CURRENT",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "prior_hct": [
+        {
+          "fact_id": "prior_hct",
+          "value": false,
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "a potential allogeneic transplant candidate. No previous allogeneic transplant.",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "response_status": [
+        {
+          "fact_id": "response_status",
+          "value": "CR",
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "therapy. Bone marrow after induction showed morphologic complete remission. MRD testing after induction remained detectable at 0.18%. Patient ha",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        },
+        {
+          "fact_id": "response_status",
+          "value": "CR",
+          "status": "CONFIRMED",
+          "source_context": "CURRENT_OPD",
+          "evidence_text": "2,100/\u00b5L. Bone marrow demonstrates continued morphologic complete remission. Current molecular MRD remains positive with BCR::ABL1 detectable at",
+          "temporal_scope": "CURRENT",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "transplant_candidate": [
+        {
+          "fact_id": "transplant_candidate",
+          "value": true,
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "ibling and has previously been assessed as a potential allogeneic transplant candidate. No previous allogeneic transplant.",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ],
+      "treatment_phase": [
+        {
+          "fact_id": "treatment_phase",
+          "value": "POST_INDUCTION",
+          "status": "CONFIRMED",
+          "source_context": "PATIENT_HISTORY",
+          "evidence_text": "bitor with ALL-directed therapy. Bone marrow after induction showed morphologic complete remission. MRD testing after induction re",
+          "temporal_scope": "HISTORICAL",
+          "observed_at": null,
+          "confidence": null,
+          "engine_authoritative": true,
+          "unit": null
+        }
+      ]
+    },
+    "why_nexus_reached_this_pathway": [
+      {
+        "node_id": "scope",
+        "decision_id": "all_scope",
+        "label": "Acute lymphoblastic leukemia?",
+        "result": true,
+        "source_pathways": [
+          "ALL-1"
+        ],
+        "facts": [
+          "cancer_type"
+        ]
+      },
+      {
+        "node_id": "diag",
+        "decision_id": "all_diagnosis_confirmed",
+        "label": "Diagnosis confirmed?",
+        "result": true,
+        "source_pathways": [
+          "ALL-1",
+          "ALL-1A"
+        ],
+        "facts": [
+          "diagnosis_confirmed"
+        ]
+      },
+      {
+        "node_id": "care_rr",
+        "decision_id": "all_care_state_rr",
+        "label": "Relapsed/refractory or active progression episode?",
+        "result": null,
+        "source_pathways": [
+          "ALL-8"
+        ],
+        "facts": [
+          "response_status",
+          "treatment_phase"
+        ]
+      }
+    ],
+    "what_could_change_the_pathway": [
+      {
+        "decision_id": "all_scope",
+        "fact_id": "cancer_type",
+        "current_value": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+        "current_status": "KNOWN",
+        "alternative_branches": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN",
+          "CONFLICT"
+        ],
+        "source_section": "ALL-1"
+      },
+      {
+        "decision_id": "all_diagnosis_confirmed",
+        "fact_id": "diagnosis_confirmed",
+        "current_value": true,
+        "current_status": "KNOWN",
+        "alternative_branches": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN",
+          "CONFLICT"
+        ],
+        "source_section": "ALL-1"
+      },
+      {
+        "decision_id": "all_care_state_rr",
+        "fact_id": "response_status",
+        "current_value": "CR",
+        "current_status": "KNOWN",
+        "alternative_branches": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN",
+          "CONFLICT"
+        ],
+        "source_section": "ALL-8"
+      },
+      {
+        "decision_id": "all_care_state_rr",
+        "fact_id": "treatment_phase",
+        "current_value": null,
+        "current_status": "UNKNOWN",
+        "alternative_branches": [
+          "TRUE",
+          "FALSE",
+          "UNKNOWN",
+          "CONFLICT"
+        ],
+        "source_section": "ALL-8"
+      }
+    ],
+    "source_page_section_references": [
+      {
+        "section": "ALL-8",
+        "physical_pages": [
+          20
+        ],
+        "source_anchor": null,
+        "guideline": "Acute Lymphoblastic Leukemia",
+        "version": "2.2026"
+      }
+    ],
+    "next_transition": [],
+    "raw_deterministic_response": {
+      "status": "NEEDS_INFORMATION",
+      "missing_facts": [
+        "treatment_phase"
+      ],
+      "missing_information": [
+        "treatment_phase"
+      ],
+      "trace": [
+        {
+          "node_id": "scope",
+          "decision_id": "all_scope",
+          "label": "Acute lymphoblastic leukemia?",
+          "result": true,
+          "source_pathways": [
+            "ALL-1"
+          ],
+          "facts": [
+            "cancer_type"
+          ]
+        },
+        {
+          "node_id": "diag",
+          "decision_id": "all_diagnosis_confirmed",
+          "label": "Diagnosis confirmed?",
+          "result": true,
+          "source_pathways": [
+            "ALL-1",
+            "ALL-1A"
+          ],
+          "facts": [
+            "diagnosis_confirmed"
+          ]
+        },
+        {
+          "node_id": "care_rr",
+          "decision_id": "all_care_state_rr",
+          "label": "Relapsed/refractory or active progression episode?",
+          "result": null,
+          "source_pathways": [
+            "ALL-8"
+          ],
+          "facts": [
+            "response_status",
+            "treatment_phase"
+          ]
+        }
+      ],
+      "current_node": "care_rr",
+      "current_pathway": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+      "current_section": "ALL-8",
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "source_references": [
+        {
+          "code": "ALL-8",
+          "pages": [
+            20
+          ],
+          "kind": "PRIMARY_ALGORITHM",
+          "source_text_sha256": "63dc92d346179054838c28d2d3c83880dad2c91c675802a4a6f03b1d08f0d48f",
+          "found": true
+        }
+      ],
+      "relevant_sections": [
+        {
+          "code": "ALL-8",
+          "pages": [
+            20
+          ],
+          "kind": "PRIMARY_ALGORITHM",
+          "source_text_sha256": "63dc92d346179054838c28d2d3c83880dad2c91c675802a4a6f03b1d08f0d48f",
+          "found": true
+        }
+      ],
+      "what_could_change_pathway": [
+        {
+          "decision_id": "all_scope",
+          "fact_id": "cancer_type",
+          "current_value": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+          "current_status": "KNOWN",
+          "alternative_branches": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN",
+            "CONFLICT"
+          ],
+          "source_section": "ALL-1"
+        },
+        {
+          "decision_id": "all_diagnosis_confirmed",
+          "fact_id": "diagnosis_confirmed",
+          "current_value": true,
+          "current_status": "KNOWN",
+          "alternative_branches": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN",
+            "CONFLICT"
+          ],
+          "source_section": "ALL-1"
+        },
+        {
+          "decision_id": "all_care_state_rr",
+          "fact_id": "response_status",
+          "current_value": "CR",
+          "current_status": "KNOWN",
+          "alternative_branches": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN",
+            "CONFLICT"
+          ],
+          "source_section": "ALL-8"
+        },
+        {
+          "decision_id": "all_care_state_rr",
+          "fact_id": "treatment_phase",
+          "current_value": null,
+          "current_status": "UNKNOWN",
+          "alternative_branches": [
+            "TRUE",
+            "FALSE",
+            "UNKNOWN",
+            "CONFLICT"
+          ],
+          "source_section": "ALL-8"
+        }
+      ],
+      "evidence_used": [
+        {
+          "fact_id": "cancer_type",
+          "value": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+          "status": "CONFIRMED",
+          "context": null,
+          "timepoint": null,
+          "evidence": null
+        },
+        {
+          "fact_id": "diagnosis_confirmed",
+          "value": true,
+          "status": "CONFIRMED",
+          "context": null,
+          "timepoint": null,
+          "evidence": null
+        },
+        {
+          "fact_id": "response_status",
+          "value": "CR",
+          "status": "CONFIRMED",
+          "context": null,
+          "timepoint": null,
+          "evidence": null
+        }
+      ],
+      "derived_fact_trace": []
+    }
+  }
+}

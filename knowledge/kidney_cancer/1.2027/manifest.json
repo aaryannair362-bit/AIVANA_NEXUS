@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_KIDNEY",
+  "title": "Kidney Cancer",
+  "version": "1.2027",
+  "cancer_type": "KIDNEY_CANCER",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 37,
+    "implemented_decisions": 37,
+    "tested_decisions": 37,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "kidney(3).pdf",
+    "sha256": "8113c2636a8bfb8e69b88b3e9fd18d059c9e88936e02c362d1fc18587ebcfe44",
+    "pdf_pages": 100
+  },
+  "primary_expected": 10,
+  "supporting_expected": 7
+}

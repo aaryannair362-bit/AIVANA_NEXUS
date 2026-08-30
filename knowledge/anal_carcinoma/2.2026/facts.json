@@ -1,0 +1,76 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "ANAL_CARCINOMA",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "histology",
+    "value_type": "CODED",
+    "allowed_values": [
+      "SQUAMOUS_CELL",
+      "OTHER",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "primary_site",
+    "value_type": "CODED",
+    "allowed_values": [
+      "ANAL_CANAL",
+      "PERIANAL",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "clinical_m",
+    "value_type": "CODED",
+    "allowed_values": [
+      "M0",
+      "M1",
+      "MX"
+    ],
+    "semantic_unknown_values": [
+      "MX"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "POST_CHEMORADIATION",
+      "RECURRENT",
+      "METASTATIC"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "post_chemoradiation_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "COMPLETE_RESPONSE",
+      "PERSISTENT",
+      "PROGRESSIVE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "resectable_local_recurrence",
+    "value_type": "BOOLEAN"
+  }
+]

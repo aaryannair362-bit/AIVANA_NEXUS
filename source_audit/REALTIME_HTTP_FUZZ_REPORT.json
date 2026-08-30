@@ -1,0 +1,480 @@
+{
+  "test_kind": "live randomized HTTP fuzz/property test; no golden expected-answer cases",
+  "random_seed": "system_entropy",
+  "requests": 11281,
+  "packages": 15,
+  "status_counts": {
+    "RECOMMENDATION": 2777,
+    "REQUIRES_REVIEW": 1948,
+    "NEEDS_INFORMATION": 5671,
+    "OUTSIDE_ENCODED_SCOPE": 363,
+    "NEEDS_DIFFERENT_PATHWAY": 491
+  },
+  "p50_ms": 0.676047000069957,
+  "p95_ms": 0.9071469999071269,
+  "rule_engine_errors": 0,
+  "errors": [],
+  "consistency_rule_checks": [
+    {
+      "package": "nexus_acute_lymphoblastic_leukemia_v2_2026.json",
+      "rule_id": "all_ph_positive_requires_b_lineage",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_acute_lymphoblastic_leukemia_v2_2026.json",
+      "rule_id": "all_surveillance_active_relapse_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_acute_myeloid_leukemia_v5_2026.json",
+      "rule_id": "aml_surveillance_active_relapse",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_acute_myeloid_leukemia_v5_2026.json",
+      "rule_id": "aml_apl_family_with_nonapl_risk",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_anal_carcinoma_v2_2026.json",
+      "rule_id": "anal_m1_nonmet_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_b_cell_lymphomas_v4_2026.json",
+      "rule_id": "bcell_relapse_surveillance_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_b_cell_lymphomas_v4_2026.json",
+      "rule_id": "bcell_limited_advanced_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_biliary_tract_cancers_v1_2026.json",
+      "rule_id": "btc_margin_duplicate_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_biliary_tract_cancers_v1_2026.json",
+      "rule_id": "btc_progression_firstline_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_bladder_cancer_v3_2026.json",
+      "rule_id": "bladder_m1_nmibc_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_bladder_cancer_v3_2026.json",
+      "rule_id": "bladder_cis_lowrisk_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_bladder_cancer_v3_2026.json",
+      "rule_id": "bladder_highgrade_lowrisk_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_bladder_cancer_v3_2026.json",
+      "rule_id": "bladder_unresponsive_requires_adequate_bcg",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_bone_cancer_v1_2027.json",
+      "rule_id": "chon_act_high_grade_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_bone_cancer_v1_2027.json",
+      "rule_id": "chon_act_nonappendicular_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_bone_cancer_v1_2027.json",
+      "rule_id": "chon_act_extracompartmental_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_breast_cancer_v6_2026.json",
+      "rule_id": "breast_metastatic_m0_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_breast_cancer_v6_2026.json",
+      "rule_id": "breast_surveillance_metastatic_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_cervical_cancer_v2_2026.json",
+      "rule_id": "cerv_ivb_surveillance_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_cervical_cancer_v2_2026.json",
+      "rule_id": "cerv_conservative_size_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_cervical_cancer_v2_2026.json",
+      "rule_id": "cerv_conservative_doi_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_gastric_cancer_v3_2026.json",
+      "rule_id": "gastric_m1_curative_surv",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_gastrointestinal_stromal_tumors_v1_2026.json",
+      "rule_id": "gist_small_gastric_flag_conflict_site",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_gastrointestinal_stromal_tumors_v1_2026.json",
+      "rule_id": "gist_small_gastric_flag_conflict_size",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_gastrointestinal_stromal_tumors_v1_2026.json",
+      "rule_id": "gist_high_mitosis_lowrisk_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_gastrointestinal_stromal_tumors_v1_2026.json",
+      "rule_id": "gist_secondline_without_prior_tki",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_hodgkin_lymphoma_v2_2026.json",
+      "rule_id": "hodg_stage_adv_favorable_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_hodgkin_lymphoma_v2_2026.json",
+      "rule_id": "hodg_nlphl_chl_risk_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_kidney_cancer_v1_2027.json",
+      "rule_id": "kid_metastatic_postop_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_myeloproliferative_neoplasms_v2_2026.json",
+      "rule_id": "pv_lowrisk_age_thrombosis_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    },
+    {
+      "package": "nexus_myeloproliferative_neoplasms_v2_2026.json",
+      "rule_id": "pv_highrisk_age_thrombosis_conflict",
+      "passed": true,
+      "status": "REQUIRES_REVIEW"
+    }
+  ],
+  "terminal_counts": {
+    "nexus_acute_lymphoblastic_leukemia_v2_2026.json": {
+      "workup": 227,
+      "bneg_initial": 7,
+      "t_initial": 12,
+      "bph_mrdneg": 1,
+      "rr_tall": 4,
+      "t_mrdpos": 3,
+      "rr_phplus": 1,
+      "surveillance": 5,
+      "rr_phnegative": 3,
+      "bph_initial": 2,
+      "t_mrdneg": 1
+    },
+    "nexus_acute_myeloid_leukemia_v5_2026.json": {
+      "bpdcn_rr": 14,
+      "surveillance_aml": 3,
+      "consol_flt3_action": 1,
+      "apl_consolidation": 5,
+      "bpdcn_initial": 47,
+      "maintenance_flt3_hct": 4,
+      "mrc_lt60": 3,
+      "adverse_unclassified": 2,
+      "apl_monitor": 17,
+      "aml_workup_action": 12,
+      "bpdcn_workup_action": 7,
+      "rr_flt3_action": 1,
+      "rr_npm1_action": 5,
+      "rr_kmt2a_action": 2,
+      "apl_low": 3,
+      "maintenance_flt3_postchemo": 2,
+      "apl_workup_action": 4,
+      "tp53_trial": 2,
+      "bpdcn_cr": 4,
+      "apl_relapse": 2,
+      "maintenance_highrisk_hct": 1,
+      "lower_noidh1": 1,
+      "lower_idh1_action": 1,
+      "rr_idh1_action": 1
+    },
+    "nexus_anal_carcinoma_v2_2026.json": {
+      "met_first": 30,
+      "met_later": 20,
+      "perianal_inadequate": 1,
+      "canal_local": 4,
+      "surv": 1,
+      "rec_inguinal": 1,
+      "persistent_obs": 1
+    },
+    "nexus_b_cell_lymphomas_v4_2026.json": {
+      "workup": 242,
+      "blast_t": 3,
+      "hgbl_bcl6_action": 2,
+      "hgbl_other": 7,
+      "blast_b": 3,
+      "dlbcl_cutaneous_local_action": 2,
+      "mzlng_local": 2,
+      "mzlg_adv_surv": 1,
+      "dlbcl_bulky_first": 1,
+      "smzl_follow": 2,
+      "ptld_mono_t_action": 2,
+      "burk_rr_late": 1,
+      "mzl_third": 2,
+      "trans_multi_treat": 2,
+      "trans_bsc": 5,
+      "pmbl_rr": 2,
+      "dlbcl_full_first": 1,
+      "trans_cr": 3,
+      "smzl_hcv_treat": 1,
+      "mzlng_watch_adv": 2,
+      "dlbcl_late_nontransplant": 1,
+      "hiv_burk": 4,
+      "mcl_rr_late": 2,
+      "mcl_rr_early": 1,
+      "mzlg_lymph_only_isrt": 1,
+      "burk_high": 1,
+      "foll_ped_action": 1,
+      "mcl_aggressive": 1,
+      "burk_rr_early": 1,
+      "ptld_chl_action": 1,
+      "ptld_poly_systemic": 2,
+      "mcl_adv_watch": 1,
+      "ptld_non_action": 1,
+      "ptld_mono_after_chemo": 1,
+      "dlbcl_cutaneous_general": 4,
+      "hiv_pcnsl_rt": 2,
+      "trans_minimal": 1,
+      "dlbcl_early_cart": 1,
+      "trans_noncr": 2,
+      "mzl_first_systemic": 2,
+      "hgbl_doublehit": 1,
+      "hiv_plasma": 1,
+      "ptld_cns_action": 2
+    },
+    "nexus_basal_cell_skin_cancer_v1_2027.json": {
+      "met": 89,
+      "recur_local": 23,
+      "la_resect_action": 53,
+      "high_primary_surgery": 6,
+      "nodal": 66,
+      "la_first": 16,
+      "high_neg": 3,
+      "la_second": 20,
+      "high_rt": 4,
+      "high_pn": 7
+    },
+    "nexus_biliary_tract_cancers_v1_2026.json": {
+      "e_post_high": 13,
+      "sys_first": 15,
+      "i_resect": 8,
+      "gb_r1": 1,
+      "e_resect": 4,
+      "i_post_r1": 7,
+      "gb_post_early": 2,
+      "i_post_r0": 2,
+      "gb_primary_action": 3,
+      "sys_later": 2
+    },
+    "nexus_bladder_cancer_v3_2026.json": {
+      "ucp_mucosal": 5,
+      "pcu_adv": 17,
+      "met_first": 16,
+      "met_later": 14,
+      "utt_low_intermediate": 2,
+      "mibc_noncurative": 1,
+      "pcu_early_action": 8,
+      "pcu_t2_bulbar_action": 4,
+      "pcu_t2_pendulous_action": 1,
+      "repeat_turbt": 1,
+      "utt_high_risk": 4,
+      "ucp_invasive": 3,
+      "mibc_adv": 1,
+      "post_follow": 1,
+      "pcu_t2_female_action": 1
+    },
+    "nexus_bone_cancer_v1_2027.json": {
+      "workup_action": 147,
+      "chor_localrec": 9,
+      "chon_met_wide": 6,
+      "osteo_relapse": 4,
+      "chor_defrt": 2,
+      "gctb_rec": 13,
+      "ew_met": 15,
+      "chor_met": 12,
+      "gctb_nonresect": 15,
+      "ew_initial": 8,
+      "osteo_high": 3,
+      "chon_met_oligo_action": 11,
+      "ew_relapse": 2,
+      "chor_axial_primary": 1,
+      "chon_mes_action": 1,
+      "osteo_met_resect_action": 5,
+      "chor_pd": 11,
+      "chon_rec_surg": 3,
+      "osteo_met_unres": 3,
+      "chon_dediff_action": 1,
+      "chon_rec_rt": 1,
+      "chon_posmargin": 1
+    },
+    "nexus_breast_cancer_v6_2026.json": {
+      "dcis_mast": 16,
+      "paget_noninv": 44,
+      "dcis_bcs": 17,
+      "phyll_recur": 20,
+      "preg_later": 11,
+      "paget_invasive": 37,
+      "phyll_reexcision": 26,
+      "recur_local": 4,
+      "dcis_post_options": 8,
+      "phyll_primary": 19,
+      "postop_hrpos_her2": 1,
+      "surv": 7,
+      "preg_first": 2,
+      "met_her2_later": 2,
+      "preop_her2": 1
+    },
+    "nexus_cervical_cancer_v2_2026.json": {
+      "post_high_action": 4,
+      "necc_early": 14,
+      "bulky_action": 2,
+      "met_local_action": 26,
+      "necc_met": 26,
+      "la_nodal_pending": 2,
+      "ib1ib2_action": 1,
+      "surv": 5,
+      "rec_no_prior": 4,
+      "necc_la_primary": 7,
+      "la_standard": 1,
+      "met_first_standard": 1,
+      "incidental_other": 4,
+      "met_first_pdl1pos": 2
+    },
+    "nexus_gastric_cancer_v3_2026.json": {
+      "pall_later": 36,
+      "postpre_surgery": 4,
+      "pall_her2": 17,
+      "endo": 2,
+      "surv": 27,
+      "locoreg_standard": 1,
+      "peritoneal": 6,
+      "posttx_unres": 8,
+      "postpre_r1": 3,
+      "rec_local_action": 1,
+      "unresect": 2,
+      "locoreg_msi_action": 1,
+      "nonsurgical": 7,
+      "postpre_r0": 1,
+      "pall_cldn": 5,
+      "posttx_resect": 1,
+      "pall_msi": 6,
+      "r1_action": 1,
+      "pall_pdl1_action": 1,
+      "postpre_r2": 2
+    },
+    "nexus_gastrointestinal_stromal_tumors_v1_2026.json": {
+      "prog_wide": 25,
+      "direct_resection": 4,
+      "prog_limited": 16,
+      "post_incomplete": 38,
+      "post_adjuvant": 4,
+      "adv_first": 4,
+      "neo_other": 2,
+      "adv_second": 2,
+      "adv_third": 3,
+      "post_surv": 2,
+      "adv_d842v": 1
+    },
+    "nexus_hodgkin_lymphoma_v2_2026.json": {
+      "nlphl_rr_obs": 2,
+      "primary_refractory": 2,
+      "nlphl_adv": 10,
+      "preg_action": 7,
+      "nlphl_observe": 1,
+      "follow": 14,
+      "resp_good": 9,
+      "resp_fav_good": 5,
+      "resp_fav45_action": 3,
+      "older_adv": 1,
+      "older_early": 1,
+      "nlphl_early_tx": 5,
+      "nlphl_bxneg_obs": 2,
+      "rr_nonhct_cpi": 2,
+      "rr_ge3": 1,
+      "resp_bxneg": 1
+    },
+    "nexus_kidney_cancer_v1_2027.json": {
+      "hered_action": 120,
+      "oligo_post": 42,
+      "oligo_local": 48,
+      "partial": 15,
+      "noncc": 29,
+      "post_noncc": 19,
+      "t1b_surg": 32,
+      "stage23_surg": 12,
+      "rmc": 23,
+      "radical_small": 5,
+      "nonmet_unres": 7,
+      "t4_surg": 2,
+      "nonsurg_small": 3,
+      "post_cc_high": 2,
+      "cc_later": 4
+    },
+    "nexus_myeloproliferative_neoplasms_v2_2026.json": {
+      "apbp_action": 241,
+      "workup": 36,
+      "unclassified": 16,
+      "et_nonhigh": 7,
+      "pv_high": 6,
+      "mf_hct": 2,
+      "et_first": 1,
+      "pv_low": 4,
+      "et_later": 1,
+      "mf_jak": 1
+    }
+  }
+}

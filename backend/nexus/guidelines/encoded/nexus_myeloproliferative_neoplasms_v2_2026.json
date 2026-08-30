@@ -1,0 +1,2741 @@
+{
+  "schema_version": "nexus-full-pathway/2.0",
+  "guideline_id": "NCCN_MPN",
+  "title": "Myeloproliferative Neoplasms",
+  "version": "2.2026",
+  "cancer_type": "MYELOPROLIFERATIVE_NEOPLASM",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 28,
+      "implemented_decisions": 28,
+      "tested_decisions": 28,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "MYELOPROLIFERATIVE_NEOPLASM",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "subtype",
+      "value_type": "CODED",
+      "allowed_values": [
+        "MYELOFIBROSIS",
+        "POLYCYTHEMIA_VERA",
+        "ESSENTIAL_THROMBOCYTHEMIA",
+        "ACCELERATED_BLAST_PHASE",
+        "UNCLASSIFIED",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "WORKUP",
+        "NEW_DIAGNOSIS",
+        "ON_TREATMENT",
+        "PROGRESSIVE",
+        "ACCELERATED_BLAST_PHASE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "mf_risk",
+      "value_type": "CODED",
+      "allowed_values": [
+        "LOWER",
+        "HIGHER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "symptomatic_splenomegaly_or_constitutional",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "mf_anemia",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "transplant_candidate",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "pv_high_risk",
+      "value_type": "BOOLEAN",
+      "fact_role": "DERIVED_DETERMINISTIC",
+      "extraction_allowed": false,
+      "input_authority": "DERIVED_ONLY"
+    },
+    {
+      "key": "et_risk",
+      "value_type": "CODED",
+      "allowed_values": [
+        "VERY_LOW",
+        "LOW",
+        "INTERMEDIATE",
+        "HIGH",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "prior_cytoreductive_inadequate_response",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "thrombosis_or_vascular_event",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "platelet_count",
+      "value_type": "NUMERIC",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "hemoglobin",
+      "value_type": "NUMERIC",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "constitutional_symptoms",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "symptomatic_splenomegaly",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "jak_inhibitor_prior",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "hydroxyurea_resistant_or_intolerant",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "phlebotomy_requirement",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "age_years",
+      "value_type": "NUMERIC",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "thrombosis_history",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "driver_mutation",
+      "value_type": "CODED",
+      "fact_role": "OPTION_APPLICABILITY",
+      "allowed_values": [
+        "JAK2",
+        "CALR",
+        "MPL",
+        "TRIPLE_NEGATIVE",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "blast_percentage",
+      "value_type": "NUMERIC",
+      "fact_role": "ROUTING"
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Myeloproliferative neoplasm?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "MYELOPROLIFERATIVE_NEOPLASM"
+      },
+      "on": {
+        "TRUE": "apbp",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "MPN-1"
+      ],
+      "decision_id": "scope"
+    },
+    "apbp": {
+      "kind": "decision",
+      "label": "Accelerated/blast phase?",
+      "expression": {
+        "any": [
+          {
+            "any": [
+              {
+                "any": [
+                  {
+                    "fact": "subtype",
+                    "op": "eq",
+                    "value": "ACCELERATED_BLAST_PHASE"
+                  },
+                  {
+                    "fact": "treatment_phase",
+                    "op": "eq",
+                    "value": "ACCELERATED_BLAST_PHASE"
+                  }
+                ]
+              },
+              {
+                "fact": "blast_percentage",
+                "op": "gte",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "fact": "blast_percentage",
+            "op": "gte",
+            "value": 10
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "apbp_action",
+        "FALSE": "workup_phase",
+        "UNKNOWN": "workup_phase"
+      },
+      "source_pathways": [
+        "MPN-AP/BP-1"
+      ],
+      "decision_id": "apbp"
+    },
+    "apbp_action": {
+      "kind": "action",
+      "label": "Accelerated/blast-phase MPN: urgent disease-directed therapy and early transplant-team involvement when eligible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "apbp_action",
+      "source_pathways": [
+        "MPN-AP/BP-1"
+      ],
+      "recommendation": {
+        "title": "Accelerated/blast-phase MPN: urgent disease-directed therapy and early transplant-team involvement when eligible.",
+        "options": [
+          {
+            "option_id": "mpn_apbp_trial",
+            "label": "Clinical trial",
+            "text": "Preferred where available.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-F",
+              "page_label": "MPN-F",
+              "physical_pages": [
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "MPN-F:pages:38,39,40"
+            }
+          },
+          {
+            "option_id": "mpn_apbp_aml",
+            "label": "AML-type or lower-intensity AML-directed therapy according to fitness/mutations",
+            "text": "AML-type or lower-intensity AML-directed therapy according to fitness/mutations",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-F",
+              "page_label": "MPN-F",
+              "physical_pages": [
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "MPN-F:pages:38,39,40"
+            }
+          },
+          {
+            "option_id": "mpn_apbp_hct",
+            "label": "Allogeneic HCT if response and eligible",
+            "text": "Allogeneic HCT if response and eligible",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "transplant_candidate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-F",
+              "page_label": "MPN-F",
+              "physical_pages": [
+                38,
+                39,
+                40
+              ],
+              "source_anchor": "MPN-F:pages:38,39,40"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-F",
+          "MPN-H"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "MPN_AP_BP"
+    },
+    "workup_phase": {
+      "kind": "decision",
+      "label": "Workup/diagnosis phase?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "WORKUP"
+      },
+      "on": {
+        "TRUE": "workup",
+        "FALSE": "sub_mf"
+      },
+      "source_pathways": [
+        "MPN-1",
+        "MPN-2"
+      ],
+      "decision_id": "workup_phase"
+    },
+    "workup": {
+      "kind": "action",
+      "label": "MPN workup: CBC/smear, marrow/cytogenetics, JAK2/CALR/MPL and multigene molecular testing; classify MF/PV/ET and risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "workup",
+      "source_pathways": [
+        "MPN-1",
+        "MPN-2",
+        "MPN-2A"
+      ],
+      "recommendation": {
+        "title": "MPN workup: CBC/smear, marrow/cytogenetics, JAK2/CALR/MPL and multigene molecular testing; classify MF/PV/ET and risk.",
+        "options": [
+          {
+            "option_id": "mpn_workup",
+            "label": "Complete MPN diagnostic and molecular workup",
+            "text": "Complete MPN diagnostic and molecular workup",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-A",
+              "page_label": "MPN-A",
+              "physical_pages": [
+                30,
+                31
+              ],
+              "source_anchor": "MPN-A:pages:30,31"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-A",
+          "MPN-B",
+          "MPN-C",
+          "MPN-D",
+          "MPN-E",
+          "MPN-2A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "MPN_WORKUP"
+    },
+    "sub_mf": {
+      "kind": "decision",
+      "label": "Myelofibrosis?",
+      "expression": {
+        "fact": "subtype",
+        "op": "eq",
+        "value": "MYELOFIBROSIS"
+      },
+      "on": {
+        "TRUE": "mf_risk",
+        "FALSE": "sub_pv"
+      },
+      "source_pathways": [
+        "MF-1",
+        "MF-2",
+        "MF-3"
+      ],
+      "decision_id": "sub_mf"
+    },
+    "mf_risk": {
+      "kind": "decision",
+      "label": "Higher-risk MF?",
+      "expression": {
+        "fact": "mf_risk",
+        "op": "eq",
+        "value": "HIGHER"
+      },
+      "on": {
+        "TRUE": "mf_high_hct",
+        "FALSE": "mf_low_sym"
+      },
+      "source_pathways": [
+        "MF-1",
+        "MF-2",
+        "MF-2A"
+      ],
+      "decision_id": "mf_risk"
+    },
+    "mf_high_hct": {
+      "kind": "decision",
+      "label": "Transplant candidate?",
+      "expression": {
+        "fact": "transplant_candidate",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "mf_hct",
+        "FALSE": "mf_high_sym"
+      },
+      "source_pathways": [
+        "MF-2",
+        "MF-2A"
+      ],
+      "decision_id": "mf_high_hct"
+    },
+    "mf_hct": {
+      "kind": "action",
+      "label": "Higher-risk MF and transplant candidate: allogeneic HCT pathway, with JAK-inhibitor/symptom management as bridge as appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mf_hct",
+      "source_pathways": [
+        "MF-2"
+      ],
+      "recommendation": {
+        "title": "Higher-risk MF and transplant candidate: allogeneic HCT pathway, with JAK-inhibitor/symptom management as bridge as appropriate.",
+        "options": [
+          {
+            "option_id": "mf_allo_hct",
+            "label": "Allogeneic HCT",
+            "text": "Allogeneic HCT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-C",
+              "page_label": "MF-C",
+              "physical_pages": [
+                19
+              ],
+              "source_anchor": "MF-C:pages:19"
+            }
+          },
+          {
+            "option_id": "mf_bridge_jak",
+            "label": "JAK inhibitor bridge/symptom control",
+            "text": "JAK inhibitor bridge/symptom control",
+            "decision_relevant": false,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-C",
+              "page_label": "MF-C",
+              "physical_pages": [
+                19
+              ],
+              "source_anchor": "MF-C:pages:19"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MF-C",
+          "MPN-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "MF_HIGHER_RISK_HCT"
+    },
+    "mf_high_sym": {
+      "kind": "decision",
+      "label": "Symptomatic splenomegaly/constitutional symptoms?",
+      "expression": {
+        "any": [
+          {
+            "fact": "symptomatic_splenomegaly",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "constitutional_symptoms",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mf_jak",
+        "FALSE": "mf_anemia_check"
+      },
+      "source_pathways": [
+        "MF-2",
+        "MF-3",
+        "MF-2A"
+      ],
+      "decision_id": "mf_high_sym"
+    },
+    "mf_jak": {
+      "kind": "action",
+      "label": "MF with symptomatic splenomegaly/constitutional symptoms: JAK-inhibitor therapy selected by platelet/anemia context; reassess response/toxicity.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mf_jak",
+      "source_pathways": [
+        "MF-1",
+        "MF-2",
+        "MF-2A"
+      ],
+      "recommendation": {
+        "title": "MF with symptomatic splenomegaly/constitutional symptoms: JAK-inhibitor therapy selected by platelet/anemia context; reassess response/toxicity.",
+        "options": [
+          {
+            "option_id": "mf_ruxo",
+            "label": "Ruxolitinib",
+            "text": "Ruxolitinib",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "mf_fedra",
+            "label": "Fedratinib",
+            "text": "Fedratinib",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "mf_momelo",
+            "label": "Momelotinib",
+            "text": "Category 1 in source-defined symptomatic/anemia contexts.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "mf_pacri",
+            "label": "Pacritinib",
+            "text": "Source option for severe thrombocytopenia/appropriate platelet context.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "mf_jak_platelets_ge50",
+            "label": "JAK-inhibitor option set for platelets >=50 x10^9/L",
+            "text": "Use source-listed JAK inhibitors appropriate for the platelet count/anemia context.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-2",
+              "page_label": "MF-2",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "MF-2:pages:10"
+            },
+            "applicability": {
+              "fact": "platelet_count",
+              "op": "gte",
+              "value": 50
+            }
+          },
+          {
+            "option_id": "mf_jak_low_platelets",
+            "label": "Pacritinib-context option for severe thrombocytopenia",
+            "text": "Source systemic table includes platelet-count-specific JAK inhibitor selection.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-2",
+              "page_label": "MF-2",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "MF-2:pages:10"
+            },
+            "applicability": {
+              "fact": "platelet_count",
+              "op": "lt",
+              "value": 50
+            }
+          },
+          {
+            "option_id": "mf_anemia_context",
+            "label": "Anemia-conscious JAK/symptom strategy",
+            "text": "Hemoglobin level and anemia burden alter source therapy selection/supportive management.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-2",
+              "page_label": "MF-2",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "MF-2:pages:10"
+            },
+            "applicability": {
+              "fact": "hemoglobin",
+              "op": "lt",
+              "value": 10
+            }
+          },
+          {
+            "option_id": "mf_post_jak",
+            "label": "Subsequent symptom-directed strategy after prior JAK inhibitor",
+            "text": "For persistent/progressive symptoms after prior JAK inhibitor, use source subsequent options/clinical trial.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-3",
+              "page_label": "MF-3",
+              "physical_pages": [
+                12
+              ],
+              "source_anchor": "MF-3:pages:12"
+            },
+            "applicability": {
+              "fact": "jak_inhibitor_prior",
+              "op": "eq",
+              "value": true
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-G",
+          "MF-2A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "MF_SYMPTOMATIC_JAK"
+    },
+    "mf_low_sym": {
+      "kind": "decision",
+      "label": "Lower-risk MF symptomatic spleen/constitutional symptoms?",
+      "expression": {
+        "any": [
+          {
+            "fact": "symptomatic_splenomegaly",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "constitutional_symptoms",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mf_jak",
+        "FALSE": "mf_anemia_check"
+      },
+      "source_pathways": [
+        "MF-1",
+        "MF-2A"
+      ],
+      "decision_id": "mf_low_sym"
+    },
+    "mf_anemia_check": {
+      "kind": "decision",
+      "label": "MF-associated anemia requiring treatment?",
+      "expression": {
+        "fact": "mf_anemia",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "mf_anemia_action",
+        "FALSE": "mf_observe"
+      },
+      "source_pathways": [
+        "MF-3"
+      ],
+      "decision_id": "mf_anemia_check"
+    },
+    "mf_anemia_action": {
+      "kind": "action",
+      "label": "MF-associated anemia: anemia-directed treatment according to transfusion need, EPO level/mutations and concurrent symptom burden.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mf_anemia_action",
+      "source_pathways": [
+        "MF-3"
+      ],
+      "recommendation": {
+        "title": "MF-associated anemia: anemia-directed treatment according to transfusion need, EPO level/mutations and concurrent symptom burden.",
+        "options": [
+          {
+            "option_id": "mf_anemia_momelo",
+            "label": "Momelotinib",
+            "text": "Category 1 if ongoing symptomatic splenomegaly/constitutional symptoms.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "symptomatic_splenomegaly_or_constitutional",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-B",
+              "page_label": "MF-B",
+              "physical_pages": [
+                18
+              ],
+              "source_anchor": "MF-B:pages:18"
+            }
+          },
+          {
+            "option_id": "mf_anemia_other",
+            "label": "Source-listed anemia therapy (ESA/danazol/luspatercept/other according to eligibility)",
+            "text": "Source-listed anemia therapy (ESA/danazol/luspatercept/other according to eligibility)",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MF-B",
+              "page_label": "MF-B",
+              "physical_pages": [
+                18
+              ],
+              "source_anchor": "MF-B:pages:18"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MF-B",
+          "MPN-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "MF_ANEMIA"
+    },
+    "mf_observe": {
+      "kind": "action",
+      "label": "Lower-risk/asymptomatic MF: observation/supportive management with periodic risk and symptom reassessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mf_observe",
+      "source_pathways": [
+        "MF-1"
+      ],
+      "recommendation": {
+        "title": "Lower-risk/asymptomatic MF: observation/supportive management with periodic risk and symptom reassessment.",
+        "options": [
+          {
+            "option_id": "mf_observe",
+            "label": "Observation/supportive care",
+            "text": "Observation/supportive care",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-E",
+              "page_label": "MPN-E",
+              "physical_pages": [
+                36,
+                37
+              ],
+              "source_anchor": "MPN-E:pages:36,37"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-E",
+          "MPN-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "MF_OBSERVE"
+    },
+    "sub_pv": {
+      "kind": "decision",
+      "label": "Polycythemia vera?",
+      "expression": {
+        "fact": "subtype",
+        "op": "eq",
+        "value": "POLYCYTHEMIA_VERA"
+      },
+      "on": {
+        "TRUE": "pv_risk",
+        "FALSE": "sub_et"
+      },
+      "source_pathways": [
+        "PV-1",
+        "PV-2"
+      ],
+      "decision_id": "sub_pv"
+    },
+    "pv_risk": {
+      "kind": "decision",
+      "label": "High-risk PV?",
+      "expression": {
+        "any": [
+          {
+            "fact": "age_years",
+            "op": "gte",
+            "value": 60
+          },
+          {
+            "fact": "thrombosis_history",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "pv_high",
+        "FALSE": "pv_low"
+      },
+      "source_pathways": [
+        "PV-1",
+        "PV-2"
+      ],
+      "decision_id": "pv_risk"
+    },
+    "pv_low": {
+      "kind": "action",
+      "label": "Low-risk PV: phlebotomy to hematocrit target + low-dose aspirin if not contraindicated; cytoreduction if source-defined indications emerge.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pv_low",
+      "source_pathways": [
+        "PV-1"
+      ],
+      "recommendation": {
+        "title": "Low-risk PV: phlebotomy to hematocrit target + low-dose aspirin if not contraindicated; cytoreduction if source-defined indications emerge.",
+        "options": [
+          {
+            "option_id": "pv_low_phleb",
+            "label": "Phlebotomy",
+            "text": "Phlebotomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-H",
+              "page_label": "MPN-H",
+              "physical_pages": [
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "MPN-H:pages:43,44,45,46"
+            }
+          },
+          {
+            "option_id": "pv_low_asa",
+            "label": "Low-dose aspirin",
+            "text": "Low-dose aspirin",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-H",
+              "page_label": "MPN-H",
+              "physical_pages": [
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "MPN-H:pages:43,44,45,46"
+            }
+          },
+          {
+            "option_id": "pv_low_cytoreduction",
+            "label": "Cytoreductive therapy",
+            "text": "If progressive symptoms/counts, intolerance or other source-defined indication.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "phlebotomy_requirement",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "thrombosis_or_vascular_event",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-H",
+              "page_label": "MPN-H",
+              "physical_pages": [
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "MPN-H:pages:43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-H",
+          "MPN-I"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "PV_LOW_RISK"
+    },
+    "pv_high": {
+      "kind": "action",
+      "label": "High-risk PV: phlebotomy + aspirin + cytoreduction; therapy changes when hydroxyurea resistant/intolerant.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "pv_high",
+      "source_pathways": [
+        "PV-2"
+      ],
+      "recommendation": {
+        "title": "High-risk PV: phlebotomy + aspirin + cytoreduction; therapy changes when hydroxyurea resistant/intolerant.",
+        "options": [
+          {
+            "option_id": "pv_high_phleb",
+            "label": "Phlebotomy",
+            "text": "Phlebotomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "pv_high_asa",
+            "label": "Low-dose aspirin",
+            "text": "Low-dose aspirin",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "pv_high_cyto",
+            "label": "Cytoreductive therapy (hydroxyurea or interferon-based source options)",
+            "text": "Cytoreductive therapy (hydroxyurea or interferon-based source options)",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "pv_high_second",
+            "label": "Second-line source cytoreduction/JAK option for hydroxyurea resistance/intolerance",
+            "text": "Second-line source cytoreduction/JAK option for hydroxyurea resistance/intolerance",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "hydroxyurea_resistant_or_intolerant",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-G",
+          "MPN-H",
+          "MPN-I"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "PV_HIGH_RISK"
+    },
+    "sub_et": {
+      "kind": "decision",
+      "label": "Essential thrombocythemia?",
+      "expression": {
+        "fact": "subtype",
+        "op": "eq",
+        "value": "ESSENTIAL_THROMBOCYTHEMIA"
+      },
+      "on": {
+        "TRUE": "et_risk",
+        "FALSE": "unclassified"
+      },
+      "source_pathways": [
+        "ET-1",
+        "ET-2",
+        "ET-3"
+      ],
+      "decision_id": "sub_et"
+    },
+    "et_risk": {
+      "kind": "decision",
+      "label": "High-risk ET?",
+      "expression": {
+        "fact": "et_risk",
+        "op": "eq",
+        "value": "HIGH"
+      },
+      "on": {
+        "TRUE": "et_high",
+        "FALSE": "et_nonhigh"
+      },
+      "source_pathways": [
+        "ET-1",
+        "ET-2"
+      ],
+      "decision_id": "et_risk"
+    },
+    "et_nonhigh": {
+      "kind": "action",
+      "label": "Very-low/low/intermediate-risk ET: observation or aspirin/cytoreduction according to thrombosis risk, symptoms and cardiovascular risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "et_nonhigh",
+      "source_pathways": [
+        "ET-1"
+      ],
+      "recommendation": {
+        "title": "Very-low/low/intermediate-risk ET: observation or aspirin/cytoreduction according to thrombosis risk, symptoms and cardiovascular risk.",
+        "options": [
+          {
+            "option_id": "et_observe",
+            "label": "Observation",
+            "text": "Observation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-H",
+              "page_label": "MPN-H",
+              "physical_pages": [
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "MPN-H:pages:43,44,45,46"
+            }
+          },
+          {
+            "option_id": "et_aspirin",
+            "label": "Low-dose aspirin",
+            "text": "Source-directed according to risk/JAK2/CV factors.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-H",
+              "page_label": "MPN-H",
+              "physical_pages": [
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "MPN-H:pages:43,44,45,46"
+            }
+          },
+          {
+            "option_id": "et_cyto_nonhigh",
+            "label": "Cytoreduction",
+            "text": "For source-defined symptomatic/high-count/thrombotic indications.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "thrombosis_or_vascular_event",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-H",
+              "page_label": "MPN-H",
+              "physical_pages": [
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "MPN-H:pages:43,44,45,46"
+            }
+          },
+          {
+            "option_id": "et_aspirin_jak2",
+            "label": "Low-dose aspirin for JAK2-mutated low/intermediate-risk ET when source-indicated",
+            "text": "JAK2 driver status is source-relevant to thrombotic-risk management.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "ET-2",
+              "page_label": "ET-2",
+              "physical_pages": [
+                25
+              ],
+              "source_anchor": "ET-2:pages:25"
+            },
+            "applicability": {
+              "fact": "driver_mutation",
+              "op": "eq",
+              "value": "JAK2"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-H"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ET_NONHIGH_RISK"
+    },
+    "et_high": {
+      "kind": "decision",
+      "label": "Inadequate/lost response to prior cytoreduction?",
+      "expression": {
+        "fact": "prior_cytoreductive_inadequate_response",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "et_later",
+        "FALSE": "et_first"
+      },
+      "source_pathways": [
+        "ET-2",
+        "ET-3"
+      ],
+      "decision_id": "et_high"
+    },
+    "et_first": {
+      "kind": "action",
+      "label": "High-risk ET: low-dose aspirin plus cytoreductive therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "et_first",
+      "source_pathways": [
+        "ET-2"
+      ],
+      "recommendation": {
+        "title": "High-risk ET: low-dose aspirin plus cytoreductive therapy.",
+        "options": [
+          {
+            "option_id": "et_high_asa",
+            "label": "Low-dose aspirin",
+            "text": "Low-dose aspirin",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "et_high_hu",
+            "label": "Hydroxyurea",
+            "text": "Hydroxyurea",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "et_high_ifn",
+            "label": "Interferon-based cytoreduction",
+            "text": "Interferon-based cytoreduction",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "et_high_thrombosis",
+            "label": "Cytoreduction for prior thrombosis/high thrombotic risk",
+            "text": "Prior thrombosis is a direct high-risk feature.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "ET-2",
+              "page_label": "ET-2",
+              "physical_pages": [
+                25
+              ],
+              "source_anchor": "ET-2:pages:25"
+            },
+            "applicability": {
+              "fact": "thrombosis_history",
+              "op": "eq",
+              "value": true
+            }
+          },
+          {
+            "option_id": "et_high_age",
+            "label": "Cytoreduction for age-driven high-risk ET",
+            "text": "Age contributes to source risk stratification.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "ET-2",
+              "page_label": "ET-2",
+              "physical_pages": [
+                25
+              ],
+              "source_anchor": "ET-2:pages:25"
+            },
+            "applicability": {
+              "fact": "age_years",
+              "op": "gte",
+              "value": 60
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-G",
+          "MPN-H"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ET_HIGH_RISK_FIRST"
+    },
+    "et_later": {
+      "kind": "action",
+      "label": "ET with inadequate/lost response to prior cytoreductive therapy: change cytoreduction; ropeginterferon alfa-2b-njft is category 1 preferred in the current source.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "et_later",
+      "source_pathways": [
+        "ET-3"
+      ],
+      "recommendation": {
+        "title": "ET with inadequate/lost response to prior cytoreductive therapy: change cytoreduction; ropeginterferon alfa-2b-njft is category 1 preferred in the current source.",
+        "options": [
+          {
+            "option_id": "et_ropeg",
+            "label": "Ropeginterferon alfa-2b-njft",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          },
+          {
+            "option_id": "et_later_other",
+            "label": "Other source-listed second/subsequent cytoreduction",
+            "text": "Other source-listed second/subsequent cytoreduction",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-G",
+              "page_label": "MPN-G",
+              "physical_pages": [
+                41,
+                42
+              ],
+              "source_anchor": "MPN-G:pages:41,42"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "MPN-G",
+          "MPN-I"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ET_INADEQUATE_RESPONSE"
+    },
+    "unclassified": {
+      "kind": "action",
+      "label": "Unclassified/other MPN requires source-defined diagnostic classification before disease-specific treatment routing.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "unclassified",
+      "source_pathways": [
+        "MPN-1",
+        "MPN-2"
+      ],
+      "recommendation": {
+        "title": "Unclassified/other MPN requires source-defined diagnostic classification before disease-specific treatment routing.",
+        "options": [
+          {
+            "option_id": "mpn_reclassify",
+            "label": "Complete diagnostic classification",
+            "text": "Complete diagnostic classification",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Myeloproliferative Neoplasms",
+              "version": "2.2026",
+              "section": "MPN-1",
+              "page_label": "MPN-1",
+              "physical_pages": [
+                6
+              ],
+              "source_anchor": "MPN-1:pages:6"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "MPN_UNCLASSIFIED"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside MPN package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "MPN-1"
+      ]
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "MPN-1": {
+        "code": "MPN-1",
+        "pages": [
+          6
+        ],
+        "page_count": 1,
+        "source_text_sha256": "3e8408b0579d4ff1cf30ad3000e652a72e7b3b273119edb774a9c5b04ce3e60d",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "MPN-2": {
+        "code": "MPN-2",
+        "pages": [
+          7
+        ],
+        "page_count": 1,
+        "source_text_sha256": "3a8a525ede65aa9651d434b9bd27cb3cd6165df75f5a3628b50f56326a6cf8c4",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "MPN-2A": {
+        "code": "MPN-2A",
+        "pages": [
+          8
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2150216ddd88eee6e8d5579ccf9de15d2a558e2d86d53e2e96f9ac064b5c7871",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "MF-1": {
+        "code": "MF-1",
+        "pages": [
+          9
+        ],
+        "page_count": 1,
+        "source_text_sha256": "80e2e7dd6e6617a02cb5c484c1446a3fe2e55e57b25fadd57bb592dcae9d5114",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "MF-2": {
+        "code": "MF-2",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "3357f54a51845231e281649508fa62065fb2d47de516a5fbaf7480310dadba73",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "MF-2A": {
+        "code": "MF-2A",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2caf9f45c135da00e7c8feaaba6c6f9bbd9770c02398a74e7e588dfd38a076a9",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "MF-3": {
+        "code": "MF-3",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "05db37c4706a24d3836900059fd1a1f89aa4d3ab2c1acf433dc37044097e90ba",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "PV-1": {
+        "code": "PV-1",
+        "pages": [
+          20
+        ],
+        "page_count": 1,
+        "source_text_sha256": "60b077b879f01eeb33cf11ab14b17a131b1defba489f31454f465634ad3b5ff6",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "PV-2": {
+        "code": "PV-2",
+        "pages": [
+          21
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8c1da092fba07d8b741ff0fb9f830bf166ed716b8d1e237caf93a9af4c806206",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ET-1": {
+        "code": "ET-1",
+        "pages": [
+          24
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2b3f815cdb844519b058b50ed53fe9795ee4e74f434ccbe227f41a32fb12bf11",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ET-2": {
+        "code": "ET-2",
+        "pages": [
+          25
+        ],
+        "page_count": 1,
+        "source_text_sha256": "650e7b47616bca1432a655b858989d915ad8b7ed1433e43fc45d0af731d7bbfd",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ET-3": {
+        "code": "ET-3",
+        "pages": [
+          26
+        ],
+        "page_count": 1,
+        "source_text_sha256": "961ff2e42ff54dd0cfaa3fd69e52bb3bf7f65d3806611acbe1b2face8f2982e3",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "MPN-AP/BP-1": {
+        "code": "MPN-AP/BP-1",
+        "pages": [
+          29
+        ],
+        "page_count": 1,
+        "source_text_sha256": "aaabf03f15efc291386f3f6dc7f0bc3d527731e2ab416e74cc45b5f34c2785c1",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "MF-A": {
+        "code": "MF-A",
+        "pages": [
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "page_count": 5,
+        "source_text_sha256": "275ce7c11017b326ad443c3e10e677bd30dd2bdc4bbcffebfb362ffea245af55",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MF-B": {
+        "code": "MF-B",
+        "pages": [
+          18
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d9c6f116f98ea26067fd06bfbabd98a1fc819cab612033785812634ca056dde9",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MF-C": {
+        "code": "MF-C",
+        "pages": [
+          19
+        ],
+        "page_count": 1,
+        "source_text_sha256": "9297faf319253355be3b58e40ebb3b863139cd496846b22394ff3f913db435da",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "PV-A": {
+        "code": "PV-A",
+        "pages": [
+          22
+        ],
+        "page_count": 1,
+        "source_text_sha256": "b64fbeabad579238f1cf8b4709964ad23c38e0339b20cde5dd8a752c54d810bb",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "PV-B": {
+        "code": "PV-B",
+        "pages": [
+          23
+        ],
+        "page_count": 1,
+        "source_text_sha256": "caea95875bad0134de6485bb2179f5f4d3bf4fd56da10e3775ea45a7c83a180a",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ET-A": {
+        "code": "ET-A",
+        "pages": [
+          27
+        ],
+        "page_count": 1,
+        "source_text_sha256": "75fbc710cbe46774fee3f13d5cd64c459aab77a7feffbe9e68f94d2bca8d7432",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ET-B": {
+        "code": "ET-B",
+        "pages": [
+          28
+        ],
+        "page_count": 1,
+        "source_text_sha256": "de63bdcb5670566e144b00e613ad2bebd9febecfc86059e1d08a14857d395707",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-A": {
+        "code": "MPN-A",
+        "pages": [
+          30,
+          31
+        ],
+        "page_count": 2,
+        "source_text_sha256": "503120461e0b7684e2476d90fe6fbe64b92a270f60ad4cf8caa92a9bf7174d58",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-B": {
+        "code": "MPN-B",
+        "pages": [
+          32
+        ],
+        "page_count": 1,
+        "source_text_sha256": "74a81e93604afe884f16ea885a5e9011233e65acf6f81255252b0421d46fdbe2",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-C": {
+        "code": "MPN-C",
+        "pages": [
+          33
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a38d0c320eb1ef2efa74fbbf3f0938e0d2af661bcd18bb61f4f168c8bc33fa14",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-D": {
+        "code": "MPN-D",
+        "pages": [
+          34,
+          35
+        ],
+        "page_count": 2,
+        "source_text_sha256": "8be37638a30cd5f3292af1772122d98e3941dbf3aef3d2bb98188fc7389d0394",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-E": {
+        "code": "MPN-E",
+        "pages": [
+          36,
+          37
+        ],
+        "page_count": 2,
+        "source_text_sha256": "af7d787513c5c7e4e0f12eb6e7b4cf1147a45e9d82e80987c25682e9985a78ad",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-F": {
+        "code": "MPN-F",
+        "pages": [
+          38,
+          39,
+          40
+        ],
+        "page_count": 3,
+        "source_text_sha256": "3d1c7d54e462c4550b7f51ad4d66d11197050819c66d185b47260195c16e1f87",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-G": {
+        "code": "MPN-G",
+        "pages": [
+          41,
+          42
+        ],
+        "page_count": 2,
+        "source_text_sha256": "38e8b65d3e8cc8761c312192d9cf3ccde7401cc7b24875399645c067b5ea73c7",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-H": {
+        "code": "MPN-H",
+        "pages": [
+          43,
+          44,
+          45,
+          46
+        ],
+        "page_count": 4,
+        "source_text_sha256": "f7b72002749e1d50a364a7e27a9c8bb102ed67e20015e9f01eac9fe1f559837c",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "MPN-I": {
+        "code": "MPN-I",
+        "pages": [
+          47
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a733386ea27a604b2d4d8b6b37e19c60b076f0a897bb9f99d54e1c81c03eee46",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      }
+    },
+    "primary_expected": 13,
+    "supporting_expected": 16
+  },
+  "source": {
+    "filename": "mpn(1).pdf",
+    "sha256": "cbe5e08d1dc8575095b9396f30f725388cf9e6b97f22c2dbddfd9a74b41f5fef",
+    "pdf_pages": 125
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true
+  },
+  "derived_rules": [
+    {
+      "id": "derive_pv_high_risk_true",
+      "target_fact": "pv_high_risk",
+      "value": true,
+      "when": {
+        "any": [
+          {
+            "fact": "age_years",
+            "op": "gte",
+            "value": 60
+          },
+          {
+            "fact": "thrombosis_history",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "source_pathways": [
+        "MPN-2"
+      ]
+    },
+    {
+      "id": "derive_pv_high_risk_false",
+      "target_fact": "pv_high_risk",
+      "value": false,
+      "when": {
+        "all": [
+          {
+            "fact": "age_years",
+            "op": "lt",
+            "value": 60
+          },
+          {
+            "fact": "thrombosis_history",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "source_pathways": [
+        "MPN-2"
+      ]
+    }
+  ],
+  "consistency_rules": [
+    {
+      "id": "pv_lowrisk_age_thrombosis_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "pv_high_risk",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "any": [
+              {
+                "fact": "age_years",
+                "op": "gte",
+                "value": 60
+              },
+              {
+                "fact": "thrombosis_history",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "message": "Assigned low PV risk conflicts with age/thrombosis source criteria.",
+      "source_pathways": [
+        "MPN-2",
+        "PV-1",
+        "PV-2"
+      ]
+    },
+    {
+      "id": "pv_highrisk_age_thrombosis_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "pv_high_risk",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "age_years",
+            "op": "lt",
+            "value": 60
+          },
+          {
+            "fact": "thrombosis_history",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "message": "Assigned high PV risk conflicts with age <60 and no thrombosis history.",
+      "source_pathways": [
+        "MPN-2",
+        "PV-1",
+        "PV-2"
+      ]
+    }
+  ],
+  "executable_decisions": [
+    {
+      "decision_id": "derived::derive_pv_high_risk_true",
+      "source_section": "MPN-2",
+      "source_page_label": "MPN-2",
+      "source_anchor": "MPN-2:pages:7",
+      "clinical_question": "Should pv_high_risk be deterministically derived as True?",
+      "input_fact_ids": [
+        "age_years",
+        "thrombosis_history"
+      ],
+      "derived_rule_ids": [
+        "derive_pv_high_risk_true"
+      ],
+      "possible_branches": [
+        "DERIVE",
+        "NO_DERIVE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "pv_high_risk"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "DERIVED_RULE",
+      "implementation_ref": "derive_pv_high_risk_true",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "derived::derive_pv_high_risk_false",
+      "source_section": "MPN-2",
+      "source_page_label": "MPN-2",
+      "source_anchor": "MPN-2:pages:7",
+      "clinical_question": "Should pv_high_risk be deterministically derived as False?",
+      "input_fact_ids": [
+        "age_years",
+        "thrombosis_history"
+      ],
+      "derived_rule_ids": [
+        "derive_pv_high_risk_false"
+      ],
+      "possible_branches": [
+        "DERIVE",
+        "NO_DERIVE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "pv_high_risk"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "DERIVED_RULE",
+      "implementation_ref": "derive_pv_high_risk_false",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "scope",
+      "source_section": "MPN-1",
+      "source_page_label": "MPN-1",
+      "source_anchor": "MPN-1:pages:6",
+      "clinical_question": "Myeloproliferative neoplasm?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "apbp",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "apbp",
+      "source_section": "MPN-AP/BP-1",
+      "source_page_label": "MPN-AP/BP-1",
+      "source_anchor": "MPN-AP/BP-1:pages:29",
+      "clinical_question": "Accelerated/blast phase?",
+      "input_fact_ids": [
+        "blast_percentage",
+        "subtype",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mpn_apbp_aml",
+        "mpn_apbp_hct",
+        "mpn_apbp_trial"
+      ],
+      "internal_transfer_targets": [
+        "apbp_action",
+        "workup_phase"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "apbp",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "workup_phase",
+      "source_section": "MPN-1",
+      "source_page_label": "MPN-1",
+      "source_anchor": "MPN-1:pages:6",
+      "clinical_question": "Workup/diagnosis phase?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mpn_workup"
+      ],
+      "internal_transfer_targets": [
+        "workup",
+        "sub_mf"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "workup_phase",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_mf",
+      "source_section": "MF-1",
+      "source_page_label": "MF-1",
+      "source_anchor": "MF-1:pages:9",
+      "clinical_question": "Myelofibrosis?",
+      "input_fact_ids": [
+        "subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "mf_risk",
+        "sub_pv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_mf",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "mf_risk",
+      "source_section": "MF-1",
+      "source_page_label": "MF-1",
+      "source_anchor": "MF-1:pages:9",
+      "clinical_question": "Higher-risk MF?",
+      "input_fact_ids": [
+        "mf_risk"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "mf_high_hct",
+        "mf_low_sym"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "mf_risk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "mf_high_hct",
+      "source_section": "MF-2",
+      "source_page_label": "MF-2",
+      "source_anchor": "MF-2:pages:10",
+      "clinical_question": "Transplant candidate?",
+      "input_fact_ids": [
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_allo_hct",
+        "mf_bridge_jak"
+      ],
+      "internal_transfer_targets": [
+        "mf_hct",
+        "mf_high_sym"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "mf_high_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "mf_high_sym",
+      "source_section": "MF-2",
+      "source_page_label": "MF-2",
+      "source_anchor": "MF-2:pages:10",
+      "clinical_question": "Symptomatic splenomegaly/constitutional symptoms?",
+      "input_fact_ids": [
+        "constitutional_symptoms",
+        "symptomatic_splenomegaly"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_anemia_context",
+        "mf_fedra",
+        "mf_jak_low_platelets",
+        "mf_jak_platelets_ge50",
+        "mf_momelo",
+        "mf_pacri",
+        "mf_post_jak",
+        "mf_ruxo"
+      ],
+      "internal_transfer_targets": [
+        "mf_jak",
+        "mf_anemia_check"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "mf_high_sym",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "mf_low_sym",
+      "source_section": "MF-1",
+      "source_page_label": "MF-1",
+      "source_anchor": "MF-1:pages:9",
+      "clinical_question": "Lower-risk MF symptomatic spleen/constitutional symptoms?",
+      "input_fact_ids": [
+        "constitutional_symptoms",
+        "symptomatic_splenomegaly"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_anemia_context",
+        "mf_fedra",
+        "mf_jak_low_platelets",
+        "mf_jak_platelets_ge50",
+        "mf_momelo",
+        "mf_pacri",
+        "mf_post_jak",
+        "mf_ruxo"
+      ],
+      "internal_transfer_targets": [
+        "mf_jak",
+        "mf_anemia_check"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "mf_low_sym",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "mf_anemia_check",
+      "source_section": "MF-3",
+      "source_page_label": "MF-3",
+      "source_anchor": "MF-3:pages:12",
+      "clinical_question": "MF-associated anemia requiring treatment?",
+      "input_fact_ids": [
+        "mf_anemia"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_anemia_momelo",
+        "mf_anemia_other",
+        "mf_observe"
+      ],
+      "internal_transfer_targets": [
+        "mf_anemia_action",
+        "mf_observe"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "mf_anemia_check",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_pv",
+      "source_section": "PV-1",
+      "source_page_label": "PV-1",
+      "source_anchor": "PV-1:pages:20",
+      "clinical_question": "Polycythemia vera?",
+      "input_fact_ids": [
+        "subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "pv_risk",
+        "sub_et"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_pv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "pv_risk",
+      "source_section": "PV-1",
+      "source_page_label": "PV-1",
+      "source_anchor": "PV-1:pages:20",
+      "clinical_question": "High-risk PV?",
+      "input_fact_ids": [
+        "age_years",
+        "thrombosis_history"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "pv_high_asa",
+        "pv_high_cyto",
+        "pv_high_phleb",
+        "pv_high_second",
+        "pv_low_asa",
+        "pv_low_cytoreduction",
+        "pv_low_phleb"
+      ],
+      "internal_transfer_targets": [
+        "pv_high",
+        "pv_low"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "pv_risk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_et",
+      "source_section": "ET-1",
+      "source_page_label": "ET-1",
+      "source_anchor": "ET-1:pages:24",
+      "clinical_question": "Essential thrombocythemia?",
+      "input_fact_ids": [
+        "subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mpn_reclassify"
+      ],
+      "internal_transfer_targets": [
+        "et_risk",
+        "unclassified"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_et",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "et_risk",
+      "source_section": "ET-1",
+      "source_page_label": "ET-1",
+      "source_anchor": "ET-1:pages:24",
+      "clinical_question": "High-risk ET?",
+      "input_fact_ids": [
+        "et_risk"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "et_aspirin",
+        "et_aspirin_jak2",
+        "et_cyto_nonhigh",
+        "et_observe"
+      ],
+      "internal_transfer_targets": [
+        "et_high",
+        "et_nonhigh"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "et_risk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "et_high",
+      "source_section": "ET-2",
+      "source_page_label": "ET-2",
+      "source_anchor": "ET-2:pages:25",
+      "clinical_question": "Inadequate/lost response to prior cytoreduction?",
+      "input_fact_ids": [
+        "prior_cytoreductive_inadequate_response"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "et_high_age",
+        "et_high_asa",
+        "et_high_hu",
+        "et_high_ifn",
+        "et_high_thrombosis",
+        "et_later_other",
+        "et_ropeg"
+      ],
+      "internal_transfer_targets": [
+        "et_later",
+        "et_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "et_high",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::apbp_action::mpn_apbp_hct",
+      "source_section": "MPN-F",
+      "source_page_label": "MPN-F",
+      "source_anchor": "MPN-F:pages:38,39,40",
+      "clinical_question": "Is option Allogeneic HCT if response and eligible applicable to the current patient state?",
+      "input_fact_ids": [
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mpn_apbp_hct"
+      ],
+      "internal_transfer_targets": [
+        "apbp_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "apbp_action:mpn_apbp_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::mf_jak::mf_jak_platelets_ge50",
+      "source_section": "MF-2",
+      "source_page_label": "MF-2",
+      "source_anchor": "MF-2:pages:10",
+      "clinical_question": "Is option JAK-inhibitor option set for platelets >=50 x10^9/L applicable to the current patient state?",
+      "input_fact_ids": [
+        "platelet_count"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_jak_platelets_ge50"
+      ],
+      "internal_transfer_targets": [
+        "mf_jak"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "mf_jak:mf_jak_platelets_ge50",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::mf_jak::mf_jak_low_platelets",
+      "source_section": "MF-2",
+      "source_page_label": "MF-2",
+      "source_anchor": "MF-2:pages:10",
+      "clinical_question": "Is option Pacritinib-context option for severe thrombocytopenia applicable to the current patient state?",
+      "input_fact_ids": [
+        "platelet_count"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_jak_low_platelets"
+      ],
+      "internal_transfer_targets": [
+        "mf_jak"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "mf_jak:mf_jak_low_platelets",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::mf_jak::mf_anemia_context",
+      "source_section": "MF-2",
+      "source_page_label": "MF-2",
+      "source_anchor": "MF-2:pages:10",
+      "clinical_question": "Is option Anemia-conscious JAK/symptom strategy applicable to the current patient state?",
+      "input_fact_ids": [
+        "hemoglobin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_anemia_context"
+      ],
+      "internal_transfer_targets": [
+        "mf_jak"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "mf_jak:mf_anemia_context",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::mf_jak::mf_post_jak",
+      "source_section": "MF-3",
+      "source_page_label": "MF-3",
+      "source_anchor": "MF-3:pages:12",
+      "clinical_question": "Is option Subsequent symptom-directed strategy after prior JAK inhibitor applicable to the current patient state?",
+      "input_fact_ids": [
+        "jak_inhibitor_prior"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_post_jak"
+      ],
+      "internal_transfer_targets": [
+        "mf_jak"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "mf_jak:mf_post_jak",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::mf_anemia_action::mf_anemia_momelo",
+      "source_section": "MF-B",
+      "source_page_label": "MF-B",
+      "source_anchor": "MF-B:pages:18",
+      "clinical_question": "Is option Momelotinib applicable to the current patient state?",
+      "input_fact_ids": [
+        "symptomatic_splenomegaly_or_constitutional"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "mf_anemia_momelo"
+      ],
+      "internal_transfer_targets": [
+        "mf_anemia_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "mf_anemia_action:mf_anemia_momelo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pv_low::pv_low_cytoreduction",
+      "source_section": "MPN-H",
+      "source_page_label": "MPN-H",
+      "source_anchor": "MPN-H:pages:43,44,45,46",
+      "clinical_question": "Is option Cytoreductive therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "phlebotomy_requirement",
+        "thrombosis_or_vascular_event"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "pv_low_cytoreduction"
+      ],
+      "internal_transfer_targets": [
+        "pv_low"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pv_low:pv_low_cytoreduction",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::pv_high::pv_high_second",
+      "source_section": "MPN-G",
+      "source_page_label": "MPN-G",
+      "source_anchor": "MPN-G:pages:41,42",
+      "clinical_question": "Is option Second-line source cytoreduction/JAK option for hydroxyurea resistance/intolerance applicable to the current patient state?",
+      "input_fact_ids": [
+        "hydroxyurea_resistant_or_intolerant"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "pv_high_second"
+      ],
+      "internal_transfer_targets": [
+        "pv_high"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "pv_high:pv_high_second",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::et_nonhigh::et_cyto_nonhigh",
+      "source_section": "MPN-H",
+      "source_page_label": "MPN-H",
+      "source_anchor": "MPN-H:pages:43,44,45,46",
+      "clinical_question": "Is option Cytoreduction applicable to the current patient state?",
+      "input_fact_ids": [
+        "thrombosis_or_vascular_event"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "et_cyto_nonhigh"
+      ],
+      "internal_transfer_targets": [
+        "et_nonhigh"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "et_nonhigh:et_cyto_nonhigh",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::et_nonhigh::et_aspirin_jak2",
+      "source_section": "ET-2",
+      "source_page_label": "ET-2",
+      "source_anchor": "ET-2:pages:25",
+      "clinical_question": "Is option Low-dose aspirin for JAK2-mutated low/intermediate-risk ET when source-indicated applicable to the current patient state?",
+      "input_fact_ids": [
+        "driver_mutation"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "et_aspirin_jak2"
+      ],
+      "internal_transfer_targets": [
+        "et_nonhigh"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "et_nonhigh:et_aspirin_jak2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::et_first::et_high_thrombosis",
+      "source_section": "ET-2",
+      "source_page_label": "ET-2",
+      "source_anchor": "ET-2:pages:25",
+      "clinical_question": "Is option Cytoreduction for prior thrombosis/high thrombotic risk applicable to the current patient state?",
+      "input_fact_ids": [
+        "thrombosis_history"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "et_high_thrombosis"
+      ],
+      "internal_transfer_targets": [
+        "et_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "et_first:et_high_thrombosis",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::et_first::et_high_age",
+      "source_section": "ET-2",
+      "source_page_label": "ET-2",
+      "source_anchor": "ET-2:pages:25",
+      "clinical_question": "Is option Cytoreduction for age-driven high-risk ET applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "et_high_age"
+      ],
+      "internal_transfer_targets": [
+        "et_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "et_first:et_high_age",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

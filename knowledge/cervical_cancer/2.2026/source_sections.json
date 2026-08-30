@@ -1,0 +1,272 @@
+{
+  "CERV-1": {
+    "code": "CERV-1",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "43dd582178f8267188b4784cdeda502ddba748e4b924f1f581aa2f71c95c8244",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-2": {
+    "code": "CERV-2",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a5d0f26823982d95d4c79f4aed3a9e775cc82b0c6316ee1b9973e5c106bc0dcd",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-2A": {
+    "code": "CERV-2A",
+    "pages": [
+      12
+    ],
+    "page_count": 1,
+    "source_text_sha256": "73fb962c2c89b50d547e2760d572932d44f508cef0b0d499c363f92449a6c6ea",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-3": {
+    "code": "CERV-3",
+    "pages": [
+      13
+    ],
+    "page_count": 1,
+    "source_text_sha256": "c542a4bd202fb79aa69464603c0d0b70457a2637db7ec24bf928f131faaf286d",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-3A": {
+    "code": "CERV-3A",
+    "pages": [
+      14
+    ],
+    "page_count": 1,
+    "source_text_sha256": "50e5d3217b026af8791069d56a19062930c6cad07ecbd7700270ed786c744274",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-4": {
+    "code": "CERV-4",
+    "pages": [
+      15
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2722a5966551be43c4ea3ca44f4edba268212153ec3ed2d0082715f6624fde0a",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-5": {
+    "code": "CERV-5",
+    "pages": [
+      16
+    ],
+    "page_count": 1,
+    "source_text_sha256": "e5e146a3be08ac5c52cc705651d7649ab0bf803fdb13b4e1c8e0a095998a9086",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-6": {
+    "code": "CERV-6",
+    "pages": [
+      17
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a81f7f22a624f70a3163c584a3f54af73c4918edf3423bf488561e08ac371a6d",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-7": {
+    "code": "CERV-7",
+    "pages": [
+      18
+    ],
+    "page_count": 1,
+    "source_text_sha256": "394d649583a1fa14ef75ebb8b2408c42271df48f7e5529023455b3b2c11e4ed9",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-8": {
+    "code": "CERV-8",
+    "pages": [
+      19
+    ],
+    "page_count": 1,
+    "source_text_sha256": "5f073b1fb606d59a8f3b8c182b25aea6b73ef15507fc4e8c1a99bf5ddcf0b14c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-9": {
+    "code": "CERV-9",
+    "pages": [
+      20
+    ],
+    "page_count": 1,
+    "source_text_sha256": "c365b13dbfbf9b93631362bba75c7a6614479aefff06126e3f8e5a5658562c69",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-10": {
+    "code": "CERV-10",
+    "pages": [
+      21
+    ],
+    "page_count": 1,
+    "source_text_sha256": "bbb26d5c66ddc13931cd5c1eeed1ee7e7af4c9ae7c4ee847197ee1701192f34f",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-11": {
+    "code": "CERV-11",
+    "pages": [
+      22
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0b65bb35ba820bdb969599be20aba353363d1eaf206951552918eb7cfa6613a5",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-12": {
+    "code": "CERV-12",
+    "pages": [
+      23
+    ],
+    "page_count": 1,
+    "source_text_sha256": "dc3ccbc07769223e6cb23bddcaa02d948dc63d8715b48ea55e9abfe68d605b42",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-13": {
+    "code": "CERV-13",
+    "pages": [
+      24
+    ],
+    "page_count": 1,
+    "source_text_sha256": "df2f1b673de18f538bb9e9c2152c6e554b302ed0bd8f4462e03fc963e7804bca",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-14": {
+    "code": "CERV-14",
+    "pages": [
+      25
+    ],
+    "page_count": 1,
+    "source_text_sha256": "dba9c6a37ac9eb943c96280c17aaf8eb1616425fa10273f8bca70085ee87a257",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "CERV-A": {
+    "code": "CERV-A",
+    "pages": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "page_count": 8,
+    "source_text_sha256": "3167b9303d01fd00dfac777bb16787a9a7536832fda4a66d54a823f2c2320fb7",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "CERV-B": {
+    "code": "CERV-B",
+    "pages": [
+      34,
+      35,
+      36,
+      37
+    ],
+    "page_count": 4,
+    "source_text_sha256": "ce6fa2f7af9382536e36be657601eb9e4a1b08a631dd2c8db905830b4805cde9",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "CERV-C": {
+    "code": "CERV-C",
+    "pages": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "page_count": 9,
+    "source_text_sha256": "3918a6c44678f6505d2f2e25e5e09cd3f4d003428e3cf07d7ecc3c619587d30a",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "CERV-D": {
+    "code": "CERV-D",
+    "pages": [
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55
+    ],
+    "page_count": 9,
+    "source_text_sha256": "5742df8f8c71d33cbdf70a7f190cbb652e0f45c8f03a377244c3d61e529a0cdd",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "CERV-E": {
+    "code": "CERV-E",
+    "pages": [
+      56
+    ],
+    "page_count": 1,
+    "source_text_sha256": "c386d162e42a05fe1110ab1109b3ef98f59379685b9847ef2dd2a22ec04b4f7b",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "CERV-F": {
+    "code": "CERV-F",
+    "pages": [
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "page_count": 5,
+    "source_text_sha256": "06a721c50590943cd75593d7321c5d83dbcbeb95e2bee3c2af949564ba010411",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "CERV-G": {
+    "code": "CERV-G",
+    "pages": [
+      62
+    ],
+    "page_count": 1,
+    "source_text_sha256": "b8ef3363957a2c79dd6954ca5656cffa7122572b21513d7c3f0a4023e48bb93d",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ST-1": {
+    "code": "ST-1",
+    "pages": [
+      63
+    ],
+    "page_count": 1,
+    "source_text_sha256": "4a2c7efa213c10fbb23ea23d98abf180df6c62a2d07c3d7a620f2d964236e15e",
+    "kind": "STAGING",
+    "found": true
+  }
+}

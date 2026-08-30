@@ -1,0 +1,862 @@
+[
+  {
+    "decision_id": "derived::derive_pv_high_risk_true",
+    "source_section": "MPN-2",
+    "source_page_label": "MPN-2",
+    "source_anchor": "MPN-2:pages:7",
+    "clinical_question": "Should pv_high_risk be deterministically derived as True?",
+    "input_fact_ids": [
+      "age_years",
+      "thrombosis_history"
+    ],
+    "derived_rule_ids": [
+      "derive_pv_high_risk_true"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "pv_high_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_pv_high_risk_true",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::derive_pv_high_risk_false",
+    "source_section": "MPN-2",
+    "source_page_label": "MPN-2",
+    "source_anchor": "MPN-2:pages:7",
+    "clinical_question": "Should pv_high_risk be deterministically derived as False?",
+    "input_fact_ids": [
+      "age_years",
+      "thrombosis_history"
+    ],
+    "derived_rule_ids": [
+      "derive_pv_high_risk_false"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "pv_high_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "derive_pv_high_risk_false",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "scope",
+    "source_section": "MPN-1",
+    "source_page_label": "MPN-1",
+    "source_anchor": "MPN-1:pages:6",
+    "clinical_question": "Myeloproliferative neoplasm?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "apbp",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "apbp",
+    "source_section": "MPN-AP/BP-1",
+    "source_page_label": "MPN-AP/BP-1",
+    "source_anchor": "MPN-AP/BP-1:pages:29",
+    "clinical_question": "Accelerated/blast phase?",
+    "input_fact_ids": [
+      "blast_percentage",
+      "subtype",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mpn_apbp_aml",
+      "mpn_apbp_hct",
+      "mpn_apbp_trial"
+    ],
+    "internal_transfer_targets": [
+      "apbp_action",
+      "workup_phase"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "apbp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "workup_phase",
+    "source_section": "MPN-1",
+    "source_page_label": "MPN-1",
+    "source_anchor": "MPN-1:pages:6",
+    "clinical_question": "Workup/diagnosis phase?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mpn_workup"
+    ],
+    "internal_transfer_targets": [
+      "workup",
+      "sub_mf"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "workup_phase",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "sub_mf",
+    "source_section": "MF-1",
+    "source_page_label": "MF-1",
+    "source_anchor": "MF-1:pages:9",
+    "clinical_question": "Myelofibrosis?",
+    "input_fact_ids": [
+      "subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mf_risk",
+      "sub_pv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_mf",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mf_risk",
+    "source_section": "MF-1",
+    "source_page_label": "MF-1",
+    "source_anchor": "MF-1:pages:9",
+    "clinical_question": "Higher-risk MF?",
+    "input_fact_ids": [
+      "mf_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mf_high_hct",
+      "mf_low_sym"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mf_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mf_high_hct",
+    "source_section": "MF-2",
+    "source_page_label": "MF-2",
+    "source_anchor": "MF-2:pages:10",
+    "clinical_question": "Transplant candidate?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_allo_hct",
+      "mf_bridge_jak"
+    ],
+    "internal_transfer_targets": [
+      "mf_hct",
+      "mf_high_sym"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mf_high_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mf_high_sym",
+    "source_section": "MF-2",
+    "source_page_label": "MF-2",
+    "source_anchor": "MF-2:pages:10",
+    "clinical_question": "Symptomatic splenomegaly/constitutional symptoms?",
+    "input_fact_ids": [
+      "constitutional_symptoms",
+      "symptomatic_splenomegaly"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_anemia_context",
+      "mf_fedra",
+      "mf_jak_low_platelets",
+      "mf_jak_platelets_ge50",
+      "mf_momelo",
+      "mf_pacri",
+      "mf_post_jak",
+      "mf_ruxo"
+    ],
+    "internal_transfer_targets": [
+      "mf_jak",
+      "mf_anemia_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mf_high_sym",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mf_low_sym",
+    "source_section": "MF-1",
+    "source_page_label": "MF-1",
+    "source_anchor": "MF-1:pages:9",
+    "clinical_question": "Lower-risk MF symptomatic spleen/constitutional symptoms?",
+    "input_fact_ids": [
+      "constitutional_symptoms",
+      "symptomatic_splenomegaly"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_anemia_context",
+      "mf_fedra",
+      "mf_jak_low_platelets",
+      "mf_jak_platelets_ge50",
+      "mf_momelo",
+      "mf_pacri",
+      "mf_post_jak",
+      "mf_ruxo"
+    ],
+    "internal_transfer_targets": [
+      "mf_jak",
+      "mf_anemia_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mf_low_sym",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mf_anemia_check",
+    "source_section": "MF-3",
+    "source_page_label": "MF-3",
+    "source_anchor": "MF-3:pages:12",
+    "clinical_question": "MF-associated anemia requiring treatment?",
+    "input_fact_ids": [
+      "mf_anemia"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_anemia_momelo",
+      "mf_anemia_other",
+      "mf_observe"
+    ],
+    "internal_transfer_targets": [
+      "mf_anemia_action",
+      "mf_observe"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mf_anemia_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "sub_pv",
+    "source_section": "PV-1",
+    "source_page_label": "PV-1",
+    "source_anchor": "PV-1:pages:20",
+    "clinical_question": "Polycythemia vera?",
+    "input_fact_ids": [
+      "subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "pv_risk",
+      "sub_et"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_pv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pv_risk",
+    "source_section": "PV-1",
+    "source_page_label": "PV-1",
+    "source_anchor": "PV-1:pages:20",
+    "clinical_question": "High-risk PV?",
+    "input_fact_ids": [
+      "age_years",
+      "thrombosis_history"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pv_high_asa",
+      "pv_high_cyto",
+      "pv_high_phleb",
+      "pv_high_second",
+      "pv_low_asa",
+      "pv_low_cytoreduction",
+      "pv_low_phleb"
+    ],
+    "internal_transfer_targets": [
+      "pv_high",
+      "pv_low"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pv_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "sub_et",
+    "source_section": "ET-1",
+    "source_page_label": "ET-1",
+    "source_anchor": "ET-1:pages:24",
+    "clinical_question": "Essential thrombocythemia?",
+    "input_fact_ids": [
+      "subtype"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mpn_reclassify"
+    ],
+    "internal_transfer_targets": [
+      "et_risk",
+      "unclassified"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sub_et",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "et_risk",
+    "source_section": "ET-1",
+    "source_page_label": "ET-1",
+    "source_anchor": "ET-1:pages:24",
+    "clinical_question": "High-risk ET?",
+    "input_fact_ids": [
+      "et_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "et_aspirin",
+      "et_aspirin_jak2",
+      "et_cyto_nonhigh",
+      "et_observe"
+    ],
+    "internal_transfer_targets": [
+      "et_high",
+      "et_nonhigh"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "et_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "et_high",
+    "source_section": "ET-2",
+    "source_page_label": "ET-2",
+    "source_anchor": "ET-2:pages:25",
+    "clinical_question": "Inadequate/lost response to prior cytoreduction?",
+    "input_fact_ids": [
+      "prior_cytoreductive_inadequate_response"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "et_high_age",
+      "et_high_asa",
+      "et_high_hu",
+      "et_high_ifn",
+      "et_high_thrombosis",
+      "et_later_other",
+      "et_ropeg"
+    ],
+    "internal_transfer_targets": [
+      "et_later",
+      "et_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "et_high",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::apbp_action::mpn_apbp_hct",
+    "source_section": "MPN-F",
+    "source_page_label": "MPN-F",
+    "source_anchor": "MPN-F:pages:38,39,40",
+    "clinical_question": "Is option Allogeneic HCT if response and eligible applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mpn_apbp_hct"
+    ],
+    "internal_transfer_targets": [
+      "apbp_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "apbp_action:mpn_apbp_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mf_jak::mf_jak_platelets_ge50",
+    "source_section": "MF-2",
+    "source_page_label": "MF-2",
+    "source_anchor": "MF-2:pages:10",
+    "clinical_question": "Is option JAK-inhibitor option set for platelets >=50 x10^9/L applicable to the current patient state?",
+    "input_fact_ids": [
+      "platelet_count"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_jak_platelets_ge50"
+    ],
+    "internal_transfer_targets": [
+      "mf_jak"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mf_jak:mf_jak_platelets_ge50",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mf_jak::mf_jak_low_platelets",
+    "source_section": "MF-2",
+    "source_page_label": "MF-2",
+    "source_anchor": "MF-2:pages:10",
+    "clinical_question": "Is option Pacritinib-context option for severe thrombocytopenia applicable to the current patient state?",
+    "input_fact_ids": [
+      "platelet_count"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_jak_low_platelets"
+    ],
+    "internal_transfer_targets": [
+      "mf_jak"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mf_jak:mf_jak_low_platelets",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mf_jak::mf_anemia_context",
+    "source_section": "MF-2",
+    "source_page_label": "MF-2",
+    "source_anchor": "MF-2:pages:10",
+    "clinical_question": "Is option Anemia-conscious JAK/symptom strategy applicable to the current patient state?",
+    "input_fact_ids": [
+      "hemoglobin"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_anemia_context"
+    ],
+    "internal_transfer_targets": [
+      "mf_jak"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mf_jak:mf_anemia_context",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mf_jak::mf_post_jak",
+    "source_section": "MF-3",
+    "source_page_label": "MF-3",
+    "source_anchor": "MF-3:pages:12",
+    "clinical_question": "Is option Subsequent symptom-directed strategy after prior JAK inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "jak_inhibitor_prior"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_post_jak"
+    ],
+    "internal_transfer_targets": [
+      "mf_jak"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mf_jak:mf_post_jak",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mf_anemia_action::mf_anemia_momelo",
+    "source_section": "MF-B",
+    "source_page_label": "MF-B",
+    "source_anchor": "MF-B:pages:18",
+    "clinical_question": "Is option Momelotinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "symptomatic_splenomegaly_or_constitutional"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "mf_anemia_momelo"
+    ],
+    "internal_transfer_targets": [
+      "mf_anemia_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mf_anemia_action:mf_anemia_momelo",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::pv_low::pv_low_cytoreduction",
+    "source_section": "MPN-H",
+    "source_page_label": "MPN-H",
+    "source_anchor": "MPN-H:pages:43,44,45,46",
+    "clinical_question": "Is option Cytoreductive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "phlebotomy_requirement",
+      "thrombosis_or_vascular_event"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pv_low_cytoreduction"
+    ],
+    "internal_transfer_targets": [
+      "pv_low"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "pv_low:pv_low_cytoreduction",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::pv_high::pv_high_second",
+    "source_section": "MPN-G",
+    "source_page_label": "MPN-G",
+    "source_anchor": "MPN-G:pages:41,42",
+    "clinical_question": "Is option Second-line source cytoreduction/JAK option for hydroxyurea resistance/intolerance applicable to the current patient state?",
+    "input_fact_ids": [
+      "hydroxyurea_resistant_or_intolerant"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pv_high_second"
+    ],
+    "internal_transfer_targets": [
+      "pv_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "pv_high:pv_high_second",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::et_nonhigh::et_cyto_nonhigh",
+    "source_section": "MPN-H",
+    "source_page_label": "MPN-H",
+    "source_anchor": "MPN-H:pages:43,44,45,46",
+    "clinical_question": "Is option Cytoreduction applicable to the current patient state?",
+    "input_fact_ids": [
+      "thrombosis_or_vascular_event"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "et_cyto_nonhigh"
+    ],
+    "internal_transfer_targets": [
+      "et_nonhigh"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "et_nonhigh:et_cyto_nonhigh",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::et_nonhigh::et_aspirin_jak2",
+    "source_section": "ET-2",
+    "source_page_label": "ET-2",
+    "source_anchor": "ET-2:pages:25",
+    "clinical_question": "Is option Low-dose aspirin for JAK2-mutated low/intermediate-risk ET when source-indicated applicable to the current patient state?",
+    "input_fact_ids": [
+      "driver_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "et_aspirin_jak2"
+    ],
+    "internal_transfer_targets": [
+      "et_nonhigh"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "et_nonhigh:et_aspirin_jak2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::et_first::et_high_thrombosis",
+    "source_section": "ET-2",
+    "source_page_label": "ET-2",
+    "source_anchor": "ET-2:pages:25",
+    "clinical_question": "Is option Cytoreduction for prior thrombosis/high thrombotic risk applicable to the current patient state?",
+    "input_fact_ids": [
+      "thrombosis_history"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "et_high_thrombosis"
+    ],
+    "internal_transfer_targets": [
+      "et_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "et_first:et_high_thrombosis",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::et_first::et_high_age",
+    "source_section": "ET-2",
+    "source_page_label": "ET-2",
+    "source_anchor": "ET-2:pages:25",
+    "clinical_question": "Is option Cytoreduction for age-driven high-risk ET applicable to the current patient state?",
+    "input_fact_ids": [
+      "age_years"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "et_high_age"
+    ],
+    "internal_transfer_targets": [
+      "et_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "et_first:et_high_age",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

@@ -1,0 +1,568 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "MPN?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "MYELOPROLIFERATIVE_NEOPLASM"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase_workup",
+        "FALSE": "outside"
+      }
+    },
+    "phase_workup": {
+      "kind": "decision",
+      "label": "MPN diagnostic workup phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "WORKUP"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "workup",
+        "FALSE": "phase_chronic"
+      }
+    },
+    "phase_chronic": {
+      "kind": "decision",
+      "label": "Recognized chronic MPN care phase?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "ON_TREATMENT"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "PROGRESSIVE"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "ACCELERATED_BLAST_PHASE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "blast",
+        "FALSE": "phase_unknown"
+      }
+    },
+    "phase_unknown": {
+      "kind": "status",
+      "label": "MPN care phase is not established.",
+      "status": "NEEDS_INFORMATION"
+    },
+    "blast": {
+      "kind": "decision",
+      "label": "Accelerated/blast phase MPN?",
+      "expression": {
+        "any": [
+          {
+            "fact": "subtype",
+            "op": "eq",
+            "value": "ACCELERATED_BLAST_PHASE"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "ACCELERATED_BLAST_PHASE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "apbp",
+        "FALSE": "sub_mf"
+      }
+    },
+    "apbp": {
+      "kind": "action",
+      "label": "Accelerated/blast-phase MPN: urgent AML-like/clinical-trial strategy with early transplant evaluation and MPN-specific supportive care.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_apbp",
+      "source_pathways": [
+        "MPN-AP/BP-1"
+      ],
+      "recommendation": {
+        "title": "Accelerated/blast-phase MPN: urgent AML-like/clinical-trial strategy with early transplant evaluation and MPN-specific supportive care.",
+        "options": [
+          {
+            "label": "Disease-directed therapy",
+            "text": "Use AML-like or lower-intensity approach based on fitness/biology."
+          },
+          {
+            "label": "Allogeneic transplant",
+            "text": "Early referral when eligible."
+          }
+        ],
+        "supporting_sections": [
+          "MPN-F",
+          "MPN-G",
+          "MPN-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "sub_mf": {
+      "kind": "decision",
+      "label": "Myelofibrosis?",
+      "expression": {
+        "all": [
+          {
+            "fact": "subtype",
+            "op": "eq",
+            "value": "MYELOFIBROSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mf_risk",
+        "FALSE": "sub_pv"
+      }
+    },
+    "mf_risk": {
+      "kind": "decision",
+      "label": "Higher-risk MF?",
+      "expression": {
+        "all": [
+          {
+            "fact": "mf_risk",
+            "op": "eq",
+            "value": "HIGHER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mf_high",
+        "FALSE": "mf_low"
+      }
+    },
+    "mf_low": {
+      "kind": "decision",
+      "label": "MF-associated anemia requiring treatment?",
+      "expression": {
+        "all": [
+          {
+            "fact": "mf_anemia",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mf_anemia",
+        "FALSE": "mf_low_sym"
+      }
+    },
+    "mf_low_sym": {
+      "kind": "action",
+      "label": "Lower-risk myelofibrosis: observation or symptom-directed therapy based on spleen/constitutional symptoms and counts.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_mf_low",
+      "source_pathways": [
+        "MF-1"
+      ],
+      "recommendation": {
+        "title": "Lower-risk myelofibrosis: observation or symptom-directed therapy based on spleen/constitutional symptoms and counts.",
+        "options": [
+          {
+            "label": "Observation",
+            "text": "For asymptomatic/stable lower-risk disease."
+          },
+          {
+            "label": "JAK inhibitor or symptom-directed therapy",
+            "text": "When symptomatic splenomegaly/constitutional symptoms warrant treatment."
+          }
+        ],
+        "supporting_sections": [
+          "MF-A",
+          "MPN-E",
+          "MPN-F",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "mf_anemia": {
+      "kind": "action",
+      "label": "Myelofibrosis-associated anemia: anemia-directed therapy selected by EPO level, transfusion dependence, mutations, prior therapy and symptom burden.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_mf_anemia",
+      "source_pathways": [
+        "MF-3"
+      ],
+      "recommendation": {
+        "title": "Myelofibrosis-associated anemia: anemia-directed therapy selected by EPO level, transfusion dependence, mutations, prior therapy and symptom burden.",
+        "options": [
+          {
+            "label": "Anemia-directed therapy",
+            "text": "Use source-listed ESA, luspatercept, danazol, momelotinib or other options according to prerequisites."
+          }
+        ],
+        "supporting_sections": [
+          "MF-A",
+          "MPN-F",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "mf_high": {
+      "kind": "decision",
+      "label": "Transplant candidate?",
+      "expression": {
+        "all": [
+          {
+            "fact": "transplant_candidate",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "mf_hct",
+        "FALSE": "mf_high_nonhct"
+      }
+    },
+    "mf_hct": {
+      "kind": "action",
+      "label": "Higher-risk myelofibrosis with transplant candidacy: allogeneic HCT evaluation, often with JAK-inhibitor bridging/symptom control.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_mf_high_hct",
+      "source_pathways": [
+        "MF-2",
+        "MF-2A"
+      ],
+      "recommendation": {
+        "title": "Higher-risk myelofibrosis with transplant candidacy: allogeneic HCT evaluation, often with JAK-inhibitor bridging/symptom control.",
+        "options": [
+          {
+            "label": "Allogeneic HCT",
+            "text": "Curative-intent option for eligible higher-risk disease."
+          },
+          {
+            "label": "Bridge/symptom control",
+            "text": "Use JAK inhibitor or source-defined therapy before HCT as appropriate."
+          }
+        ],
+        "supporting_sections": [
+          "MF-A",
+          "MF-C",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "mf_high_nonhct": {
+      "kind": "action",
+      "label": "Higher-risk myelofibrosis not proceeding to HCT: JAK-inhibitor/symptom-directed therapy, anemia management, or clinical trial.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_mf_high_nonhct",
+      "source_pathways": [
+        "MF-2",
+        "MF-2A"
+      ],
+      "recommendation": {
+        "title": "Higher-risk myelofibrosis not proceeding to HCT: JAK-inhibitor/symptom-directed therapy, anemia management, or clinical trial.",
+        "options": [
+          {
+            "label": "JAK inhibitor",
+            "text": "Select by platelets, anemia, prior therapy and comorbidity."
+          },
+          {
+            "label": "Clinical trial/other disease-directed therapy",
+            "text": "For inadequate response/progression."
+          }
+        ],
+        "supporting_sections": [
+          "MF-A",
+          "MF-B",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "sub_pv": {
+      "kind": "decision",
+      "label": "Polycythemia vera?",
+      "expression": {
+        "all": [
+          {
+            "fact": "subtype",
+            "op": "eq",
+            "value": "POLYCYTHEMIA_VERA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "pv_risk",
+        "FALSE": "sub_et"
+      }
+    },
+    "pv_risk": {
+      "kind": "decision",
+      "label": "High-risk PV?",
+      "expression": {
+        "all": [
+          {
+            "fact": "pv_high_risk",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "pv_high",
+        "FALSE": "pv_low"
+      }
+    },
+    "pv_low": {
+      "kind": "action",
+      "label": "Low-risk polycythemia vera: hematocrit control, low-dose aspirin when appropriate, and symptom/risk-directed cytoreduction in selected circumstances.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_pv_low",
+      "source_pathways": [
+        "PV-1"
+      ],
+      "recommendation": {
+        "title": "Low-risk polycythemia vera: hematocrit control, low-dose aspirin when appropriate, and symptom/risk-directed cytoreduction in selected circumstances.",
+        "options": [
+          {
+            "label": "Phlebotomy/hematocrit control",
+            "text": "Maintain source target."
+          },
+          {
+            "label": "Low-dose aspirin",
+            "text": "When not contraindicated."
+          },
+          {
+            "label": "Cytoreduction",
+            "text": "For source-defined selected low-risk indications."
+          }
+        ],
+        "supporting_sections": [
+          "PV-A",
+          "PV-B",
+          "MPN-F",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "pv_high": {
+      "kind": "action",
+      "label": "High-risk polycythemia vera: hematocrit control + aspirin + cytoreductive therapy, with switch for intolerance/resistance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_pv_high",
+      "source_pathways": [
+        "PV-2"
+      ],
+      "recommendation": {
+        "title": "High-risk polycythemia vera: hematocrit control + aspirin + cytoreductive therapy, with switch for intolerance/resistance.",
+        "options": [
+          {
+            "label": "Cytoreductive therapy",
+            "text": "Use preferred interferon/hydroxyurea or source-listed alternatives based on age/pregnancy/comorbidity."
+          },
+          {
+            "label": "Second-line",
+            "text": "Use ruxolitinib/other source options for HU resistance/intolerance as appropriate."
+          }
+        ],
+        "supporting_sections": [
+          "PV-A",
+          "PV-B",
+          "MPN-I",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "sub_et": {
+      "kind": "decision",
+      "label": "Essential thrombocythemia?",
+      "expression": {
+        "all": [
+          {
+            "fact": "subtype",
+            "op": "eq",
+            "value": "ESSENTIAL_THROMBOCYTHEMIA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "et_high",
+        "FALSE": "workup"
+      }
+    },
+    "et_high": {
+      "kind": "decision",
+      "label": "High-risk ET?",
+      "expression": {
+        "all": [
+          {
+            "fact": "et_risk",
+            "op": "eq",
+            "value": "HIGH"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "et_high_action",
+        "FALSE": "et_low"
+      }
+    },
+    "et_low": {
+      "kind": "decision",
+      "label": "Prior cytoreductive therapy inadequate response/loss of response?",
+      "expression": {
+        "all": [
+          {
+            "fact": "prior_cytoreductive_inadequate_response",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "et_3",
+        "FALSE": "et_1"
+      }
+    },
+    "et_1": {
+      "kind": "action",
+      "label": "Very-low/low/intermediate-risk ET: observation/aspirin and selective cytoreduction based on thrombosis risk, symptoms, and cardiovascular factors.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_et_lower",
+      "source_pathways": [
+        "ET-1"
+      ],
+      "recommendation": {
+        "title": "Very-low/low/intermediate-risk ET: observation/aspirin and selective cytoreduction based on thrombosis risk, symptoms, and cardiovascular factors.",
+        "options": [
+          {
+            "label": "Aspirin/observation",
+            "text": "Use source risk and symptom criteria."
+          },
+          {
+            "label": "Cytoreduction",
+            "text": "For selected intermediate-risk or symptomatic states."
+          }
+        ],
+        "supporting_sections": [
+          "ET-A",
+          "ET-B",
+          "MPN-F",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "et_high_action": {
+      "kind": "action",
+      "label": "High-risk essential thrombocythemia: antiplatelet therapy plus cytoreduction with source-preferred agents.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_et_high",
+      "source_pathways": [
+        "ET-2"
+      ],
+      "recommendation": {
+        "title": "High-risk essential thrombocythemia: antiplatelet therapy plus cytoreduction with source-preferred agents.",
+        "options": [
+          {
+            "label": "Cytoreductive therapy",
+            "text": "Use interferon/hydroxyurea or other source-listed therapy."
+          },
+          {
+            "label": "Aspirin",
+            "text": "Risk-adapted once/twice daily where appropriate."
+          }
+        ],
+        "supporting_sections": [
+          "ET-A",
+          "ET-B",
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "et_3": {
+      "kind": "action",
+      "label": "ET with inadequate response/loss of response to prior cytoreduction: switch to source-listed subsequent cytoreductive therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_et_subsequent",
+      "source_pathways": [
+        "ET-3"
+      ],
+      "recommendation": {
+        "title": "ET with inadequate response/loss of response to prior cytoreduction: switch to source-listed subsequent cytoreductive therapy.",
+        "options": [
+          {
+            "label": "Subsequent cytoreduction",
+            "text": "Use preferred ropeginterferon alfa-2b-njft or other source-listed option according to prior therapy/contraindications."
+          }
+        ],
+        "supporting_sections": [
+          "MPN-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "workup": {
+      "kind": "action",
+      "label": "Suspected/unclassified MPN: complete workup, marrow/cytogenetics and molecular testing, then assign diagnosis and risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "mpn_workup",
+      "source_pathways": [
+        "MPN-1",
+        "MPN-2",
+        "MPN-2A"
+      ],
+      "recommendation": {
+        "title": "Suspected/unclassified MPN: complete workup, marrow/cytogenetics and molecular testing, then assign diagnosis and risk.",
+        "options": [
+          {
+            "label": "Diagnostic workup",
+            "text": "CBC/smear, marrow, cytogenetics and JAK2/CALR/MPL + broader NGS as source-defined."
+          },
+          {
+            "label": "Risk stratification",
+            "text": "Apply subtype-specific MF/PV/ET prognostic models after diagnosis."
+          }
+        ],
+        "supporting_sections": [
+          "MPN-A",
+          "MPN-B",
+          "MPN-C",
+          "MPN-D",
+          "MPN-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside MPN ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

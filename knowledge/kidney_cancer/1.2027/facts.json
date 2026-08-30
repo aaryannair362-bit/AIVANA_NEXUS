@@ -1,0 +1,127 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "KIDNEY_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "POST_NEPHRECTOMY",
+      "RELAPSED_STAGE_IV",
+      "HEREDITARY_RISK"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "clinical_t",
+    "value_type": "CODED",
+    "allowed_values": [
+      "T1A",
+      "T1B",
+      "T2",
+      "T3",
+      "T4",
+      "TX"
+    ],
+    "semantic_unknown_values": [
+      "TX"
+    ]
+  },
+  {
+    "key": "clinical_n",
+    "value_type": "CODED",
+    "allowed_values": [
+      "N0",
+      "N1",
+      "NX"
+    ],
+    "semantic_unknown_values": [
+      "NX"
+    ]
+  },
+  {
+    "key": "clinical_m",
+    "value_type": "CODED",
+    "allowed_values": [
+      "M0",
+      "M1",
+      "MX"
+    ],
+    "semantic_unknown_values": [
+      "MX"
+    ]
+  },
+  {
+    "key": "histology",
+    "value_type": "CODED",
+    "allowed_values": [
+      "CLEAR_CELL",
+      "PAPILLARY",
+      "CHROMOPHOBE",
+      "COLLECTING_DUCT",
+      "RENAL_MEDULLARY",
+      "OTHER_NONCLEAR",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "partial_nephrectomy_feasible",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "surgery_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "resectable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "tumor_size_cm",
+    "value_type": "NUMERIC"
+  },
+  {
+    "key": "predominantly_cystic",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "postop_high_risk",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "grade4_or_sarcomatoid",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "oligometastatic",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "imdc_risk",
+    "value_type": "CODED",
+    "allowed_values": [
+      "FAVORABLE",
+      "INTERMEDIATE",
+      "POOR",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "hereditary_risk_criteria_met",
+    "value_type": "BOOLEAN"
+  }
+]

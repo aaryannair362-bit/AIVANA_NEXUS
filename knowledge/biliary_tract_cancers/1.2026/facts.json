@@ -1,0 +1,97 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "BILIARY_TRACT_CANCER",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "primary_site",
+    "value_type": "CODED",
+    "allowed_values": [
+      "GALLBLADDER",
+      "INTRAHEPATIC_CHOLANGIOCARCINOMA",
+      "EXTRAHEPATIC_CHOLANGIOCARCINOMA",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "INCIDENTAL_POST_CHOLECYSTECTOMY",
+      "POST_RESECTION",
+      "RECURRENT_UNRESECTABLE_METASTATIC"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "resectable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "metastatic",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "jaundice_or_biliary_obstruction",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "gallbladder_t_stage",
+    "value_type": "CODED",
+    "allowed_values": [
+      "TIS",
+      "T1A",
+      "T1B",
+      "T2",
+      "T3",
+      "T4",
+      "TX"
+    ],
+    "semantic_unknown_values": [
+      "TX"
+    ]
+  },
+  {
+    "key": "margin_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "R0",
+      "R1",
+      "R2",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "nodes_positive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "cis_at_margin",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "molecular_actionable_alteration",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "msi_h_dmmr",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "performance_status_good",
+    "value_type": "BOOLEAN"
+  }
+]

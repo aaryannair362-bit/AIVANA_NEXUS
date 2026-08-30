@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_GASTRIC",
+  "title": "Gastric Cancer",
+  "version": "3.2026",
+  "cancer_type": "GASTRIC_CANCER",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 48,
+    "implemented_decisions": 48,
+    "tested_decisions": 48,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "Gastric(5).pdf",
+    "sha256": "bcb9c9b5a81fd604ec2b5eff1e348919429ea8d211873df93e63065e38bdfe27",
+    "pdf_pages": 140
+  },
+  "primary_expected": 13,
+  "supporting_expected": 11
+}

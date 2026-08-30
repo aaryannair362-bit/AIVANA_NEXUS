@@ -1,0 +1,89 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "diagnosis_confirmed",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "lineage",
+    "value_type": "CODED",
+    "allowed_values": [
+      "B_ALL",
+      "T_ALL",
+      "OTHER",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "ph_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "POSITIVE",
+      "NEGATIVE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "WORKUP",
+      "NEW_DIAGNOSIS",
+      "POST_INDUCTION",
+      "POST_CONSOLIDATION",
+      "SURVEILLANCE",
+      "RELAPSED_REFRACTORY",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "response_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "CR",
+      "CR_WITH_MRD",
+      "REFRACTORY",
+      "RELAPSED",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "mrd_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEGATIVE",
+      "POSITIVE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "transplant_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "cns_involvement",
+    "value_type": "BOOLEAN"
+  }
+]

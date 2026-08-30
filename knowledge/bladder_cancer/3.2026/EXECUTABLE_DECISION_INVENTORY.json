@@ -1,0 +1,1846 @@
+[
+  {
+    "decision_id": "scope",
+    "source_section": "BL-1",
+    "source_page_label": "BL-1",
+    "source_anchor": "BL-1:pages:8",
+    "clinical_question": "Bladder/urothelial package?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "site_bl",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_bl",
+    "source_section": "BL-1",
+    "source_page_label": "BL-1",
+    "source_anchor": "BL-1:pages:8",
+    "clinical_question": "Bladder primary?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "bl_care",
+      "site_rp"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_bl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_rp",
+    "source_section": "UTT-1",
+    "source_page_label": "UTT-1",
+    "source_anchor": "UTT-1:pages:56",
+    "clinical_question": "Renal pelvis upper-tract urothelial carcinoma?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "utt",
+      "site_ur"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_rp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_ur",
+    "source_section": "UTT-3",
+    "source_page_label": "UTT-3",
+    "source_anchor": "UTT-3:pages:58",
+    "clinical_question": "Ureter urothelial carcinoma?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "utt",
+      "site_ucp"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_ur",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_ucp",
+    "source_section": "UCP-1",
+    "source_page_label": "UCP-1",
+    "source_anchor": "UCP-1:pages:60",
+    "clinical_question": "Urothelial carcinoma of prostate/prostatic urethra?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "ucp",
+      "site_pcu"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_ucp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_pcu",
+    "source_section": "PCU-1",
+    "source_page_label": "PCU-1",
+    "source_anchor": "PCU-1:pages:61",
+    "clinical_question": "Primary urethral carcinoma?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "pcu_stage",
+      "need_site"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_pcu",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bl_care",
+    "source_section": "BL-10",
+    "source_page_label": "BL-10",
+    "source_anchor": "BL-10:pages:17",
+    "clinical_question": "Metastatic/recurrent active disease?",
+    "input_fact_ids": [
+      "clinical_m",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_line",
+      "bl_post"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bl_care",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bl_post",
+    "source_section": "BL-7",
+    "source_page_label": "BL-7",
+    "source_anchor": "BL-7:pages:14",
+    "clinical_question": "Post-cystectomy/adjuvant state?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "post_cyst",
+      "bl_nmibc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bl_post",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bl_nmibc",
+    "source_section": "BL-1",
+    "source_page_label": "BL-1",
+    "source_anchor": "BL-1:pages:8",
+    "clinical_question": "Non-muscle-invasive stage (Ta/Tis/T1)?",
+    "input_fact_ids": [
+      "clinical_t"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "nmibc_initial",
+      "mibc_stage"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bl_nmibc",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmibc_initial",
+    "source_section": "BL-2",
+    "source_page_label": "BL-2",
+    "source_anchor": "BL-2:pages:9",
+    "clinical_question": "Initial TURBT visually complete?",
+    "input_fact_ids": [
+      "visually_complete_turbt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_repeat_turbt"
+    ],
+    "internal_transfer_targets": [
+      "cytology_gate",
+      "repeat_turbt"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmibc_initial",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmibc_risk_decision",
+    "source_section": "BL-2",
+    "source_page_label": "BL-2",
+    "source_anchor": "BL-2:pages:9",
+    "clinical_question": "High-risk NMIBC?",
+    "input_fact_ids": [
+      "nmibc_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "high_bcg_state",
+      "nmibc_int_check"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmibc_risk_decision",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "nmibc_int_check",
+    "source_section": "BL-3",
+    "source_page_label": "BL-3",
+    "source_anchor": "BL-3:pages:10",
+    "clinical_question": "Intermediate-risk NMIBC?",
+    "input_fact_ids": [
+      "nmibc_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_int_intra",
+      "bl_int_surv",
+      "bl_low_peri_instill",
+      "bl_low_surv"
+    ],
+    "internal_transfer_targets": [
+      "nmibc_int",
+      "nmibc_low"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "nmibc_int_check",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "high_bcg_state",
+    "source_section": "BL-4",
+    "source_page_label": "BL-4",
+    "source_anchor": "BL-4:pages:11",
+    "clinical_question": "BCG-unresponsive high-risk NMIBC?",
+    "input_fact_ids": [
+      "adequate_bcg_received",
+      "bcg_exposure_state",
+      "bcg_unresponsive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "bcg_unresp_cyst",
+      "bcg_naive"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "high_bcg_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcg_unresp_cyst",
+    "source_section": "BL-4",
+    "source_page_label": "BL-4",
+    "source_anchor": "BL-4:pages:11",
+    "clinical_question": "Cystectomy candidate?",
+    "input_fact_ids": [
+      "radical_cystectomy_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_bcg_gem_system",
+      "bl_bcg_multi",
+      "bl_bcg_nado",
+      "bl_bcg_nogap",
+      "bl_bcg_pembro",
+      "bl_bcg_u_cyst",
+      "bl_bcg_u_trial"
+    ],
+    "internal_transfer_targets": [
+      "bcg_unresp_cyst_action",
+      "bcg_unresp_noncyst"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bcg_unresp_cyst",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcg_naive",
+    "source_section": "BL-4",
+    "source_page_label": "BL-4",
+    "source_anchor": "BL-4:pages:11",
+    "clinical_question": "BCG-naive high-risk NMIBC?",
+    "input_fact_ids": [
+      "bcg_exposure_state"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_bcg_ind_maint",
+      "bl_exposed_multi",
+      "bl_exposed_repeatbcg",
+      "bl_exposed_trial",
+      "bl_high_cyst",
+      "bl_high_intrachemo",
+      "bl_high_trial"
+    ],
+    "internal_transfer_targets": [
+      "bcg_naive_action",
+      "bcg_exposed"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bcg_naive",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "cytology_gate",
+    "source_section": "BL-5",
+    "source_page_label": "BL-5",
+    "source_anchor": "BL-5:pages:12",
+    "clinical_question": "Positive cytology with negative imaging/cystoscopy?",
+    "input_fact_ids": [
+      "cystoscopy_positive",
+      "positive_urine_cytology"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "cytology_localize",
+      "nmibc_risk_decision"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "cytology_gate",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "cytology_localize",
+    "source_section": "BL-5",
+    "source_page_label": "BL-5",
+    "source_anchor": "BL-5:pages:12",
+    "clinical_question": "Upper tract source positive?",
+    "input_fact_ids": [
+      "upper_tract_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "utt",
+      "cytology_prostate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "cytology_localize",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "cytology_prostate",
+    "source_section": "BL-5",
+    "source_page_label": "BL-5",
+    "source_anchor": "BL-5:pages:12",
+    "clinical_question": "Prostate/prostatic urethra source positive?",
+    "input_fact_ids": [
+      "prostate_urethra_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_cyto_eval"
+    ],
+    "internal_transfer_targets": [
+      "ucp",
+      "cytology_bl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "cytology_prostate",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mibc_stage",
+    "source_section": "BL-6",
+    "source_page_label": "BL-6",
+    "source_anchor": "BL-6:pages:13",
+    "clinical_question": "Stage II/IIIA potentially local treatment?",
+    "input_fact_ids": [
+      "clinical_m",
+      "clinical_n",
+      "clinical_t"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_adv_consolidate",
+      "bl_adv_sys"
+    ],
+    "internal_transfer_targets": [
+      "mibc_cystcand",
+      "mibc_adv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mibc_stage",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mibc_cystcand",
+    "source_section": "BL-6",
+    "source_page_label": "BL-6",
+    "source_anchor": "BL-6:pages:13",
+    "clinical_question": "Radical cystectomy candidate?",
+    "input_fact_ids": [
+      "radical_cystectomy_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_mibc_cisgem",
+      "bl_mibc_cisgem_durva",
+      "bl_mibc_cyst_alone",
+      "bl_mibc_ddmvac",
+      "bl_mibc_ev_pembro"
+    ],
+    "internal_transfer_targets": [
+      "mibc_peri",
+      "mibc_blpres"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mibc_cystcand",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "mibc_blpres",
+    "source_section": "BL-6",
+    "source_page_label": "BL-6",
+    "source_anchor": "BL-6:pages:13",
+    "clinical_question": "Bladder-preservation candidate with maximal TURBT feasible?",
+    "input_fact_ids": [
+      "bladder_preservation_candidate",
+      "complete_turbt_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_mibc_pallrt",
+      "bl_mibc_sys",
+      "bl_trimodal"
+    ],
+    "internal_transfer_targets": [
+      "trimodal",
+      "mibc_noncurative"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mibc_blpres",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "post_cyst",
+    "source_section": "BL-7",
+    "source_page_label": "BL-7",
+    "source_anchor": "BL-7:pages:14",
+    "clinical_question": "High-risk pathologic stage after cystectomy?",
+    "input_fact_ids": [
+      "pathologic_stage_high_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_adj_atezo_ctdna",
+      "bl_adj_nivo",
+      "bl_adj_pembro",
+      "bl_adj_platinum",
+      "bl_post_followup"
+    ],
+    "internal_transfer_targets": [
+      "post_high",
+      "post_follow"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_cyst",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "met_line",
+    "source_section": "BL-10",
+    "source_page_label": "BL-10",
+    "source_anchor": "BL-10:pages:17",
+    "clinical_question": "First-line locally advanced/metastatic urothelial cancer?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_later_enfortumab",
+      "bl_later_erdafitinib",
+      "bl_later_pembro",
+      "bl_later_platinum_rechallenge",
+      "bl_met_carbogen_avel",
+      "bl_met_cisgem_avel",
+      "bl_met_cisgem_nivo",
+      "bl_met_ev_pembro"
+    ],
+    "internal_transfer_targets": [
+      "met_first",
+      "met_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "utt",
+    "source_section": "UTT-1",
+    "source_page_label": "UTT-1",
+    "source_anchor": "UTT-1:pages:56",
+    "clinical_question": "Upper tract metastatic?",
+    "input_fact_ids": [
+      "clinical_m"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_line",
+      "utt_grade"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "utt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "utt_grade",
+    "source_section": "UTT-1",
+    "source_page_label": "UTT-1",
+    "source_anchor": "UTT-1:pages:56",
+    "clinical_question": "Upper-tract high grade?",
+    "input_fact_ids": [
+      "upper_tract_grade"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "utt_high_obstruction",
+      "utt_low_focality"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "utt_grade",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ucp",
+    "source_section": "UCP-1",
+    "source_page_label": "UCP-1",
+    "source_anchor": "UCP-1:pages:60",
+    "clinical_question": "Metastatic urothelial carcinoma of prostate?",
+    "input_fact_ids": [
+      "clinical_m"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_line",
+      "ucp_stromal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ucp",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "ucp_stromal",
+    "source_section": "UCP-1",
+    "source_page_label": "UCP-1",
+    "source_anchor": "UCP-1:pages:60",
+    "clinical_question": "Stromal invasion / invasive stage?",
+    "input_fact_ids": [
+      "clinical_t"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ucp_adjuvant",
+      "ucp_cystoprostatectomy",
+      "ucp_neo_cyst",
+      "ucp_turp_bcg"
+    ],
+    "internal_transfer_targets": [
+      "ucp_invasive",
+      "ucp_mucosal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "ucp_stromal",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pcu_stage",
+    "source_section": "PCU-2",
+    "source_page_label": "PCU-2",
+    "source_anchor": "PCU-2:pages:62",
+    "clinical_question": "Primary urethral carcinoma metastatic?",
+    "input_fact_ids": [
+      "urethral_stage"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_line",
+      "pcu_early"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pcu_stage",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pcu_early",
+    "source_section": "PCU-2",
+    "source_page_label": "PCU-2",
+    "source_anchor": "PCU-2:pages:62",
+    "clinical_question": "CIS/Ta/T1 urethral carcinoma?",
+    "input_fact_ids": [
+      "urethral_stage"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcu_intrauro",
+      "pcu_tur"
+    ],
+    "internal_transfer_targets": [
+      "pcu_early_action",
+      "pcu_t2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pcu_early",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pcu_t2",
+    "source_section": "PCU-2",
+    "source_page_label": "PCU-2",
+    "source_anchor": "PCU-2:pages:62",
+    "clinical_question": "T2 urethral carcinoma?",
+    "input_fact_ids": [
+      "urethral_stage"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcu_adv_crt",
+      "pcu_adv_neoadj",
+      "pcu_adv_sys"
+    ],
+    "internal_transfer_targets": [
+      "pcu_t2_pendulous",
+      "pcu_adv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pcu_t2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pcu_t2_pendulous",
+    "source_section": "PCU-2",
+    "source_page_label": "PCU-2",
+    "source_anchor": "PCU-2:pages:62",
+    "clinical_question": "T2 primary urethral carcinoma in male pendulous urethra?",
+    "input_fact_ids": [
+      "urethral_location"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcu_pend_distal",
+      "pcu_pend_penectomy",
+      "pcu_pend_posmargin"
+    ],
+    "internal_transfer_targets": [
+      "pcu_t2_pendulous_action",
+      "pcu_t2_bulbar"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pcu_t2_pendulous",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pcu_t2_bulbar",
+    "source_section": "PCU-2",
+    "source_page_label": "PCU-2",
+    "source_anchor": "PCU-2:pages:62",
+    "clinical_question": "T2 primary urethral carcinoma in male bulbar urethra?",
+    "input_fact_ids": [
+      "urethral_location"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcu_bulbar_surgery"
+    ],
+    "internal_transfer_targets": [
+      "pcu_t2_bulbar_action",
+      "pcu_t2_female"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pcu_t2_bulbar",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "pcu_t2_female",
+    "source_section": "PCU-2",
+    "source_page_label": "PCU-2",
+    "source_anchor": "PCU-2:pages:62",
+    "clinical_question": "T2 primary urethral carcinoma in female urethra?",
+    "input_fact_ids": [
+      "urethral_location"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcu_female_crt",
+      "pcu_female_distal",
+      "pcu_female_ureth_cyst"
+    ],
+    "internal_transfer_targets": [
+      "pcu_t2_female_action",
+      "need_urethral_location"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "pcu_t2_female",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "utt_low_focality",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "Low-grade UTUC unifocal?",
+    "input_fact_ids": [
+      "upper_tract_focality"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_lowint_endo_intrapelvic"
+    ],
+    "internal_transfer_targets": [
+      "utt_low_size",
+      "utt_low_intermediate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "utt_low_focality",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "utt_low_size_1_5",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "Low-grade unifocal UTUC <1.5 cm?",
+    "input_fact_ids": [
+      "upper_tract_size_cm"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_low_chemoablation",
+      "utt_low_endoscopic",
+      "utt_low_surveillance",
+      "utt_lowint_endo_intrapelvic"
+    ],
+    "internal_transfer_targets": [
+      "utt_low_risk",
+      "utt_low_intermediate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "utt_low_size",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "utt_high_obstruction_invasion",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "High-grade UTUC with renal obstruction or invasion on axial imaging?",
+    "input_fact_ids": [
+      "upper_tract_obstruction_or_invasion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_high_imperative",
+      "utt_high_risk_distal_ureterectomy",
+      "utt_high_rnu"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_risk",
+      "utt_high_focality"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "utt_high_obstruction",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "utt_high_focality",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "High-grade UTUC multifocal?",
+    "input_fact_ids": [
+      "upper_tract_focality"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_high_imperative",
+      "utt_high_risk_distal_ureterectomy",
+      "utt_high_rnu"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_risk",
+      "utt_high_size"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "utt_high_focality",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "utt_high_size_1_5",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "High-grade unifocal UTUC <1.5 cm?",
+    "input_fact_ids": [
+      "upper_tract_size_cm"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_high_imperative",
+      "utt_high_intermediate_distal_ureterectomy",
+      "utt_high_risk_distal_ureterectomy",
+      "utt_high_rnu",
+      "utt_hiint_nephron",
+      "utt_hiint_rnu"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_intermediate",
+      "utt_high_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "utt_high_size",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bcg_naive_action::bl_high_cyst",
+    "source_section": "BL-F",
+    "source_page_label": "BL-F",
+    "source_anchor": "BL-F:pages:38,39,40,41",
+    "clinical_question": "Is option Cystectomy applicable to the current patient state?",
+    "input_fact_ids": [
+      "nmibc_very_high_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_high_cyst"
+    ],
+    "internal_transfer_targets": [
+      "bcg_naive_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bcg_naive_action:bl_high_cyst",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mibc_peri::bl_mibc_ddmvac",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option DDMVAC -> cystectomy applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_mibc_ddmvac"
+    ],
+    "internal_transfer_targets": [
+      "mibc_peri"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mibc_peri:bl_mibc_ddmvac",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mibc_peri::bl_mibc_cisgem",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Cisplatin/gemcitabine -> cystectomy applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_mibc_cisgem"
+    ],
+    "internal_transfer_targets": [
+      "mibc_peri"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mibc_peri:bl_mibc_cisgem",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mibc_peri::bl_mibc_cisgem_durva",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Cisplatin/gemcitabine + durvalumab perioperative/sandwich applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_mibc_cisgem_durva"
+    ],
+    "internal_transfer_targets": [
+      "mibc_peri"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mibc_peri:bl_mibc_cisgem_durva",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mibc_peri::bl_mibc_ev_pembro",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Enfortumab vedotin + pembrolizumab perioperative/sandwich applicable to the current patient state?",
+    "input_fact_ids": [
+      "perioperative_ev_pembro_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_mibc_ev_pembro"
+    ],
+    "internal_transfer_targets": [
+      "mibc_peri"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mibc_peri:bl_mibc_ev_pembro",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::mibc_peri::bl_mibc_cyst_alone",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Radical cystectomy alone applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible",
+      "perioperative_ev_pembro_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_mibc_cyst_alone"
+    ],
+    "internal_transfer_targets": [
+      "mibc_peri"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "mibc_peri:bl_mibc_cyst_alone",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::post_high::bl_adj_platinum",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Adjuvant cisplatin-based chemotherapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible",
+      "prior_neoadjuvant_platinum"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_adj_platinum"
+    ],
+    "internal_transfer_targets": [
+      "post_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "post_high:bl_adj_platinum",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::post_high::bl_adj_atezo_ctdna",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Adjuvant atezolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "ctdna_mrd_positive",
+      "prior_checkpoint_inhibitor"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_adj_atezo_ctdna"
+    ],
+    "internal_transfer_targets": [
+      "post_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "post_high:bl_adj_atezo_ctdna",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_first::bl_met_cisgem_avel",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Cisplatin/gemcitabine -> avelumab maintenance applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_met_cisgem_avel"
+    ],
+    "internal_transfer_targets": [
+      "met_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_first:bl_met_cisgem_avel",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_first::bl_met_cisgem_nivo",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Cisplatin/gemcitabine + nivolumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_met_cisgem_nivo"
+    ],
+    "internal_transfer_targets": [
+      "met_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_first:bl_met_cisgem_nivo",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_first::bl_met_carbogen_avel",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Carboplatin/gemcitabine -> avelumab maintenance applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible",
+      "platinum_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_met_carbogen_avel"
+    ],
+    "internal_transfer_targets": [
+      "met_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_first:bl_met_carbogen_avel",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_later::bl_later_pembro",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Pembrolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_checkpoint_inhibitor"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_later_pembro"
+    ],
+    "internal_transfer_targets": [
+      "met_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_later:bl_later_pembro",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_later::bl_later_enfortumab",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Enfortumab vedotin applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_enfortumab"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_later_enfortumab"
+    ],
+    "internal_transfer_targets": [
+      "met_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_later:bl_later_enfortumab",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_later::bl_later_erdafitinib",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Erdafitinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "fgfr3_alteration"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_later_erdafitinib"
+    ],
+    "internal_transfer_targets": [
+      "met_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_later:bl_later_erdafitinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_later::bl_later_platinum_rechallenge",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Platinum rechallenge applicable to the current patient state?",
+    "input_fact_ids": [
+      "platinum_eligible",
+      "progression_free_gt12mo_after_platinum"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bl_later_platinum_rechallenge"
+    ],
+    "internal_transfer_targets": [
+      "met_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_later:bl_later_platinum_rechallenge",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::ucp_invasive::ucp_neo_cyst",
+    "source_section": "BL-G",
+    "source_page_label": "BL-G",
+    "source_anchor": "BL-G:pages:42,43,44,45,46,47,48,49",
+    "clinical_question": "Is option Neoadjuvant chemotherapy + cystoprostatectomy applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ucp_neo_cyst"
+    ],
+    "internal_transfer_targets": [
+      "ucp_invasive"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "ucp_invasive:ucp_neo_cyst",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::pcu_t2_pendulous_action::pcu_pend_posmargin",
+    "source_section": "PCU-2",
+    "source_page_label": "PCU-2",
+    "source_anchor": "PCU-2:pages:62",
+    "clinical_question": "Is option Additional surgery or chemoradiotherapy (preferred) or RT for positive margin applicable to the current patient state?",
+    "input_fact_ids": [
+      "margin_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "pcu_pend_posmargin"
+    ],
+    "internal_transfer_targets": [
+      "pcu_t2_pendulous_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "pcu_t2_pendulous_action:pcu_pend_posmargin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::utt_high_intermediate::utt_hiint_rnu",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "Is option Radical nephroureterectomy with bladder cuff applicable to the current patient state?",
+    "input_fact_ids": [
+      "nephron_sparing_required_or_preferred"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_hiint_rnu"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_intermediate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "utt_high_intermediate:utt_hiint_rnu",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::utt_high_intermediate::utt_hiint_nephron",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "Is option Endoscopic ablation + intrapelvic therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "nephron_sparing_required_or_preferred"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_hiint_nephron"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_intermediate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "utt_high_intermediate:utt_hiint_nephron",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::utt_high_intermediate::utt_high_intermediate_distal_ureterectomy",
+    "source_section": "UTT-3",
+    "source_page_label": "UTT-3",
+    "source_anchor": "UTT-3:pages:58",
+    "clinical_question": "Is option Distal ureterectomy + regional lymphadenectomy + ureteral reimplantation applicable to the current patient state?",
+    "input_fact_ids": [
+      "primary_site",
+      "upper_tract_grade",
+      "upper_tract_location"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_high_intermediate_distal_ureterectomy"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_intermediate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "utt_high_intermediate:utt_high_intermediate_distal_ureterectomy",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::utt_high_risk::utt_high_rnu",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "Is option Radical nephroureterectomy with bladder cuff applicable to the current patient state?",
+    "input_fact_ids": [
+      "nephron_sparing_required_or_preferred"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_high_rnu"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "utt_high_risk:utt_high_rnu",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::utt_high_risk::utt_high_imperative",
+    "source_section": "UTT-2",
+    "source_page_label": "UTT-2",
+    "source_anchor": "UTT-2:pages:57",
+    "clinical_question": "Is option Systemic therapy + radiation therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "nephron_sparing_required_or_preferred"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_high_imperative"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "utt_high_risk:utt_high_imperative",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::utt_high_risk::utt_high_risk_distal_ureterectomy",
+    "source_section": "UTT-3",
+    "source_page_label": "UTT-3",
+    "source_anchor": "UTT-3:pages:58",
+    "clinical_question": "Is option Distal ureterectomy + regional lymphadenectomy + ureteral reimplantation applicable to the current patient state?",
+    "input_fact_ids": [
+      "primary_site",
+      "upper_tract_grade",
+      "upper_tract_location"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "utt_high_risk_distal_ureterectomy"
+    ],
+    "internal_transfer_targets": [
+      "utt_high_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "utt_high_risk:utt_high_risk_distal_ureterectomy",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

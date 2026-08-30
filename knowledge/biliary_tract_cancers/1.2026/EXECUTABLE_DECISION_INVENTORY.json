@@ -1,0 +1,1264 @@
+[
+  {
+    "decision_id": "scope",
+    "source_section": "GALL-1",
+    "source_page_label": "GALL-1",
+    "source_anchor": "GALL-1:pages:7",
+    "clinical_question": "Biliary tract cancer?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "site_gb",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_gb",
+    "source_section": "GALL-1",
+    "source_page_label": "GALL-1",
+    "source_anchor": "GALL-1:pages:7",
+    "clinical_question": "Gallbladder cancer?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "gb_care",
+      "site_i"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_gb",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_i",
+    "source_section": "INTRA-1",
+    "source_page_label": "INTRA-1",
+    "source_anchor": "INTRA-1:pages:16",
+    "clinical_question": "Intrahepatic cholangiocarcinoma?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "i_care",
+      "site_e"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_i",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "site_e",
+    "source_section": "EXTRA-1",
+    "source_page_label": "EXTRA-1",
+    "source_anchor": "EXTRA-1:pages:23",
+    "clinical_question": "Extrahepatic cholangiocarcinoma?",
+    "input_fact_ids": [
+      "primary_site"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "e_care",
+      "need_site"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "site_e",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_care",
+    "source_section": "GALL-5",
+    "source_page_label": "GALL-5",
+    "source_anchor": "GALL-5:pages:11",
+    "clinical_question": "Current unresectable/recurrent/metastatic episode?",
+    "input_fact_ids": [
+      "metastatic",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "sys_line",
+      "gb_post"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_care",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_post",
+    "source_section": "GALL-3",
+    "source_page_label": "GALL-3",
+    "source_anchor": "GALL-3:pages:9",
+    "clinical_question": "Post-cholecystectomy/incidental pathology episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "gb_post_t",
+      "gb_presentation"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_post",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_presentation",
+    "source_section": "GALL-1",
+    "source_page_label": "GALL-1",
+    "source_anchor": "GALL-1:pages:7",
+    "clinical_question": "Incidental intraoperative suspicious mass?",
+    "input_fact_ids": [
+      "presentation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "gb_intraop_resect",
+      "gb_mass"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_presentation",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_intraop_resect",
+    "source_section": "GALL-1",
+    "source_page_label": "GALL-1",
+    "source_anchor": "GALL-1:pages:7",
+    "clinical_question": "Hepatobiliary surgery expertise/resectability permits definitive resection?",
+    "input_fact_ids": [
+      "resectable"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gb_onc_resection",
+      "gb_referral"
+    ],
+    "internal_transfer_targets": [
+      "gb_intraop_surg",
+      "gb_defer"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_intraop_resect",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_mass",
+    "source_section": "GALL-4",
+    "source_page_label": "GALL-4",
+    "source_anchor": "GALL-4:pages:10",
+    "clinical_question": "Mass on imaging or jaundice presentation?",
+    "input_fact_ids": [
+      "jaundice_or_biliary_obstruction",
+      "presentation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "gb_primary_resect",
+      "need_present"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_mass",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_primary_resect",
+    "source_section": "GALL-4",
+    "source_page_label": "GALL-4",
+    "source_anchor": "GALL-4:pages:10",
+    "clinical_question": "Resectable nonmetastatic gallbladder cancer?",
+    "input_fact_ids": [
+      "metastatic",
+      "resectable"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gb_neoadj",
+      "gb_primary_surgery"
+    ],
+    "internal_transfer_targets": [
+      "gb_primary_action",
+      "sys_line"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_primary_resect",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_post_t",
+    "source_section": "GALL-3",
+    "source_page_label": "GALL-3",
+    "source_anchor": "GALL-3:pages:9",
+    "clinical_question": "Incidental/postresection pathologic Tis/T1a?",
+    "input_fact_ids": [
+      "gallbladder_path_t"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gb_post_observe"
+    ],
+    "internal_transfer_targets": [
+      "gb_post_early",
+      "gb_post_adv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_post_t",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_post_adv",
+    "source_section": "GALL-6",
+    "source_page_label": "GALL-6",
+    "source_anchor": "GALL-6:pages:12",
+    "clinical_question": "Postoperative R0?",
+    "input_fact_ids": [
+      "postop_margin"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gb_r1_cap",
+      "gb_r1_crt",
+      "gb_r2_sys"
+    ],
+    "internal_transfer_targets": [
+      "gb_r0_nodes",
+      "gb_r1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_post_adv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "gb_r0_nodes",
+    "source_section": "GALL-6",
+    "source_page_label": "GALL-6",
+    "source_anchor": "GALL-6:pages:12",
+    "clinical_question": "Node positive?",
+    "input_fact_ids": [
+      "postop_nodes_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gb_adj_capecitabine",
+      "gb_adj_node_cap",
+      "gb_adj_node_crt",
+      "gb_adj_observe"
+    ],
+    "internal_transfer_targets": [
+      "gb_r0_high",
+      "gb_r0_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "gb_r0_nodes",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "i_care",
+    "source_section": "INTRA-2",
+    "source_page_label": "INTRA-2",
+    "source_anchor": "INTRA-2:pages:17",
+    "clinical_question": "Current post-resection episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "i_post_margin",
+      "i_active"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "i_care",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "i_active",
+    "source_section": "INTRA-1",
+    "source_page_label": "INTRA-1",
+    "source_anchor": "INTRA-1:pages:16",
+    "clinical_question": "Unresectable/metastatic/recurrent iCCA?",
+    "input_fact_ids": [
+      "metastatic",
+      "resectable",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "i_neoadj_trial",
+      "i_resection"
+    ],
+    "internal_transfer_targets": [
+      "sys_line",
+      "i_resect"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "i_active",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "i_post_margin",
+    "source_section": "INTRA-2",
+    "source_page_label": "INTRA-2",
+    "source_anchor": "INTRA-2:pages:17",
+    "clinical_question": "R0 resection?",
+    "input_fact_ids": [
+      "postop_margin"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "i_adj_cap",
+      "i_adj_crt",
+      "i_adj_sys"
+    ],
+    "internal_transfer_targets": [
+      "i_post_r0",
+      "i_post_r1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "i_post_margin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "e_care",
+    "source_section": "EXTRA-2",
+    "source_page_label": "EXTRA-2",
+    "source_anchor": "EXTRA-2:pages:24",
+    "clinical_question": "Current post-resection episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "e_post_margin",
+      "e_active"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "e_care",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "e_active",
+    "source_section": "EXTRA-1",
+    "source_page_label": "EXTRA-1",
+    "source_anchor": "EXTRA-1:pages:23",
+    "clinical_question": "Unresectable/metastatic/recurrent eCCA?",
+    "input_fact_ids": [
+      "metastatic",
+      "resectable",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "e_resection"
+    ],
+    "internal_transfer_targets": [
+      "sys_line",
+      "e_resect"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "e_active",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "e_post_margin",
+    "source_section": "EXTRA-2",
+    "source_page_label": "EXTRA-2",
+    "source_anchor": "EXTRA-2:pages:24",
+    "clinical_question": "R0 and node-negative?",
+    "input_fact_ids": [
+      "postop_margin",
+      "postop_nodes_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_extra_cis_margin_crt",
+      "e_adj_cap",
+      "e_adj_crt",
+      "e_adj_sys"
+    ],
+    "internal_transfer_targets": [
+      "e_post_r0",
+      "e_post_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "e_post_margin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "sys_line",
+    "source_section": "BIL-C",
+    "source_page_label": "BIL-C",
+    "source_anchor": "BIL-C:pages:36,37,38,39,40",
+    "clinical_question": "First-line unresectable/metastatic biliary therapy?",
+    "input_fact_ids": [
+      "systemic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_braf",
+      "btc_carbo_sub",
+      "btc_cisgem",
+      "btc_cisgem_durva",
+      "btc_cisgem_pembro",
+      "btc_fgfr2",
+      "btc_folfiri",
+      "btc_folfox",
+      "btc_her2",
+      "btc_idh1",
+      "btc_krasg12c",
+      "btc_msi",
+      "btc_msi_first",
+      "btc_naliri",
+      "btc_nrg1",
+      "btc_nrg1_first",
+      "btc_ntrk",
+      "btc_ntrk_first",
+      "btc_ret",
+      "btc_ret_first",
+      "btc_tmb",
+      "btc_tmb_first"
+    ],
+    "internal_transfer_targets": [
+      "sys_first",
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "sys_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::gb_r1::gb_r2_sys",
+    "source_section": "BIL-C",
+    "source_page_label": "BIL-C",
+    "source_anchor": "BIL-C:pages:36,37,38,39,40",
+    "clinical_question": "Is option Palliative systemic therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "postop_margin"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "gb_r2_sys"
+    ],
+    "internal_transfer_targets": [
+      "gb_r1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "gb_r1:gb_r2_sys",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::e_post_r0::btc_extra_cis_margin_crt",
+    "source_section": "EXTRA-2",
+    "source_page_label": "EXTRA-2",
+    "source_anchor": "EXTRA-2:pages:24",
+    "clinical_question": "Is option Fluoropyrimidine-based chemoradiation applicable to the current patient state?",
+    "input_fact_ids": [
+      "cis_at_margin"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_extra_cis_margin_crt"
+    ],
+    "internal_transfer_targets": [
+      "e_post_r0"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "e_post_r0:btc_extra_cis_margin_crt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::e_post_high::btc_extra_cis_margin_crt",
+    "source_section": "EXTRA-2",
+    "source_page_label": "EXTRA-2",
+    "source_anchor": "EXTRA-2:pages:24",
+    "clinical_question": "Is option Fluoropyrimidine-based chemoradiation applicable to the current patient state?",
+    "input_fact_ids": [
+      "cis_at_margin"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_extra_cis_margin_crt"
+    ],
+    "internal_transfer_targets": [
+      "e_post_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "e_post_high:btc_extra_cis_margin_crt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_cisgem_durva",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Cisplatin + gemcitabine + durvalumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_cisgem_durva"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_cisgem_durva",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_cisgem_pembro",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Cisplatin + gemcitabine + pembrolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_cisgem_pembro"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_cisgem_pembro",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_cisgem",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Cisplatin + gemcitabine applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_cisgem"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_cisgem",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_carbo_sub",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Carboplatin may substitute for cisplatin applicable to the current patient state?",
+    "input_fact_ids": [
+      "cisplatin_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_carbo_sub"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_carbo_sub",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_ntrk_first",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option NTRK inhibitor (entrectinib/larotrectinib/repotrectinib) applicable to the current patient state?",
+    "input_fact_ids": [
+      "ntrk_fusion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_ntrk_first"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_ntrk_first",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_msi_first",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Pembrolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "msi_h_dmmr"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_msi_first"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_msi_first",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_tmb_first",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Ipilimumab + nivolumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "tmb_high"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_tmb_first"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_tmb_first",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_ret_first",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option RET inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "ret_fusion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_ret_first"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_ret_first",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_first::btc_nrg1_first",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Zenocutuzumab-zbco applicable to the current patient state?",
+    "input_fact_ids": [
+      "nrg1_fusion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_nrg1_first"
+    ],
+    "internal_transfer_targets": [
+      "sys_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_first:btc_nrg1_first",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_ntrk",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option NTRK inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "ntrk_fusion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_ntrk"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_ntrk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_msi",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Pembrolizumab / dostarlimab applicable to the current patient state?",
+    "input_fact_ids": [
+      "msi_h_dmmr",
+      "prior_checkpoint_inhibitor"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_msi"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_msi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_tmb",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Pembrolizumab or ipilimumab+nivolumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_checkpoint_inhibitor",
+      "tmb_high"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_tmb"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_tmb",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_braf",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Dabrafenib + trametinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "braf_v600e"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_braf"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_braf",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_her2",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option HER2-directed therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "her2_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_her2"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_her2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_ret",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Selpercatinib/pralsetinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "ret_fusion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_ret"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_ret",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_krasg12c",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Adagrasib applicable to the current patient state?",
+    "input_fact_ids": [
+      "kras_g12c"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_krasg12c"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_krasg12c",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_fgfr2",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option FGFR inhibitor (futibatinib/pemigatinib/erdafitinib) applicable to the current patient state?",
+    "input_fact_ids": [
+      "fgfr2_fusion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_fgfr2"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_fgfr2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_idh1",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Ivosidenib applicable to the current patient state?",
+    "input_fact_ids": [
+      "idh1_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_idh1"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_idh1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::sys_later::btc_nrg1",
+    "source_section": "BIL-B",
+    "source_page_label": "BIL-B",
+    "source_anchor": "BIL-B:pages:28,29,30,31,32,33,34,35",
+    "clinical_question": "Is option Zenocutuzumab-zbco applicable to the current patient state?",
+    "input_fact_ids": [
+      "nrg1_fusion"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "btc_nrg1"
+    ],
+    "internal_transfer_targets": [
+      "sys_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "sys_later:btc_nrg1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

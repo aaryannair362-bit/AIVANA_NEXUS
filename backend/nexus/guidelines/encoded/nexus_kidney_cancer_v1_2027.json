@@ -1,0 +1,3620 @@
+{
+  "schema_version": "nexus-full-pathway/2.1",
+  "guideline_id": "NCCN_KIDNEY",
+  "title": "Kidney Cancer",
+  "version": "1.2027",
+  "cancer_type": "KIDNEY_CANCER",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 37,
+      "implemented_decisions": 37,
+      "tested_decisions": 37,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "KIDNEY_CANCER",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEW_DIAGNOSIS",
+        "POST_NEPHRECTOMY",
+        "RELAPSED_STAGE_IV",
+        "HEREDITARY_RISK",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "clinical_t",
+      "value_type": "CODED",
+      "allowed_values": [
+        "T1A",
+        "T1B",
+        "T2",
+        "T3",
+        "T4",
+        "TX"
+      ],
+      "semantic_unknown_values": [
+        "TX"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "clinical_n",
+      "value_type": "CODED",
+      "allowed_values": [
+        "N0",
+        "N1",
+        "NX"
+      ],
+      "semantic_unknown_values": [
+        "NX"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "clinical_m",
+      "value_type": "CODED",
+      "allowed_values": [
+        "M0",
+        "M1",
+        "MX"
+      ],
+      "semantic_unknown_values": [
+        "MX"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "histology",
+      "value_type": "CODED",
+      "allowed_values": [
+        "CLEAR_CELL",
+        "PAPILLARY",
+        "CHROMOPHOBE",
+        "COLLECTING_DUCT",
+        "RENAL_MEDULLARY",
+        "OTHER_NONCLEAR",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "partial_nephrectomy_feasible",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "surgery_candidate",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "resectable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "tumor_size_cm",
+      "value_type": "NUMERIC",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "predominantly_cystic",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "postop_high_risk",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "grade4_or_sarcomatoid",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "oligometastatic",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "imdc_risk",
+      "value_type": "CODED",
+      "allowed_values": [
+        "FAVORABLE",
+        "INTERMEDIATE",
+        "POOR",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "hereditary_risk_criteria_met",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "tumor_grade",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "sarcomatoid_features",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "postop_resection_complete",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "metastasectomy_complete",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "systemic_line",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "FIRST",
+        "SUBSEQUENT",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "prior_io",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_vegf_tki",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_belzutifan",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "hereditary_age_le46",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "bilateral_or_multifocal",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "family_history_rcc",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "hereditary_syndrome_features",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "hereditary_histology_trigger",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "known_family_pathogenic_variant",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "papillary_subtype",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "PAPILLARY",
+        "FH_DEFICIENT",
+        "SDH_DEFICIENT",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "active_surveillance_appropriate",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Kidney cancer?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "KIDNEY_CANCER"
+      },
+      "on": {
+        "TRUE": "hered_phase",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "KID-1"
+      ],
+      "decision_id": "scope"
+    },
+    "hered_phase": {
+      "kind": "decision",
+      "label": "Hereditary-risk evaluation episode?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "HEREDITARY_RISK"
+      },
+      "on": {
+        "TRUE": "hered_criteria",
+        "FALSE": "care_stage4",
+        "UNKNOWN": "care_stage4"
+      },
+      "source_pathways": [
+        "HERED-RCC-1"
+      ],
+      "decision_id": "hered_phase"
+    },
+    "hered_criteria": {
+      "kind": "decision",
+      "label": "Any hereditary RCC referral criterion present?",
+      "expression": {
+        "any": [
+          {
+            "fact": "hereditary_risk_criteria_met",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "known_family_pathogenic_variant",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "hereditary_age_le46",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "bilateral_or_multifocal",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "family_history_rcc",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "hereditary_syndrome_features",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "hereditary_histology_trigger",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "hered_action",
+        "FALSE": "hered_no"
+      },
+      "source_pathways": [
+        "HERED-RCC-1"
+      ],
+      "decision_id": "hered_criteria"
+    },
+    "hered_action": {
+      "kind": "action",
+      "label": "Hereditary RCC risk criteria met: genetics referral, syndrome-specific germline testing, and syndrome-specific kidney surveillance/surgery/systemic recommendations after confirmation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hered_action",
+      "source_pathways": [
+        "HERED-RCC-1",
+        "GENE-1"
+      ],
+      "recommendation": {
+        "title": "Hereditary RCC risk criteria met: genetics referral, syndrome-specific germline testing, and syndrome-specific kidney surveillance/surgery/systemic recommendations after confirmation.",
+        "options": [
+          {
+            "option_id": "kid_genetics",
+            "label": "Genetic counseling + germline testing",
+            "text": "Genetic counseling + germline testing",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "HERED-RCC-2",
+              "page_label": "HERED-RCC-2",
+              "physical_pages": [
+                27
+              ],
+              "source_anchor": "HERED-RCC-2:pages:27"
+            }
+          },
+          {
+            "option_id": "kid_hered_surv",
+            "label": "Syndrome-specific renal surveillance after confirmed diagnosis",
+            "text": "Syndrome-specific renal surveillance after confirmed diagnosis",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "HERED-RCC-2",
+              "page_label": "HERED-RCC-2",
+              "physical_pages": [
+                27
+              ],
+              "source_anchor": "HERED-RCC-2:pages:27"
+            }
+          },
+          {
+            "option_id": "kid_hered_surgery",
+            "label": "Syndrome-specific surgical thresholds after confirmed syndrome",
+            "text": "Syndrome-specific surgical thresholds after confirmed syndrome",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "HERED-RCC-2",
+              "page_label": "HERED-RCC-2",
+              "physical_pages": [
+                27
+              ],
+              "source_anchor": "HERED-RCC-2:pages:27"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HERED-RCC-2",
+          "HERED-RCC-B",
+          "HERED-RCC-C",
+          "HERED-RCC-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_HEREDITARY_EVAL"
+    },
+    "hered_no": {
+      "kind": "action",
+      "label": "No current source-defined hereditary RCC referral criterion established; manage sporadic RCC pathway, reassessing family/history triggers over time.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "hered_no",
+      "source_pathways": [
+        "HERED-RCC-1"
+      ],
+      "recommendation": {
+        "title": "No current source-defined hereditary RCC referral criterion established; manage sporadic RCC pathway, reassessing family/history triggers over time.",
+        "options": [
+          {
+            "option_id": "kid_sporadic",
+            "label": "Continue sporadic RCC management",
+            "text": "Continue sporadic RCC management",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "HERED-RCC-1",
+              "page_label": "HERED-RCC-1",
+              "physical_pages": [
+                26
+              ],
+              "source_anchor": "HERED-RCC-1:pages:26"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "KID_HEREDITARY_NO_TRIGGER"
+    },
+    "care_stage4": {
+      "kind": "decision",
+      "label": "Current M1/relapsed/unresectable T4 episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RELAPSED_STAGE_IV"
+          },
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1"
+          },
+          {
+            "all": [
+              {
+                "fact": "clinical_t",
+                "op": "eq",
+                "value": "T4"
+              },
+              {
+                "fact": "resectable",
+                "op": "eq",
+                "value": false
+              }
+            ]
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "stage4_oligo",
+        "FALSE": "care_post",
+        "UNKNOWN": "care_post"
+      },
+      "source_pathways": [
+        "KID-3",
+        "KID-4"
+      ],
+      "decision_id": "care_stage4"
+    },
+    "care_post": {
+      "kind": "decision",
+      "label": "Post-nephrectomy episode?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_NEPHRECTOMY"
+      },
+      "on": {
+        "TRUE": "post_complete",
+        "FALSE": "initial_t",
+        "UNKNOWN": "initial_t"
+      },
+      "source_pathways": [
+        "KID-1",
+        "KID-2",
+        "KID-C"
+      ],
+      "decision_id": "care_post"
+    },
+    "initial_t": {
+      "kind": "decision",
+      "label": "T1a?",
+      "expression": {
+        "fact": "clinical_t",
+        "op": "eq",
+        "value": "T1A"
+      },
+      "on": {
+        "TRUE": "t1a_partial",
+        "FALSE": "t1b"
+      },
+      "source_pathways": [
+        "KID-1"
+      ],
+      "decision_id": "initial_t"
+    },
+    "t1a_partial": {
+      "kind": "decision",
+      "label": "Partial nephrectomy feasible?",
+      "expression": {
+        "fact": "partial_nephrectomy_feasible",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "partial",
+        "FALSE": "t1a_alt"
+      },
+      "source_pathways": [
+        "KID-1"
+      ],
+      "decision_id": "t1a_partial"
+    },
+    "partial": {
+      "kind": "action",
+      "label": "Stage I T1a renal mass: partial nephrectomy preferred when feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "partial",
+      "source_pathways": [
+        "KID-1"
+      ],
+      "recommendation": {
+        "title": "Stage I T1a renal mass: partial nephrectomy preferred when feasible.",
+        "options": [
+          {
+            "option_id": "kid_partial",
+            "label": "Partial nephrectomy",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_T1A_PARTIAL"
+    },
+    "t1a_alt": {
+      "kind": "decision",
+      "label": "Surgery candidate?",
+      "expression": {
+        "fact": "surgery_candidate",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "radical_small",
+        "FALSE": "nonsurg_small"
+      },
+      "source_pathways": [
+        "KID-1"
+      ],
+      "decision_id": "t1a_alt"
+    },
+    "radical_small": {
+      "kind": "action",
+      "label": "Stage I renal mass not suitable for partial nephrectomy but surgical candidate: radical nephrectomy in source-defined settings.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "radical_small",
+      "source_pathways": [
+        "KID-1"
+      ],
+      "recommendation": {
+        "title": "Stage I renal mass not suitable for partial nephrectomy but surgical candidate: radical nephrectomy in source-defined settings.",
+        "options": [
+          {
+            "option_id": "kid_radical_t1",
+            "label": "Radical nephrectomy",
+            "text": "Radical nephrectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_T1_SURGERY"
+    },
+    "nonsurg_small": {
+      "kind": "action",
+      "label": "Localized small renal mass not surgical candidate: active surveillance, percutaneous ablation, or SBRT according to size/comorbidity.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nonsurg_small",
+      "source_pathways": [
+        "KID-1"
+      ],
+      "recommendation": {
+        "title": "Localized small renal mass not surgical candidate: active surveillance, percutaneous ablation, or SBRT according to size/comorbidity.",
+        "options": [
+          {
+            "option_id": "kid_as",
+            "label": "Active surveillance",
+            "text": "Active surveillance",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "active_surveillance_appropriate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          },
+          {
+            "option_id": "kid_ablation",
+            "label": "Percutaneous thermal ablation",
+            "text": "Percutaneous thermal ablation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          },
+          {
+            "option_id": "kid_sbrt",
+            "label": "SBRT",
+            "text": "For selected T1/T2a tumors per KID-B.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          },
+          {
+            "option_id": "kidney_as_cystic",
+            "label": "Active surveillance",
+            "text": "Source supports active surveillance for small renal masses, particularly predominantly cystic masses in appropriate patients.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            },
+            "applicability": {
+              "fact": "predominantly_cystic",
+              "op": "eq",
+              "value": true
+            },
+            "preference_category": "PREFERRED"
+          },
+          {
+            "option_id": "kidney_ablation_small",
+            "label": "Percutaneous thermal ablation",
+            "text": "For selected small renal masses; use tumor size and anatomy in source-directed selection.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            },
+            "applicability": {
+              "fact": "tumor_size_cm",
+              "op": "lte",
+              "value": 3
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-B",
+          "KID-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_LOCAL_NONSURGICAL"
+    },
+    "t1b": {
+      "kind": "decision",
+      "label": "T1b?",
+      "expression": {
+        "fact": "clinical_t",
+        "op": "eq",
+        "value": "T1B"
+      },
+      "on": {
+        "TRUE": "t1b_surg",
+        "FALSE": "t23"
+      },
+      "source_pathways": [
+        "KID-1"
+      ],
+      "decision_id": "t1b"
+    },
+    "t1b_surg": {
+      "kind": "action",
+      "label": "Stage I T1b RCC: partial nephrectomy if feasible or radical nephrectomy; nonsurgical local options in selected patients.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "t1b_surg",
+      "source_pathways": [
+        "KID-1"
+      ],
+      "recommendation": {
+        "title": "Stage I T1b RCC: partial nephrectomy if feasible or radical nephrectomy; nonsurgical local options in selected patients.",
+        "options": [
+          {
+            "option_id": "kid_t1b_partial",
+            "label": "Partial nephrectomy",
+            "text": "Partial nephrectomy",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "partial_nephrectomy_feasible",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            }
+          },
+          {
+            "option_id": "kid_t1b_radical",
+            "label": "Radical nephrectomy",
+            "text": "Radical nephrectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            }
+          },
+          {
+            "option_id": "kid_t1b_sbrt",
+            "label": "SBRT",
+            "text": "Selected nonsurgical patients.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "surgery_candidate",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-A",
+          "KID-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_T1B"
+    },
+    "t23": {
+      "kind": "decision",
+      "label": "Stage II/III (T2/T3 or N1 M0)?",
+      "expression": {
+        "all": [
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M0"
+          },
+          {
+            "any": [
+              {
+                "fact": "clinical_t",
+                "op": "in",
+                "value": [
+                  "T2",
+                  "T3"
+                ]
+              },
+              {
+                "fact": "clinical_n",
+                "op": "eq",
+                "value": "N1"
+              }
+            ]
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "stage23_resect",
+        "FALSE": "t4m0"
+      },
+      "source_pathways": [
+        "KID-2"
+      ],
+      "decision_id": "t23"
+    },
+    "stage23_resect": {
+      "kind": "decision",
+      "label": "Complete resection feasible?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "stage23_surg",
+        "FALSE": "nonmet_unres"
+      },
+      "source_pathways": [
+        "KID-2"
+      ],
+      "decision_id": "stage23_resect"
+    },
+    "stage23_surg": {
+      "kind": "action",
+      "label": "Stage II/III resectable RCC: radical or partial nephrectomy as oncologically appropriate; adjuvant options depend on clear-cell histology and high-risk pathologic features.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "stage23_surg",
+      "source_pathways": [
+        "KID-2"
+      ],
+      "recommendation": {
+        "title": "Stage II/III resectable RCC: radical or partial nephrectomy as oncologically appropriate; adjuvant options depend on clear-cell histology and high-risk pathologic features.",
+        "options": [
+          {
+            "option_id": "kid_23_neph",
+            "label": "Nephrectomy +/- regional lymph-node management",
+            "text": "Nephrectomy +/- regional lymph-node management",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-A",
+              "page_label": "KID-A",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "KID-A:pages:11"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-A"
+        ],
+        "next_steps": [
+          "KID-2"
+        ]
+      },
+      "pathway_id": "KID_STAGE_II_III_RESECTABLE"
+    },
+    "t4m0": {
+      "kind": "decision",
+      "label": "T4 M0?",
+      "expression": {
+        "all": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T4"
+          },
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M0"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "t4_resect",
+        "FALSE": "need_stage"
+      },
+      "source_pathways": [
+        "KID-3"
+      ],
+      "decision_id": "t4m0"
+    },
+    "t4_resect": {
+      "kind": "decision",
+      "label": "T4 M0 resectable?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "t4_surg",
+        "FALSE": "nonmet_unres"
+      },
+      "source_pathways": [
+        "KID-3"
+      ],
+      "decision_id": "t4_resect"
+    },
+    "t4_surg": {
+      "kind": "action",
+      "label": "Stage IV T4 M0 resectable RCC: nephrectomy/resection followed by histology/risk-directed adjuvant therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "t4_surg",
+      "source_pathways": [
+        "KID-3"
+      ],
+      "recommendation": {
+        "title": "Stage IV T4 M0 resectable RCC: nephrectomy/resection followed by histology/risk-directed adjuvant therapy.",
+        "options": [
+          {
+            "option_id": "kid_t4_surgery",
+            "label": "Surgical resection",
+            "text": "Surgical resection",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-3",
+              "page_label": "KID-3",
+              "physical_pages": [
+                9
+              ],
+              "source_anchor": "KID-3:pages:9"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": [
+          "KID-2"
+        ]
+      },
+      "pathway_id": "KID_T4_M0_RESECTABLE"
+    },
+    "nonmet_unres": {
+      "kind": "action",
+      "label": "Locally advanced M0 RCC not completely resectable upfront: consider presurgical therapy in selected clear-cell cases/nephron-preservation imperatives or systemic/RT management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nonmet_unres",
+      "source_pathways": [
+        "KID-2",
+        "KID-3"
+      ],
+      "recommendation": {
+        "title": "Locally advanced M0 RCC not completely resectable upfront: consider presurgical therapy in selected clear-cell cases/nephron-preservation imperatives or systemic/RT management.",
+        "options": [
+          {
+            "option_id": "kid_presurg",
+            "label": "Consider presurgical systemic therapy",
+            "text": "Selected clear-cell tumors to enable resection/nephron preservation.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "histology",
+              "op": "eq",
+              "value": "CLEAR_CELL"
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          },
+          {
+            "option_id": "kid_unres_systemic",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          },
+          {
+            "option_id": "kid_unres_rt",
+            "label": "RT/SBRT as clinically appropriate",
+            "text": "RT/SBRT as clinically appropriate",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-B",
+          "KID-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_LOCALLY_UNRESECTABLE"
+    },
+    "need_stage": {
+      "kind": "status",
+      "label": "Kidney clinical T/N/M stage is insufficiently resolved.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "KID-1",
+        "KID-2",
+        "KID-3"
+      ]
+    },
+    "post_complete": {
+      "kind": "decision",
+      "label": "Nephrectomy achieved complete resection?",
+      "expression": {
+        "fact": "postop_resection_complete",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "post_hist",
+        "FALSE": "stage4_oligo"
+      },
+      "source_pathways": [
+        "KID-2",
+        "KID-3"
+      ],
+      "decision_id": "post_complete"
+    },
+    "post_hist": {
+      "kind": "decision",
+      "label": "Clear-cell histology?",
+      "expression": {
+        "fact": "histology",
+        "op": "eq",
+        "value": "CLEAR_CELL"
+      },
+      "on": {
+        "TRUE": "post_cc_risk",
+        "FALSE": "post_noncc"
+      },
+      "source_pathways": [
+        "KID-2"
+      ],
+      "decision_id": "post_hist"
+    },
+    "post_cc_risk": {
+      "kind": "decision",
+      "label": "High-risk clear-cell postoperative disease (including grade4/sarcomatoid/source risk)?",
+      "expression": {
+        "any": [
+          {
+            "fact": "postop_high_risk",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "grade4_or_sarcomatoid",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "tumor_grade",
+            "op": "eq",
+            "value": "G4"
+          },
+          {
+            "fact": "sarcomatoid_features",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_cc_high",
+        "FALSE": "post_surv"
+      },
+      "source_pathways": [
+        "KID-2",
+        "KID-3"
+      ],
+      "decision_id": "post_cc_risk"
+    },
+    "post_cc_high": {
+      "kind": "action",
+      "label": "Completely resected high-risk clear-cell RCC: adjuvant pembrolizumab and source-added belzutifan+pembrolizumab options according to exact stage/risk eligibility.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "post_cc_high",
+      "source_pathways": [
+        "KID-2",
+        "KID-3"
+      ],
+      "recommendation": {
+        "title": "Completely resected high-risk clear-cell RCC: adjuvant pembrolizumab and source-added belzutifan+pembrolizumab options according to exact stage/risk eligibility.",
+        "options": [
+          {
+            "option_id": "kid_adj_pembro",
+            "label": "Adjuvant pembrolizumab",
+            "text": "Source high-risk clear-cell option.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-2",
+              "page_label": "KID-2",
+              "physical_pages": [
+                8
+              ],
+              "source_anchor": "KID-2:pages:8"
+            }
+          },
+          {
+            "option_id": "kid_adj_bel_pembro",
+            "label": "Adjuvant belzutifan + pembrolizumab",
+            "text": "Category 2A in source-defined grade 4/stage III/T4 contexts.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2A",
+            "applicability": {
+              "any": [
+                {
+                  "fact": "grade4_or_sarcomatoid",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "clinical_t",
+                  "op": "in",
+                  "value": [
+                    "T3",
+                    "T4"
+                  ]
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-2",
+              "page_label": "KID-2",
+              "physical_pages": [
+                8
+              ],
+              "source_anchor": "KID-2:pages:8"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "KID_CC_POSTOP_HIGH_RISK"
+    },
+    "post_noncc": {
+      "kind": "action",
+      "label": "Completely resected non-clear-cell RCC: surveillance unless a histology-specific adjuvant clinical trial/source indication applies.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "post_noncc",
+      "source_pathways": [
+        "KID-2"
+      ],
+      "recommendation": {
+        "title": "Completely resected non-clear-cell RCC: surveillance unless a histology-specific adjuvant clinical trial/source indication applies.",
+        "options": [
+          {
+            "option_id": "kid_noncc_surv",
+            "label": "Surveillance",
+            "text": "Surveillance",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-C",
+              "page_label": "KID-C",
+              "physical_pages": [
+                17,
+                18,
+                19,
+                20,
+                21
+              ],
+              "source_anchor": "KID-C:pages:17,18,19,20,21"
+            }
+          },
+          {
+            "option_id": "kid_noncc_trial",
+            "label": "Clinical trial",
+            "text": "When available.",
+            "decision_relevant": false,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-C",
+              "page_label": "KID-C",
+              "physical_pages": [
+                17,
+                18,
+                19,
+                20,
+                21
+              ],
+              "source_anchor": "KID-C:pages:17,18,19,20,21"
+            }
+          },
+          {
+            "option_id": "kidney_papillary_specific",
+            "label": "Papillary RCC source-specific systemic option set",
+            "text": "Apply only when papillary subtype is confirmed.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            },
+            "applicability": {
+              "fact": "papillary_subtype",
+              "op": "eq",
+              "value": "PAPILLARY"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_NONCC_POSTOP"
+    },
+    "post_surv": {
+      "kind": "action",
+      "label": "Completely resected RCC without qualifying adjuvant high-risk criteria: surveillance individualized per KID-C.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "post_surv",
+      "source_pathways": [
+        "KID-1",
+        "KID-2"
+      ],
+      "recommendation": {
+        "title": "Completely resected RCC without qualifying adjuvant high-risk criteria: surveillance individualized per KID-C.",
+        "options": [
+          {
+            "option_id": "kid_post_surveillance",
+            "label": "Surveillance per KID-C",
+            "text": "Surveillance per KID-C",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-C",
+              "page_label": "KID-C",
+              "physical_pages": [
+                17,
+                18,
+                19,
+                20,
+                21
+              ],
+              "source_anchor": "KID-C:pages:17,18,19,20,21"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_POSTOP_SURVEILLANCE"
+    },
+    "stage4_oligo": {
+      "kind": "decision",
+      "label": "Oligometastatic disease amenable to complete metastasectomy/SBRT/ablation?",
+      "expression": {
+        "fact": "oligometastatic",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "oligo_complete",
+        "FALSE": "stage4_hist"
+      },
+      "source_pathways": [
+        "KID-4"
+      ],
+      "decision_id": "stage4_oligo"
+    },
+    "oligo_complete": {
+      "kind": "decision",
+      "label": "Complete metastasectomy possible/achieved?",
+      "expression": {
+        "fact": "metastasectomy_complete",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "oligo_post",
+        "FALSE": "oligo_local"
+      },
+      "source_pathways": [
+        "KID-4"
+      ],
+      "decision_id": "oligo_complete"
+    },
+    "oligo_post": {
+      "kind": "action",
+      "label": "Stage IV/relapsed RCC after complete metastasectomy: consider adjuvant pembrolizumab or belzutifan+pembrolizumab in source-defined clear-cell setting; follow-up.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "oligo_post",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Stage IV/relapsed RCC after complete metastasectomy: consider adjuvant pembrolizumab or belzutifan+pembrolizumab in source-defined clear-cell setting; follow-up.",
+        "options": [
+          {
+            "option_id": "kid_metx_pembro",
+            "label": "Adjuvant pembrolizumab",
+            "text": "Clear-cell source-defined post-metastasectomy option.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "histology",
+              "op": "eq",
+              "value": "CLEAR_CELL"
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-4",
+              "page_label": "KID-4",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "KID-4:pages:10"
+            }
+          },
+          {
+            "option_id": "kid_metx_bel_pembro",
+            "label": "Adjuvant belzutifan + pembrolizumab",
+            "text": "Category 2A clear-cell source option.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2A",
+            "applicability": {
+              "fact": "histology",
+              "op": "eq",
+              "value": "CLEAR_CELL"
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-4",
+              "page_label": "KID-4",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "KID-4:pages:10"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "KID_OLIGO_COMPLETE_RESECTION"
+    },
+    "oligo_local": {
+      "kind": "action",
+      "label": "Oligometastatic RCC: metastasectomy or SBRT/percutaneous ablation for local control plus systemic therapy when indicated.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "oligo_local",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Oligometastatic RCC: metastasectomy or SBRT/percutaneous ablation for local control plus systemic therapy when indicated.",
+        "options": [
+          {
+            "option_id": "kid_oligo_metx",
+            "label": "Metastasectomy",
+            "text": "Metastasectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          },
+          {
+            "option_id": "kid_oligo_sbrt",
+            "label": "SBRT",
+            "text": "SBRT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          },
+          {
+            "option_id": "kid_oligo_ablation",
+            "label": "Percutaneous ablation",
+            "text": "Percutaneous ablation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-B",
+              "page_label": "KID-B",
+              "physical_pages": [
+                12,
+                13,
+                14,
+                15,
+                16
+              ],
+              "source_anchor": "KID-B:pages:12,13,14,15,16"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_OLIGOMETASTATIC_LOCAL"
+    },
+    "stage4_hist": {
+      "kind": "decision",
+      "label": "Clear-cell histology?",
+      "expression": {
+        "fact": "histology",
+        "op": "eq",
+        "value": "CLEAR_CELL"
+      },
+      "on": {
+        "TRUE": "cc_line",
+        "FALSE": "noncc_sub"
+      },
+      "source_pathways": [
+        "KID-4",
+        "KID-D"
+      ],
+      "decision_id": "stage4_hist"
+    },
+    "cc_line": {
+      "kind": "decision",
+      "label": "First-line clear-cell systemic therapy?",
+      "expression": {
+        "fact": "systemic_line",
+        "op": "eq",
+        "value": "FIRST"
+      },
+      "on": {
+        "TRUE": "cc_imdc",
+        "FALSE": "cc_later"
+      },
+      "source_pathways": [
+        "KID-D"
+      ],
+      "decision_id": "cc_line"
+    },
+    "cc_imdc": {
+      "kind": "decision",
+      "label": "IMDC favorable risk?",
+      "expression": {
+        "fact": "imdc_risk",
+        "op": "eq",
+        "value": "FAVORABLE"
+      },
+      "on": {
+        "TRUE": "cc_first_fav",
+        "FALSE": "cc_first_ip"
+      },
+      "source_pathways": [
+        "KID-D",
+        "KID-E"
+      ],
+      "decision_id": "cc_imdc"
+    },
+    "cc_first_fav": {
+      "kind": "action",
+      "label": "First-line favorable-risk clear-cell RCC: category 1 IO combinations; cabozantinib monotherapy is category 2B/other recommended in favorable risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cc_first_fav",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "First-line favorable-risk clear-cell RCC: category 1 IO combinations; cabozantinib monotherapy is category 2B/other recommended in favorable risk.",
+        "options": [
+          {
+            "option_id": "kid_cc_axipem",
+            "label": "Axitinib + pembrolizumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_cabnivo",
+            "label": "Cabozantinib + nivolumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_ipinivo",
+            "label": "Ipilimumab + nivolumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_lenpem",
+            "label": "Lenvatinib + pembrolizumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_cabo_fav",
+            "label": "Cabozantinib",
+            "text": "Category 2B other recommended for favorable-risk.",
+            "decision_relevant": true,
+            "preference_category": "OTHER_RECOMMENDED",
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_as",
+            "label": "Active surveillance",
+            "text": "Useful in selected indolent/asymptomatic patients.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "active_surveillance_appropriate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-D",
+          "KID-E"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_CC_FIRST_FAVORABLE"
+    },
+    "cc_first_ip": {
+      "kind": "action",
+      "label": "First-line intermediate/poor-risk clear-cell RCC: category 1 IO combinations; cabozantinib is category 2A preferred monotherapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cc_first_ip",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "First-line intermediate/poor-risk clear-cell RCC: category 1 IO combinations; cabozantinib is category 2A preferred monotherapy.",
+        "options": [
+          {
+            "option_id": "kid_cc_axipem",
+            "label": "Axitinib + pembrolizumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_cabnivo",
+            "label": "Cabozantinib + nivolumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_ipinivo",
+            "label": "Ipilimumab + nivolumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_lenpem",
+            "label": "Lenvatinib + pembrolizumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_cabo_ip",
+            "label": "Cabozantinib",
+            "text": "Category 2A preferred for intermediate/poor risk.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_2A",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-D",
+          "KID-E"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_CC_FIRST_INTERMEDIATE_POOR"
+    },
+    "cc_later": {
+      "kind": "action",
+      "label": "Subsequent-line clear-cell RCC: option set filtered by prior IO exposure; VEGF/TKI, belzutifan, lenvatinib/everolimus and IO combinations as source-defined.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cc_later",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Subsequent-line clear-cell RCC: option set filtered by prior IO exposure; VEGF/TKI, belzutifan, lenvatinib/everolimus and IO combinations as source-defined.",
+        "options": [
+          {
+            "option_id": "kid_cc_later_cabo",
+            "label": "Cabozantinib",
+            "text": "Cabozantinib",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_later_bel",
+            "label": "Belzutifan",
+            "text": "Belzutifan; source footnote specifies patients previously treated with a PD-1/PD-L1 inhibitor and a VEGF-TKI.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_belzutifan",
+                  "op": "eq",
+                  "value": false
+                },
+                {
+                  "fact": "prior_io",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_vegf_tki",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_later_len_eve",
+            "label": "Lenvatinib + everolimus",
+            "text": "Lenvatinib + everolimus",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_later_tivo",
+            "label": "Tivozanib",
+            "text": "Tivozanib",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_later_io_naive",
+            "label": "Nivolumab or IO combination",
+            "text": "For IO-naive patients.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "prior_io",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_cc_later_postio",
+            "label": "Axitinib / cabozantinib / tivozanib / belzutifan after prior IO",
+            "text": "For prior IO.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "prior_io",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_CC_SUBSEQUENT"
+    },
+    "noncc_sub": {
+      "kind": "decision",
+      "label": "Renal medullary/collecting duct subtype?",
+      "expression": {
+        "fact": "histology",
+        "op": "in",
+        "value": [
+          "RENAL_MEDULLARY",
+          "COLLECTING_DUCT"
+        ]
+      },
+      "on": {
+        "TRUE": "rmc",
+        "FALSE": "noncc"
+      },
+      "source_pathways": [
+        "KID-D"
+      ],
+      "decision_id": "noncc_sub"
+    },
+    "rmc": {
+      "kind": "action",
+      "label": "Renal medullary/collecting duct carcinoma: histology-specific platinum-based cytotoxic systemic therapy/clinical trial.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rmc",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Renal medullary/collecting duct carcinoma: histology-specific platinum-based cytotoxic systemic therapy/clinical trial.",
+        "options": [
+          {
+            "option_id": "kid_rmc_platinum",
+            "label": "Platinum-based cytotoxic chemotherapy",
+            "text": "Platinum-based cytotoxic chemotherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_rmc_trial",
+            "label": "Clinical trial",
+            "text": "Clinical trial",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_RMC_COLLECTING"
+    },
+    "noncc": {
+      "kind": "action",
+      "label": "Other non-clear-cell metastatic RCC: clinical trial preferred where available and source-listed histology-specific systemic options.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "noncc",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Other non-clear-cell metastatic RCC: clinical trial preferred where available and source-listed histology-specific systemic options.",
+        "options": [
+          {
+            "option_id": "kid_noncc_trial_met",
+            "label": "Clinical trial",
+            "text": "Preferred where available.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_noncc_cabo",
+            "label": "Cabozantinib",
+            "text": "Cabozantinib",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_noncc_pembro",
+            "label": "Pembrolizumab",
+            "text": "Pembrolizumab",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kid_noncc_nivoipi",
+            "label": "Nivolumab + ipilimumab",
+            "text": "Other recommended category 2A.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2A",
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            }
+          },
+          {
+            "option_id": "kidney_papillary_specific",
+            "label": "Papillary RCC source-specific systemic option set",
+            "text": "Apply only when papillary subtype is confirmed.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Kidney Cancer",
+              "version": "1.2027",
+              "section": "KID-D",
+              "page_label": "KID-D",
+              "physical_pages": [
+                22,
+                23,
+                24
+              ],
+              "source_anchor": "KID-D:pages:22,23,24"
+            },
+            "applicability": {
+              "fact": "papillary_subtype",
+              "op": "eq",
+              "value": "PAPILLARY"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "KID-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "KID_NONCC_STAGE4"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside kidney cancer package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "KID-1"
+      ]
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "KID-1": {
+        "code": "KID-1",
+        "pages": [
+          7
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8f1f6e5afc42ca72c2d211cd12940f1c714db5a47fe8b2e54cf9068195dca166",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "KID-2": {
+        "code": "KID-2",
+        "pages": [
+          8
+        ],
+        "page_count": 1,
+        "source_text_sha256": "e6be77faff78d65bc7b00d13d8fa35359a57a1139402aca60427cffeef9e1098",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "KID-3": {
+        "code": "KID-3",
+        "pages": [
+          9
+        ],
+        "page_count": 1,
+        "source_text_sha256": "0ce00a361eb61849467eda9072d08a7d928e17f403eeb2a9800420b050518a2e",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "KID-4": {
+        "code": "KID-4",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8a0006344e15076660a6e613edce2d636180979ac4f4317b383d3ff4aa0ee427",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HERED-RCC-1": {
+        "code": "HERED-RCC-1",
+        "pages": [
+          26
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a55c3c1a85fa50d5ad6042da097b573da57f3108665cd4b317151f228d81be52",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "HERED-RCC-2": {
+        "code": "HERED-RCC-2",
+        "pages": [
+          27
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d4dac7d64f7d213805e1234bea9284ff0058b80da32af296353f0970a5138f0f",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "GENE-1": {
+        "code": "GENE-1",
+        "pages": [
+          28
+        ],
+        "page_count": 1,
+        "source_text_sha256": "7ecdc771b8953da12355ab0c7fc72286699b8da9237831dff30d051d3466b0dc",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HERED-RCC-B": {
+        "code": "HERED-RCC-B",
+        "pages": [
+          30,
+          31
+        ],
+        "page_count": 2,
+        "source_text_sha256": "d1e7e1c08466c4d02375afcaf22c07a0684a7b5bc618b682e1bd0324ea5e263c",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "HERED-RCC-C": {
+        "code": "HERED-RCC-C",
+        "pages": [
+          32,
+          33
+        ],
+        "page_count": 2,
+        "source_text_sha256": "adf51dcafd000ba084ec97ee6dc0bfbd98da9c76085a2efef6d2d76daa681110",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "HERED-RCC-D": {
+        "code": "HERED-RCC-D",
+        "pages": [
+          3,
+          34
+        ],
+        "page_count": 2,
+        "source_text_sha256": "df1d8ea9376fdfc1b8fe5f078dfc75fdca61efe192174ed245704098abff89fa",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "KID-A": {
+        "code": "KID-A",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "4a5539e77a6c2588f975f0f1d185542e0ea35fb29ebd4d7027074dfae1a8a95d",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "KID-B": {
+        "code": "KID-B",
+        "pages": [
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "page_count": 5,
+        "source_text_sha256": "fbe97de8c8aacaa2cc16c2a5310adca65f0eb1c36efda348fa280ea486f41dcf",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "KID-C": {
+        "code": "KID-C",
+        "pages": [
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "page_count": 5,
+        "source_text_sha256": "3e79d58a87e6e0aef3078c110eaa9bfe37e30ccb72e27bdf27cf504a5e10ebb2",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "KID-D": {
+        "code": "KID-D",
+        "pages": [
+          22,
+          23,
+          24
+        ],
+        "page_count": 3,
+        "source_text_sha256": "13d9280198da978bd8a8f9d10ca41b9b064cd365a0b9e8acf0af5339e53ca764",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "KID-E": {
+        "code": "KID-E",
+        "pages": [
+          25
+        ],
+        "page_count": 1,
+        "source_text_sha256": "0aa45cca06b319be9d63254d37131c5be3b01a993add8c897164de59cb9ae1fb",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "HERED-RCC-A": {
+        "code": "HERED-RCC-A",
+        "pages": [
+          29
+        ],
+        "page_count": 1,
+        "source_text_sha256": "e2e06f9afb6140b25149c726bd2f17ff5be25c90302910bdadfb84a64c630c94",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ST-1": {
+        "code": "ST-1",
+        "pages": [
+          35
+        ],
+        "page_count": 1,
+        "source_text_sha256": "eafcc8f31977d6a9793c4933187f48813a6ca66c99ea64c8ffee0d317883f4be",
+        "kind": "STAGING",
+        "found": true
+      }
+    },
+    "primary_expected": 10,
+    "supporting_expected": 7
+  },
+  "source": {
+    "filename": "kidney(3).pdf",
+    "sha256": "8113c2636a8bfb8e69b88b3e9fd18d059c9e88936e02c362d1fc18587ebcfe44",
+    "pdf_pages": 100
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true,
+    "cross_state_consistency_gate": true
+  },
+  "consistency_rules": [
+    {
+      "id": "kid_metastatic_postop_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_NEPHRECTOMY"
+          },
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1"
+          },
+          {
+            "fact": "metastasectomy_complete",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "message": "Active M1 disease after nephrectomy must route to stage IV/relapsed management, not ordinary postoperative surveillance.",
+      "source_pathways": [
+        "KID-3",
+        "KID-4",
+        "KID-C"
+      ]
+    }
+  ],
+  "derived_rules": [],
+  "executable_decisions": [
+    {
+      "decision_id": "scope",
+      "source_section": "KID-1",
+      "source_page_label": "KID-1",
+      "source_anchor": "KID-1:pages:7",
+      "clinical_question": "Kidney cancer?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "hered_phase",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "hered_phase",
+      "source_section": "HERED-RCC-1",
+      "source_page_label": "HERED-RCC-1",
+      "source_anchor": "HERED-RCC-1:pages:26",
+      "clinical_question": "Hereditary-risk evaluation episode?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "hered_criteria",
+        "care_stage4"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "hered_phase",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "hered_criteria",
+      "source_section": "HERED-RCC-1",
+      "source_page_label": "HERED-RCC-1",
+      "source_anchor": "HERED-RCC-1:pages:26",
+      "clinical_question": "Any hereditary RCC referral criterion present?",
+      "input_fact_ids": [
+        "bilateral_or_multifocal",
+        "family_history_rcc",
+        "hereditary_age_le46",
+        "hereditary_histology_trigger",
+        "hereditary_risk_criteria_met",
+        "hereditary_syndrome_features",
+        "known_family_pathogenic_variant"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_genetics",
+        "kid_hered_surgery",
+        "kid_hered_surv",
+        "kid_sporadic"
+      ],
+      "internal_transfer_targets": [
+        "hered_action",
+        "hered_no"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "hered_criteria",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_stage4",
+      "source_section": "KID-3",
+      "source_page_label": "KID-3",
+      "source_anchor": "KID-3:pages:9",
+      "clinical_question": "Current M1/relapsed/unresectable T4 episode?",
+      "input_fact_ids": [
+        "clinical_m",
+        "clinical_t",
+        "resectable",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "stage4_oligo",
+        "care_post"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_stage4",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_post",
+      "source_section": "KID-1",
+      "source_page_label": "KID-1",
+      "source_anchor": "KID-1:pages:7",
+      "clinical_question": "Post-nephrectomy episode?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "post_complete",
+        "initial_t"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_post",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "initial_t",
+      "source_section": "KID-1",
+      "source_page_label": "KID-1",
+      "source_anchor": "KID-1:pages:7",
+      "clinical_question": "T1a?",
+      "input_fact_ids": [
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "t1a_partial",
+        "t1b"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "initial_t",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "t1a_partial",
+      "source_section": "KID-1",
+      "source_page_label": "KID-1",
+      "source_anchor": "KID-1:pages:7",
+      "clinical_question": "Partial nephrectomy feasible?",
+      "input_fact_ids": [
+        "partial_nephrectomy_feasible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_partial"
+      ],
+      "internal_transfer_targets": [
+        "partial",
+        "t1a_alt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t1a_partial",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "t1a_alt",
+      "source_section": "KID-1",
+      "source_page_label": "KID-1",
+      "source_anchor": "KID-1:pages:7",
+      "clinical_question": "Surgery candidate?",
+      "input_fact_ids": [
+        "surgery_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_ablation",
+        "kid_as",
+        "kid_radical_t1",
+        "kid_sbrt",
+        "kidney_ablation_small",
+        "kidney_as_cystic"
+      ],
+      "internal_transfer_targets": [
+        "radical_small",
+        "nonsurg_small"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t1a_alt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "t1b",
+      "source_section": "KID-1",
+      "source_page_label": "KID-1",
+      "source_anchor": "KID-1:pages:7",
+      "clinical_question": "T1b?",
+      "input_fact_ids": [
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_t1b_partial",
+        "kid_t1b_radical",
+        "kid_t1b_sbrt"
+      ],
+      "internal_transfer_targets": [
+        "t1b_surg",
+        "t23"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t1b",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "t23",
+      "source_section": "KID-2",
+      "source_page_label": "KID-2",
+      "source_anchor": "KID-2:pages:8",
+      "clinical_question": "Stage II/III (T2/T3 or N1 M0)?",
+      "input_fact_ids": [
+        "clinical_m",
+        "clinical_n",
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "stage23_resect",
+        "t4m0"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t23",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "stage23_resect",
+      "source_section": "KID-2",
+      "source_page_label": "KID-2",
+      "source_anchor": "KID-2:pages:8",
+      "clinical_question": "Complete resection feasible?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_23_neph",
+        "kid_presurg",
+        "kid_unres_rt",
+        "kid_unres_systemic"
+      ],
+      "internal_transfer_targets": [
+        "stage23_surg",
+        "nonmet_unres"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "stage23_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "t4m0",
+      "source_section": "KID-3",
+      "source_page_label": "KID-3",
+      "source_anchor": "KID-3:pages:9",
+      "clinical_question": "T4 M0?",
+      "input_fact_ids": [
+        "clinical_m",
+        "clinical_t"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "t4_resect",
+        "need_stage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t4m0",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "t4_resect",
+      "source_section": "KID-3",
+      "source_page_label": "KID-3",
+      "source_anchor": "KID-3:pages:9",
+      "clinical_question": "T4 M0 resectable?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_presurg",
+        "kid_t4_surgery",
+        "kid_unres_rt",
+        "kid_unres_systemic"
+      ],
+      "internal_transfer_targets": [
+        "t4_surg",
+        "nonmet_unres"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t4_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "post_complete",
+      "source_section": "KID-2",
+      "source_page_label": "KID-2",
+      "source_anchor": "KID-2:pages:8",
+      "clinical_question": "Nephrectomy achieved complete resection?",
+      "input_fact_ids": [
+        "postop_resection_complete"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "post_hist",
+        "stage4_oligo"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_complete",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "post_hist",
+      "source_section": "KID-2",
+      "source_page_label": "KID-2",
+      "source_anchor": "KID-2:pages:8",
+      "clinical_question": "Clear-cell histology?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_noncc_surv",
+        "kid_noncc_trial",
+        "kidney_papillary_specific"
+      ],
+      "internal_transfer_targets": [
+        "post_cc_risk",
+        "post_noncc"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_hist",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "post_cc_risk",
+      "source_section": "KID-2",
+      "source_page_label": "KID-2",
+      "source_anchor": "KID-2:pages:8",
+      "clinical_question": "High-risk clear-cell postoperative disease (including grade4/sarcomatoid/source risk)?",
+      "input_fact_ids": [
+        "grade4_or_sarcomatoid",
+        "postop_high_risk",
+        "sarcomatoid_features",
+        "tumor_grade"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_adj_bel_pembro",
+        "kid_adj_pembro",
+        "kid_post_surveillance"
+      ],
+      "internal_transfer_targets": [
+        "post_cc_high",
+        "post_surv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_cc_risk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "stage4_oligo",
+      "source_section": "KID-4",
+      "source_page_label": "KID-4",
+      "source_anchor": "KID-4:pages:10",
+      "clinical_question": "Oligometastatic disease amenable to complete metastasectomy/SBRT/ablation?",
+      "input_fact_ids": [
+        "oligometastatic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "oligo_complete",
+        "stage4_hist"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "stage4_oligo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "oligo_complete",
+      "source_section": "KID-4",
+      "source_page_label": "KID-4",
+      "source_anchor": "KID-4:pages:10",
+      "clinical_question": "Complete metastasectomy possible/achieved?",
+      "input_fact_ids": [
+        "metastasectomy_complete"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_metx_bel_pembro",
+        "kid_metx_pembro",
+        "kid_oligo_ablation",
+        "kid_oligo_metx",
+        "kid_oligo_sbrt"
+      ],
+      "internal_transfer_targets": [
+        "oligo_post",
+        "oligo_local"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "oligo_complete",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "stage4_hist",
+      "source_section": "KID-4",
+      "source_page_label": "KID-4",
+      "source_anchor": "KID-4:pages:10",
+      "clinical_question": "Clear-cell histology?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "cc_line",
+        "noncc_sub"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "stage4_hist",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "cc_line",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "First-line clear-cell systemic therapy?",
+      "input_fact_ids": [
+        "systemic_line"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_cc_later_bel",
+        "kid_cc_later_cabo",
+        "kid_cc_later_io_naive",
+        "kid_cc_later_len_eve",
+        "kid_cc_later_postio",
+        "kid_cc_later_tivo"
+      ],
+      "internal_transfer_targets": [
+        "cc_imdc",
+        "cc_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "cc_line",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "cc_imdc",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "IMDC favorable risk?",
+      "input_fact_ids": [
+        "imdc_risk"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_cc_as",
+        "kid_cc_axipem",
+        "kid_cc_cabnivo",
+        "kid_cc_cabo_fav",
+        "kid_cc_cabo_ip",
+        "kid_cc_ipinivo",
+        "kid_cc_lenpem"
+      ],
+      "internal_transfer_targets": [
+        "cc_first_fav",
+        "cc_first_ip"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "cc_imdc",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "noncc_sub",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "Renal medullary/collecting duct subtype?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_noncc_cabo",
+        "kid_noncc_nivoipi",
+        "kid_noncc_pembro",
+        "kid_noncc_trial_met",
+        "kid_rmc_platinum",
+        "kid_rmc_trial",
+        "kidney_papillary_specific"
+      ],
+      "internal_transfer_targets": [
+        "rmc",
+        "noncc"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "noncc_sub",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nonsurg_small::kid_as",
+      "source_section": "KID-B",
+      "source_page_label": "KID-B",
+      "source_anchor": "KID-B:pages:12,13,14,15,16",
+      "clinical_question": "Is option Active surveillance applicable to the current patient state?",
+      "input_fact_ids": [
+        "active_surveillance_appropriate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_as"
+      ],
+      "internal_transfer_targets": [
+        "nonsurg_small"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nonsurg_small:kid_as",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nonsurg_small::kidney_as_cystic",
+      "source_section": "KID-A",
+      "source_page_label": "KID-A",
+      "source_anchor": "KID-A:pages:11",
+      "clinical_question": "Is option Active surveillance applicable to the current patient state?",
+      "input_fact_ids": [
+        "predominantly_cystic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kidney_as_cystic"
+      ],
+      "internal_transfer_targets": [
+        "nonsurg_small"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nonsurg_small:kidney_as_cystic",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nonsurg_small::kidney_ablation_small",
+      "source_section": "KID-A",
+      "source_page_label": "KID-A",
+      "source_anchor": "KID-A:pages:11",
+      "clinical_question": "Is option Percutaneous thermal ablation applicable to the current patient state?",
+      "input_fact_ids": [
+        "tumor_size_cm"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kidney_ablation_small"
+      ],
+      "internal_transfer_targets": [
+        "nonsurg_small"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nonsurg_small:kidney_ablation_small",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t1b_surg::kid_t1b_partial",
+      "source_section": "KID-A",
+      "source_page_label": "KID-A",
+      "source_anchor": "KID-A:pages:11",
+      "clinical_question": "Is option Partial nephrectomy applicable to the current patient state?",
+      "input_fact_ids": [
+        "partial_nephrectomy_feasible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_t1b_partial"
+      ],
+      "internal_transfer_targets": [
+        "t1b_surg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t1b_surg:kid_t1b_partial",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t1b_surg::kid_t1b_sbrt",
+      "source_section": "KID-A",
+      "source_page_label": "KID-A",
+      "source_anchor": "KID-A:pages:11",
+      "clinical_question": "Is option SBRT applicable to the current patient state?",
+      "input_fact_ids": [
+        "surgery_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_t1b_sbrt"
+      ],
+      "internal_transfer_targets": [
+        "t1b_surg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t1b_surg:kid_t1b_sbrt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nonmet_unres::kid_presurg",
+      "source_section": "KID-B",
+      "source_page_label": "KID-B",
+      "source_anchor": "KID-B:pages:12,13,14,15,16",
+      "clinical_question": "Is option Consider presurgical systemic therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_presurg"
+      ],
+      "internal_transfer_targets": [
+        "nonmet_unres"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nonmet_unres:kid_presurg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::post_cc_high::kid_adj_bel_pembro",
+      "source_section": "KID-2",
+      "source_page_label": "KID-2",
+      "source_anchor": "KID-2:pages:8",
+      "clinical_question": "Is option Adjuvant belzutifan + pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "clinical_t",
+        "grade4_or_sarcomatoid"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_adj_bel_pembro"
+      ],
+      "internal_transfer_targets": [
+        "post_cc_high"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "post_cc_high:kid_adj_bel_pembro",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::post_noncc::kidney_papillary_specific",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "Is option Papillary RCC source-specific systemic option set applicable to the current patient state?",
+      "input_fact_ids": [
+        "papillary_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kidney_papillary_specific"
+      ],
+      "internal_transfer_targets": [
+        "post_noncc"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "post_noncc:kidney_papillary_specific",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::oligo_post::kid_metx_pembro",
+      "source_section": "KID-4",
+      "source_page_label": "KID-4",
+      "source_anchor": "KID-4:pages:10",
+      "clinical_question": "Is option Adjuvant pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_metx_pembro"
+      ],
+      "internal_transfer_targets": [
+        "oligo_post"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "oligo_post:kid_metx_pembro",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::oligo_post::kid_metx_bel_pembro",
+      "source_section": "KID-4",
+      "source_page_label": "KID-4",
+      "source_anchor": "KID-4:pages:10",
+      "clinical_question": "Is option Adjuvant belzutifan + pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_metx_bel_pembro"
+      ],
+      "internal_transfer_targets": [
+        "oligo_post"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "oligo_post:kid_metx_bel_pembro",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::cc_first_fav::kid_cc_as",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "Is option Active surveillance applicable to the current patient state?",
+      "input_fact_ids": [
+        "active_surveillance_appropriate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_cc_as"
+      ],
+      "internal_transfer_targets": [
+        "cc_first_fav"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "cc_first_fav:kid_cc_as",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::cc_later::kid_cc_later_bel",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "Is option Belzutifan applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_belzutifan",
+        "prior_io",
+        "prior_vegf_tki"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_cc_later_bel"
+      ],
+      "internal_transfer_targets": [
+        "cc_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "cc_later:kid_cc_later_bel",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::cc_later::kid_cc_later_io_naive",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "Is option Nivolumab or IO combination applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_io"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_cc_later_io_naive"
+      ],
+      "internal_transfer_targets": [
+        "cc_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "cc_later:kid_cc_later_io_naive",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::cc_later::kid_cc_later_postio",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "Is option Axitinib / cabozantinib / tivozanib / belzutifan after prior IO applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_io"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kid_cc_later_postio"
+      ],
+      "internal_transfer_targets": [
+        "cc_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "cc_later:kid_cc_later_postio",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::noncc::kidney_papillary_specific",
+      "source_section": "KID-D",
+      "source_page_label": "KID-D",
+      "source_anchor": "KID-D:pages:22,23,24",
+      "clinical_question": "Is option Papillary RCC source-specific systemic option set applicable to the current patient state?",
+      "input_fact_ids": [
+        "papillary_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "kidney_papillary_specific"
+      ],
+      "internal_transfer_targets": [
+        "noncc"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "noncc:kidney_papillary_specific",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

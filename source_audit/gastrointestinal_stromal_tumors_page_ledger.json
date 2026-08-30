@@ -1,0 +1,345 @@
+{
+  "slug": "gastrointestinal_stromal_tumors",
+  "filename": "gist(4).pdf",
+  "sha256": "f7318182d10c58672fbcc9cc3b8a7923d7d2ad7953aaa058b2fa71e955d40cd3",
+  "pdf_pages": 54,
+  "classified_pages": 54,
+  "clinical_section_pages": 22,
+  "page_role_counts": {
+    "OTHER_NONCLINICAL": 3,
+    "UPDATES": 2,
+    "ALGORITHM": 5,
+    "PRINCIPLE": 10,
+    "REFERENCE": 2,
+    "STAGING": 1,
+    "ABBREVIATIONS": 1,
+    "CATEGORY_REFERENCE": 1,
+    "DISCUSSION": 29
+  },
+  "ledger": [
+    {
+      "physical_page": 1,
+      "section_code": null,
+      "role": "OTHER_NONCLINICAL",
+      "text_sha256": "c1c316225e80e71a0523ec55797734cfab0fec41d2512bcb255c8512ef8a891b"
+    },
+    {
+      "physical_page": 2,
+      "section_code": null,
+      "role": "OTHER_NONCLINICAL",
+      "text_sha256": "f57a9ca479fc1519fe2c9fd4e987f1677bb6e711446f9ecdaeec4f5c24e4fd86"
+    },
+    {
+      "physical_page": 3,
+      "section_code": null,
+      "role": "OTHER_NONCLINICAL",
+      "text_sha256": "ddd046dbe7cbe3185cab31b2aa951d14cd3ca85d065641144a212321c03d5559"
+    },
+    {
+      "physical_page": 4,
+      "section_code": "GIST-D",
+      "role": "UPDATES",
+      "text_sha256": "ddfee0dee1ee4c3064f831f9f0c6267b1a9cf1ad4c3ad644137a709bd8b11f79"
+    },
+    {
+      "physical_page": 5,
+      "section_code": "GIST-F",
+      "role": "UPDATES",
+      "text_sha256": "98efc34a5a63073d8a78fbad23ae4683c4e2cf209a79586d1bfdaa158fea8af0"
+    },
+    {
+      "physical_page": 6,
+      "section_code": "GIST-1",
+      "role": "ALGORITHM",
+      "text_sha256": "da3fe38655206b7679dccb57053fb557674043113a4ba3c0290a1c51fa1a8c17"
+    },
+    {
+      "physical_page": 7,
+      "section_code": "GIST-2",
+      "role": "ALGORITHM",
+      "text_sha256": "7d4142b38d93337fb3ffe5c5114fe804c97f91dcb14f93b76acd806405468369"
+    },
+    {
+      "physical_page": 8,
+      "section_code": "GIST-3",
+      "role": "ALGORITHM",
+      "text_sha256": "18b0459f34be69f296745d41f76f2a7eb70ecaeffd65d157ab26f44852473bfa"
+    },
+    {
+      "physical_page": 9,
+      "section_code": "GIST-4",
+      "role": "ALGORITHM",
+      "text_sha256": "b9807d52da3d98724241fa389b79487ba0ea12b6affd1cfd2cf569f4bed50489"
+    },
+    {
+      "physical_page": 10,
+      "section_code": "GIST-5",
+      "role": "ALGORITHM",
+      "text_sha256": "abf72a0903565300082bc39775ecf4f2ef9a5da1bd02eda5811fb23e8c458bda"
+    },
+    {
+      "physical_page": 11,
+      "section_code": "GIST-A",
+      "role": "PRINCIPLE",
+      "text_sha256": "ec2eb59c2d48f294f0a289b40e71e658148a42d52808eca0479f1aa4cd6b916e"
+    },
+    {
+      "physical_page": 12,
+      "section_code": "GIST-A",
+      "role": "PRINCIPLE",
+      "text_sha256": "0e1126e096b179d82527401e319e87226f31ff10fc8cb0bf944cc922c0faab79"
+    },
+    {
+      "physical_page": 13,
+      "section_code": "GIST-A",
+      "role": "PRINCIPLE",
+      "text_sha256": "15a337f7243a39370693b3ee48136636a82f311986c6bdc60867470373ccb910"
+    },
+    {
+      "physical_page": 14,
+      "section_code": "GIST-B",
+      "role": "PRINCIPLE",
+      "text_sha256": "a79fe82270b4a37ce761812da361f2baacc88cd219d3b12194295f7968b4d780"
+    },
+    {
+      "physical_page": 15,
+      "section_code": "GIST-C",
+      "role": "PRINCIPLE",
+      "text_sha256": "d62c49455a8e6b9732b26e43e35385213ff846e559049f09e577403e1efe2c1f"
+    },
+    {
+      "physical_page": 16,
+      "section_code": "GIST-D",
+      "role": "PRINCIPLE",
+      "text_sha256": "b365069765f6105e73c4bbf7b450e74cb8f59d8715fa1e5e9036ecdb55a7ff5f"
+    },
+    {
+      "physical_page": 17,
+      "section_code": "GIST-D",
+      "role": "PRINCIPLE",
+      "text_sha256": "4d7cf197280cb1f112bb4c39b5a5c5ff74f6ccc61c31fd590d4ad905c63282e2"
+    },
+    {
+      "physical_page": 18,
+      "section_code": "GIST-E",
+      "role": "PRINCIPLE",
+      "text_sha256": "facff981011aba944ddcd1f8bad17e3ea0280eac5e0de3b4b027a9e0aaf647b2"
+    },
+    {
+      "physical_page": 19,
+      "section_code": "GIST-E",
+      "role": "PRINCIPLE",
+      "text_sha256": "06e5b68163ccba30ae66519ff82cab13ee625bc14a17c3198fcb9301257f2eca"
+    },
+    {
+      "physical_page": 20,
+      "section_code": "GIST-E",
+      "role": "REFERENCE",
+      "text_sha256": "33454a4afc1aeef03a5f27e74492796ebee2e4bca09beec70f530a14ca2047ba"
+    },
+    {
+      "physical_page": 21,
+      "section_code": "GIST-E",
+      "role": "REFERENCE",
+      "text_sha256": "ac3ea7e65bfb43fe39dd5f0d00ce4199d71df32c73ce88a5888af09fe2b1e720"
+    },
+    {
+      "physical_page": 22,
+      "section_code": "GIST-F",
+      "role": "PRINCIPLE",
+      "text_sha256": "6dc611e3382feeae468b71eedb12404ede8097ba4483ccc6c92db1e48d5e813a"
+    },
+    {
+      "physical_page": 23,
+      "section_code": "ST-1",
+      "role": "STAGING",
+      "text_sha256": "5790cce5be1ded1432919db38fd46fc556391cb338742ede2f636fd1156db72a"
+    },
+    {
+      "physical_page": 24,
+      "section_code": null,
+      "role": "ABBREVIATIONS",
+      "text_sha256": "4a9b64e22e631b9ce2502aa02f416c362a1c540772e2b844ebea4399e33e63e6"
+    },
+    {
+      "physical_page": 25,
+      "section_code": null,
+      "role": "CATEGORY_REFERENCE",
+      "text_sha256": "36a32634ce6f28fa45b3221b3809cbbbada0f2b5ced7f431e2d3b4aaf04a62a2"
+    },
+    {
+      "physical_page": 26,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e2401998d39b78428af7b922178bc86ed01cd7a5b26cae9a032815687f09cba2"
+    },
+    {
+      "physical_page": 27,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6f1ee49e6f915c154687b2032fd29dbab88aae1f5de99a063a29a6adbdbedfa8"
+    },
+    {
+      "physical_page": 28,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9e7c79768a88238804e305409fd8df9de43a1a3b57d947244a17b30bb6cbe294"
+    },
+    {
+      "physical_page": 29,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "4769cdef6922cf9de95ea7c729d7ec5eace7a62c38cf93ea4444469dd0dfca9f"
+    },
+    {
+      "physical_page": 30,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "41501497617c2f74d36cd08cef4938db216b2deac7523ae61d65699efa01ec51"
+    },
+    {
+      "physical_page": 31,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "3dbc3d1ee51269d5f5b1f198dbb201ee3718ea9dee58eb7edf3020d3b3429aae"
+    },
+    {
+      "physical_page": 32,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "f1fa501fe6238003836399a72eb5364c17dfba8e44b69b5fb93c09ce352e7808"
+    },
+    {
+      "physical_page": 33,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "92e81a79eaffe8cfa935d259d0a74b109c2e2fc70ae55da9b6d7ce5c80c7d8d6"
+    },
+    {
+      "physical_page": 34,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c98cdf2321ebb6830b7e559a09a7c2fdd0b8346c453b1330d9d0db3decd09999"
+    },
+    {
+      "physical_page": 35,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "25deac4a348eaaef9af343005156240c28fc2364f44f7f385885293f3cd4a6f7"
+    },
+    {
+      "physical_page": 36,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "f3646cee2beffc1806af75e021bc35281f26972eeb03778537f6baff3e6100e6"
+    },
+    {
+      "physical_page": 37,
+      "section_code": "GIST-D",
+      "role": "DISCUSSION",
+      "text_sha256": "ccca201b0b78143854052a3dd4f3a2f6a499d305ac426d51c452a6c7c048705f"
+    },
+    {
+      "physical_page": 38,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "35ac55288ea571e3618d2d5b3ca7b5ecd05ec8f25ed594a1190a6f4e1b526e7c"
+    },
+    {
+      "physical_page": 39,
+      "section_code": "GIST-D",
+      "role": "DISCUSSION",
+      "text_sha256": "327018dbc0847eaf3b77a40ecaefab696c87301fd5e4a0cfee3bb3cd020f3514"
+    },
+    {
+      "physical_page": 40,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "af37d57be769187f75fa7ac6917dd06380e6635a2de7b5b20415bcd647e538fe"
+    },
+    {
+      "physical_page": 41,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7a22b74f76cfd0f08e1cf79e953954cae285e49d306ad663529ed887bf98ed62"
+    },
+    {
+      "physical_page": 42,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "85464c0909930801b142dc4c479a39cb0097cfe888b97aaae53ce4d0542b8fbc"
+    },
+    {
+      "physical_page": 43,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "4d78e95535b52f1648741fff48481e896a9eba6473ed49890418a68780e21072"
+    },
+    {
+      "physical_page": 44,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "d4185bd50a471d35e23803abe8db235906a9fa0b14d42f0709b50a8471bb0915"
+    },
+    {
+      "physical_page": 45,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c82fee3cea2810d8bc2045122bbcdc5d1a6a7a68ec38aec769529d3b4b5f5b21"
+    },
+    {
+      "physical_page": 46,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "ded746200692842eaa34a25c77c65d42b490b8af49b129a72b7ff31007d346df"
+    },
+    {
+      "physical_page": 47,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "8526afbf3d671ab95d0a18faf28c5ebb056d09a6184cbf1fd4efd80cf110833d"
+    },
+    {
+      "physical_page": 48,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "cdcbcb41b2b927bc70742c068a50f44dab15ed8db1ff0b810717f292d0b9e53f"
+    },
+    {
+      "physical_page": 49,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "fbd2ddb2e701cd281452555bf643d1cb1db554abaea9c82f5605e0bdf84ce081"
+    },
+    {
+      "physical_page": 50,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "44dd138fccc8ec2201d5b1ff249486940b8d3a3abb7c30e4086fee9040a3fa86"
+    },
+    {
+      "physical_page": 51,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a274b99e4725b98dbf654393b06ee8a7989057bc60d072a71d9143d7e10cd1b6"
+    },
+    {
+      "physical_page": 52,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "bc1906c70aa297dc910c4bc04c2a3f5bba191cd2828e985ca09c9d30944cda1a"
+    },
+    {
+      "physical_page": 53,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e485d37ede8990620b3286bc3cb10876263fd7211401ea067877fd2b030f5953"
+    },
+    {
+      "physical_page": 54,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "0d6727be256c72f1f15fb1c4812c7a9e7b5ded3bfc52d5f1075fd262dd293c4f"
+    }
+  ]
+}

@@ -1,0 +1,5564 @@
+{
+  "schema_version": "nexus-full-pathway/2.0",
+  "guideline_id": "NCCN_BONE",
+  "title": "Bone Cancer",
+  "version": "1.2027",
+  "cancer_type": "BONE_CANCER",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 56,
+      "implemented_decisions": 56,
+      "tested_decisions": 56,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "BONE_CANCER",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "tumor_subtype",
+      "value_type": "CODED",
+      "allowed_values": [
+        "CHONDROSARCOMA",
+        "CHORDOMA",
+        "EWING_SARCOMA",
+        "GIANT_CELL_TUMOR_BONE",
+        "OSTEOSARCOMA",
+        "UNCLASSIFIED",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "WORKUP",
+        "NEW_DIAGNOSIS",
+        "POST_PRIMARY",
+        "RECURRENT",
+        "METASTATIC",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "metastatic",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "resectable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "progressive",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "grade_group",
+      "value_type": "CODED",
+      "allowed_values": [
+        "LOW",
+        "HIGH",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "location",
+      "value_type": "CODED",
+      "allowed_values": [
+        "APPENDICULAR",
+        "AXIAL",
+        "PELVIS_SACRUM",
+        "SKULL_BASE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "chondrosarcoma_subtype",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "ATYPICAL_CARTILAGINOUS",
+        "CONVENTIONAL",
+        "CLEAR_CELL",
+        "DEDIFFERENTIATED",
+        "MESENCHYMAL",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "margin_status",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "NEGATIVE",
+        "POSITIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "oligometastatic",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "idh1_mutation",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "msi_h_dmmr",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "tmb_high",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "chordoma_subtype",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "CONVENTIONAL",
+        "POORLY_DIFFERENTIATED",
+        "DEDIFFERENTIATED",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "chordoma_site",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "SACROCOCCYGEAL",
+        "MOBILE_SPINE",
+        "SKULL_BASE_CLIVAL",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "response_status",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "RESPONSE",
+        "GOOD",
+        "POOR",
+        "STABLE",
+        "PROGRESSIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "local_control_resectable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "primary_site_controlled",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "gctb_surgical_morbidity_acceptable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "gctb_axial_unresectable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "denosumab_prior",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "osteo_low_grade",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "osteo_periosteal",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "osteo_extraskeletal",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "chordoma_large_extracompartmental",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "tumor_compartment",
+      "value_type": "CODED",
+      "allowed_values": [
+        "INTRACOMPARTMENTAL",
+        "EXTRACOMPARTMENTAL",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING",
+      "description": "Anatomic compartment status used by CHON-1 presentation stratification."
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Bone cancer package?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "BONE_CANCER"
+      },
+      "on": {
+        "TRUE": "workup",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "BONE-1"
+      ],
+      "decision_id": "scope"
+    },
+    "workup": {
+      "kind": "decision",
+      "label": "Workup/unclassified bone lesion?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "WORKUP"
+          },
+          {
+            "fact": "tumor_subtype",
+            "op": "in",
+            "value": [
+              "UNCLASSIFIED",
+              "UNKNOWN"
+            ]
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "workup_action",
+        "FALSE": "sub_chon"
+      },
+      "source_pathways": [
+        "TEAM-1",
+        "BONE-1"
+      ],
+      "decision_id": "workup"
+    },
+    "workup_action": {
+      "kind": "action",
+      "label": "Potential primary bone tumor: multidisciplinary bone-oncology workup and biopsy at treating institution before disease-specific pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "workup_action",
+      "source_pathways": [
+        "TEAM-1",
+        "BONE-1"
+      ],
+      "recommendation": {
+        "title": "Potential primary bone tumor: multidisciplinary bone-oncology workup and biopsy at treating institution before disease-specific pathway.",
+        "options": [
+          {
+            "option_id": "bone_mdt",
+            "label": "Multidisciplinary bone tumor evaluation",
+            "text": "Multidisciplinary bone tumor evaluation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-A",
+              "page_label": "BONE-A",
+              "physical_pages": [
+                24
+              ],
+              "source_anchor": "BONE-A:pages:24"
+            }
+          },
+          {
+            "option_id": "bone_biopsy",
+            "label": "Biopsy at treating institution if indicated",
+            "text": "Biopsy at treating institution if indicated",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-A",
+              "page_label": "BONE-A",
+              "physical_pages": [
+                24
+              ],
+              "source_anchor": "BONE-A:pages:24"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-A",
+          "BONE-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BONE_WORKUP"
+    },
+    "sub_chon": {
+      "kind": "decision",
+      "label": "Chondrosarcoma?",
+      "expression": {
+        "fact": "tumor_subtype",
+        "op": "eq",
+        "value": "CHONDROSARCOMA"
+      },
+      "on": {
+        "TRUE": "chon_care",
+        "FALSE": "sub_chor"
+      },
+      "source_pathways": [
+        "CHON-1"
+      ],
+      "decision_id": "sub_chon"
+    },
+    "chon_care": {
+      "kind": "decision",
+      "label": "Metastatic/systemic recurrence?",
+      "expression": {
+        "any": [
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chon_met_oligo",
+        "FALSE": "chon_recur"
+      },
+      "source_pathways": [
+        "CHON-4"
+      ],
+      "decision_id": "chon_care"
+    },
+    "chon_recur": {
+      "kind": "decision",
+      "label": "Current recurrence?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "RECURRENT"
+      },
+      "on": {
+        "TRUE": "chon_rec_local",
+        "FALSE": "chon_post_state"
+      },
+      "source_pathways": [
+        "CHON-2",
+        "CHON-3"
+      ],
+      "decision_id": "chon_recur"
+    },
+    "chon_subtype": {
+      "kind": "decision",
+      "label": "Atypical cartilaginous tumor?",
+      "expression": {
+        "fact": "chondrosarcoma_subtype",
+        "op": "eq",
+        "value": "ATYPICAL_CARTILAGINOUS"
+      },
+      "on": {
+        "TRUE": "chon_act",
+        "FALSE": "chon_mes"
+      },
+      "source_pathways": [
+        "CHON-1",
+        "CHON-2"
+      ],
+      "decision_id": "chon_subtype"
+    },
+    "chon_act": {
+      "kind": "action",
+      "label": "Atypical cartilaginous tumor: intralesional excision +/- surgical adjuvant or observation, followed by local surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_act",
+      "source_pathways": [
+        "CHON-2"
+      ],
+      "recommendation": {
+        "title": "Atypical cartilaginous tumor: intralesional excision +/- surgical adjuvant or observation, followed by local surveillance.",
+        "options": [
+          {
+            "option_id": "chon_act_exc",
+            "label": "Intralesional excision +/- surgical adjuvant",
+            "text": "Intralesional excision +/- surgical adjuvant",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-2",
+              "page_label": "CHON-2",
+              "physical_pages": [
+                8
+              ],
+              "source_anchor": "CHON-2:pages:8"
+            }
+          },
+          {
+            "option_id": "chon_act_obs",
+            "label": "Observation",
+            "text": "Observation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-2",
+              "page_label": "CHON-2",
+              "physical_pages": [
+                8
+              ],
+              "source_anchor": "CHON-2:pages:8"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_ATYPICAL_CARTILAGINOUS"
+    },
+    "chon_mes": {
+      "kind": "decision",
+      "label": "Mesenchymal chondrosarcoma?",
+      "expression": {
+        "fact": "chondrosarcoma_subtype",
+        "op": "eq",
+        "value": "MESENCHYMAL"
+      },
+      "on": {
+        "TRUE": "chon_mes_action",
+        "FALSE": "chon_dediff"
+      },
+      "source_pathways": [
+        "CHON-3",
+        "CHON-4"
+      ],
+      "decision_id": "chon_mes"
+    },
+    "chon_mes_action": {
+      "kind": "action",
+      "label": "Mesenchymal chondrosarcoma: manage using Ewing-sarcoma-type systemic/local principles per source.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_mes_action",
+      "source_pathways": [
+        "CHON-3",
+        "CHON-4"
+      ],
+      "recommendation": {
+        "title": "Mesenchymal chondrosarcoma: manage using Ewing-sarcoma-type systemic/local principles per source.",
+        "options": [
+          {
+            "option_id": "chon_mes_ewing",
+            "label": "Ewing-sarcoma regimen",
+            "text": "Preferred category 2B source option.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_mes_aim",
+            "label": "AIM / doxorubicin-containing systemic therapy",
+            "text": "AIM / doxorubicin-containing systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_MESENCHYMAL"
+    },
+    "chon_dediff": {
+      "kind": "decision",
+      "label": "Dedifferentiated chondrosarcoma?",
+      "expression": {
+        "fact": "chondrosarcoma_subtype",
+        "op": "eq",
+        "value": "DEDIFFERENTIATED"
+      },
+      "on": {
+        "TRUE": "chon_dediff_action",
+        "FALSE": "chon_clear_cell"
+      },
+      "source_pathways": [
+        "CHON-3",
+        "CHON-4"
+      ],
+      "decision_id": "chon_dediff"
+    },
+    "chon_dediff_action": {
+      "kind": "action",
+      "label": "Dedifferentiated chondrosarcoma: wide excision if resectable; consider osteosarcoma regimens (category 2B) and biomarker-directed options in metastatic disease.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_dediff_action",
+      "source_pathways": [
+        "CHON-3",
+        "CHON-4"
+      ],
+      "recommendation": {
+        "title": "Dedifferentiated chondrosarcoma: wide excision if resectable; consider osteosarcoma regimens (category 2B) and biomarker-directed options in metastatic disease.",
+        "options": [
+          {
+            "option_id": "chon_dediff_surg",
+            "label": "Wide excision",
+            "text": "Wide excision",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "resectable",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_dediff_osteo",
+            "label": "Osteosarcoma regimen",
+            "text": "Category 2B.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_dediff_idh",
+            "label": "Ivosidenib",
+            "text": "Susceptible IDH1 mutation.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "idh1_mutation",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_DEDIFFERENTIATED"
+    },
+    "chon_conv_resect": {
+      "kind": "decision",
+      "label": "Conventional/clear-cell/high-grade chondrosarcoma resectable?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "chon_primary_surgery",
+        "FALSE": "chon_rt"
+      },
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "decision_id": "chon_conv_resect"
+    },
+    "chon_surg_margin": {
+      "kind": "decision",
+      "label": "Margin negative?",
+      "expression": {
+        "fact": "margin_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "chon_surv",
+        "FALSE": "chon_posmargin"
+      },
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "decision_id": "chon_surg_margin"
+    },
+    "chon_surv": {
+      "kind": "action",
+      "label": "Resected conventional/clear-cell chondrosarcoma with negative margins: surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_surv",
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "recommendation": {
+        "title": "Resected conventional/clear-cell chondrosarcoma with negative margins: surveillance.",
+        "options": [
+          {
+            "option_id": "chon_surveillance",
+            "label": "Physical exam + primary-site and chest imaging at source intervals",
+            "text": "Physical exam + primary-site and chest imaging at source intervals",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-3",
+              "page_label": "CHON-3",
+              "physical_pages": [
+                9
+              ],
+              "source_anchor": "CHON-3:pages:9"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_RESECTED_NEG_MARGIN"
+    },
+    "chon_posmargin": {
+      "kind": "action",
+      "label": "Chondrosarcoma after positive-margin resection: consider RT category 2B or re-excision for negative margin.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_posmargin",
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "recommendation": {
+        "title": "Chondrosarcoma after positive-margin resection: consider RT category 2B or re-excision for negative margin.",
+        "options": [
+          {
+            "option_id": "chon_reexcision",
+            "label": "Re-excision to negative margins",
+            "text": "Re-excision to negative margins",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          },
+          {
+            "option_id": "chon_rt_pm",
+            "label": "RT",
+            "text": "Category 2B.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_POSITIVE_MARGIN"
+    },
+    "chon_rt": {
+      "kind": "action",
+      "label": "Borderline resectable/unresectable conventional/clear-cell chondrosarcoma: consider RT category 2B; systemic therapy has no standard role for conventional grades 1-3 except biomarker-directed options.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_rt",
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "recommendation": {
+        "title": "Borderline resectable/unresectable conventional/clear-cell chondrosarcoma: consider RT category 2B; systemic therapy has no standard role for conventional grades 1-3 except biomarker-directed options.",
+        "options": [
+          {
+            "option_id": "chon_def_rt",
+            "label": "RT",
+            "text": "Category 2B.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_idh",
+            "label": "Ivosidenib",
+            "text": "For susceptible IDH1 mutation.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "idh1_mutation",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_UNRESECTABLE"
+    },
+    "chon_rec_local": {
+      "kind": "decision",
+      "label": "Local recurrence (nonmetastatic)?",
+      "expression": {
+        "fact": "metastatic",
+        "op": "eq",
+        "value": false
+      },
+      "on": {
+        "TRUE": "chon_rec_resect",
+        "FALSE": "chon_met_oligo"
+      },
+      "source_pathways": [
+        "CHON-2",
+        "CHON-3"
+      ],
+      "decision_id": "chon_rec_local"
+    },
+    "chon_rec_resect": {
+      "kind": "decision",
+      "label": "Local recurrence resectable?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "chon_rec_surg",
+        "FALSE": "chon_rec_rt"
+      },
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "decision_id": "chon_rec_resect"
+    },
+    "chon_rec_surg": {
+      "kind": "action",
+      "label": "Local recurrent chondrosarcoma: wide excision if resectable.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_rec_surg",
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "recommendation": {
+        "title": "Local recurrent chondrosarcoma: wide excision if resectable.",
+        "options": [
+          {
+            "option_id": "chon_rec_wide",
+            "label": "Wide excision",
+            "text": "Wide excision",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-3",
+              "page_label": "CHON-3",
+              "physical_pages": [
+                9
+              ],
+              "source_anchor": "CHON-3:pages:9"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_LOCAL_REC_RESECTABLE"
+    },
+    "chon_rec_rt": {
+      "kind": "action",
+      "label": "Unresectable local recurrent chondrosarcoma: RT category 2B.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_rec_rt",
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "recommendation": {
+        "title": "Unresectable local recurrent chondrosarcoma: RT category 2B.",
+        "options": [
+          {
+            "option_id": "chon_rec_rt2",
+            "label": "RT",
+            "text": "Category 2B.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_LOCAL_REC_UNRESECTABLE"
+    },
+    "chon_met_oligo": {
+      "kind": "decision",
+      "label": "Oligometastatic chondrosarcoma?",
+      "expression": {
+        "fact": "oligometastatic",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "chon_met_oligo_action",
+        "FALSE": "chon_met_wide"
+      },
+      "source_pathways": [
+        "CHON-4"
+      ],
+      "decision_id": "chon_met_oligo"
+    },
+    "chon_met_oligo_action": {
+      "kind": "action",
+      "label": "Oligometastatic chondrosarcoma: excise all sites if possible; RT for unresectable sites; clinical trial.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_met_oligo_action",
+      "source_pathways": [
+        "CHON-4"
+      ],
+      "recommendation": {
+        "title": "Oligometastatic chondrosarcoma: excise all sites if possible; RT for unresectable sites; clinical trial.",
+        "options": [
+          {
+            "option_id": "chon_met_excise",
+            "label": "Surgical excision of all sites if possible",
+            "text": "Surgical excision of all sites if possible",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-4",
+              "page_label": "CHON-4",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "CHON-4:pages:10"
+            }
+          },
+          {
+            "option_id": "chon_met_rt",
+            "label": "RT to unresectable sites",
+            "text": "RT to unresectable sites",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-4",
+              "page_label": "CHON-4",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "CHON-4:pages:10"
+            }
+          },
+          {
+            "option_id": "chon_met_trial",
+            "label": "Clinical trial",
+            "text": "Clinical trial",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-4",
+              "page_label": "CHON-4",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "CHON-4:pages:10"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_OLIGOMETASTATIC"
+    },
+    "chon_met_wide": {
+      "kind": "action",
+      "label": "Widespread metastatic chondrosarcoma: clinical trial/systemic therapy for dedifferentiated/mesenchymal disease, local palliation; biomarker-directed options only when positive.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_met_wide",
+      "source_pathways": [
+        "CHON-4"
+      ],
+      "recommendation": {
+        "title": "Widespread metastatic chondrosarcoma: clinical trial/systemic therapy for dedifferentiated/mesenchymal disease, local palliation; biomarker-directed options only when positive.",
+        "options": [
+          {
+            "option_id": "chon_met_trial2",
+            "label": "Clinical trial",
+            "text": "Clinical trial",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_met_localpall",
+            "label": "RT/surgery/ablation for symptomatic sites",
+            "text": "RT/surgery/ablation for symptomatic sites",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_met_idh",
+            "label": "Ivosidenib",
+            "text": "Susceptible IDH1 mutation.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "idh1_mutation",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_met_msi",
+            "label": "Pembrolizumab",
+            "text": "MSI-H/dMMR.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "msi_h_dmmr",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chon_met_tmb",
+            "label": "Pembrolizumab or ipilimumab+nivolumab",
+            "text": "TMB-H.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "tmb_high",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHON_WIDESPREAD"
+    },
+    "sub_chor": {
+      "kind": "decision",
+      "label": "Chordoma?",
+      "expression": {
+        "fact": "tumor_subtype",
+        "op": "eq",
+        "value": "CHORDOMA"
+      },
+      "on": {
+        "TRUE": "chor_care",
+        "FALSE": "sub_ew"
+      },
+      "source_pathways": [
+        "CHOR-1"
+      ],
+      "decision_id": "sub_chor"
+    },
+    "chor_care": {
+      "kind": "decision",
+      "label": "Recurrent/metastatic chordoma?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "in",
+        "value": [
+          "RECURRENT",
+          "METASTATIC"
+        ]
+      },
+      "on": {
+        "TRUE": "chor_rec_met",
+        "FALSE": "chor_hist"
+      },
+      "source_pathways": [
+        "CHOR-3"
+      ],
+      "decision_id": "chor_care"
+    },
+    "chor_hist": {
+      "kind": "decision",
+      "label": "Poorly differentiated/dedifferentiated chordoma?",
+      "expression": {
+        "fact": "chordoma_subtype",
+        "op": "in",
+        "value": [
+          "POORLY_DIFFERENTIATED",
+          "DEDIFFERENTIATED"
+        ]
+      },
+      "on": {
+        "TRUE": "chor_pd",
+        "FALSE": "chor_post_state"
+      },
+      "source_pathways": [
+        "CHOR-1"
+      ],
+      "decision_id": "chor_hist"
+    },
+    "chor_pd": {
+      "kind": "action",
+      "label": "Poorly differentiated/dedifferentiated chordoma: histology-specific systemic therapy agents; local surgery/RT as feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_pd",
+      "source_pathways": [
+        "CHOR-1"
+      ],
+      "recommendation": {
+        "title": "Poorly differentiated/dedifferentiated chordoma: histology-specific systemic therapy agents; local surgery/RT as feasible.",
+        "options": [
+          {
+            "option_id": "chor_pd_sys",
+            "label": "Source-listed sarcoma systemic therapy",
+            "text": "Source-listed sarcoma systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chor_pd_local",
+            "label": "Surgery/RT if feasible",
+            "text": "Surgery/RT if feasible",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHORDOMA_PD_DD"
+    },
+    "chor_adjrt": {
+      "kind": "action",
+      "label": "Resected chordoma with positive margins/high local-risk: consider adjuvant RT and re-excision where appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_adjrt",
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "recommendation": {
+        "title": "Resected chordoma with positive margins/high local-risk: consider adjuvant RT and re-excision where appropriate.",
+        "options": [
+          {
+            "option_id": "chor_reexcision",
+            "label": "Consider re-excision",
+            "text": "Consider re-excision",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            },
+            "applicability": {
+              "fact": "chordoma_site",
+              "op": "eq",
+              "value": "SKULL_BASE_CLIVAL"
+            }
+          },
+          {
+            "option_id": "chor_adjuvant_rt",
+            "label": "Adjuvant RT",
+            "text": "Adjuvant RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          },
+          {
+            "option_id": "chordoma_site_specific_planning",
+            "label": "Site-specific multidisciplinary local planning",
+            "text": "Chordoma surgery/RT technique and feasibility are site-dependent (sacral/mobile spine/skull-base).",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHOR-2",
+              "page_label": "CHOR-2",
+              "physical_pages": [
+                12
+              ],
+              "source_anchor": "CHOR-2:pages:12"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHORDOMA_POSTOP_HIGH_RISK"
+    },
+    "chor_surv": {
+      "kind": "action",
+      "label": "Completely resected conventional chordoma: surveillance with primary-site/chest imaging.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_surv",
+      "source_pathways": [
+        "CHOR-2",
+        "CHOR-3"
+      ],
+      "recommendation": {
+        "title": "Completely resected conventional chordoma: surveillance with primary-site/chest imaging.",
+        "options": [
+          {
+            "option_id": "chor_surveillance",
+            "label": "Surveillance",
+            "text": "Surveillance",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHOR-2",
+              "page_label": "CHOR-2",
+              "physical_pages": [
+                12
+              ],
+              "source_anchor": "CHOR-2:pages:12"
+            }
+          },
+          {
+            "option_id": "chordoma_site_specific_planning",
+            "label": "Site-specific multidisciplinary local planning",
+            "text": "Chordoma surgery/RT technique and feasibility are site-dependent (sacral/mobile spine/skull-base).",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHOR-2",
+              "page_label": "CHOR-2",
+              "physical_pages": [
+                12
+              ],
+              "source_anchor": "CHOR-2:pages:12"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CHORDOMA_RESECTED"
+    },
+    "chor_defrt": {
+      "kind": "action",
+      "label": "Unresectable conventional chordoma: definitive high-dose RT; systemic options may be considered for progressive disease.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_defrt",
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "recommendation": {
+        "title": "Unresectable conventional chordoma: definitive high-dose RT; systemic options may be considered for progressive disease.",
+        "options": [
+          {
+            "option_id": "chor_def_rt",
+            "label": "Definitive RT",
+            "text": "Definitive RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chor_systemic",
+            "label": "Chordoma systemic therapy",
+            "text": "For progressive/unresectable disease.",
+            "decision_relevant": false,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chordoma_site_specific_planning",
+            "label": "Site-specific multidisciplinary local planning",
+            "text": "Chordoma surgery/RT technique and feasibility are site-dependent (sacral/mobile spine/skull-base).",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHOR-2",
+              "page_label": "CHOR-2",
+              "physical_pages": [
+                12
+              ],
+              "source_anchor": "CHOR-2:pages:12"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHORDOMA_UNRESECTABLE"
+    },
+    "chor_rec_met": {
+      "kind": "decision",
+      "label": "Metastatic chordoma recurrence?",
+      "expression": {
+        "fact": "metastatic",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "chor_met",
+        "FALSE": "chor_localrec"
+      },
+      "source_pathways": [
+        "CHOR-3"
+      ],
+      "decision_id": "chor_rec_met"
+    },
+    "chor_localrec": {
+      "kind": "action",
+      "label": "Local chordoma recurrence: surgery and/or RT and/or ablation/systemic therapy or clinical trial.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_localrec",
+      "source_pathways": [
+        "CHOR-3"
+      ],
+      "recommendation": {
+        "title": "Local chordoma recurrence: surgery and/or RT and/or ablation/systemic therapy or clinical trial.",
+        "options": [
+          {
+            "option_id": "chor_lr_surg",
+            "label": "Surgical excision",
+            "text": "Surgical excision",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "resectable",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chor_lr_rt",
+            "label": "RT",
+            "text": "RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chor_lr_ablate",
+            "label": "Ablation",
+            "text": "Ablation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chor_lr_sys",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHORDOMA_LOCAL_RECURRENCE"
+    },
+    "chor_met": {
+      "kind": "action",
+      "label": "Metastatic chordoma: systemic therapy and/or surgery/RT; clinical trial/best supportive care.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_met",
+      "source_pathways": [
+        "CHOR-3"
+      ],
+      "recommendation": {
+        "title": "Metastatic chordoma: systemic therapy and/or surgery/RT; clinical trial/best supportive care.",
+        "options": [
+          {
+            "option_id": "chor_met_sys",
+            "label": "Chordoma systemic therapy",
+            "text": "Chordoma systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chor_met_local",
+            "label": "Surgery/RT for selected metastases",
+            "text": "Surgery/RT for selected metastases",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "chor_met_trial",
+            "label": "Clinical trial",
+            "text": "Clinical trial",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CHORDOMA_METASTATIC"
+    },
+    "sub_ew": {
+      "kind": "decision",
+      "label": "Ewing sarcoma?",
+      "expression": {
+        "fact": "tumor_subtype",
+        "op": "eq",
+        "value": "EWING_SARCOMA"
+      },
+      "on": {
+        "TRUE": "ew_care",
+        "FALSE": "sub_gctb"
+      },
+      "source_pathways": [
+        "EW-1"
+      ],
+      "decision_id": "sub_ew"
+    },
+    "ew_care": {
+      "kind": "decision",
+      "label": "Metastatic at presentation/now?",
+      "expression": {
+        "fact": "metastatic",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "ew_met",
+        "FALSE": "ew_post"
+      },
+      "source_pathways": [
+        "EW-1",
+        "EW-3"
+      ],
+      "decision_id": "ew_care"
+    },
+    "ew_post": {
+      "kind": "decision",
+      "label": "Post-primary/restage or recurrence?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "in",
+        "value": [
+          "POST_PRIMARY",
+          "RECURRENT"
+        ]
+      },
+      "on": {
+        "TRUE": "ew_resp",
+        "FALSE": "ew_initial"
+      },
+      "source_pathways": [
+        "EW-2"
+      ],
+      "decision_id": "ew_post"
+    },
+    "ew_initial": {
+      "kind": "action",
+      "label": "Localized Ewing sarcoma: multiagent chemotherapy category 1 for at least 9 weeks before local therapy, then response-based surgery/RT and completion chemotherapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ew_initial",
+      "source_pathways": [
+        "EW-1"
+      ],
+      "recommendation": {
+        "title": "Localized Ewing sarcoma: multiagent chemotherapy category 1 for at least 9 weeks before local therapy, then response-based surgery/RT and completion chemotherapy.",
+        "options": [
+          {
+            "option_id": "ew_vdc_ie",
+            "label": "VDC-IE",
+            "text": "Category 1 preferred first-line.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "ew_other_first",
+            "label": "VAIA or VIDE",
+            "text": "Other recommended.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "EWING_LOCALIZED_INITIAL"
+    },
+    "ew_resp": {
+      "kind": "decision",
+      "label": "Progressive disease at restage/relapse?",
+      "expression": {
+        "any": [
+          {
+            "fact": "response_status",
+            "op": "eq",
+            "value": "PROGRESSIVE"
+          },
+          {
+            "fact": "progressive",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "ew_relapse",
+        "FALSE": "ew_localcontrol"
+      },
+      "source_pathways": [
+        "EW-2"
+      ],
+      "decision_id": "ew_resp"
+    },
+    "ew_localcontrol": {
+      "kind": "decision",
+      "label": "Local control resectable?",
+      "expression": {
+        "fact": "local_control_resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "ew_surg",
+        "FALSE": "ew_rt"
+      },
+      "source_pathways": [
+        "EW-2"
+      ],
+      "decision_id": "ew_localcontrol"
+    },
+    "ew_surg": {
+      "kind": "action",
+      "label": "Responding localized Ewing sarcoma: surgery +/- RT by margin/pathologic response, continue systemic chemotherapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ew_surg",
+      "source_pathways": [
+        "EW-2"
+      ],
+      "recommendation": {
+        "title": "Responding localized Ewing sarcoma: surgery +/- RT by margin/pathologic response, continue systemic chemotherapy.",
+        "options": [
+          {
+            "option_id": "ew_local_surgery",
+            "label": "Wide excision",
+            "text": "Wide excision",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "ew_adjuvant_rt",
+            "label": "Adjuvant RT",
+            "text": "For positive/close margins or source-defined indications.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "margin_status",
+              "op": "eq",
+              "value": "POSITIVE"
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "ew_continue_chemo",
+            "label": "Continue systemic chemotherapy",
+            "text": "Continue systemic chemotherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "EWING_LOCAL_CONTROL_SURGERY"
+    },
+    "ew_rt": {
+      "kind": "action",
+      "label": "Localized Ewing sarcoma not resectable for local control: definitive RT + continued systemic therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ew_rt",
+      "source_pathways": [
+        "EW-2"
+      ],
+      "recommendation": {
+        "title": "Localized Ewing sarcoma not resectable for local control: definitive RT + continued systemic therapy.",
+        "options": [
+          {
+            "option_id": "ew_def_rt",
+            "label": "Definitive RT",
+            "text": "Definitive RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          },
+          {
+            "option_id": "ew_continue_chemo2",
+            "label": "Continue systemic chemotherapy",
+            "text": "Continue systemic chemotherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "EWING_LOCAL_CONTROL_RT"
+    },
+    "ew_met": {
+      "kind": "action",
+      "label": "Metastatic Ewing sarcoma: systemic multiagent therapy plus local therapy to primary/metastatic sites according to response/feasibility.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ew_met",
+      "source_pathways": [
+        "EW-3"
+      ],
+      "recommendation": {
+        "title": "Metastatic Ewing sarcoma: systemic multiagent therapy plus local therapy to primary/metastatic sites according to response/feasibility.",
+        "options": [
+          {
+            "option_id": "ew_met_vaia",
+            "label": "VAIA",
+            "text": "Preferred metastatic-primary regimen.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "ew_met_vdc",
+            "label": "VDC",
+            "text": "Preferred metastatic-primary regimen.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "ew_met_local",
+            "label": "Surgery/RT to primary/metastatic sites as feasible",
+            "text": "Surgery/RT to primary/metastatic sites as feasible",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "ew_met_primary_control",
+            "label": "Definitive local control of primary site",
+            "text": "Use surgery and/or RT to primary site when source-defined; applicability depends on whether primary is already controlled.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "EW-3",
+              "page_label": "EW-3",
+              "physical_pages": [
+                16
+              ],
+              "source_anchor": "EW-3:pages:16"
+            },
+            "applicability": {
+              "fact": "primary_site_controlled",
+              "op": "eq",
+              "value": false
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "EWING_METASTATIC"
+    },
+    "ew_relapse": {
+      "kind": "action",
+      "label": "Relapsed/progressive Ewing sarcoma: second-line systemic therapy + surgery/RT/ablative local control where feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ew_relapse",
+      "source_pathways": [
+        "EW-2"
+      ],
+      "recommendation": {
+        "title": "Relapsed/progressive Ewing sarcoma: second-line systemic therapy + surgery/RT/ablative local control where feasible.",
+        "options": [
+          {
+            "option_id": "ew_rr_sys",
+            "label": "Source-listed relapsed/refractory Ewing systemic therapy",
+            "text": "Source-listed relapsed/refractory Ewing systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "ew_rr_local",
+            "label": "Surgery/RT/ablation for local control",
+            "text": "Surgery/RT/ablation for local control",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "EWING_RELAPSED_REFRACTORY"
+    },
+    "sub_gctb": {
+      "kind": "decision",
+      "label": "Giant cell tumor of bone?",
+      "expression": {
+        "fact": "tumor_subtype",
+        "op": "eq",
+        "value": "GIANT_CELL_TUMOR_BONE"
+      },
+      "on": {
+        "TRUE": "gctb_care",
+        "FALSE": "sub_osteo"
+      },
+      "source_pathways": [
+        "GCTB-1"
+      ],
+      "decision_id": "sub_gctb"
+    },
+    "gctb_care": {
+      "kind": "decision",
+      "label": "Recurrent/metastatic GCTB?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "in",
+        "value": [
+          "RECURRENT",
+          "METASTATIC"
+        ]
+      },
+      "on": {
+        "TRUE": "gctb_rec",
+        "FALSE": "gctb_resect"
+      },
+      "source_pathways": [
+        "GCTB-3"
+      ],
+      "decision_id": "gctb_care"
+    },
+    "gctb_resect": {
+      "kind": "decision",
+      "label": "Resectable with acceptable morbidity?",
+      "expression": {
+        "all": [
+          {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "resectable",
+                    "op": "eq",
+                    "value": true
+                  },
+                  {
+                    "fact": "gctb_surgical_morbidity_acceptable",
+                    "op": "eq",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "fact": "gctb_axial_unresectable",
+                "op": "eq",
+                "value": false
+              }
+            ]
+          },
+          {
+            "fact": "gctb_axial_unresectable",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gctb_surg",
+        "FALSE": "gctb_nonresect"
+      },
+      "source_pathways": [
+        "GCTB-2"
+      ],
+      "decision_id": "gctb_resect"
+    },
+    "gctb_surg": {
+      "kind": "action",
+      "label": "Localized GCTB resectable with acceptable morbidity: extended curettage/resection with surgical adjuvants as source-directed.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gctb_surg",
+      "source_pathways": [
+        "GCTB-2"
+      ],
+      "recommendation": {
+        "title": "Localized GCTB resectable with acceptable morbidity: extended curettage/resection with surgical adjuvants as source-directed.",
+        "options": [
+          {
+            "option_id": "gctb_surgery",
+            "label": "Curettage/resection with surgical adjuvant",
+            "text": "Curettage/resection with surgical adjuvant",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "GCTB-2",
+              "page_label": "GCTB-2",
+              "physical_pages": [
+                18
+              ],
+              "source_anchor": "GCTB-2:pages:18"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "GCTB_RESECTABLE"
+    },
+    "gctb_nonresect": {
+      "kind": "action",
+      "label": "GCTB unresectable or surgery causes unacceptable morbidity: denosumab preferred and/or serial embolization preferred; RT/ablation alternatives.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gctb_nonresect",
+      "source_pathways": [
+        "GCTB-2"
+      ],
+      "recommendation": {
+        "title": "GCTB unresectable or surgery causes unacceptable morbidity: denosumab preferred and/or serial embolization preferred; RT/ablation alternatives.",
+        "options": [
+          {
+            "option_id": "gctb_denosumab",
+            "label": "Denosumab",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          },
+          {
+            "option_id": "gctb_embolization",
+            "label": "Serial embolization",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          },
+          {
+            "option_id": "gctb_rt",
+            "label": "RT",
+            "text": "RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          },
+          {
+            "option_id": "gctb_ablation",
+            "label": "Ablative therapy",
+            "text": "Ablative therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-C",
+              "page_label": "BONE-C",
+              "physical_pages": [
+                33,
+                34,
+                35,
+                36,
+                37,
+                38
+              ],
+              "source_anchor": "BONE-C:pages:33,34,35,36,37,38"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "GCTB_UNRESECTABLE_MORBID"
+    },
+    "gctb_rec": {
+      "kind": "action",
+      "label": "Recurrent/metastatic GCTB: repeat local therapy/denosumab/embolization/RT according to site and resectability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gctb_rec",
+      "source_pathways": [
+        "GCTB-3"
+      ],
+      "recommendation": {
+        "title": "Recurrent/metastatic GCTB: repeat local therapy/denosumab/embolization/RT according to site and resectability.",
+        "options": [
+          {
+            "option_id": "gctb_rec_surg",
+            "label": "Surgery",
+            "text": "Surgery",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "resectable",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "GCTB-3",
+              "page_label": "GCTB-3",
+              "physical_pages": [
+                3,
+                19
+              ],
+              "source_anchor": "GCTB-3:pages:3,19"
+            }
+          },
+          {
+            "option_id": "gctb_rec_denosumab",
+            "label": "Denosumab",
+            "text": "Denosumab",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "GCTB-3",
+              "page_label": "GCTB-3",
+              "physical_pages": [
+                3,
+                19
+              ],
+              "source_anchor": "GCTB-3:pages:3,19"
+            }
+          },
+          {
+            "option_id": "gctb_rec_embol",
+            "label": "Embolization",
+            "text": "Embolization",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "GCTB-3",
+              "page_label": "GCTB-3",
+              "physical_pages": [
+                3,
+                19
+              ],
+              "source_anchor": "GCTB-3:pages:3,19"
+            }
+          },
+          {
+            "option_id": "gctb_rec_rt",
+            "label": "RT",
+            "text": "RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "GCTB-3",
+              "page_label": "GCTB-3",
+              "physical_pages": [
+                3,
+                19
+              ],
+              "source_anchor": "GCTB-3:pages:3,19"
+            }
+          },
+          {
+            "option_id": "gctb_rec_denosumab_reuse",
+            "label": "Denosumab",
+            "text": "Use/re-use only when source-appropriate and not already failed/intolerant.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "GCTB-3",
+              "page_label": "GCTB-3",
+              "physical_pages": [
+                3,
+                19
+              ],
+              "source_anchor": "GCTB-3:pages:3,19"
+            },
+            "applicability": {
+              "fact": "denosumab_prior",
+              "op": "eq",
+              "value": false
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "GCTB_RECURRENCE"
+    },
+    "sub_osteo": {
+      "kind": "decision",
+      "label": "Osteosarcoma?",
+      "expression": {
+        "fact": "tumor_subtype",
+        "op": "eq",
+        "value": "OSTEOSARCOMA"
+      },
+      "on": {
+        "TRUE": "osteo_ext",
+        "FALSE": "unsupported"
+      },
+      "source_pathways": [
+        "OSTEO-1"
+      ],
+      "decision_id": "sub_osteo"
+    },
+    "osteo_ext": {
+      "kind": "decision",
+      "label": "Extraskeletal osteosarcoma?",
+      "expression": {
+        "fact": "osteo_extraskeletal",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "osteo_sts",
+        "FALSE": "osteo_met"
+      },
+      "source_pathways": [
+        "OSTEO-1"
+      ],
+      "decision_id": "osteo_ext"
+    },
+    "osteo_sts": {
+      "kind": "status",
+      "label": "Extraskeletal osteosarcoma routes to the NCCN Soft Tissue Sarcoma guideline (external dependency).",
+      "status": "NEEDS_DIFFERENT_PATHWAY",
+      "source_pathways": [
+        "OSTEO-1"
+      ]
+    },
+    "osteo_met": {
+      "kind": "decision",
+      "label": "Metastatic osteosarcoma?",
+      "expression": {
+        "fact": "metastatic",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "osteo_met_resect",
+        "FALSE": "osteo_rec"
+      },
+      "source_pathways": [
+        "OSTEO-3"
+      ],
+      "decision_id": "osteo_met"
+    },
+    "osteo_rec": {
+      "kind": "decision",
+      "label": "Relapsed/progressive osteosarcoma?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "RECURRENT"
+      },
+      "on": {
+        "TRUE": "osteo_relapse",
+        "FALSE": "osteo_low"
+      },
+      "source_pathways": [
+        "OSTEO-4"
+      ],
+      "decision_id": "osteo_rec"
+    },
+    "osteo_low": {
+      "kind": "decision",
+      "label": "Low-grade osteosarcoma?",
+      "expression": {
+        "all": [
+          {
+            "all": [
+              {
+                "fact": "osteo_low_grade",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "osteo_periosteal",
+                "op": "eq",
+                "value": false
+              }
+            ]
+          },
+          {
+            "fact": "osteo_periosteal",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "osteo_low_action",
+        "FALSE": "osteo_high"
+      },
+      "source_pathways": [
+        "OSTEO-1"
+      ],
+      "decision_id": "osteo_low"
+    },
+    "osteo_low_action": {
+      "kind": "action",
+      "label": "Low-grade intramedullary/surface osteosarcoma: wide excision; chemotherapy only if high-grade transformation/source indication.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "osteo_low_action",
+      "source_pathways": [
+        "OSTEO-1"
+      ],
+      "recommendation": {
+        "title": "Low-grade intramedullary/surface osteosarcoma: wide excision; chemotherapy only if high-grade transformation/source indication.",
+        "options": [
+          {
+            "option_id": "osteo_low_wide",
+            "label": "Wide excision",
+            "text": "Wide excision",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "OSTEO-1",
+              "page_label": "OSTEO-1",
+              "physical_pages": [
+                20
+              ],
+              "source_anchor": "OSTEO-1:pages:20"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "OSTEO_LOW_GRADE"
+    },
+    "osteo_high": {
+      "kind": "action",
+      "label": "High-grade/periosteal osteosarcoma: perioperative chemotherapy category 1 (preoperative preferred) + wide excision; response/margins determine local/adjuvant adjustments.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "osteo_high",
+      "source_pathways": [
+        "OSTEO-1",
+        "OSTEO-2"
+      ],
+      "recommendation": {
+        "title": "High-grade/periosteal osteosarcoma: perioperative chemotherapy category 1 (preoperative preferred) + wide excision; response/margins determine local/adjuvant adjustments.",
+        "options": [
+          {
+            "option_id": "osteo_high_chemo",
+            "label": "Perioperative osteosarcoma chemotherapy",
+            "text": "Category 1; preoperative preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_high_surgery",
+            "label": "Wide excision",
+            "text": "Wide excision",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "OSTEO_HIGH_GRADE"
+    },
+    "osteo_met_resect": {
+      "kind": "decision",
+      "label": "Metastatic sites resectable?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "osteo_met_resect_action",
+        "FALSE": "osteo_met_unres"
+      },
+      "source_pathways": [
+        "OSTEO-3"
+      ],
+      "decision_id": "osteo_met_resect"
+    },
+    "osteo_met_resect_action": {
+      "kind": "action",
+      "label": "Metastatic osteosarcoma with resectable metastases: systemic chemotherapy + management of primary + metastasectomy/SBRT/ablation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "osteo_met_resect_action",
+      "source_pathways": [
+        "OSTEO-3"
+      ],
+      "recommendation": {
+        "title": "Metastatic osteosarcoma with resectable metastases: systemic chemotherapy + management of primary + metastasectomy/SBRT/ablation.",
+        "options": [
+          {
+            "option_id": "osteo_met_chemo",
+            "label": "Osteosarcoma chemotherapy",
+            "text": "Osteosarcoma chemotherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_met_metx",
+            "label": "Metastasectomy",
+            "text": "Metastasectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_met_sbrt",
+            "label": "Stereotactic RT/ablation if surgery not possible",
+            "text": "Stereotactic RT/ablation if surgery not possible",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "OSTEO_MET_RESECTABLE"
+    },
+    "osteo_met_unres": {
+      "kind": "action",
+      "label": "Unresectable metastatic osteosarcoma: chemotherapy + RT/local control reassessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "osteo_met_unres",
+      "source_pathways": [
+        "OSTEO-3"
+      ],
+      "recommendation": {
+        "title": "Unresectable metastatic osteosarcoma: chemotherapy + RT/local control reassessment.",
+        "options": [
+          {
+            "option_id": "osteo_met_unres_chemo",
+            "label": "Systemic chemotherapy",
+            "text": "Systemic chemotherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_met_unres_rt",
+            "label": "RT",
+            "text": "RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_met_reassess",
+            "label": "Reassess for local control",
+            "text": "Reassess for local control",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "OSTEO_MET_UNRESECTABLE"
+    },
+    "osteo_relapse": {
+      "kind": "action",
+      "label": "Osteosarcoma relapse: chemotherapy and/or excision; if progression after salvage, clinical trial/RT/embolization/ablation/supportive care.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "osteo_relapse",
+      "source_pathways": [
+        "OSTEO-4"
+      ],
+      "recommendation": {
+        "title": "Osteosarcoma relapse: chemotherapy and/or excision; if progression after salvage, clinical trial/RT/embolization/ablation/supportive care.",
+        "options": [
+          {
+            "option_id": "osteo_rr_chemo",
+            "label": "Relapse chemotherapy",
+            "text": "Relapse chemotherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_rr_excise",
+            "label": "Excision if possible",
+            "text": "Excision if possible",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "resectable",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_rr_trial",
+            "label": "Clinical trial",
+            "text": "Clinical trial",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          },
+          {
+            "option_id": "osteo_rr_rt",
+            "label": "RT/ablation/embolization",
+            "text": "RT/ablation/embolization",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "BONE-B",
+              "page_label": "BONE-B",
+              "physical_pages": [
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32
+              ],
+              "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-B",
+          "BONE-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "OSTEO_RELAPSE"
+    },
+    "unsupported": {
+      "kind": "status",
+      "label": "Bone tumor subtype not classified into chondrosarcoma/chordoma/Ewing/GCTB/osteosarcoma.",
+      "status": "NEEDS_DIFFERENT_PATHWAY",
+      "source_pathways": [
+        "BONE-1"
+      ]
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside bone cancer package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "BONE-1"
+      ]
+    },
+    "chon_post_state": {
+      "kind": "decision",
+      "label": "Post-primary-treatment chondrosarcoma state?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_PRIMARY"
+      },
+      "on": {
+        "TRUE": "chon_post_subtype",
+        "FALSE": "chon_subtype"
+      },
+      "source_pathways": [
+        "CHON-2",
+        "CHON-3"
+      ],
+      "decision_id": "chon_post_primary_state"
+    },
+    "chon_post_subtype": {
+      "kind": "decision",
+      "label": "Post-primary conventional/clear-cell/high-grade chondrosarcoma requiring margin-directed follow-up?",
+      "expression": {
+        "fact": "chondrosarcoma_subtype",
+        "op": "in",
+        "value": [
+          "CONVENTIONAL",
+          "CLEAR_CELL"
+        ]
+      },
+      "on": {
+        "TRUE": "chon_surg_margin",
+        "FALSE": "chon_subtype"
+      },
+      "source_pathways": [
+        "CHON-2",
+        "CHON-3"
+      ],
+      "decision_id": "chon_post_subtype"
+    },
+    "chon_primary_surgery": {
+      "kind": "action",
+      "label": "Resectable conventional/clear-cell/high-grade chondrosarcoma: wide excision with histologically negative margins.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chon_primary_surgery",
+      "source_pathways": [
+        "CHON-3"
+      ],
+      "pathway_id": "CHONDROSARCOMA_PRIMARY_SURGERY",
+      "recommendation": {
+        "title": "Primary surgery for resectable chondrosarcoma",
+        "options": [
+          {
+            "option_id": "chon_wide_excision",
+            "label": "Wide excision",
+            "text": "Wide excision to achieve histologically negative margins.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHON-3",
+              "page_label": "CHON-3",
+              "physical_pages": [
+                9
+              ],
+              "source_anchor": "CHON-3:pages:9"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-A"
+        ],
+        "next_steps": [
+          "POST_PRIMARY_MARGIN_ASSESSMENT"
+        ]
+      }
+    },
+    "chor_post_state": {
+      "kind": "decision",
+      "label": "Post-primary-treatment chordoma state?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_PRIMARY"
+      },
+      "on": {
+        "TRUE": "chor_post_risk",
+        "FALSE": "chor_site_skull"
+      },
+      "source_pathways": [
+        "CHOR-2",
+        "CHOR-3"
+      ],
+      "decision_id": "chor_post_primary_state"
+    },
+    "chor_post_risk": {
+      "kind": "decision",
+      "label": "Positive margin or large extracompartmental chordoma after resection?",
+      "expression": {
+        "any": [
+          {
+            "fact": "margin_status",
+            "op": "eq",
+            "value": "POSITIVE"
+          },
+          {
+            "fact": "chordoma_large_extracompartmental",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chor_adjrt",
+        "FALSE": "chor_surv"
+      },
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "decision_id": "chor_post_margin_or_large"
+    },
+    "chor_site_skull": {
+      "kind": "decision",
+      "label": "Skull-base/clival conventional chordoma?",
+      "expression": {
+        "fact": "chordoma_site",
+        "op": "eq",
+        "value": "SKULL_BASE_CLIVAL"
+      },
+      "on": {
+        "TRUE": "chor_skull_resect",
+        "FALSE": "chor_site_axial"
+      },
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "decision_id": "chor_site_skull"
+    },
+    "chor_site_axial": {
+      "kind": "decision",
+      "label": "Sacrococcygeal or mobile-spine conventional chordoma?",
+      "expression": {
+        "fact": "chordoma_site",
+        "op": "in",
+        "value": [
+          "SACROCOCCYGEAL",
+          "MOBILE_SPINE"
+        ]
+      },
+      "on": {
+        "TRUE": "chor_axial_resect",
+        "FALSE": "chor_site_missing"
+      },
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "decision_id": "chor_site_sacral_mobile"
+    },
+    "chor_site_missing": {
+      "kind": "status",
+      "label": "Chordoma primary site is required for site-specific local treatment planning.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "CHOR-2"
+      ]
+    },
+    "chor_skull_resect": {
+      "kind": "decision",
+      "label": "Skull-base/clival chordoma resectable?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "chor_skull_primary",
+        "FALSE": "chor_defrt"
+      },
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "decision_id": "chor_skull_resectable"
+    },
+    "chor_axial_resect": {
+      "kind": "decision",
+      "label": "Sacrococcygeal/mobile-spine chordoma resectable?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "chor_axial_primary",
+        "FALSE": "chor_defrt"
+      },
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "decision_id": "chor_axial_resectable"
+    },
+    "chor_skull_primary": {
+      "kind": "action",
+      "label": "Resectable skull-base/clival chordoma: maximal safe/intralesional excision \u00b1 adjuvant RT; postoperative contrast-enhanced MRI assesses adequacy of excision.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_skull_primary",
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "pathway_id": "CHORDOMA_SKULL_BASE_PRIMARY",
+      "recommendation": {
+        "title": "Skull-base/clival chordoma primary treatment",
+        "options": [
+          {
+            "option_id": "chor_skull_intralesional",
+            "label": "Maximal safe/intralesional excision \u00b1 RT",
+            "text": "Primary local treatment for resectable skull-base/clival chordoma.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHOR-2",
+              "page_label": "CHOR-2",
+              "physical_pages": [
+                12
+              ],
+              "source_anchor": "CHOR-2:pages:12"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": [
+          "POST_PRIMARY_MRI_MARGIN_ASSESSMENT"
+        ]
+      }
+    },
+    "chor_axial_primary": {
+      "kind": "action",
+      "label": "Resectable sacrococcygeal/mobile-spine chordoma: wide excision \u00b1 adjuvant RT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "chor_axial_primary",
+      "source_pathways": [
+        "CHOR-2"
+      ],
+      "pathway_id": "CHORDOMA_SACRAL_SPINE_PRIMARY",
+      "recommendation": {
+        "title": "Sacrococcygeal/mobile-spine chordoma primary treatment",
+        "options": [
+          {
+            "option_id": "chor_axial_wide_excision",
+            "label": "Wide excision \u00b1 adjuvant RT",
+            "text": "Primary local treatment for resectable sacrococcygeal/mobile-spine chordoma.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Bone Cancer",
+              "version": "1.2027",
+              "section": "CHOR-2",
+              "page_label": "CHOR-2",
+              "physical_pages": [
+                12
+              ],
+              "source_anchor": "CHOR-2:pages:12"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BONE-C"
+        ],
+        "next_steps": [
+          "POST_PRIMARY_MARGIN_ASSESSMENT"
+        ]
+      }
+    },
+    "chon_clear_cell": {
+      "kind": "decision",
+      "label": "Clear-cell chondrosarcoma?",
+      "expression": {
+        "fact": "chondrosarcoma_subtype",
+        "op": "eq",
+        "value": "CLEAR_CELL"
+      },
+      "on": {
+        "TRUE": "chon_conv_resect",
+        "FALSE": "chon_conv_high_grade"
+      },
+      "source_pathways": [
+        "CHON-1",
+        "CHON-3"
+      ],
+      "decision_id": "chon_clear_cell"
+    },
+    "chon_conv_high_grade": {
+      "kind": "decision",
+      "label": "Conventional chondrosarcoma high grade (grade II/III)?",
+      "expression": {
+        "fact": "grade_group",
+        "op": "eq",
+        "value": "HIGH"
+      },
+      "on": {
+        "TRUE": "chon_conv_resect",
+        "FALSE": "chon_conv_appendicular"
+      },
+      "source_pathways": [
+        "CHON-1",
+        "CHON-3"
+      ],
+      "decision_id": "chon_conventional_grade"
+    },
+    "chon_conv_appendicular": {
+      "kind": "decision",
+      "label": "Low-grade conventional tumor in an appendicular site?",
+      "expression": {
+        "all": [
+          {
+            "fact": "grade_group",
+            "op": "eq",
+            "value": "LOW"
+          },
+          {
+            "fact": "location",
+            "op": "eq",
+            "value": "APPENDICULAR"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "chon_conv_compartment",
+        "FALSE": "chon_conv_resect"
+      },
+      "source_pathways": [
+        "CHON-1",
+        "CHON-2",
+        "CHON-3"
+      ],
+      "decision_id": "chon_conventional_grade_location"
+    },
+    "chon_conv_compartment": {
+      "kind": "decision",
+      "label": "Low-grade appendicular conventional tumor intracompartmental?",
+      "expression": {
+        "fact": "tumor_compartment",
+        "op": "eq",
+        "value": "INTRACOMPARTMENTAL"
+      },
+      "on": {
+        "TRUE": "chon_act",
+        "FALSE": "chon_conv_resect"
+      },
+      "source_pathways": [
+        "CHON-1",
+        "CHON-2",
+        "CHON-3"
+      ],
+      "decision_id": "chon_conventional_compartment"
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "TEAM-1": {
+        "code": "TEAM-1",
+        "pages": [
+          5
+        ],
+        "page_count": 1,
+        "source_text_sha256": "e157e315e9f160de3f0d0973a516de3c3d2376c605333d97f307eb855ff83135",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "BONE-1": {
+        "code": "BONE-1",
+        "pages": [
+          6
+        ],
+        "page_count": 1,
+        "source_text_sha256": "cc9260781d8140d960ab9e94276942f1a8cc28fed1329f4dd9af87c786a69eb3",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CHON-1": {
+        "code": "CHON-1",
+        "pages": [
+          7
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a78f55abff1265fa9f04c48bc0db402a75446367f79d89022f29b010c64d95cb",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CHON-2": {
+        "code": "CHON-2",
+        "pages": [
+          8
+        ],
+        "page_count": 1,
+        "source_text_sha256": "1205cb4ff6161794234b9a4b6d8785323d9060cb3be52b18a4ba5bf03ada5ea3",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CHON-3": {
+        "code": "CHON-3",
+        "pages": [
+          9
+        ],
+        "page_count": 1,
+        "source_text_sha256": "be1e7c244c199c71f4f7e05ec731c261d8ef3392053e3f37fa2a8de0f2c8a2a7",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CHON-4": {
+        "code": "CHON-4",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "3830218208f4edf985c9d5d41f47bea0cc5a2699c3b2a6a35e4543986cbd409c",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CHOR-1": {
+        "code": "CHOR-1",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "808279af72ea3ad89c0954d512583e60034baec34c53a91259e69be6a0653fd7",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CHOR-2": {
+        "code": "CHOR-2",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "e6af8fefbe322182e507504b93bd87a897d562484cb965f7e3a4373f1e824f18",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CHOR-3": {
+        "code": "CHOR-3",
+        "pages": [
+          13
+        ],
+        "page_count": 1,
+        "source_text_sha256": "84f149c8d5962f9f6b64696adb39ba2a2c6e6e5ba39e13d7111e0a1098c08c17",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "EW-1": {
+        "code": "EW-1",
+        "pages": [
+          14
+        ],
+        "page_count": 1,
+        "source_text_sha256": "501bc3722e6961251eb8ef677f9227159f3b8ab79de9dee5bf8d30131230ed26",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "EW-2": {
+        "code": "EW-2",
+        "pages": [
+          15
+        ],
+        "page_count": 1,
+        "source_text_sha256": "cb22e06435646e06a9d257a2bb66cad2f951eacb13a360e4057e97898ffb9ecf",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "EW-3": {
+        "code": "EW-3",
+        "pages": [
+          16
+        ],
+        "page_count": 1,
+        "source_text_sha256": "4c946f470bef97773867212d55e1130682712bba72ee315a935524a5ae9614c4",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GCTB-1": {
+        "code": "GCTB-1",
+        "pages": [
+          17
+        ],
+        "page_count": 1,
+        "source_text_sha256": "38efe62bc6e58611272732052cf34dcec39bd99a8955f8f051ea9c3c9c3f79a3",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GCTB-2": {
+        "code": "GCTB-2",
+        "pages": [
+          18
+        ],
+        "page_count": 1,
+        "source_text_sha256": "097ea164d68d78836327629370362823ea79789a0cbaaf42f37557c11796908d",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "GCTB-3": {
+        "code": "GCTB-3",
+        "pages": [
+          3,
+          19
+        ],
+        "page_count": 2,
+        "source_text_sha256": "6249492f4f6a5e02f3d342066beadfd99b7d41cf2d34ccea7080c741f7c071af",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "OSTEO-1": {
+        "code": "OSTEO-1",
+        "pages": [
+          20
+        ],
+        "page_count": 1,
+        "source_text_sha256": "59e96f2e1d88eaa059834ae88cc55e2266b317ec30840bab26ca9f35dca3aa75",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "OSTEO-2": {
+        "code": "OSTEO-2",
+        "pages": [
+          21
+        ],
+        "page_count": 1,
+        "source_text_sha256": "3c68e9a88f8cac4028c4a9f49113d0df6e6627372f38b86be6b80e573e6a72ad",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "OSTEO-3": {
+        "code": "OSTEO-3",
+        "pages": [
+          22
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ae658f731f1dc52f9c8bb9cd8e3e1538706f109eae3f20dba5b6adf2bab9b9f5",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "OSTEO-4": {
+        "code": "OSTEO-4",
+        "pages": [
+          23
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ca260ed9ba405cc51f6665868815c3869b327e22bfc8212bf31b8e870ba3329d",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "BONE-A": {
+        "code": "BONE-A",
+        "pages": [
+          24
+        ],
+        "page_count": 1,
+        "source_text_sha256": "28899f664da2e77814c2d5d41a6f77c25604031e012efb681540e16237b45bea",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BONE-B": {
+        "code": "BONE-B",
+        "pages": [
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        "page_count": 8,
+        "source_text_sha256": "22215362cbe45703e2c05df04281669fa921883c3eb05c2489e0bf34a427e8ba",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BONE-C": {
+        "code": "BONE-C",
+        "pages": [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38
+        ],
+        "page_count": 6,
+        "source_text_sha256": "cbfde07226da9d5ddc11e8a72c37e35ec2c6fa9a66d9e7adeb7d9fb1daaf1747",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BONE-D": {
+        "code": "BONE-D",
+        "pages": [
+          39,
+          40
+        ],
+        "page_count": 2,
+        "source_text_sha256": "6001ca7f47f684842f994ef2dbfde71a629a4f35b8ec1b1c7324798820a9f0aa",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ST-1": {
+        "code": "ST-1",
+        "pages": [
+          41
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d32ffd16cc8c678b8c10df4058fc6cc1649e7c7182455b5f42304001f3009998",
+        "kind": "STAGING",
+        "found": true
+      }
+    },
+    "primary_expected": 19,
+    "supporting_expected": 5
+  },
+  "source": {
+    "filename": "bone(6).pdf",
+    "sha256": "de19ff207fcc49dd790528b23366ec24513774e6ab777b7974d23b7011ce6495",
+    "pdf_pages": 129
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true
+  },
+  "derived_rules": [],
+  "consistency_rules": [
+    {
+      "id": "chon_act_high_grade_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "chondrosarcoma_subtype",
+            "op": "eq",
+            "value": "ATYPICAL_CARTILAGINOUS"
+          },
+          {
+            "fact": "grade_group",
+            "op": "eq",
+            "value": "HIGH"
+          }
+        ]
+      },
+      "message": "Atypical cartilaginous tumor classification conflicts with high-grade chondrosarcoma evidence.",
+      "source_pathways": [
+        "CHON-1"
+      ]
+    },
+    {
+      "id": "chon_act_nonappendicular_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "chondrosarcoma_subtype",
+            "op": "eq",
+            "value": "ATYPICAL_CARTILAGINOUS"
+          },
+          {
+            "fact": "location",
+            "op": "neq",
+            "value": "APPENDICULAR"
+          }
+        ]
+      },
+      "message": "Atypical cartilaginous tumor classification conflicts with a non-appendicular site.",
+      "source_pathways": [
+        "CHON-1"
+      ]
+    },
+    {
+      "id": "chon_act_extracompartmental_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "chondrosarcoma_subtype",
+            "op": "eq",
+            "value": "ATYPICAL_CARTILAGINOUS"
+          },
+          {
+            "fact": "tumor_compartment",
+            "op": "eq",
+            "value": "EXTRACOMPARTMENTAL"
+          }
+        ]
+      },
+      "message": "Atypical cartilaginous tumor classification conflicts with extracompartmental disease.",
+      "source_pathways": [
+        "CHON-1"
+      ]
+    }
+  ],
+  "executable_decisions": [
+    {
+      "decision_id": "scope",
+      "source_section": "BONE-1",
+      "source_page_label": "BONE-1",
+      "source_anchor": "BONE-1:pages:6",
+      "clinical_question": "Bone cancer package?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "workup",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "workup",
+      "source_section": "TEAM-1",
+      "source_page_label": "TEAM-1",
+      "source_anchor": "TEAM-1:pages:5",
+      "clinical_question": "Workup/unclassified bone lesion?",
+      "input_fact_ids": [
+        "treatment_phase",
+        "tumor_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bone_biopsy",
+        "bone_mdt"
+      ],
+      "internal_transfer_targets": [
+        "workup_action",
+        "sub_chon"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "workup",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_chon",
+      "source_section": "CHON-1",
+      "source_page_label": "CHON-1",
+      "source_anchor": "CHON-1:pages:7",
+      "clinical_question": "Chondrosarcoma?",
+      "input_fact_ids": [
+        "tumor_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_care",
+        "sub_chor"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_chon",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_care",
+      "source_section": "CHON-4",
+      "source_page_label": "CHON-4",
+      "source_anchor": "CHON-4:pages:10",
+      "clinical_question": "Metastatic/systemic recurrence?",
+      "input_fact_ids": [
+        "metastatic",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_met_oligo",
+        "chon_recur"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_recur",
+      "source_section": "CHON-2",
+      "source_page_label": "CHON-2",
+      "source_anchor": "CHON-2:pages:8",
+      "clinical_question": "Current recurrence?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_rec_local",
+        "chon_post_state"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_recur",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_subtype",
+      "source_section": "CHON-1",
+      "source_page_label": "CHON-1",
+      "source_anchor": "CHON-1:pages:7",
+      "clinical_question": "Atypical cartilaginous tumor?",
+      "input_fact_ids": [
+        "chondrosarcoma_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_act_exc",
+        "chon_act_obs"
+      ],
+      "internal_transfer_targets": [
+        "chon_act",
+        "chon_mes"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_subtype",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_mes",
+      "source_section": "CHON-3",
+      "source_page_label": "CHON-3",
+      "source_anchor": "CHON-3:pages:9",
+      "clinical_question": "Mesenchymal chondrosarcoma?",
+      "input_fact_ids": [
+        "chondrosarcoma_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_mes_aim",
+        "chon_mes_ewing"
+      ],
+      "internal_transfer_targets": [
+        "chon_mes_action",
+        "chon_dediff"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_mes",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_dediff",
+      "source_section": "CHON-3",
+      "source_page_label": "CHON-3",
+      "source_anchor": "CHON-3:pages:9",
+      "clinical_question": "Dedifferentiated chondrosarcoma?",
+      "input_fact_ids": [
+        "chondrosarcoma_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_dediff_idh",
+        "chon_dediff_osteo",
+        "chon_dediff_surg"
+      ],
+      "internal_transfer_targets": [
+        "chon_dediff_action",
+        "chon_clear_cell"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_dediff",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_conv_resect",
+      "source_section": "CHON-3",
+      "source_page_label": "CHON-3",
+      "source_anchor": "CHON-3:pages:9",
+      "clinical_question": "Conventional/clear-cell/high-grade chondrosarcoma resectable?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_def_rt",
+        "chon_idh",
+        "chon_wide_excision"
+      ],
+      "internal_transfer_targets": [
+        "chon_primary_surgery",
+        "chon_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_conv_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_surg_margin",
+      "source_section": "CHON-3",
+      "source_page_label": "CHON-3",
+      "source_anchor": "CHON-3:pages:9",
+      "clinical_question": "Margin negative?",
+      "input_fact_ids": [
+        "margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_reexcision",
+        "chon_rt_pm",
+        "chon_surveillance"
+      ],
+      "internal_transfer_targets": [
+        "chon_surv",
+        "chon_posmargin"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_surg_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_rec_local",
+      "source_section": "CHON-2",
+      "source_page_label": "CHON-2",
+      "source_anchor": "CHON-2:pages:8",
+      "clinical_question": "Local recurrence (nonmetastatic)?",
+      "input_fact_ids": [
+        "metastatic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_rec_resect",
+        "chon_met_oligo"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_rec_local",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_rec_resect",
+      "source_section": "CHON-3",
+      "source_page_label": "CHON-3",
+      "source_anchor": "CHON-3:pages:9",
+      "clinical_question": "Local recurrence resectable?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_rec_rt2",
+        "chon_rec_wide"
+      ],
+      "internal_transfer_targets": [
+        "chon_rec_surg",
+        "chon_rec_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_rec_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_met_oligo",
+      "source_section": "CHON-4",
+      "source_page_label": "CHON-4",
+      "source_anchor": "CHON-4:pages:10",
+      "clinical_question": "Oligometastatic chondrosarcoma?",
+      "input_fact_ids": [
+        "oligometastatic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_met_excise",
+        "chon_met_idh",
+        "chon_met_localpall",
+        "chon_met_msi",
+        "chon_met_rt",
+        "chon_met_tmb",
+        "chon_met_trial",
+        "chon_met_trial2"
+      ],
+      "internal_transfer_targets": [
+        "chon_met_oligo_action",
+        "chon_met_wide"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_met_oligo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_chor",
+      "source_section": "CHOR-1",
+      "source_page_label": "CHOR-1",
+      "source_anchor": "CHOR-1:pages:11",
+      "clinical_question": "Chordoma?",
+      "input_fact_ids": [
+        "tumor_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chor_care",
+        "sub_ew"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_chor",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_care",
+      "source_section": "CHOR-3",
+      "source_page_label": "CHOR-3",
+      "source_anchor": "CHOR-3:pages:13",
+      "clinical_question": "Recurrent/metastatic chordoma?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chor_rec_met",
+        "chor_hist"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_hist",
+      "source_section": "CHOR-1",
+      "source_page_label": "CHOR-1",
+      "source_anchor": "CHOR-1:pages:11",
+      "clinical_question": "Poorly differentiated/dedifferentiated chordoma?",
+      "input_fact_ids": [
+        "chordoma_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chor_pd_local",
+        "chor_pd_sys"
+      ],
+      "internal_transfer_targets": [
+        "chor_pd",
+        "chor_post_state"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_hist",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_rec_met",
+      "source_section": "CHOR-3",
+      "source_page_label": "CHOR-3",
+      "source_anchor": "CHOR-3:pages:13",
+      "clinical_question": "Metastatic chordoma recurrence?",
+      "input_fact_ids": [
+        "metastatic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chor_lr_ablate",
+        "chor_lr_rt",
+        "chor_lr_surg",
+        "chor_lr_sys",
+        "chor_met_local",
+        "chor_met_sys",
+        "chor_met_trial"
+      ],
+      "internal_transfer_targets": [
+        "chor_met",
+        "chor_localrec"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_rec_met",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_ew",
+      "source_section": "EW-1",
+      "source_page_label": "EW-1",
+      "source_anchor": "EW-1:pages:14",
+      "clinical_question": "Ewing sarcoma?",
+      "input_fact_ids": [
+        "tumor_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "ew_care",
+        "sub_gctb"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_ew",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ew_care",
+      "source_section": "EW-1",
+      "source_page_label": "EW-1",
+      "source_anchor": "EW-1:pages:14",
+      "clinical_question": "Metastatic at presentation/now?",
+      "input_fact_ids": [
+        "metastatic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "ew_met_local",
+        "ew_met_primary_control",
+        "ew_met_vaia",
+        "ew_met_vdc"
+      ],
+      "internal_transfer_targets": [
+        "ew_met",
+        "ew_post"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ew_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ew_post",
+      "source_section": "EW-2",
+      "source_page_label": "EW-2",
+      "source_anchor": "EW-2:pages:15",
+      "clinical_question": "Post-primary/restage or recurrence?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "ew_other_first",
+        "ew_vdc_ie"
+      ],
+      "internal_transfer_targets": [
+        "ew_resp",
+        "ew_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ew_post",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ew_resp",
+      "source_section": "EW-2",
+      "source_page_label": "EW-2",
+      "source_anchor": "EW-2:pages:15",
+      "clinical_question": "Progressive disease at restage/relapse?",
+      "input_fact_ids": [
+        "progressive",
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "ew_rr_local",
+        "ew_rr_sys"
+      ],
+      "internal_transfer_targets": [
+        "ew_relapse",
+        "ew_localcontrol"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ew_resp",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ew_localcontrol",
+      "source_section": "EW-2",
+      "source_page_label": "EW-2",
+      "source_anchor": "EW-2:pages:15",
+      "clinical_question": "Local control resectable?",
+      "input_fact_ids": [
+        "local_control_resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "ew_adjuvant_rt",
+        "ew_continue_chemo",
+        "ew_continue_chemo2",
+        "ew_def_rt",
+        "ew_local_surgery"
+      ],
+      "internal_transfer_targets": [
+        "ew_surg",
+        "ew_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ew_localcontrol",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_gctb",
+      "source_section": "GCTB-1",
+      "source_page_label": "GCTB-1",
+      "source_anchor": "GCTB-1:pages:17",
+      "clinical_question": "Giant cell tumor of bone?",
+      "input_fact_ids": [
+        "tumor_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "gctb_care",
+        "sub_osteo"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_gctb",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gctb_care",
+      "source_section": "GCTB-3",
+      "source_page_label": "GCTB-3",
+      "source_anchor": "GCTB-3:pages:3,19",
+      "clinical_question": "Recurrent/metastatic GCTB?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gctb_rec_denosumab",
+        "gctb_rec_denosumab_reuse",
+        "gctb_rec_embol",
+        "gctb_rec_rt",
+        "gctb_rec_surg"
+      ],
+      "internal_transfer_targets": [
+        "gctb_rec",
+        "gctb_resect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gctb_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "gctb_resect",
+      "source_section": "GCTB-2",
+      "source_page_label": "GCTB-2",
+      "source_anchor": "GCTB-2:pages:18",
+      "clinical_question": "Resectable with acceptable morbidity?",
+      "input_fact_ids": [
+        "gctb_axial_unresectable",
+        "gctb_surgical_morbidity_acceptable",
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gctb_ablation",
+        "gctb_denosumab",
+        "gctb_embolization",
+        "gctb_rt",
+        "gctb_surgery"
+      ],
+      "internal_transfer_targets": [
+        "gctb_surg",
+        "gctb_nonresect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "gctb_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "sub_osteo",
+      "source_section": "OSTEO-1",
+      "source_page_label": "OSTEO-1",
+      "source_anchor": "OSTEO-1:pages:20",
+      "clinical_question": "Osteosarcoma?",
+      "input_fact_ids": [
+        "tumor_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "osteo_ext",
+        "unsupported"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "sub_osteo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "osteo_ext",
+      "source_section": "OSTEO-1",
+      "source_page_label": "OSTEO-1",
+      "source_anchor": "OSTEO-1:pages:20",
+      "clinical_question": "Extraskeletal osteosarcoma?",
+      "input_fact_ids": [
+        "osteo_extraskeletal"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "osteo_sts",
+        "osteo_met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "osteo_ext",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "osteo_met",
+      "source_section": "OSTEO-3",
+      "source_page_label": "OSTEO-3",
+      "source_anchor": "OSTEO-3:pages:22",
+      "clinical_question": "Metastatic osteosarcoma?",
+      "input_fact_ids": [
+        "metastatic"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "osteo_met_resect",
+        "osteo_rec"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "osteo_met",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "osteo_rec",
+      "source_section": "OSTEO-4",
+      "source_page_label": "OSTEO-4",
+      "source_anchor": "OSTEO-4:pages:23",
+      "clinical_question": "Relapsed/progressive osteosarcoma?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "osteo_rr_chemo",
+        "osteo_rr_excise",
+        "osteo_rr_rt",
+        "osteo_rr_trial"
+      ],
+      "internal_transfer_targets": [
+        "osteo_relapse",
+        "osteo_low"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "osteo_rec",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "osteo_low",
+      "source_section": "OSTEO-1",
+      "source_page_label": "OSTEO-1",
+      "source_anchor": "OSTEO-1:pages:20",
+      "clinical_question": "Low-grade osteosarcoma?",
+      "input_fact_ids": [
+        "osteo_low_grade",
+        "osteo_periosteal"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "osteo_high_chemo",
+        "osteo_high_surgery",
+        "osteo_low_wide"
+      ],
+      "internal_transfer_targets": [
+        "osteo_low_action",
+        "osteo_high"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "osteo_low",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "osteo_met_resect",
+      "source_section": "OSTEO-3",
+      "source_page_label": "OSTEO-3",
+      "source_anchor": "OSTEO-3:pages:22",
+      "clinical_question": "Metastatic sites resectable?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "osteo_met_chemo",
+        "osteo_met_metx",
+        "osteo_met_reassess",
+        "osteo_met_sbrt",
+        "osteo_met_unres_chemo",
+        "osteo_met_unres_rt"
+      ],
+      "internal_transfer_targets": [
+        "osteo_met_resect_action",
+        "osteo_met_unres"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "osteo_met_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_post_primary_state",
+      "source_section": "CHON-2",
+      "source_page_label": "CHON-2",
+      "source_anchor": "CHON-2:pages:8",
+      "clinical_question": "Post-primary-treatment chondrosarcoma state?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_post_subtype",
+        "chon_subtype"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_post_state",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_post_subtype",
+      "source_section": "CHON-2",
+      "source_page_label": "CHON-2",
+      "source_anchor": "CHON-2:pages:8",
+      "clinical_question": "Post-primary conventional/clear-cell/high-grade chondrosarcoma requiring margin-directed follow-up?",
+      "input_fact_ids": [
+        "chondrosarcoma_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_surg_margin",
+        "chon_subtype"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_post_subtype",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_post_primary_state",
+      "source_section": "CHOR-2",
+      "source_page_label": "CHOR-2",
+      "source_anchor": "CHOR-2:pages:12",
+      "clinical_question": "Post-primary-treatment chordoma state?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chor_post_risk",
+        "chor_site_skull"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_post_state",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_post_margin_or_large",
+      "source_section": "CHOR-2",
+      "source_page_label": "CHOR-2",
+      "source_anchor": "CHOR-2:pages:12",
+      "clinical_question": "Positive margin or large extracompartmental chordoma after resection?",
+      "input_fact_ids": [
+        "chordoma_large_extracompartmental",
+        "margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chor_adjuvant_rt",
+        "chor_reexcision",
+        "chor_surveillance",
+        "chordoma_site_specific_planning"
+      ],
+      "internal_transfer_targets": [
+        "chor_adjrt",
+        "chor_surv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_post_risk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_site_skull",
+      "source_section": "CHOR-2",
+      "source_page_label": "CHOR-2",
+      "source_anchor": "CHOR-2:pages:12",
+      "clinical_question": "Skull-base/clival conventional chordoma?",
+      "input_fact_ids": [
+        "chordoma_site"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chor_skull_resect",
+        "chor_site_axial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_site_skull",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_site_sacral_mobile",
+      "source_section": "CHOR-2",
+      "source_page_label": "CHOR-2",
+      "source_anchor": "CHOR-2:pages:12",
+      "clinical_question": "Sacrococcygeal or mobile-spine conventional chordoma?",
+      "input_fact_ids": [
+        "chordoma_site"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chor_axial_resect",
+        "chor_site_missing"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_site_axial",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_skull_resectable",
+      "source_section": "CHOR-2",
+      "source_page_label": "CHOR-2",
+      "source_anchor": "CHOR-2:pages:12",
+      "clinical_question": "Skull-base/clival chordoma resectable?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chor_def_rt",
+        "chor_skull_intralesional",
+        "chor_systemic",
+        "chordoma_site_specific_planning"
+      ],
+      "internal_transfer_targets": [
+        "chor_skull_primary",
+        "chor_defrt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_skull_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chor_axial_resectable",
+      "source_section": "CHOR-2",
+      "source_page_label": "CHOR-2",
+      "source_anchor": "CHOR-2:pages:12",
+      "clinical_question": "Sacrococcygeal/mobile-spine chordoma resectable?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chor_axial_wide_excision",
+        "chor_def_rt",
+        "chor_systemic",
+        "chordoma_site_specific_planning"
+      ],
+      "internal_transfer_targets": [
+        "chor_axial_primary",
+        "chor_defrt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chor_axial_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_clear_cell",
+      "source_section": "CHON-1",
+      "source_page_label": "CHON-1",
+      "source_anchor": "CHON-1:pages:7",
+      "clinical_question": "Clear-cell chondrosarcoma?",
+      "input_fact_ids": [
+        "chondrosarcoma_subtype"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_conv_resect",
+        "chon_conv_high_grade"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_clear_cell",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_conventional_grade",
+      "source_section": "CHON-1",
+      "source_page_label": "CHON-1",
+      "source_anchor": "CHON-1:pages:7",
+      "clinical_question": "Conventional chondrosarcoma high grade (grade II/III)?",
+      "input_fact_ids": [
+        "grade_group"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_conv_resect",
+        "chon_conv_appendicular"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_conv_high_grade",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_conventional_grade_location",
+      "source_section": "CHON-1",
+      "source_page_label": "CHON-1",
+      "source_anchor": "CHON-1:pages:7",
+      "clinical_question": "Low-grade conventional tumor in an appendicular site?",
+      "input_fact_ids": [
+        "grade_group",
+        "location"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chon_conv_compartment",
+        "chon_conv_resect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_conv_appendicular",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chon_conventional_compartment",
+      "source_section": "CHON-1",
+      "source_page_label": "CHON-1",
+      "source_anchor": "CHON-1:pages:7",
+      "clinical_question": "Low-grade appendicular conventional tumor intracompartmental?",
+      "input_fact_ids": [
+        "tumor_compartment"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_act_exc",
+        "chon_act_obs"
+      ],
+      "internal_transfer_targets": [
+        "chon_act",
+        "chon_conv_resect"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chon_conv_compartment",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chon_dediff_action::chon_dediff_surg",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Wide excision applicable to the current patient state?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_dediff_surg"
+      ],
+      "internal_transfer_targets": [
+        "chon_dediff_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chon_dediff_action:chon_dediff_surg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chon_dediff_action::chon_dediff_idh",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Ivosidenib applicable to the current patient state?",
+      "input_fact_ids": [
+        "idh1_mutation"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_dediff_idh"
+      ],
+      "internal_transfer_targets": [
+        "chon_dediff_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chon_dediff_action:chon_dediff_idh",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chon_rt::chon_idh",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Ivosidenib applicable to the current patient state?",
+      "input_fact_ids": [
+        "idh1_mutation"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_idh"
+      ],
+      "internal_transfer_targets": [
+        "chon_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chon_rt:chon_idh",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chon_met_wide::chon_met_idh",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Ivosidenib applicable to the current patient state?",
+      "input_fact_ids": [
+        "idh1_mutation"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_met_idh"
+      ],
+      "internal_transfer_targets": [
+        "chon_met_wide"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chon_met_wide:chon_met_idh",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chon_met_wide::chon_met_msi",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "msi_h_dmmr"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_met_msi"
+      ],
+      "internal_transfer_targets": [
+        "chon_met_wide"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chon_met_wide:chon_met_msi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chon_met_wide::chon_met_tmb",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Pembrolizumab or ipilimumab+nivolumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "tmb_high"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chon_met_tmb"
+      ],
+      "internal_transfer_targets": [
+        "chon_met_wide"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chon_met_wide:chon_met_tmb",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chor_adjrt::chor_reexcision",
+      "source_section": "BONE-C",
+      "source_page_label": "BONE-C",
+      "source_anchor": "BONE-C:pages:33,34,35,36,37,38",
+      "clinical_question": "Is option Consider re-excision applicable to the current patient state?",
+      "input_fact_ids": [
+        "chordoma_site"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chor_reexcision"
+      ],
+      "internal_transfer_targets": [
+        "chor_adjrt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chor_adjrt:chor_reexcision",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::chor_localrec::chor_lr_surg",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Surgical excision applicable to the current patient state?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "chor_lr_surg"
+      ],
+      "internal_transfer_targets": [
+        "chor_localrec"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "chor_localrec:chor_lr_surg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::ew_surg::ew_adjuvant_rt",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Adjuvant RT applicable to the current patient state?",
+      "input_fact_ids": [
+        "margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "ew_adjuvant_rt"
+      ],
+      "internal_transfer_targets": [
+        "ew_surg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "ew_surg:ew_adjuvant_rt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::ew_met::ew_met_primary_control",
+      "source_section": "EW-3",
+      "source_page_label": "EW-3",
+      "source_anchor": "EW-3:pages:16",
+      "clinical_question": "Is option Definitive local control of primary site applicable to the current patient state?",
+      "input_fact_ids": [
+        "primary_site_controlled"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "ew_met_primary_control"
+      ],
+      "internal_transfer_targets": [
+        "ew_met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "ew_met:ew_met_primary_control",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::gctb_rec::gctb_rec_surg",
+      "source_section": "GCTB-3",
+      "source_page_label": "GCTB-3",
+      "source_anchor": "GCTB-3:pages:3,19",
+      "clinical_question": "Is option Surgery applicable to the current patient state?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gctb_rec_surg"
+      ],
+      "internal_transfer_targets": [
+        "gctb_rec"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "gctb_rec:gctb_rec_surg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::gctb_rec::gctb_rec_denosumab_reuse",
+      "source_section": "GCTB-3",
+      "source_page_label": "GCTB-3",
+      "source_anchor": "GCTB-3:pages:3,19",
+      "clinical_question": "Is option Denosumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "denosumab_prior"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "gctb_rec_denosumab_reuse"
+      ],
+      "internal_transfer_targets": [
+        "gctb_rec"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "gctb_rec:gctb_rec_denosumab_reuse",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::osteo_relapse::osteo_rr_excise",
+      "source_section": "BONE-B",
+      "source_page_label": "BONE-B",
+      "source_anchor": "BONE-B:pages:25,26,27,28,29,30,31,32",
+      "clinical_question": "Is option Excision if possible applicable to the current patient state?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "osteo_rr_excise"
+      ],
+      "internal_transfer_targets": [
+        "osteo_relapse"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "osteo_relapse:osteo_rr_excise",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

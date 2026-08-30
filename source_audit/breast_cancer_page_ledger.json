@@ -1,0 +1,1689 @@
+{
+  "slug": "breast_cancer",
+  "filename": "breast(8).pdf",
+  "sha256": "e8de443ba1000368fc9c2057b90ee15b9680e9fa24c8547534ee88f9ba480221",
+  "pdf_pages": 278,
+  "classified_pages": 278,
+  "clinical_section_pages": 123,
+  "page_role_counts": {
+    "OTHER_NONCLINICAL": 2,
+    "ALGORITHM": 38,
+    "UPDATES": 8,
+    "PRINCIPLE": 61,
+    "REFERENCE": 5,
+    "STAGING": 11,
+    "ABBREVIATIONS": 1,
+    "CATEGORY_REFERENCE": 1,
+    "DISCUSSION": 151
+  },
+  "ledger": [
+    {
+      "physical_page": 1,
+      "section_code": null,
+      "role": "OTHER_NONCLINICAL",
+      "text_sha256": "d0e33945696ed5708284ab557171c0fc38b95b2d19a3c7a2c4bd8d93a34b172c"
+    },
+    {
+      "physical_page": 2,
+      "section_code": null,
+      "role": "OTHER_NONCLINICAL",
+      "text_sha256": "d9536c9943df97917a3a223ca2698ae94f104b4bd336ff1ab1641d7a3b8a77c0"
+    },
+    {
+      "physical_page": 3,
+      "section_code": "BINV-28",
+      "role": "ALGORITHM",
+      "text_sha256": "3f6f4bb2e2a4ff4f6099765935f9ce35767fa3e76c91f3c1340bad03c085e355"
+    },
+    {
+      "physical_page": 4,
+      "section_code": "BINV-Q",
+      "role": "UPDATES",
+      "text_sha256": "6e2d3f040008f62713a4b7b046bb41469ec7c453fc9d42879f286c5b215748ad"
+    },
+    {
+      "physical_page": 5,
+      "section_code": null,
+      "role": "UPDATES",
+      "text_sha256": "b741cc069a137f78721f496d702b2b7a5721724ea609467f73863232dc838f89"
+    },
+    {
+      "physical_page": 6,
+      "section_code": "BINV-21",
+      "role": "UPDATES",
+      "text_sha256": "471f35a2b539126b8af0d0ac0db99ce31f38f6c5cf03100234d69f3ff14ec477"
+    },
+    {
+      "physical_page": 7,
+      "section_code": null,
+      "role": "UPDATES",
+      "text_sha256": "e017047cd2a42a423004ebcbe71b2377f304ff9cdd5d263ee7e1739f3943bd2a"
+    },
+    {
+      "physical_page": 8,
+      "section_code": "BINV-I",
+      "role": "UPDATES",
+      "text_sha256": "8b0598980c14ca3fe6a943979e230deb7a7ab62bc8b709fb173d5699fc5a27ce"
+    },
+    {
+      "physical_page": 9,
+      "section_code": "BINV-P",
+      "role": "UPDATES",
+      "text_sha256": "f009d5b2298317860e50fa2307ed4d3869f4737dc71f9d3512bfc6eae14fd523"
+    },
+    {
+      "physical_page": 10,
+      "section_code": "BINV-Q",
+      "role": "UPDATES",
+      "text_sha256": "b5308bb9bd3d4a9ae194a4b18fbc93753b690112a6639715ecdfc3ba6dc48624"
+    },
+    {
+      "physical_page": 11,
+      "section_code": "IBC-2",
+      "role": "UPDATES",
+      "text_sha256": "6d347b93fe683d0d19e95b2db6b4f15f3e218362420df8bbfcdded7edf3559fa"
+    },
+    {
+      "physical_page": 12,
+      "section_code": "DCIS-1",
+      "role": "ALGORITHM",
+      "text_sha256": "457567bd5e60cfffd9de6e439839ffdcc8dfec5d250ed18461385fe465713f3c"
+    },
+    {
+      "physical_page": 13,
+      "section_code": "DCIS-2",
+      "role": "ALGORITHM",
+      "text_sha256": "335467447360f9308c1a81f9c5ee7a2ddea29039eb971a8a0c84eb8e1fccc494"
+    },
+    {
+      "physical_page": 14,
+      "section_code": "BINV-1",
+      "role": "ALGORITHM",
+      "text_sha256": "6d3442d2491b977c98fba22464258410044273d19ff46c951244015cec8ef21c"
+    },
+    {
+      "physical_page": 15,
+      "section_code": "BINV-2",
+      "role": "ALGORITHM",
+      "text_sha256": "5b0c4d728197f71f64edff4f4c88764613e091364c8c870f6eda68391883fd3e"
+    },
+    {
+      "physical_page": 16,
+      "section_code": "BINV-3",
+      "role": "ALGORITHM",
+      "text_sha256": "106943b77ca3e439c564bc45fd35f3451a1895c8cd62b78991f4f7bbcd81c4ef"
+    },
+    {
+      "physical_page": 17,
+      "section_code": "BINV-4",
+      "role": "ALGORITHM",
+      "text_sha256": "0f811c2d692bfd5f26a4c120cae65cd483305880cbf5fd711549494574ac3646"
+    },
+    {
+      "physical_page": 18,
+      "section_code": "BINV-5",
+      "role": "ALGORITHM",
+      "text_sha256": "6f894d2fc63b0102fe28b2de5206494aeb4b9a091045ce52067fdbe7ceb9859e"
+    },
+    {
+      "physical_page": 19,
+      "section_code": "BINV-6",
+      "role": "ALGORITHM",
+      "text_sha256": "c7b8086ed00a4001f588177b2475a74adc609318011c42b2c20440a828a170bd"
+    },
+    {
+      "physical_page": 20,
+      "section_code": "BINV-7",
+      "role": "ALGORITHM",
+      "text_sha256": "89b39e45f73435271617d0774b24658f39fc3f09f267b411da4343dee2d3158e"
+    },
+    {
+      "physical_page": 21,
+      "section_code": "BINV-8",
+      "role": "ALGORITHM",
+      "text_sha256": "36d0ccccdbf00a62ca5dc75462711b8cd9660f984aad363ec482c415b1d78297"
+    },
+    {
+      "physical_page": 22,
+      "section_code": "BINV-9",
+      "role": "ALGORITHM",
+      "text_sha256": "53d9f849f3b2688a7c3cda0a0f2c7b557af4b828f3fe8220076b3a2976104d07"
+    },
+    {
+      "physical_page": 23,
+      "section_code": "BINV-10",
+      "role": "ALGORITHM",
+      "text_sha256": "9b721a4214f7afb7dc1e3f7a885b3d25584dfdd21d707cc22da6241447d63f29"
+    },
+    {
+      "physical_page": 24,
+      "section_code": "BINV-11",
+      "role": "ALGORITHM",
+      "text_sha256": "ee0f56fffa19bcaa6c4011b9b2525b9078d94c511e234895bc48474259529020"
+    },
+    {
+      "physical_page": 25,
+      "section_code": "BINV-12",
+      "role": "ALGORITHM",
+      "text_sha256": "77d02bde0329b4cd58c442e6d7bd6a857374926c829e25f4421db06dcd282402"
+    },
+    {
+      "physical_page": 26,
+      "section_code": "BINV-13",
+      "role": "ALGORITHM",
+      "text_sha256": "a386acc490fb8b717aa958197c42c3eeef1fbf64e1899f7199dcf2c482f15e0e"
+    },
+    {
+      "physical_page": 27,
+      "section_code": "BINV-14",
+      "role": "ALGORITHM",
+      "text_sha256": "9bf76c304d3dfed423ac9e67508d53e023f781de7d900f61ae10407960705348"
+    },
+    {
+      "physical_page": 28,
+      "section_code": "BINV-15",
+      "role": "ALGORITHM",
+      "text_sha256": "3e7f01ad7db35bb5b674d7ae87bab213493bbf5f6f8c7e5a74f6c1d1f5ed2dee"
+    },
+    {
+      "physical_page": 29,
+      "section_code": "BINV-16",
+      "role": "ALGORITHM",
+      "text_sha256": "ba1acb8aab1d986a2bda255389d856b7d4ac6254f886f271b23ba2a957aba5e6"
+    },
+    {
+      "physical_page": 30,
+      "section_code": "BINV-17",
+      "role": "ALGORITHM",
+      "text_sha256": "2b269c341d40a76f6c743fa09527686714c96c608fcc0f42e8071960036a9413"
+    },
+    {
+      "physical_page": 31,
+      "section_code": "BINV-18",
+      "role": "ALGORITHM",
+      "text_sha256": "7983face0fe8ce71c7f468014236067ea03a8e824590cf8569df9868ef1d948e"
+    },
+    {
+      "physical_page": 32,
+      "section_code": "BINV-19",
+      "role": "ALGORITHM",
+      "text_sha256": "43f66afce8b814f49b71e5efba658e43374d1bee8f12157d81cc5e4ccd3eb9e4"
+    },
+    {
+      "physical_page": 33,
+      "section_code": "BINV-20",
+      "role": "ALGORITHM",
+      "text_sha256": "3c3c73715a70ffa87d45957dbe63bc8fd7ec764aa09b60f2881d88a83a32fd09"
+    },
+    {
+      "physical_page": 34,
+      "section_code": "BINV-21",
+      "role": "ALGORITHM",
+      "text_sha256": "3a9629f99344a8eb498b28b8bf8fdab0a8fac732c782585049e31606eb61384d"
+    },
+    {
+      "physical_page": 35,
+      "section_code": "BINV-22",
+      "role": "ALGORITHM",
+      "text_sha256": "641143b49cf1bae18ccb271fa7e48657ce84936a87875949b57b6e9941150adc"
+    },
+    {
+      "physical_page": 36,
+      "section_code": "BINV-23",
+      "role": "ALGORITHM",
+      "text_sha256": "dda649551f2d52819388eb409751ef37e320819c6171fc00843fb5703fa90f07"
+    },
+    {
+      "physical_page": 37,
+      "section_code": "BINV-24",
+      "role": "ALGORITHM",
+      "text_sha256": "3292478a59999826273922242fbdd9f55060400cc1efb74a2bd05dd69c25580a"
+    },
+    {
+      "physical_page": 38,
+      "section_code": "BINV-25",
+      "role": "ALGORITHM",
+      "text_sha256": "8e393c29fefe07f67226e1820a95a705e1b0333e57800fc27099907b11a0fde9"
+    },
+    {
+      "physical_page": 39,
+      "section_code": "BINV-26",
+      "role": "ALGORITHM",
+      "text_sha256": "ad8baeb739dcb846788da5238f4e7767428350b942491d31b99a6df6d4518a83"
+    },
+    {
+      "physical_page": 40,
+      "section_code": "BINV-27",
+      "role": "ALGORITHM",
+      "text_sha256": "6cf0c214708af07e953d65868c121910ee3a7ff2203ec3ecc2eb9380de8a51cd"
+    },
+    {
+      "physical_page": 41,
+      "section_code": "BINV-28",
+      "role": "ALGORITHM",
+      "text_sha256": "7965dfb69bfb69a9c52dfd24819cb7ec764b42327d5185055c6ff018f76fe5e1"
+    },
+    {
+      "physical_page": 42,
+      "section_code": "BINV-A",
+      "role": "PRINCIPLE",
+      "text_sha256": "095bc9793fb745f9173f232b4914fcdf7ab52ad39694df62372df92497aea8f8"
+    },
+    {
+      "physical_page": 43,
+      "section_code": "BINV-A",
+      "role": "PRINCIPLE",
+      "text_sha256": "ae0e8a62ead8f39d74a87356bc41075c18cb8765296e55070ecd33f56f22adf1"
+    },
+    {
+      "physical_page": 44,
+      "section_code": "BINV-A",
+      "role": "PRINCIPLE",
+      "text_sha256": "2a33479e0ae32fa0e5fd389f255ce2790b38061f0d5f51c9041dd65ab194c645"
+    },
+    {
+      "physical_page": 45,
+      "section_code": "BINV-A",
+      "role": "PRINCIPLE",
+      "text_sha256": "00d98a1371f4ee65c8a0a52bff009fb65a514da6442e22d09d9a14754f02200c"
+    },
+    {
+      "physical_page": 46,
+      "section_code": "BINV-B",
+      "role": "PRINCIPLE",
+      "text_sha256": "02832a08a20223798b94ca3890e7e26a73f8ac5a70a5742149d910e2438808b2"
+    },
+    {
+      "physical_page": 47,
+      "section_code": "BINV-C",
+      "role": "PRINCIPLE",
+      "text_sha256": "c290d152ec0ccbc10d8eee302caa6240a9ba1e4204be0227b400c4347834b525"
+    },
+    {
+      "physical_page": 48,
+      "section_code": "BINV-D",
+      "role": "PRINCIPLE",
+      "text_sha256": "8bc12b8c5a3a87b9c6015309f7ff93bc8711d0584f94ad6488c3c81e1b68705e"
+    },
+    {
+      "physical_page": 49,
+      "section_code": "BINV-E",
+      "role": "PRINCIPLE",
+      "text_sha256": "84f0c3ba06d6888e6f322d5897f012cd75c542063468468fc912169925d30bb0"
+    },
+    {
+      "physical_page": 50,
+      "section_code": "BINV-F",
+      "role": "PRINCIPLE",
+      "text_sha256": "4015b0eac7edc4035b341a88e7e5f96ab5323d76c314cad315ce147d556e3f43"
+    },
+    {
+      "physical_page": 51,
+      "section_code": "BINV-F",
+      "role": "PRINCIPLE",
+      "text_sha256": "2d6eb0429592b8b8232921140759826d2f60c428daf67299f460c51a41bd0e0d"
+    },
+    {
+      "physical_page": 52,
+      "section_code": "BINV-G",
+      "role": "PRINCIPLE",
+      "text_sha256": "09a79ecf1db22babc1525516d3f8a7295c58332e50b0b1c4e76893e5ac130eb0"
+    },
+    {
+      "physical_page": 53,
+      "section_code": "BINV-H",
+      "role": "PRINCIPLE",
+      "text_sha256": "36fb1a2a3b4c5c777d39ae0088b3474880ace81b1b7ca473898da28ae3e5cc53"
+    },
+    {
+      "physical_page": 54,
+      "section_code": "BINV-H",
+      "role": "PRINCIPLE",
+      "text_sha256": "8d80900ca458a0ebad803b2336ab1fbc7d2f5f69c30a434b0712a484145bf141"
+    },
+    {
+      "physical_page": 55,
+      "section_code": "BINV-H",
+      "role": "PRINCIPLE",
+      "text_sha256": "04604bb344b1a5b48d0594dea97a53b38da40ed876971569c26b2670752830f3"
+    },
+    {
+      "physical_page": 56,
+      "section_code": "BINV-H",
+      "role": "PRINCIPLE",
+      "text_sha256": "acd149b78bf4c73a926036f42db1ade30d7b6dc8ef7d5bf8c393d2693834bcf0"
+    },
+    {
+      "physical_page": 57,
+      "section_code": "BINV-H",
+      "role": "PRINCIPLE",
+      "text_sha256": "6199a71403151b3b2ad477b6ee34760c2f2a7fc5bbf856b78b692275bcf6c324"
+    },
+    {
+      "physical_page": 58,
+      "section_code": "BINV-H",
+      "role": "PRINCIPLE",
+      "text_sha256": "6bbfa91d2d20fa1fc3705fc7a45846ecc504c973565fea70213378023a659b00"
+    },
+    {
+      "physical_page": 59,
+      "section_code": "BINV-H",
+      "role": "PRINCIPLE",
+      "text_sha256": "e9247908e16b37aae16850b3f76170b079842cdb11ded96db9cb5b02152f419b"
+    },
+    {
+      "physical_page": 60,
+      "section_code": "BINV-I",
+      "role": "PRINCIPLE",
+      "text_sha256": "ec8009ff2b3f85854c549f8a09a0653a40d00fc1533bbbdfb03a2ffcf15a56b0"
+    },
+    {
+      "physical_page": 61,
+      "section_code": "BINV-I",
+      "role": "PRINCIPLE",
+      "text_sha256": "5f39edf3b44f859bb5c4a4256acef94073e6e10750520a09092359428b149a35"
+    },
+    {
+      "physical_page": 62,
+      "section_code": "BINV-I",
+      "role": "PRINCIPLE",
+      "text_sha256": "934cfe77160e87883821446de3ae116a658af4e6418ec03302f18c35061022e2"
+    },
+    {
+      "physical_page": 63,
+      "section_code": "BINV-J",
+      "role": "PRINCIPLE",
+      "text_sha256": "c9f136b5e7b0af79860504f7a8a8c58f56a2d9ed94dbcbff2afa79cb1508944e"
+    },
+    {
+      "physical_page": 64,
+      "section_code": "BINV-J",
+      "role": "REFERENCE",
+      "text_sha256": "d6ad8c80fa0ff8f9bbc7843782a13e32faa7f42c191494d9b4e9494b6fc8a07b"
+    },
+    {
+      "physical_page": 65,
+      "section_code": "BINV-K",
+      "role": "PRINCIPLE",
+      "text_sha256": "63b5d3755ef47fe2455d03b01b87e62de402a927bf39f6d53e25dd54323f502e"
+    },
+    {
+      "physical_page": 66,
+      "section_code": "BINV-K",
+      "role": "PRINCIPLE",
+      "text_sha256": "d45c74e3202e2dba61006b75c051b4def5286d14fac373b5878cba70f69a43d8"
+    },
+    {
+      "physical_page": 67,
+      "section_code": "BINV-K",
+      "role": "PRINCIPLE",
+      "text_sha256": "d989652a9986f7e238007039b28325c4d6ed4c7a34fe40553fe906551caeeba8"
+    },
+    {
+      "physical_page": 68,
+      "section_code": "BINV-K",
+      "role": "PRINCIPLE",
+      "text_sha256": "f99087b28565ff53715a00b9056d7e0d8c7cf337b63e913b649430f2edbdfd4e"
+    },
+    {
+      "physical_page": 69,
+      "section_code": "BINV-L",
+      "role": "PRINCIPLE",
+      "text_sha256": "1bf16d26c6c2db2d1df73b62d31d1410852fdb7970a1bbd0843f6f4e97bf8ea5"
+    },
+    {
+      "physical_page": 70,
+      "section_code": "BINV-L",
+      "role": "PRINCIPLE",
+      "text_sha256": "edb880589843200262b53781319463e3732740551c1eb3d8010c6baf61d73fd5"
+    },
+    {
+      "physical_page": 71,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "af629307a7f73238e1d96e8b8e6e6e8cc2d54df58614d0f15d66fe852e445474"
+    },
+    {
+      "physical_page": 72,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "758dff7a9ecf9bf15776a7711e2609baa0b03f73fbe8693ddebef244b0da9903"
+    },
+    {
+      "physical_page": 73,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "c9d892d80972027434b3252d26434ee49511668d4c3fd53e763cfd8b74f1c5c8"
+    },
+    {
+      "physical_page": 74,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "094f273b5bb29297650913c25aa0d1c7ed46fbf056f1239992442df779937ecc"
+    },
+    {
+      "physical_page": 75,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "d42c5638c00b16042bbe74df4e3590d786f8530dab3b9c23921e0734394ef88c"
+    },
+    {
+      "physical_page": 76,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "44b354a8ffd7d4e837710cb963c0aacc4f16aa49f291b034fc7856767e7117f7"
+    },
+    {
+      "physical_page": 77,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "bef8b03dda51158004549f7d70785e82c5249a6718db5067435be9e6fd89586d"
+    },
+    {
+      "physical_page": 78,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "b654aad0977f1130c5d0b4c6d45b5f2fddbe180a7dcde1932899e566fcc14bbc"
+    },
+    {
+      "physical_page": 79,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "2d4207394e2ba48ca69b3dc1acac39b934eeef8fb46b56dd3e5980f40d2f20ce"
+    },
+    {
+      "physical_page": 80,
+      "section_code": "BINV-M",
+      "role": "PRINCIPLE",
+      "text_sha256": "9ee29b4b778e77938fc7fac439eb3076be0c841f2cf890ae6f4d41b9345283d0"
+    },
+    {
+      "physical_page": 81,
+      "section_code": "BINV-N",
+      "role": "PRINCIPLE",
+      "text_sha256": "02b2e43791c83c96092d742c0b44557a4df387b22f42ff4d487c05898cafeaa1"
+    },
+    {
+      "physical_page": 82,
+      "section_code": "BINV-N",
+      "role": "PRINCIPLE",
+      "text_sha256": "398769d8925739b546bb5f59475375ded8d8f0bf471b13659b7f657d3f47ac7d"
+    },
+    {
+      "physical_page": 83,
+      "section_code": "BINV-N",
+      "role": "PRINCIPLE",
+      "text_sha256": "566d908e942395837425a6cd9d2669ce689afcfe58628b12e2f0f264ce3af2f2"
+    },
+    {
+      "physical_page": 84,
+      "section_code": "BINV-N",
+      "role": "PRINCIPLE",
+      "text_sha256": "027d6dc99e6b9fa5f2abc39b41a3dfb9c8aa78caad57fdd7095a7ada5fa3ccfe"
+    },
+    {
+      "physical_page": 85,
+      "section_code": "BINV-N",
+      "role": "REFERENCE",
+      "text_sha256": "16176f3b38eecc137a68be58f5ff0633983fac25378d22427ffa56b3bc388b0c"
+    },
+    {
+      "physical_page": 86,
+      "section_code": "BINV-O",
+      "role": "PRINCIPLE",
+      "text_sha256": "84a1286ddc5ef360e99b45032d3dad25394650eb41019a998ac90bf6c09cf1b9"
+    },
+    {
+      "physical_page": 87,
+      "section_code": "BINV-P",
+      "role": "PRINCIPLE",
+      "text_sha256": "7d9d1f81aec15e48c57b2614f4f70a2e35a703ecfbf1c7e49d0b86d214c195ae"
+    },
+    {
+      "physical_page": 88,
+      "section_code": "BINV-P",
+      "role": "PRINCIPLE",
+      "text_sha256": "fe4603d2a026a88e5d343533430ae8b754dfc4122c55799aebc30a0a9c43621a"
+    },
+    {
+      "physical_page": 89,
+      "section_code": "BINV-P",
+      "role": "PRINCIPLE",
+      "text_sha256": "7e2315365c517402e6ae54724f4c54ff1042b980d9a2da1a4e842339513e7c87"
+    },
+    {
+      "physical_page": 90,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "27048d974736796e6c20701da87bfb4bf9e8bcfc6138d502e2db3eb46d8827b1"
+    },
+    {
+      "physical_page": 91,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "ff8a37c4aef2cf42c2c06dbb2ea44b71a4832dddb25fa3f7825c045fb2f70b38"
+    },
+    {
+      "physical_page": 92,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "4dafb773bf00cb956b002d82dfed4814c0c77c0c7713db91212492662f1fabe4"
+    },
+    {
+      "physical_page": 93,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "c0f5b6f7a01148533968fb09c2aeb77490eaf7292edda03198b37babf623d04e"
+    },
+    {
+      "physical_page": 94,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "c93de4653289c0b759aa8dc04c7e1f5ab13567a619106bd1fedc682d0617651d"
+    },
+    {
+      "physical_page": 95,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "1cdf55a0b2548ef531ccc9b3786d4ee8a9dc6eadbb814910ccc4fd9399a63b34"
+    },
+    {
+      "physical_page": 96,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "1192f9a2907eabfe008b6424a8d4a2085b61afa554b5cbb0e64a8d30760275de"
+    },
+    {
+      "physical_page": 97,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "bf878977595f512dc35ad1d5db6aa0aeb2cc61ad2e9ec19e251a2f19bc17f154"
+    },
+    {
+      "physical_page": 98,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "ce5a2437e191be239f1a2765a96fd5af95f6c8233398eedd44fa477a205c81f4"
+    },
+    {
+      "physical_page": 99,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "b5612f337ca8398ac27435d5cb72708e446e3166d6137b76775b3b969a252826"
+    },
+    {
+      "physical_page": 100,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "ad0f8077dc9b0f1b1861be07f0053833c39edd53eca4811f0c030205e7f2d286"
+    },
+    {
+      "physical_page": 101,
+      "section_code": "BINV-Q",
+      "role": "REFERENCE",
+      "text_sha256": "d75e63d74e007762afe79ba403fbed4474ad3405d8523309152338e8a10d404f"
+    },
+    {
+      "physical_page": 102,
+      "section_code": "BINV-Q",
+      "role": "REFERENCE",
+      "text_sha256": "e0879a06004ff4a0224164a3bcdb163bcc1cd72e5ba091002ee4cff15e9cc577"
+    },
+    {
+      "physical_page": 103,
+      "section_code": "BINV-Q",
+      "role": "PRINCIPLE",
+      "text_sha256": "413168fca479c7b8e22d4e0ae126d8f321c5f98347e233fee52e292aa854de63"
+    },
+    {
+      "physical_page": 104,
+      "section_code": "BINV-Q",
+      "role": "REFERENCE",
+      "text_sha256": "98d861229b2b02e2b666f73968a8ac2781d3e888abf297fcdce2dd03df8cb07f"
+    },
+    {
+      "physical_page": 105,
+      "section_code": "BINV-R",
+      "role": "PRINCIPLE",
+      "text_sha256": "3b19dc4e9f59a2d6ddb07a7b4f8cef4faf9b49ff4a4216a8188570351e893480"
+    },
+    {
+      "physical_page": 106,
+      "section_code": "BINV-R",
+      "role": "PRINCIPLE",
+      "text_sha256": "609f26835aa2f0336dec9aaab7d7e8199b3c54aefcb5acfa0ec9b2b88787fdff"
+    },
+    {
+      "physical_page": 107,
+      "section_code": "BINV-R",
+      "role": "PRINCIPLE",
+      "text_sha256": "5fd97fda679deb22f45055250cb6341eec6734b0c4b94277b46fa542afd7ff61"
+    },
+    {
+      "physical_page": 108,
+      "section_code": "PHYLL-1",
+      "role": "ALGORITHM",
+      "text_sha256": "14fa144e0e6fa06916736466219bcb6e7e1fda6995cc199d1ffca3d524f5b874"
+    },
+    {
+      "physical_page": 109,
+      "section_code": "PAGET-1",
+      "role": "ALGORITHM",
+      "text_sha256": "d588909e3bea1a231f20675dbde5ea8a910243d9ebb2a5013751420b242c6d5b"
+    },
+    {
+      "physical_page": 110,
+      "section_code": "PAGET-2",
+      "role": "ALGORITHM",
+      "text_sha256": "6e90761d14f79ed1e01de864dbd8a86ced6c61f7b302820432e1a032ee9428d5"
+    },
+    {
+      "physical_page": 111,
+      "section_code": "PREG-1",
+      "role": "ALGORITHM",
+      "text_sha256": "05bf7d8762d084ec4ddc483b594fdc985f3a68e8bdf6acc1ba2f13ba43ed2b7e"
+    },
+    {
+      "physical_page": 112,
+      "section_code": "PREG-2",
+      "role": "ALGORITHM",
+      "text_sha256": "941d1546a940d5269596207ceef2f0426758d4e9a3d49c8a5cc792a8ee91ba8f"
+    },
+    {
+      "physical_page": 113,
+      "section_code": "IBC-1",
+      "role": "ALGORITHM",
+      "text_sha256": "a864f9648c80b66b984aeb3f7be3cf8a804205537eb63a7002e88d3633374d04"
+    },
+    {
+      "physical_page": 114,
+      "section_code": "IBC-2",
+      "role": "ALGORITHM",
+      "text_sha256": "c8b5b014ed23e03971806d2cfa29cd8bd57c23bce9d5515f6f6eefa685e4b962"
+    },
+    {
+      "physical_page": 115,
+      "section_code": "ST-1",
+      "role": "STAGING",
+      "text_sha256": "ace18e465d78dd54884017d6d27fa759b98819c5adf1bf45603b939e132cfb03"
+    },
+    {
+      "physical_page": 116,
+      "section_code": "ST-2",
+      "role": "STAGING",
+      "text_sha256": "6a7ac97984e0fb136547dd6b0ccceab5f8dbf8fab85fde1d82c24a3b61540e92"
+    },
+    {
+      "physical_page": 117,
+      "section_code": "ST-3",
+      "role": "STAGING",
+      "text_sha256": "e6f8cca575348d3a6e15ae70be0ab8ff0f449f11ff175d99a2bc8c59b7dd70df"
+    },
+    {
+      "physical_page": 118,
+      "section_code": "ST-4",
+      "role": "STAGING",
+      "text_sha256": "55ef50277dbc0b8ee0e99c683828a5221906eaa60b52e8a0a91809d3ebf19363"
+    },
+    {
+      "physical_page": 119,
+      "section_code": "ST-5",
+      "role": "STAGING",
+      "text_sha256": "88e8994321a86060c95cd9f866a25633647ecb25b0d495955118286adcde8337"
+    },
+    {
+      "physical_page": 120,
+      "section_code": "ST-6",
+      "role": "STAGING",
+      "text_sha256": "1280230f39868f567e5b38e944a3c0aec23d3ffe6f187a8d0fe526485b05ff05"
+    },
+    {
+      "physical_page": 121,
+      "section_code": "ST-7",
+      "role": "STAGING",
+      "text_sha256": "cfa0b6f26b978a3bde04614104927dcff82c338ca81cfeac216923e13466d0fe"
+    },
+    {
+      "physical_page": 122,
+      "section_code": "ST-8",
+      "role": "STAGING",
+      "text_sha256": "dcff474c1dbcacb253d165603442b93000448fa9399ccbefb2e471f016e46873"
+    },
+    {
+      "physical_page": 123,
+      "section_code": "ST-9",
+      "role": "STAGING",
+      "text_sha256": "30b3d8913fa068d41452c45c96f5c99972a1848d33ee028e8bd4adb3a58589e3"
+    },
+    {
+      "physical_page": 124,
+      "section_code": "ST-10",
+      "role": "STAGING",
+      "text_sha256": "13ad631ce8c94c2d07faa253e4f96f80a5d8a080380561059391728dfa9cb717"
+    },
+    {
+      "physical_page": 125,
+      "section_code": "ST-11",
+      "role": "STAGING",
+      "text_sha256": "ee876028fc77c1d8b5c034992ba8dc78edfd40fccbff2d953046472beeab33a5"
+    },
+    {
+      "physical_page": 126,
+      "section_code": null,
+      "role": "ABBREVIATIONS",
+      "text_sha256": "1871b8e6512f9a0867e5591a5a5c47dde778068a3c36a6b722071565a7f46d31"
+    },
+    {
+      "physical_page": 127,
+      "section_code": null,
+      "role": "CATEGORY_REFERENCE",
+      "text_sha256": "0ac862946ca0cc4feef26921c6f198fb805b134d581f73a8fadc4a10a2661f35"
+    },
+    {
+      "physical_page": 128,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "2bd0d19c9b56b3ffff55bd4c61deec66634d31208606ab5cb721c0c62047059c"
+    },
+    {
+      "physical_page": 129,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c04de8922b04c602efe69353e86715fd66c91ac20a00730352381f2bfc96b1d2"
+    },
+    {
+      "physical_page": 130,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "3b390df3413071784d337faee862ddde1c4241af3743fa8948c1dff93f3de6f9"
+    },
+    {
+      "physical_page": 131,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a6169636e9803e295de575eeb4dcb4f5e6c32562394a0bd2de008b3e485c77d1"
+    },
+    {
+      "physical_page": 132,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "00b90f03d7f15b3847af61a9bbbd12c181a4319f4a487e94b79dc0652a25d6bb"
+    },
+    {
+      "physical_page": 133,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "cd21f6428d9fe02cd81ea9d09e469d6528e80b4b8f383a264cd39c6adf6c50d4"
+    },
+    {
+      "physical_page": 134,
+      "section_code": "DCIS-M",
+      "role": "DISCUSSION",
+      "text_sha256": "d56fb4b7048049f97f1cb0f8e131492b61c93e4e27fde7a4507e01822e6448a4"
+    },
+    {
+      "physical_page": 135,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "ac84ebcf0ab4ec188831b94f5be910886268aaf47915764fb2078e4a9721a665"
+    },
+    {
+      "physical_page": 136,
+      "section_code": "DCIS-2",
+      "role": "DISCUSSION",
+      "text_sha256": "ac23c3748b259af30ad435bc8ea51d3e67c12dc0e06203672ae9ec58ae3e060f"
+    },
+    {
+      "physical_page": 137,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "fcb927c3b7e92f45ae93848c7c97e53024ec9fa783332449d5ae94d5060d8ac0"
+    },
+    {
+      "physical_page": 138,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "477f68cbb9f6d61d57150181f420cc48774976e9a10599d8abf3719999ecd320"
+    },
+    {
+      "physical_page": 139,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "73657da79452cff9de1a45ef580d5e712dfd2c02ef181b196419d6cae33514cc"
+    },
+    {
+      "physical_page": 140,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "81835ad203774ed0eaa05a6307a1d602dff042d858d8cef5613539756ed3a285"
+    },
+    {
+      "physical_page": 141,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "0a62ef2e0e2164dc24f50846eeebc6d43373e6f8c378d0b9035640b10c33a560"
+    },
+    {
+      "physical_page": 142,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "fea777432381637b6220ed710b890486e31bef2de0ce2298bb51f0dc330dccf2"
+    },
+    {
+      "physical_page": 143,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b4645f8db3dba89c50e4d10cb9219b92cf720d4caec2cbdcae4c49ac934e5dc8"
+    },
+    {
+      "physical_page": 144,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "061a0635437f61176d9478e4c1d98c6c3c2e30e445c3de7cb31697154c497f26"
+    },
+    {
+      "physical_page": 145,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "fff030f28f30aa480a7706073b212e66897c29f3c9083dd9f15eef1728336b95"
+    },
+    {
+      "physical_page": 146,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "97043389ec10523e5b1462464941e1733e8f5aa8f07954e09352179d883e506f"
+    },
+    {
+      "physical_page": 147,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "3ef81f3e8b9254bdb4729eb5cf74f360e29bdee3b8e13d81e8ce110c993de3fa"
+    },
+    {
+      "physical_page": 148,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e5198ddecbb42de51cd020ea9295b5c4ab21114b04be5e69a45a5fb6fa1c7c2a"
+    },
+    {
+      "physical_page": 149,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "42ee96b11b3922ab2bc8ff6d96e284ee9c9f8c2ec83234703ff72bae35574b15"
+    },
+    {
+      "physical_page": 150,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6d66808657239cc998329132daeab2076afc5ee071c49f6396a529d7f7769658"
+    },
+    {
+      "physical_page": 151,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9840d1892de01372936fe6835b412b3c430cc56c98d56690d1d115c634455028"
+    },
+    {
+      "physical_page": 152,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "982f6d396273981e689fd6243081274465b25474336a905beba4fc2d10124b7f"
+    },
+    {
+      "physical_page": 153,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "3c899a9b3ec054ba150a96644b3a54e0bbee42103aeb78cbfa8a9b2338b3983b"
+    },
+    {
+      "physical_page": 154,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "192283ce3265215d009c6e11ab084a03e7849545fd961763007ba3fe6ae216ca"
+    },
+    {
+      "physical_page": 155,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b7fd9a2dfe73e39acc2cf67c842951fcb79c77242f0adeb6d262782bd21b837d"
+    },
+    {
+      "physical_page": 156,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "79ec4ca47cda9fbb54cb50bc27dc1ccf5e652369865e9a6e333162644dcfa1f2"
+    },
+    {
+      "physical_page": 157,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "1f5f2bbb3c46d20bf877c43ad4a072bbc0c8bbbdddc90182ec2ef0f99ccfa0fb"
+    },
+    {
+      "physical_page": 158,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "1ce392614c76188cd6ea7548e69ff72aa44bf98c6e9c2581b31928b0735bc6a4"
+    },
+    {
+      "physical_page": 159,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c8b30717ec6e6e9f5a13bad4a02207a270d91176aa332a687b095559f6b03889"
+    },
+    {
+      "physical_page": 160,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "f637068ed0214640294754cfe5ed47448c44280f3693377a0bfbeb24c1a572c5"
+    },
+    {
+      "physical_page": 161,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "d7594fed8d4f410ec5a9c4f57d37d3fbc6b9addc72c32d2800996858960df14a"
+    },
+    {
+      "physical_page": 162,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "f92fa60524f63ba6e9a36c78e3e2fb15b34253b4b5c77f224f642c88f42839ac"
+    },
+    {
+      "physical_page": 163,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "1d191e474f9aae1bd652542b595826ce394a104e33fa3141b5ec527f2755487c"
+    },
+    {
+      "physical_page": 164,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "cf2a9afe8585663d46f1dd1e442bed73ae6694dbacb438c39049ca18fa4f7dcf"
+    },
+    {
+      "physical_page": 165,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9cb61d44527aa9df79919253c5247695d06bd4c4dac6d42402ca66ce05a3df37"
+    },
+    {
+      "physical_page": 166,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "402e40123728e94b3e62526101b64de431c66100034df72c948632992673c76c"
+    },
+    {
+      "physical_page": 167,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c79d4026e4ba53beb1cdeda426aa2e6fb7744f168d7a8377325ffef3aad850b4"
+    },
+    {
+      "physical_page": 168,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "005068bddc08df6334395ac3b1eab1b31ec75d9dc8c9552a6a497b022da6daaa"
+    },
+    {
+      "physical_page": 169,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e4ef83292a23b350f10ec7cd0bb5122154b8c4fd0559eefba2ae63c1e242b8c8"
+    },
+    {
+      "physical_page": 170,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "d90a6f557c48874a8687fdc0d253c512b893c697a565bd3aef65b5642c520727"
+    },
+    {
+      "physical_page": 171,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "eb96925e0b32c62e5e014d7b58fac7bbbf9c2ee8e4bd4e8181d30c56459e1016"
+    },
+    {
+      "physical_page": 172,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "474ea41c73d05f3d50f4e82088d7afd28d0880bc5272570244519d273084d36a"
+    },
+    {
+      "physical_page": 173,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6c5caba80bff2feb7f189fb0f99e9a216679eb066fb52f76ff17daaa8bcc1355"
+    },
+    {
+      "physical_page": 174,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e92a633d896dd9427952b0eaaa5259a3ac337e9562552e044337a6b108fa2e4b"
+    },
+    {
+      "physical_page": 175,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "38be9f7e9ae621522f59fde0cba6548a59317f43ee497472863c5b9ae92fdedf"
+    },
+    {
+      "physical_page": 176,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "835c92dbdd3a7ab0da7d5ccf012b45c47c3340eeef9c65a2f93c117da36a200f"
+    },
+    {
+      "physical_page": 177,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "05b0c62cd85dda8bc0e7a655100f4ff3212eaf90a9e8d153683f04e7f60035ff"
+    },
+    {
+      "physical_page": 178,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "48e2ab2da1c29993303debd78018e8701d305ad770e2c9b16d05d86b672829f3"
+    },
+    {
+      "physical_page": 179,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7ba8f5908ace24a19b52245962a1bcb050678fdcd6f9371910407e7d8c0b317c"
+    },
+    {
+      "physical_page": 180,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7a61f15fb6de2ad18316d068641b07f74d4ef71411ca65c2ee1a3df4b77e66ed"
+    },
+    {
+      "physical_page": 181,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c53960e3e9e86a86e3e6c086676e8d5180a2ee784fa6d7e808e9fed3a4cb3976"
+    },
+    {
+      "physical_page": 182,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "39a23dc167bfdbdb978e37561dd0e9d32c41fb8d84bbc398ce4d2e61bc4369bf"
+    },
+    {
+      "physical_page": 183,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "1a849077005528e9fde1cefd055bf417f5ea9fcfe052bd678d5e52bd4fe41371"
+    },
+    {
+      "physical_page": 184,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a4ccea2333be34abc193a843172fe615bd3ab60783fa66cd102084b3c1a398ad"
+    },
+    {
+      "physical_page": 185,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "65c04a5a15db5591ab9a08edbe544f10a176a2e72ecdab6ce148ad04748ca1ef"
+    },
+    {
+      "physical_page": 186,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "77f9edb21cda978a8e1032a3e832a055d29165804b6ca18ba03e7f1fe0284ba1"
+    },
+    {
+      "physical_page": 187,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "91f9f5b1bdd130c015e1f1157bd14333f2948c48711b7fcc39b2ff5b52a76011"
+    },
+    {
+      "physical_page": 188,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "08ee66044e8be08edb93e58c817955dfcfd3341e3b5e688c08198cb18c17bc93"
+    },
+    {
+      "physical_page": 189,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "721a1abd5e0886c862fa93943a33d8f1cc4d935dc758256ee3d24c50f02751d7"
+    },
+    {
+      "physical_page": 190,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "51c7d968c5d47d85cd5bbe441e4464bf64e2effd9fae4747bf4fea8594e8099a"
+    },
+    {
+      "physical_page": 191,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "74ac9d6491f30b2a6c81ea25fbd9b681a61c888abe6be468f83c3fc254de143f"
+    },
+    {
+      "physical_page": 192,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9979ca87ca30c4d9ca9f2f004476d9d6aa7d82d189ebc88abc598836cde72050"
+    },
+    {
+      "physical_page": 193,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "646dac5c468e92cfda7531c6d0f16206f337646a2364da1ccc8cb76e22d6b0b4"
+    },
+    {
+      "physical_page": 194,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b3d83cb9659a8cd895ed43628893ebdae94f76004cb90052fad6064b573c7202"
+    },
+    {
+      "physical_page": 195,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6870829edfe88ddcc5d02f1ad5c107c3a36522ab1f0c04757e2549d093116679"
+    },
+    {
+      "physical_page": 196,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b681fd417a8986ca5ca8f8dcd517c4da2bc74fdfe74b9758b4386478c61cd51c"
+    },
+    {
+      "physical_page": 197,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6d2cf3c3c3e0d4e8f10fd22599000cdf692a6ee1194fb49ac7888f09559418ee"
+    },
+    {
+      "physical_page": 198,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "5ca595e4164d298ef9d9cd939ee23e62e6c26212f9ef627c4e74955a4b069e2b"
+    },
+    {
+      "physical_page": 199,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "18811e70d917282617e2817676d07ffb3b4b0a40cc33c0a4e1bbc6cbe572db5b"
+    },
+    {
+      "physical_page": 200,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6c37c6a1e9db27f869e0775736a5a45c03b4141b36240694ae8d9c2e6502b04c"
+    },
+    {
+      "physical_page": 201,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a00001ee095689224a46b98de739ae6768c7c8f2562875021492a2a48a98a28e"
+    },
+    {
+      "physical_page": 202,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "427c498482ddf66231529a22ce69a73ffa0d5892e11fc48acae3750301a13c94"
+    },
+    {
+      "physical_page": 203,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "55b1ca5955e0804676e33cd82e72bd700b4461fb0819b96841524331689cc455"
+    },
+    {
+      "physical_page": 204,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9f723117ad439dd835144fe6a0cde30a401961ce9e911572bcb4f0a9405f171a"
+    },
+    {
+      "physical_page": 205,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "fa753a663667064e7e1e760884347988e2a80fc747371fcd768c79d387f9709b"
+    },
+    {
+      "physical_page": 206,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9a9f5b356fa221b54949570e9aea461f9576a21532bb034176fde3581c3bebe3"
+    },
+    {
+      "physical_page": 207,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e3882b75ce9d123e96a8da78180eb5971b215d50c9ef7b1f3a37fe9861e04072"
+    },
+    {
+      "physical_page": 208,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "efd1ced6621c1b03bd6d02d2ef8e136ff6070d1154930350b9041bccae60ebe2"
+    },
+    {
+      "physical_page": 209,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "d10d0ff9d30747b6db257bad40dcf9078b551c57576eb624664c534fa7353a34"
+    },
+    {
+      "physical_page": 210,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "020bb3e0758dd32c35ee5e1486c5e66d79c6efdb08a12e745a3a7179df634e8e"
+    },
+    {
+      "physical_page": 211,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "405c3f86ec9597dfed42c13e9411e69c3b14c21847c308e9e3382713621c44e0"
+    },
+    {
+      "physical_page": 212,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e4be1ed84ea0566c15efa67b1848983ebdabc3819523fbfd38059797d8574f05"
+    },
+    {
+      "physical_page": 213,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "94bc7820ff9fb28cf6e6f1a4dca382b6420891433344f15ef6fe05274317a44a"
+    },
+    {
+      "physical_page": 214,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "f731378650724bc89c2d43acd3fabc7b8af3ab989c3b921ecc8c8553b1c36ccd"
+    },
+    {
+      "physical_page": 215,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "f675d95a0f6e3385324f5f53b197bbd287de4232e46ba5e470f57eca2494da04"
+    },
+    {
+      "physical_page": 216,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "33b354ed17213ad611a6b0b4c4a2c20411edd2fdcd3dcd9b733c8863327b73d5"
+    },
+    {
+      "physical_page": 217,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "2ad4b263ec4e788e804ce7ec70e5b71e0bff147e8e84bfccae446e0e938db80f"
+    },
+    {
+      "physical_page": 218,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "5020673e7d3c6c90ece826707d8a3cf5b80c8e31ccde5d0df5d787aa77c54d1b"
+    },
+    {
+      "physical_page": 219,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "4d76cf8316fed9961f30372828fade698c82add39497b2150016c3c2c2ec5e8d"
+    },
+    {
+      "physical_page": 220,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "0ff9788f1f10367c350c5605731f997b8f6279ec533eb7834bbb741d44ea4a6f"
+    },
+    {
+      "physical_page": 221,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c52ee3e98f54fd9e2586e987440759c9fe20cb1828340a5d5f12c64713975077"
+    },
+    {
+      "physical_page": 222,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "d99d68e283cb9b090909c5e3438d56d81d0e5861f663f48fc901a2ae5b097f64"
+    },
+    {
+      "physical_page": 223,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "59f5e93ee43fdfc568203571c3476f5d997bbc43245d2869fa10f2322811b284"
+    },
+    {
+      "physical_page": 224,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "74fd623b94c3b0fe33b64ba220992ef1c04295ec9618f7647b8e68970e57d653"
+    },
+    {
+      "physical_page": 225,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "581312025815f9bd1091f872867fe87908b83aaa0da90d0f78013d833cbf2984"
+    },
+    {
+      "physical_page": 226,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "bbdc55b742e324dff4459ad3c7fc189d66dea0ebc059dfc3b195f39a357937e9"
+    },
+    {
+      "physical_page": 227,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "d576faebaa1f0b99bc9839944fb167e288e92d9d6620ec730974dafbba9b031d"
+    },
+    {
+      "physical_page": 228,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a44b54c93c38cd5483734d5db51fe6da8a4e54bc9b95f100033c04aa1d774cb2"
+    },
+    {
+      "physical_page": 229,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a0baa8c799172f83bcff88afab0ce756b783e19ebcf621e807379b41b64448a8"
+    },
+    {
+      "physical_page": 230,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "4c6ff8b35039e40d55a18ca211bb2ca92ffff7f45db8538e86e90973bc914945"
+    },
+    {
+      "physical_page": 231,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "8eec2d104cbe5fba328ac9e2e0d6bc853e16d757f19a0409dac2c2fd3412b6d5"
+    },
+    {
+      "physical_page": 232,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "84bf64772b9eea72395fb35f8d950da4882bf64ae4ab54a9c526dd18fb0bc061"
+    },
+    {
+      "physical_page": 233,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "107a84650086bac8ef33f6c7d90acb0632aaed413f11ec21fc76fc5fb23707f1"
+    },
+    {
+      "physical_page": 234,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "39a51e044f5a380c3ff1222b01993e15cc47b46216f596b5e1dae4762dc34c01"
+    },
+    {
+      "physical_page": 235,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7c9868216df7795366721a2140938ae7235e80922f4d3d8147b068b1f8ea1079"
+    },
+    {
+      "physical_page": 236,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "d7f02ea11db77246c215691622103995051abb4260c6ad52395600f9eb184cea"
+    },
+    {
+      "physical_page": 237,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "df62e099b6b117a0f648a68839683172d60586c548c44137c354412c84b60a15"
+    },
+    {
+      "physical_page": 238,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b029d3493a21144dbc02db8f2e86727520aaed2629b92a388bbfb034e57883e1"
+    },
+    {
+      "physical_page": 239,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "f6955f393f3edb4286dd015a9915f8aa4ccd69d5630f6842d9f9e0e15cbfe769"
+    },
+    {
+      "physical_page": 240,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "752427fef269b9ab399f24ec63076d73e3ff894639f8ceaa5c137b410eaee774"
+    },
+    {
+      "physical_page": 241,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b51782b0491b71fdcd5b1f105b1d3e63678df2d173d8cb26feb28f65644b93bc"
+    },
+    {
+      "physical_page": 242,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "5f410aa1fa922509148add0e9aa86f5ee20117702ac1710457bdfb5c792eeed2"
+    },
+    {
+      "physical_page": 243,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7f9327d444711288a7034ff972e9c469a3b7e4f0892532708faeea41716b0c14"
+    },
+    {
+      "physical_page": 244,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6b4487e54976398f3df4bcad44ce0c7cde49e8b756fa287f40be6789c4588b30"
+    },
+    {
+      "physical_page": 245,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "43257347377ef2f4d25da9a72abd0a51b4209f1339e37e8cee0c76fb1b0abadc"
+    },
+    {
+      "physical_page": 246,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "c477446b572aac672e121a4fd00cbd6754e675c41b4c3471ff0357963faf27ca"
+    },
+    {
+      "physical_page": 247,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7ac398d1a75278bd140aef643c674050e820c1a457a4567ddc99c364f4db3751"
+    },
+    {
+      "physical_page": 248,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a8622b0ec2b9e53b18a748e3c388e9988a0e357c8892af48d2b8c8b5fb92bd6f"
+    },
+    {
+      "physical_page": 249,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7e30352bc670b1b2a4b06c77972dd60548b03ce8c34179946b279132cb30b9c9"
+    },
+    {
+      "physical_page": 250,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "4a52b1ac45d3dc69e5d2605d3a6fe60cfb3abba5f81749dcefe8b54650daf577"
+    },
+    {
+      "physical_page": 251,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "16c29a95f7f0a015b8a3dfb5f30064bcb5faf6c00570356ab91051c2065c03b6"
+    },
+    {
+      "physical_page": 252,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "99ab9c57e6e691e284d6250804ece6c45afcca8826231973b845272fb7e55549"
+    },
+    {
+      "physical_page": 253,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "5b80f96bab5ca9863721e683c099d3d45f3b0c680e80eb87afbd664810a88d51"
+    },
+    {
+      "physical_page": 254,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e5b39eb396541b55aa0973299d4ee7d67db8228d31cdfd8cd84be2e3ecc243e4"
+    },
+    {
+      "physical_page": 255,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "ff60b2bae8dabd9485500bb3b7eb17c70932ceec43308eb72852f7d31f4123fe"
+    },
+    {
+      "physical_page": 256,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7d2a0203e7d651881dc2c16c5ad959a6765b6f105f6a8db1605ae61401dbfe83"
+    },
+    {
+      "physical_page": 257,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "ed046975d329c7f5bb4896d459341288cd290577f3c6a853de5fed832988e9fe"
+    },
+    {
+      "physical_page": 258,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9e0faa294444cef2a3454fe18f2ba64ff25f1ba45915b26b86972176282ee569"
+    },
+    {
+      "physical_page": 259,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "e9d9c79a6ccd78d3a49d3cd5533135a312e31e9c23225322364069209bea1124"
+    },
+    {
+      "physical_page": 260,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "679d05f5e47bbb7b97a664d4963e50a59acb2f2bcfeab900e2a3931354f079fc"
+    },
+    {
+      "physical_page": 261,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "5572371f0bfd3730f016e744e91617f83d4d7a326aef9b8d7bce746b67ec293b"
+    },
+    {
+      "physical_page": 262,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "dff662730e306aa867eb5016d28a7faa1a74a364779326397a16c559e324394a"
+    },
+    {
+      "physical_page": 263,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "bb6f333249dda6473be32c6010f24c8a3c492c97b16b443cddaa8f6f28660d9a"
+    },
+    {
+      "physical_page": 264,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "9f1bba14de91b785c33975d702c05d2b9136038f587c76a73cb6cacc6190d50d"
+    },
+    {
+      "physical_page": 265,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "4fe6ade0fe1cda182227a00b3faea75e5968d4f14011ce8594086e04d3b6485b"
+    },
+    {
+      "physical_page": 266,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "1486f70112a9a8c0fa165b28bdff2e617e46f387a1b327eb4091c942108753c3"
+    },
+    {
+      "physical_page": 267,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b8fc474916147431a63d4a1fefd297e78f40dd85b4d599d92afc4a1d1bfbef03"
+    },
+    {
+      "physical_page": 268,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "0e71a71953d89ae372ec7bae1e8538f8c8a083138f82b583bb3bcf62e293b158"
+    },
+    {
+      "physical_page": 269,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "3652f9b4ffd157b809ec9b662422ab6875ac87041f58eb04dfbdb46fe74273e5"
+    },
+    {
+      "physical_page": 270,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "7a86a198363bc21eba4968d8e5f4601b19afbe9eb35f5344fd45ae63771018f8"
+    },
+    {
+      "physical_page": 271,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "8df7c15bcbbb49cb7134b6ff69d4afb883adbedcc6fe3a0510f5211be1fdbb89"
+    },
+    {
+      "physical_page": 272,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "2bd8bf86ff56cf3389120008d22ed6054d4f157ad772b96b73091826f1cdf4d8"
+    },
+    {
+      "physical_page": 273,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "68fcb6a2a43db17b2c0709af91ade36bbea5acac5125615d4067076b7de8d6c1"
+    },
+    {
+      "physical_page": 274,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "a5254666586d1c3b9e9e829de2f94a86b803fac44dfb2e121268d5980178e77a"
+    },
+    {
+      "physical_page": 275,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "1e1edeca391ea586815554316fd0e1061bb67b39c83af90c57291ab66926730e"
+    },
+    {
+      "physical_page": 276,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "ab95cba083982f6dedf1a05730af4d18c3989f3f2430651cbbf8144d8287f696"
+    },
+    {
+      "physical_page": 277,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "b5d920fb007597cd868b9c905b5598f05ab124b5db8dd0bb2cbd99b233b4249d"
+    },
+    {
+      "physical_page": 278,
+      "section_code": null,
+      "role": "DISCUSSION",
+      "text_sha256": "6660b32f33b22a728f8006d8d451bb50bf4602af95e13b3b3b56b70d280c88bf"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "B_CELL_LYMPHOMA",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "diagnosis_confirmed",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "lymphoma_subtype",
+    "value_type": "CODED",
+    "allowed_values": [
+      "FOLLICULAR",
+      "MZL_GASTRIC",
+      "MZL_NONGASTRIC",
+      "MZL_NODAL",
+      "MZL_SPLENIC",
+      "MANTLE_CELL",
+      "DLBCL",
+      "PMBL",
+      "TRANSFORMED_DLBCL",
+      "HIGH_GRADE_B_CELL",
+      "BURKITT",
+      "HIV_RELATED_B_CELL",
+      "LYMPHOBLASTIC_LYMPHOMA",
+      "PTLD",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "WORKUP",
+      "INITIAL_TREATMENT",
+      "RESPONSE_ASSESSMENT",
+      "SURVEILLANCE",
+      "RELAPSED_REFRACTORY",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "stage_group",
+    "value_type": "CODED",
+    "allowed_values": [
+      "LIMITED",
+      "ADVANCED",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "response_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "CR",
+      "PR",
+      "SD",
+      "PROGRESSIVE",
+      "RELAPSED",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "indications_for_treatment",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "transplant_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "car_t_candidate",
+    "value_type": "BOOLEAN"
+  }
+]

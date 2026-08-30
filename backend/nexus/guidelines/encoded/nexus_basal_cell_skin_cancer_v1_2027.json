@@ -1,0 +1,3079 @@
+{
+  "schema_version": "nexus-full-pathway/2.1",
+  "guideline_id": "NCCN_BASAL_CELL",
+  "title": "Basal Cell Skin Cancer",
+  "version": "1.2027",
+  "cancer_type": "BASAL_CELL_SKIN_CANCER",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 37,
+      "implemented_decisions": 37,
+      "tested_decisions": 37,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "BASAL_CELL_SKIN_CANCER",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEW_DIAGNOSIS",
+        "POST_TREATMENT",
+        "RECURRENCE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "disease_extent",
+      "value_type": "CODED",
+      "allowed_values": [
+        "LOCAL",
+        "LOCALLY_ADVANCED",
+        "NODAL",
+        "METASTATIC",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "high_risk_any",
+      "value_type": "BOOLEAN",
+      "fact_role": "PROVENANCE_ONLY",
+      "fact_role_rationale": "The executable BCC-2 risk decision directly evaluates every source-defined high-risk factor; this summary field is not accepted from extraction as guideline authority."
+    },
+    {
+      "key": "resectable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "candidate_for_curative_rt",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "prior_hhi",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "hhi_intolerant_or_progressed",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "location_high_risk",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "diameter_high_risk",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "poorly_defined_borders",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "recurrent_primary",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "immunosuppressed",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "site_prior_rt",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "aggressive_histology",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "perineural_involvement",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "margin_status",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "NEGATIVE",
+        "POSITIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "named_nerve_involvement",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "surgery_feasible",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "local_recurrence",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Basal cell skin cancer?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "BASAL_CELL_SKIN_CANCER"
+      },
+      "on": {
+        "TRUE": "care_advanced",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "BCC-1"
+      ],
+      "decision_id": "scope"
+    },
+    "care_advanced": {
+      "kind": "decision",
+      "label": "Nodal or metastatic/locally advanced current disease?",
+      "expression": {
+        "fact": "disease_extent",
+        "op": "in",
+        "value": [
+          "LOCALLY_ADVANCED",
+          "NODAL",
+          "METASTATIC"
+        ]
+      },
+      "on": {
+        "TRUE": "extent_la",
+        "FALSE": "care_recur"
+      },
+      "source_pathways": [
+        "BCC-1",
+        "BCC-5"
+      ],
+      "decision_id": "care_advanced"
+    },
+    "care_recur": {
+      "kind": "decision",
+      "label": "Current recurrence?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "neq",
+            "value": "NEW_DIAGNOSIS"
+          },
+          {
+            "any": [
+              {
+                "fact": "treatment_phase",
+                "op": "eq",
+                "value": "RECURRENCE"
+              },
+              {
+                "fact": "local_recurrence",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "recur_extent",
+        "FALSE": "care_post_treatment"
+      },
+      "source_pathways": [
+        "BCC-6"
+      ],
+      "decision_id": "care_recur"
+    },
+    "risk_any": {
+      "kind": "decision",
+      "label": "Any confirmed high-risk recurrence factor?",
+      "expression": {
+        "any": [
+          {
+            "fact": "location_high_risk",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "diameter_high_risk",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "poorly_defined_borders",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "recurrent_primary",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "immunosuppressed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "site_prior_rt",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "aggressive_histology",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "perineural_involvement",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "high_local",
+        "FALSE": "risk_all_negative"
+      },
+      "source_pathways": [
+        "BCC-2"
+      ],
+      "decision_id": "risk_any"
+    },
+    "risk_all_negative": {
+      "kind": "decision",
+      "label": "All source-defined high-risk factors confirmed absent?",
+      "expression": {
+        "all": [
+          {
+            "fact": "location_high_risk",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "diameter_high_risk",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "poorly_defined_borders",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "recurrent_primary",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "immunosuppressed",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "site_prior_rt",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "aggressive_histology",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "perineural_involvement",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "low_primary",
+        "FALSE": "need_risk"
+      },
+      "source_pathways": [
+        "BCC-2"
+      ],
+      "decision_id": "risk_all_negative"
+    },
+    "need_risk": {
+      "kind": "status",
+      "label": "One or more BCC high-risk factors remain unresolved; LOW risk cannot be assigned until all are confirmed absent.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "BCC-2"
+      ]
+    },
+    "low_local": {
+      "kind": "decision",
+      "label": "Low-risk BCC postoperative margin positive?",
+      "expression": {
+        "fact": "margin_status",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "low_posmargin",
+        "FALSE": "low_primary"
+      },
+      "source_pathways": [
+        "BCC-3"
+      ],
+      "decision_id": "low_local"
+    },
+    "low_primary": {
+      "kind": "action",
+      "label": "Low-risk BCC primary treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "low_primary",
+      "source_pathways": [
+        "BCC-3",
+        "BCC-3A"
+      ],
+      "recommendation": {
+        "title": "Low-risk BCC primary treatment.",
+        "options": [
+          {
+            "option_id": "bcc_low_excision",
+            "label": "Standard excision with 4-mm clinical margins",
+            "text": "Standard excision with 4-mm clinical margins",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          },
+          {
+            "option_id": "bcc_low_mohs",
+            "label": "Mohs/PDEMA",
+            "text": "Mohs/PDEMA",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          },
+          {
+            "option_id": "bcc_low_ce",
+            "label": "Curettage and electrodesiccation",
+            "text": "For appropriate low-risk sites/tumors.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          },
+          {
+            "option_id": "bcc_low_superficial",
+            "label": "Superficial-BCC nonsurgical modalities",
+            "text": "For clinically/histologically superficial BCC without dermal extension.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-B",
+          "BCC-C",
+          "BCC-3A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_LOW_RISK"
+    },
+    "low_posmargin": {
+      "kind": "action",
+      "label": "Low-risk BCC with positive margins: Mohs/PDEMA, re-excision, or RT for nonsurgical candidates.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "low_posmargin",
+      "source_pathways": [
+        "BCC-3",
+        "BCC-3A"
+      ],
+      "recommendation": {
+        "title": "Low-risk BCC with positive margins: Mohs/PDEMA, re-excision, or RT for nonsurgical candidates.",
+        "options": [
+          {
+            "option_id": "bcc_low_pm_mohs",
+            "label": "Mohs/PDEMA",
+            "text": "Mohs/PDEMA",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          },
+          {
+            "option_id": "bcc_low_pm_reexcision",
+            "label": "Re-excision if feasible",
+            "text": "Re-excision if feasible",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          },
+          {
+            "option_id": "bcc_low_pm_rt",
+            "label": "RT",
+            "text": "For nonsurgical candidates.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "candidate_for_curative_rt",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-B",
+          "BCC-C",
+          "BCC-3A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_LOW_RISK_POSITIVE_MARGIN"
+    },
+    "high_local": {
+      "kind": "decision",
+      "label": "Named nerve/perineural extensive involvement?",
+      "expression": {
+        "fact": "named_nerve_involvement",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "high_pn",
+        "FALSE": "high_surgery"
+      },
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "decision_id": "high_local"
+    },
+    "high_surgery": {
+      "kind": "decision",
+      "label": "Surgery feasible?",
+      "expression": {
+        "fact": "surgery_feasible",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "high_primary_surgery",
+        "FALSE": "high_rt"
+      },
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "decision_id": "high_surgery"
+    },
+    "high_surgery_margin": {
+      "kind": "decision",
+      "label": "Postoperative margin positive?",
+      "expression": {
+        "fact": "margin_status",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "high_pm",
+        "FALSE": "high_neg"
+      },
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "decision_id": "high_surgery_margin"
+    },
+    "high_neg": {
+      "kind": "action",
+      "label": "High-risk BCC after complete surgery: follow-up; consider adjuvant RT for source-defined extensive nerve/other high-risk indications.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "high_neg",
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "recommendation": {
+        "title": "High-risk BCC after complete surgery: follow-up; consider adjuvant RT for source-defined extensive nerve/other high-risk indications.",
+        "options": [
+          {
+            "option_id": "bcc_high_follow",
+            "label": "Follow-up per BCC-6",
+            "text": "Follow-up per BCC-6",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_high_adjuvant_rt",
+            "label": "Consider adjuvant RT",
+            "text": "For source-defined high-risk indications.",
+            "decision_relevant": false,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_HIGH_RISK_RESECTED"
+    },
+    "high_pm": {
+      "kind": "action",
+      "label": "High-risk BCC with positive margins: re-resection/Mohs-PDEMA preferred when feasible or RT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "high_pm",
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "recommendation": {
+        "title": "High-risk BCC with positive margins: re-resection/Mohs-PDEMA preferred when feasible or RT.",
+        "options": [
+          {
+            "option_id": "bcc_high_pm_resect",
+            "label": "Re-resection/Mohs-PDEMA",
+            "text": "Re-resection/Mohs-PDEMA",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_high_pm_rt",
+            "label": "RT",
+            "text": "RT",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "candidate_for_curative_rt",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_HIGH_RISK_POSITIVE_MARGIN"
+    },
+    "high_pn": {
+      "kind": "action",
+      "label": "High-risk BCC with named-nerve/perineural tumor spread: multidisciplinary surgery and/or RT pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "high_pn",
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "recommendation": {
+        "title": "High-risk BCC with named-nerve/perineural tumor spread: multidisciplinary surgery and/or RT pathway.",
+        "options": [
+          {
+            "option_id": "bcc_pn_surgery",
+            "label": "Surgery with complete margin assessment",
+            "text": "Surgery with complete margin assessment",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "surgery_feasible",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_pn_rt",
+            "label": "RT",
+            "text": "RT",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "candidate_for_curative_rt",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_HIGH_RISK_PERINEURAL"
+    },
+    "high_rt": {
+      "kind": "action",
+      "label": "High-risk BCC not suitable for surgery: definitive RT if candidate; if neither curative surgery nor RT feasible, treat as locally advanced.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "high_rt",
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "recommendation": {
+        "title": "High-risk BCC not suitable for surgery: definitive RT if candidate; if neither curative surgery nor RT feasible, treat as locally advanced.",
+        "options": [
+          {
+            "option_id": "bcc_high_def_rt",
+            "label": "Definitive RT",
+            "text": "Definitive RT",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "candidate_for_curative_rt",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_high_to_advanced",
+            "label": "Systemic therapy pathway for locally advanced disease",
+            "text": "Systemic therapy pathway for locally advanced disease",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "candidate_for_curative_rt",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-C",
+          "BCC-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_HIGH_RISK_NONSURGICAL"
+    },
+    "extent_la": {
+      "kind": "decision",
+      "label": "Locally advanced disease?",
+      "expression": {
+        "fact": "disease_extent",
+        "op": "eq",
+        "value": "LOCALLY_ADVANCED"
+      },
+      "on": {
+        "TRUE": "la_resect",
+        "FALSE": "extent_nodal"
+      },
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "decision_id": "extent_la"
+    },
+    "la_resect": {
+      "kind": "decision",
+      "label": "Locally advanced disease resectable with acceptable morbidity?",
+      "expression": {
+        "fact": "resectable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "la_resect_action",
+        "FALSE": "la_hhi_state"
+      },
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "decision_id": "la_resect"
+    },
+    "la_resect_action": {
+      "kind": "action",
+      "label": "Locally advanced BCC that is resectable: multidisciplinary surgery +/- RT; neoadjuvant vismodegib is useful in selected circumstances.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "la_resect_action",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Locally advanced BCC that is resectable: multidisciplinary surgery +/- RT; neoadjuvant vismodegib is useful in selected circumstances.",
+        "options": [
+          {
+            "option_id": "bcc_la_surgery",
+            "label": "Surgery +/- RT",
+            "text": "Surgery +/- RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          },
+          {
+            "option_id": "bcc_la_neo_vismo",
+            "label": "Neoadjuvant vismodegib",
+            "text": "Category 2B useful in certain circumstances.",
+            "decision_relevant": true,
+            "preference_category": "USEFUL_IN_CERTAIN_CIRCUMSTANCES",
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-B",
+          "BCC-C",
+          "BCC-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_LA_RESECTABLE"
+    },
+    "la_hhi_state": {
+      "kind": "decision",
+      "label": "Prior HHI with progression/intolerance?",
+      "expression": {
+        "fact": "hhi_intolerant_or_progressed",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "la_second",
+        "FALSE": "la_first"
+      },
+      "source_pathways": [
+        "BCC-D"
+      ],
+      "decision_id": "la_hhi_state"
+    },
+    "la_first": {
+      "kind": "action",
+      "label": "Locally advanced unresectable BCC: HHI preferred first-line systemic therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "la_first",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Locally advanced unresectable BCC: HHI preferred first-line systemic therapy.",
+        "options": [
+          {
+            "option_id": "bcc_la_vismo",
+            "label": "Vismodegib",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            }
+          },
+          {
+            "option_id": "bcc_la_soni",
+            "label": "Sonidegib",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_LA_UNRESECTABLE_FIRST"
+    },
+    "la_second": {
+      "kind": "action",
+      "label": "Locally advanced unresectable BCC after HHI progression/intolerance: cemiplimab-rwlc preferred.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "la_second",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Locally advanced unresectable BCC after HHI progression/intolerance: cemiplimab-rwlc preferred.",
+        "options": [
+          {
+            "option_id": "bcc_la_cemip",
+            "label": "Cemiplimab-rwlc",
+            "text": "Preferred second-line/HHI intolerance.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_LA_AFTER_HHI"
+    },
+    "extent_nodal": {
+      "kind": "decision",
+      "label": "Nodal disease?",
+      "expression": {
+        "fact": "disease_extent",
+        "op": "eq",
+        "value": "NODAL"
+      },
+      "on": {
+        "TRUE": "nodal",
+        "FALSE": "extent_met"
+      },
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "decision_id": "extent_nodal"
+    },
+    "nodal": {
+      "kind": "action",
+      "label": "Nodal BCC: multidisciplinary surgery/RT when feasible plus state-appropriate systemic therapy; HHI or cemiplimab according to prior HHI exposure.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nodal",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Nodal BCC: multidisciplinary surgery/RT when feasible plus state-appropriate systemic therapy; HHI or cemiplimab according to prior HHI exposure.",
+        "options": [
+          {
+            "option_id": "bcc_nodal_surg",
+            "label": "Lymph-node surgery +/- RT",
+            "text": "Lymph-node surgery +/- RT",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "resectable",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_nodal_vismo",
+            "label": "Vismodegib",
+            "text": "Preferred if no prior HHI progression.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "hhi_intolerant_or_progressed",
+                      "op": "eq",
+                      "value": false
+                    },
+                    {
+                      "fact": "prior_hhi",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_nodal_soni",
+            "label": "Sonidegib",
+            "text": "Category 2B preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_2B",
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "hhi_intolerant_or_progressed",
+                      "op": "eq",
+                      "value": false
+                    },
+                    {
+                      "fact": "prior_hhi",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_nodal_cemi",
+            "label": "Cemiplimab-rwlc",
+            "text": "Preferred after HHI progression/intolerance.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "hhi_intolerant_or_progressed",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_hhi",
+                      "op": "eq",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-C",
+              "page_label": "BCC-C",
+              "physical_pages": [
+                14,
+                15,
+                16,
+                17
+              ],
+              "source_anchor": "BCC-C:pages:14,15,16,17"
+            }
+          },
+          {
+            "option_id": "bcc_nodal_hhi",
+            "label": "Hedgehog pathway inhibitor",
+            "text": "For HHI-naive advanced BCC where source lists HHI.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "preference_category": "PREFERRED"
+          },
+          {
+            "option_id": "bcc_nodal_cemip",
+            "label": "Cemiplimab-rwlc",
+            "text": "For second-line/HHI-intolerant or source-defined advanced disease after HHI exposure.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "preference_category": "PREFERRED"
+          }
+        ],
+        "supporting_sections": [
+          "BCC-C",
+          "BCC-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_NODAL"
+    },
+    "extent_met": {
+      "kind": "decision",
+      "label": "Metastatic disease?",
+      "expression": {
+        "fact": "disease_extent",
+        "op": "eq",
+        "value": "METASTATIC"
+      },
+      "on": {
+        "TRUE": "met",
+        "FALSE": "need_extent"
+      },
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "decision_id": "extent_met"
+    },
+    "met": {
+      "kind": "action",
+      "label": "Metastatic BCC: cemiplimab-rwlc preferred; HHI options depend on exposure/tolerance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "met",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Metastatic BCC: cemiplimab-rwlc preferred; HHI options depend on exposure/tolerance.",
+        "options": [
+          {
+            "option_id": "bcc_met_cemi",
+            "label": "Cemiplimab-rwlc",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "bcc_met_vismo",
+            "label": "Vismodegib",
+            "text": "Systemic option if HHI-naive/not progressed.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "hhi_intolerant_or_progressed",
+                      "op": "eq",
+                      "value": false
+                    },
+                    {
+                      "fact": "prior_hhi",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            }
+          },
+          {
+            "option_id": "bcc_met_soni",
+            "label": "Sonidegib",
+            "text": "Category 2B useful in certain circumstances.",
+            "decision_relevant": true,
+            "preference_category": "USEFUL_IN_CERTAIN_CIRCUMSTANCES",
+            "evidence_category": "CATEGORY_2B",
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "hhi_intolerant_or_progressed",
+                      "op": "eq",
+                      "value": false
+                    },
+                    {
+                      "fact": "prior_hhi",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            }
+          },
+          {
+            "option_id": "bcc_met_hhi",
+            "label": "Hedgehog pathway inhibitor",
+            "text": "For HHI-naive advanced BCC where source lists HHI.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "preference_category": "PREFERRED"
+          },
+          {
+            "option_id": "bcc_met_cemip",
+            "label": "Cemiplimab-rwlc",
+            "text": "For second-line/HHI-intolerant or source-defined advanced disease after HHI exposure.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-D",
+              "page_label": "BCC-D",
+              "physical_pages": [
+                18,
+                19
+              ],
+              "source_anchor": "BCC-D:pages:18,19"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_hhi",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "preference_category": "PREFERRED"
+          }
+        ],
+        "supporting_sections": [
+          "BCC-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_METASTATIC"
+    },
+    "need_extent": {
+      "kind": "status",
+      "label": "Advanced BCC disease extent is unresolved.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "BCC-5"
+      ]
+    },
+    "recur_extent": {
+      "kind": "decision",
+      "label": "Advanced recurrence (locally advanced/nodal/metastatic)?",
+      "expression": {
+        "fact": "disease_extent",
+        "op": "in",
+        "value": [
+          "LOCALLY_ADVANCED",
+          "NODAL",
+          "METASTATIC"
+        ]
+      },
+      "on": {
+        "TRUE": "extent_la",
+        "FALSE": "recur_local"
+      },
+      "source_pathways": [
+        "BCC-6"
+      ],
+      "decision_id": "recur_extent"
+    },
+    "recur_local": {
+      "kind": "action",
+      "label": "Local BCC recurrence: re-stage risk as high-risk and select surgery/RT by feasibility.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "recur_local",
+      "source_pathways": [
+        "BCC-6"
+      ],
+      "recommendation": {
+        "title": "Local BCC recurrence: re-stage risk as high-risk and select surgery/RT by feasibility.",
+        "options": [
+          {
+            "option_id": "bcc_rec_mohs",
+            "label": "Mohs/PDEMA or re-excision",
+            "text": "Mohs/PDEMA or re-excision",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "surgery_feasible",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          },
+          {
+            "option_id": "bcc_rec_rt",
+            "label": "RT",
+            "text": "RT",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "candidate_for_curative_rt",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-B",
+              "page_label": "BCC-B",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "BCC-B:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-B",
+          "BCC-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "BCC_LOCAL_RECURRENCE"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside BCC package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "BCC-1"
+      ]
+    },
+    "care_post_treatment": {
+      "kind": "decision",
+      "label": "Post-treatment/post-excision margin assessment state?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_TREATMENT"
+      },
+      "on": {
+        "TRUE": "post_risk_any",
+        "FALSE": "risk_any"
+      },
+      "source_pathways": [
+        "BCC-3",
+        "BCC-4",
+        "BCC-6"
+      ],
+      "decision_id": "bcc_post_treatment_state"
+    },
+    "high_primary_surgery": {
+      "kind": "action",
+      "label": "High-risk BCC primary treatment when surgery is feasible: Mohs/PDEMA preferred; standard excision with wider margins is an alternative; multidisciplinary planning as appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "high_primary_surgery",
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "pathway_id": "BCC_HIGH_RISK_PRIMARY_SURGERY",
+      "recommendation": {
+        "title": "High-risk BCC primary surgery",
+        "options": [
+          {
+            "option_id": "bcc_high_mohs_pdema",
+            "label": "Mohs or PDEMA",
+            "text": "Preferred for high-risk BCC.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-4",
+              "page_label": "BCC-4",
+              "physical_pages": [
+                9
+              ],
+              "source_anchor": "BCC-4:pages:9"
+            }
+          },
+          {
+            "option_id": "bcc_high_standard_excision",
+            "label": "Standard excision with wider surgical margins",
+            "text": "With postoperative margin assessment and reconstruction only after clear margins as appropriate.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Basal Cell Skin Cancer",
+              "version": "1.2027",
+              "section": "BCC-4",
+              "page_label": "BCC-4",
+              "physical_pages": [
+                9
+              ],
+              "source_anchor": "BCC-4:pages:9"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "BCC-B"
+        ],
+        "next_steps": [
+          "POST_TREATMENT_MARGIN_ASSESSMENT"
+        ]
+      }
+    },
+    "post_risk_any": {
+      "kind": "decision",
+      "label": "Post-treatment lesion classified high risk by any BCC-2 factor?",
+      "expression": {
+        "any": [
+          {
+            "fact": "location_high_risk",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "diameter_high_risk",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "poorly_defined_borders",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "recurrent_primary",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "immunosuppressed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "site_prior_rt",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "aggressive_histology",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "perineural_involvement",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "high_surgery_margin",
+        "FALSE": "post_risk_all_negative"
+      },
+      "source_pathways": [
+        "BCC-2",
+        "BCC-4"
+      ],
+      "decision_id": "bcc_post_high_risk_any"
+    },
+    "post_risk_all_negative": {
+      "kind": "decision",
+      "label": "All BCC-2 high-risk factors confirmed absent for post-treatment lesion?",
+      "expression": {
+        "all": [
+          {
+            "fact": "location_high_risk",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "diameter_high_risk",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "poorly_defined_borders",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "recurrent_primary",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "immunosuppressed",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "site_prior_rt",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "aggressive_histology",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "perineural_involvement",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "low_local",
+        "FALSE": "need_risk"
+      },
+      "source_pathways": [
+        "BCC-2",
+        "BCC-3"
+      ],
+      "decision_id": "bcc_post_all_high_risk_absent"
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "BCC-1": {
+        "code": "BCC-1",
+        "pages": [
+          5
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2c57eca82ff4524d1e7a7497d87718f8e5cf5ba7d35124db649d38abd5e86249",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "BCC-2": {
+        "code": "BCC-2",
+        "pages": [
+          6
+        ],
+        "page_count": 1,
+        "source_text_sha256": "4fb57756fc6eb5f6b199404d6b11c49fbc41ad37dcebead227ef03feaeef6d27",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "BCC-3": {
+        "code": "BCC-3",
+        "pages": [
+          7
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8bb3f1cdd80650b52d8032bd284d5c36c57b479c10614e30e9a08cd6607a6eb1",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "BCC-3A": {
+        "code": "BCC-3A",
+        "pages": [
+          8
+        ],
+        "page_count": 1,
+        "source_text_sha256": "902567d5042be45c9ff0c343a6be52517c15e75af56c016a4badd271cfbfce23",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "BCC-4": {
+        "code": "BCC-4",
+        "pages": [
+          9
+        ],
+        "page_count": 1,
+        "source_text_sha256": "0789d933fb3c6dfd2322053c293d913f0aeb8bbd8331e601a7f52fecd90ea9f2",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "BCC-5": {
+        "code": "BCC-5",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8650b6b6709e3e890d380210c7003edc0b6b197da5529523067e2d7fdea2177c",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "BCC-6": {
+        "code": "BCC-6",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ecd2f5fcda0b3a63c67c7ba5e92c8e970a5553cb7e93cf5af9b24ab3e08a5906",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "BCC-A": {
+        "code": "BCC-A",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "45520210ba004963a30b3b2a7138ac3425d3c51676b3b10e39ee44548edff09c",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BCC-B": {
+        "code": "BCC-B",
+        "pages": [
+          13
+        ],
+        "page_count": 1,
+        "source_text_sha256": "739819306226ab9e4ec6078d2cc0efb6fbbe53bef9d7755bb9f41672bee4f35a",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BCC-C": {
+        "code": "BCC-C",
+        "pages": [
+          14,
+          15,
+          16,
+          17
+        ],
+        "page_count": 4,
+        "source_text_sha256": "b2d465742ae3e1c349d39b0935b9f6854184247440d7e9f4b98627db8d61c403",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BCC-D": {
+        "code": "BCC-D",
+        "pages": [
+          18,
+          19
+        ],
+        "page_count": 2,
+        "source_text_sha256": "0a1edd9dd8f9fe3c621f64a57e3214772bcaa89ad4b25b7e931c5e9f9719d756",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "BCC-E": {
+        "code": "BCC-E",
+        "pages": [
+          20
+        ],
+        "page_count": 1,
+        "source_text_sha256": "258bcc5afa50a609d5ba27cb73579bd34341589451890832903700686762d575",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      }
+    },
+    "primary_expected": 7,
+    "supporting_expected": 5
+  },
+  "source": {
+    "filename": "basal(6).pdf",
+    "sha256": "1e3e3ce45917a8d95b7c1d08d6a376e373e064df05c8b6d49ff41ae9970a0fe4",
+    "pdf_pages": 64
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true,
+    "cross_state_consistency_gate": true
+  },
+  "consistency_rules": [],
+  "derived_rules": [],
+  "executable_decisions": [
+    {
+      "decision_id": "scope",
+      "source_section": "BCC-1",
+      "source_page_label": "BCC-1",
+      "source_anchor": "BCC-1:pages:5",
+      "clinical_question": "Basal cell skin cancer?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "care_advanced",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_advanced",
+      "source_section": "BCC-1",
+      "source_page_label": "BCC-1",
+      "source_anchor": "BCC-1:pages:5",
+      "clinical_question": "Nodal or metastatic/locally advanced current disease?",
+      "input_fact_ids": [
+        "disease_extent"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "extent_la",
+        "care_recur"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_advanced",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_recur",
+      "source_section": "BCC-6",
+      "source_page_label": "BCC-6",
+      "source_anchor": "BCC-6:pages:11",
+      "clinical_question": "Current recurrence?",
+      "input_fact_ids": [
+        "local_recurrence",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "recur_extent",
+        "care_post_treatment"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_recur",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "risk_any",
+      "source_section": "BCC-2",
+      "source_page_label": "BCC-2",
+      "source_anchor": "BCC-2:pages:6",
+      "clinical_question": "Any confirmed high-risk recurrence factor?",
+      "input_fact_ids": [
+        "aggressive_histology",
+        "diameter_high_risk",
+        "immunosuppressed",
+        "location_high_risk",
+        "perineural_involvement",
+        "poorly_defined_borders",
+        "recurrent_primary",
+        "site_prior_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "high_local",
+        "risk_all_negative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "risk_any",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "risk_all_negative",
+      "source_section": "BCC-2",
+      "source_page_label": "BCC-2",
+      "source_anchor": "BCC-2:pages:6",
+      "clinical_question": "All source-defined high-risk factors confirmed absent?",
+      "input_fact_ids": [
+        "aggressive_histology",
+        "diameter_high_risk",
+        "immunosuppressed",
+        "location_high_risk",
+        "perineural_involvement",
+        "poorly_defined_borders",
+        "recurrent_primary",
+        "site_prior_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_low_ce",
+        "bcc_low_excision",
+        "bcc_low_mohs",
+        "bcc_low_superficial"
+      ],
+      "internal_transfer_targets": [
+        "low_primary",
+        "need_risk"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "risk_all_negative",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "low_local",
+      "source_section": "BCC-3",
+      "source_page_label": "BCC-3",
+      "source_anchor": "BCC-3:pages:7",
+      "clinical_question": "Low-risk BCC postoperative margin positive?",
+      "input_fact_ids": [
+        "margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_low_ce",
+        "bcc_low_excision",
+        "bcc_low_mohs",
+        "bcc_low_pm_mohs",
+        "bcc_low_pm_reexcision",
+        "bcc_low_pm_rt",
+        "bcc_low_superficial"
+      ],
+      "internal_transfer_targets": [
+        "low_posmargin",
+        "low_primary"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "low_local",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "high_local",
+      "source_section": "BCC-4",
+      "source_page_label": "BCC-4",
+      "source_anchor": "BCC-4:pages:9",
+      "clinical_question": "Named nerve/perineural extensive involvement?",
+      "input_fact_ids": [
+        "named_nerve_involvement"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_pn_rt",
+        "bcc_pn_surgery"
+      ],
+      "internal_transfer_targets": [
+        "high_pn",
+        "high_surgery"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "high_local",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "high_surgery",
+      "source_section": "BCC-4",
+      "source_page_label": "BCC-4",
+      "source_anchor": "BCC-4:pages:9",
+      "clinical_question": "Surgery feasible?",
+      "input_fact_ids": [
+        "surgery_feasible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_high_def_rt",
+        "bcc_high_mohs_pdema",
+        "bcc_high_standard_excision",
+        "bcc_high_to_advanced"
+      ],
+      "internal_transfer_targets": [
+        "high_primary_surgery",
+        "high_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "high_surgery",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "high_surgery_margin",
+      "source_section": "BCC-4",
+      "source_page_label": "BCC-4",
+      "source_anchor": "BCC-4:pages:9",
+      "clinical_question": "Postoperative margin positive?",
+      "input_fact_ids": [
+        "margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_high_adjuvant_rt",
+        "bcc_high_follow",
+        "bcc_high_pm_resect",
+        "bcc_high_pm_rt"
+      ],
+      "internal_transfer_targets": [
+        "high_pm",
+        "high_neg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "high_surgery_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "extent_la",
+      "source_section": "BCC-5",
+      "source_page_label": "BCC-5",
+      "source_anchor": "BCC-5:pages:10",
+      "clinical_question": "Locally advanced disease?",
+      "input_fact_ids": [
+        "disease_extent"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "la_resect",
+        "extent_nodal"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "extent_la",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "la_resect",
+      "source_section": "BCC-5",
+      "source_page_label": "BCC-5",
+      "source_anchor": "BCC-5:pages:10",
+      "clinical_question": "Locally advanced disease resectable with acceptable morbidity?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_la_neo_vismo",
+        "bcc_la_surgery"
+      ],
+      "internal_transfer_targets": [
+        "la_resect_action",
+        "la_hhi_state"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "la_resect",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "la_hhi_state",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Prior HHI with progression/intolerance?",
+      "input_fact_ids": [
+        "hhi_intolerant_or_progressed"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_la_cemip",
+        "bcc_la_soni",
+        "bcc_la_vismo"
+      ],
+      "internal_transfer_targets": [
+        "la_second",
+        "la_first"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "la_hhi_state",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "extent_nodal",
+      "source_section": "BCC-5",
+      "source_page_label": "BCC-5",
+      "source_anchor": "BCC-5:pages:10",
+      "clinical_question": "Nodal disease?",
+      "input_fact_ids": [
+        "disease_extent"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_nodal_cemi",
+        "bcc_nodal_cemip",
+        "bcc_nodal_hhi",
+        "bcc_nodal_soni",
+        "bcc_nodal_surg",
+        "bcc_nodal_vismo"
+      ],
+      "internal_transfer_targets": [
+        "nodal",
+        "extent_met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "extent_nodal",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "extent_met",
+      "source_section": "BCC-5",
+      "source_page_label": "BCC-5",
+      "source_anchor": "BCC-5:pages:10",
+      "clinical_question": "Metastatic disease?",
+      "input_fact_ids": [
+        "disease_extent"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_met_cemi",
+        "bcc_met_cemip",
+        "bcc_met_hhi",
+        "bcc_met_soni",
+        "bcc_met_vismo"
+      ],
+      "internal_transfer_targets": [
+        "met",
+        "need_extent"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "extent_met",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "recur_extent",
+      "source_section": "BCC-6",
+      "source_page_label": "BCC-6",
+      "source_anchor": "BCC-6:pages:11",
+      "clinical_question": "Advanced recurrence (locally advanced/nodal/metastatic)?",
+      "input_fact_ids": [
+        "disease_extent"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_rec_mohs",
+        "bcc_rec_rt"
+      ],
+      "internal_transfer_targets": [
+        "extent_la",
+        "recur_local"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "recur_extent",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "bcc_post_treatment_state",
+      "source_section": "BCC-3",
+      "source_page_label": "BCC-3",
+      "source_anchor": "BCC-3:pages:7",
+      "clinical_question": "Post-treatment/post-excision margin assessment state?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "post_risk_any",
+        "risk_any"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_post_treatment",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "bcc_post_high_risk_any",
+      "source_section": "BCC-2",
+      "source_page_label": "BCC-2",
+      "source_anchor": "BCC-2:pages:6",
+      "clinical_question": "Post-treatment lesion classified high risk by any BCC-2 factor?",
+      "input_fact_ids": [
+        "aggressive_histology",
+        "diameter_high_risk",
+        "immunosuppressed",
+        "location_high_risk",
+        "perineural_involvement",
+        "poorly_defined_borders",
+        "recurrent_primary",
+        "site_prior_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "high_surgery_margin",
+        "post_risk_all_negative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_risk_any",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "bcc_post_all_high_risk_absent",
+      "source_section": "BCC-2",
+      "source_page_label": "BCC-2",
+      "source_anchor": "BCC-2:pages:6",
+      "clinical_question": "All BCC-2 high-risk factors confirmed absent for post-treatment lesion?",
+      "input_fact_ids": [
+        "aggressive_histology",
+        "diameter_high_risk",
+        "immunosuppressed",
+        "location_high_risk",
+        "perineural_involvement",
+        "poorly_defined_borders",
+        "recurrent_primary",
+        "site_prior_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "low_local",
+        "need_risk"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_risk_all_negative",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::low_posmargin::bcc_low_pm_rt",
+      "source_section": "BCC-B",
+      "source_page_label": "BCC-B",
+      "source_anchor": "BCC-B:pages:13",
+      "clinical_question": "Is option RT applicable to the current patient state?",
+      "input_fact_ids": [
+        "candidate_for_curative_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_low_pm_rt"
+      ],
+      "internal_transfer_targets": [
+        "low_posmargin"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "low_posmargin:bcc_low_pm_rt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::high_pm::bcc_high_pm_rt",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option RT applicable to the current patient state?",
+      "input_fact_ids": [
+        "candidate_for_curative_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_high_pm_rt"
+      ],
+      "internal_transfer_targets": [
+        "high_pm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "high_pm:bcc_high_pm_rt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::high_pn::bcc_pn_surgery",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option Surgery with complete margin assessment applicable to the current patient state?",
+      "input_fact_ids": [
+        "surgery_feasible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_pn_surgery"
+      ],
+      "internal_transfer_targets": [
+        "high_pn"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "high_pn:bcc_pn_surgery",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::high_pn::bcc_pn_rt",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option RT applicable to the current patient state?",
+      "input_fact_ids": [
+        "candidate_for_curative_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_pn_rt"
+      ],
+      "internal_transfer_targets": [
+        "high_pn"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "high_pn:bcc_pn_rt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::high_rt::bcc_high_def_rt",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option Definitive RT applicable to the current patient state?",
+      "input_fact_ids": [
+        "candidate_for_curative_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_high_def_rt"
+      ],
+      "internal_transfer_targets": [
+        "high_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "high_rt:bcc_high_def_rt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::high_rt::bcc_high_to_advanced",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option Systemic therapy pathway for locally advanced disease applicable to the current patient state?",
+      "input_fact_ids": [
+        "candidate_for_curative_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_high_to_advanced"
+      ],
+      "internal_transfer_targets": [
+        "high_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "high_rt:bcc_high_to_advanced",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nodal::bcc_nodal_surg",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option Lymph-node surgery +/- RT applicable to the current patient state?",
+      "input_fact_ids": [
+        "resectable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_nodal_surg"
+      ],
+      "internal_transfer_targets": [
+        "nodal"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nodal:bcc_nodal_surg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nodal::bcc_nodal_vismo",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option Vismodegib applicable to the current patient state?",
+      "input_fact_ids": [
+        "hhi_intolerant_or_progressed",
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_nodal_vismo"
+      ],
+      "internal_transfer_targets": [
+        "nodal"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nodal:bcc_nodal_vismo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nodal::bcc_nodal_soni",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option Sonidegib applicable to the current patient state?",
+      "input_fact_ids": [
+        "hhi_intolerant_or_progressed",
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_nodal_soni"
+      ],
+      "internal_transfer_targets": [
+        "nodal"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nodal:bcc_nodal_soni",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nodal::bcc_nodal_cemi",
+      "source_section": "BCC-C",
+      "source_page_label": "BCC-C",
+      "source_anchor": "BCC-C:pages:14,15,16,17",
+      "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+      "input_fact_ids": [
+        "hhi_intolerant_or_progressed",
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_nodal_cemi"
+      ],
+      "internal_transfer_targets": [
+        "nodal"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nodal:bcc_nodal_cemi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nodal::bcc_nodal_hhi",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Is option Hedgehog pathway inhibitor applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_nodal_hhi"
+      ],
+      "internal_transfer_targets": [
+        "nodal"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nodal:bcc_nodal_hhi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nodal::bcc_nodal_cemip",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_nodal_cemip"
+      ],
+      "internal_transfer_targets": [
+        "nodal"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nodal:bcc_nodal_cemip",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met::bcc_met_cemi",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_met_cemi"
+      ],
+      "internal_transfer_targets": [
+        "met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met:bcc_met_cemi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met::bcc_met_vismo",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Is option Vismodegib applicable to the current patient state?",
+      "input_fact_ids": [
+        "hhi_intolerant_or_progressed",
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_met_vismo"
+      ],
+      "internal_transfer_targets": [
+        "met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met:bcc_met_vismo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met::bcc_met_soni",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Is option Sonidegib applicable to the current patient state?",
+      "input_fact_ids": [
+        "hhi_intolerant_or_progressed",
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_met_soni"
+      ],
+      "internal_transfer_targets": [
+        "met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met:bcc_met_soni",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met::bcc_met_hhi",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Is option Hedgehog pathway inhibitor applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_met_hhi"
+      ],
+      "internal_transfer_targets": [
+        "met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met:bcc_met_hhi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met::bcc_met_cemip",
+      "source_section": "BCC-D",
+      "source_page_label": "BCC-D",
+      "source_anchor": "BCC-D:pages:18,19",
+      "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hhi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_met_cemip"
+      ],
+      "internal_transfer_targets": [
+        "met"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met:bcc_met_cemip",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::recur_local::bcc_rec_mohs",
+      "source_section": "BCC-B",
+      "source_page_label": "BCC-B",
+      "source_anchor": "BCC-B:pages:13",
+      "clinical_question": "Is option Mohs/PDEMA or re-excision applicable to the current patient state?",
+      "input_fact_ids": [
+        "surgery_feasible"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_rec_mohs"
+      ],
+      "internal_transfer_targets": [
+        "recur_local"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "recur_local:bcc_rec_mohs",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::recur_local::bcc_rec_rt",
+      "source_section": "BCC-B",
+      "source_page_label": "BCC-B",
+      "source_anchor": "BCC-B:pages:13",
+      "clinical_question": "Is option RT applicable to the current patient state?",
+      "input_fact_ids": [
+        "candidate_for_curative_rt"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "bcc_rec_rt"
+      ],
+      "internal_transfer_targets": [
+        "recur_local"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "recur_local:bcc_rec_rt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

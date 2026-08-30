@@ -1,0 +1,134 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "HODGKIN_LYMPHOMA",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "histology",
+    "value_type": "CODED",
+    "allowed_values": [
+      "CLASSIC_HODGKIN",
+      "NLPHL",
+      "OTHER",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "INTERIM_RESPONSE",
+      "POST_INITIAL_THERAPY",
+      "FOLLOW_UP",
+      "RELAPSED_REFRACTORY"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "stage_group",
+    "value_type": "CODED",
+    "allowed_values": [
+      "I",
+      "II",
+      "III",
+      "IV",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "risk_system",
+    "value_type": "CODED",
+    "allowed_values": [
+      "GHSG",
+      "EORTC",
+      "NCCN",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "early_favorable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "b_symptoms",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "bulky_disease",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "age_over_60_or_unfit",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "pregnant",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "deauville",
+    "value_type": "CODED",
+    "allowed_values": [
+      "1_2",
+      "3",
+      "4_5",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "biopsy_result",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEGATIVE",
+      "POSITIVE",
+      "NOT_DONE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "transplant_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "relapse_timing",
+    "value_type": "CODED",
+    "allowed_values": [
+      "PRIMARY_REFRACTORY_OR_LT3MO",
+      "GE3MO",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "asymptomatic_nlphl",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "prior_autologous_hct",
+    "value_type": "BOOLEAN"
+  }
+]

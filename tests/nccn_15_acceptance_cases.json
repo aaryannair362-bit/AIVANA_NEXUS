@@ -1,0 +1,195 @@
+[
+  {
+    "case": 1,
+    "name": "Acute Lymphoblastic Leukemia (ALL)",
+    "patient_history": "45-year-old male newly diagnosed with precursor B-cell acute lymphoblastic leukemia. Bone marrow aspirate and biopsy showed 82% lymphoblasts. Flow cytometry confirmed B-lineage ALL with CD19, CD10 and TdT expression. Cytogenetic and molecular testing demonstrated a BCR::ABL1 fusion, consistent with Philadelphia chromosome-positive B-ALL. Lumbar puncture showed no evidence of CNS leukemia. He has not previously received chemotherapy, tyrosine kinase inhibitor therapy, immunotherapy, or hematopoietic cell transplant. He is otherwise fit without major organ dysfunction.",
+    "current_opd_note": "Seen today for initial treatment planning before any leukemia-directed therapy. ECOG performance status 0. WBC 28 ×10⁹/L, hemoglobin 9.3 g/dL and platelets 82 ×10⁹/L. BCR::ABL1 positivity has been confirmed. No neurologic symptoms and no current evidence of CNS involvement. This remains newly diagnosed, untreated Philadelphia chromosome-positive B-ALL.",
+    "expected_cancer": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "bph_initial",
+    "expected_result_text": "RECOMMENDATION → Acute Lymphoblastic Leukemia → Ph-positive B-ALL → frontline treatment pathway. Expected pathway should involve Ph-positive B-ALL induction using ALL-directed therapy with a TKI, followed by MRD/response-directed consolidation and subsequent transplant consideration where appropriate.",
+    "required_option_ids": [
+      "all_bph_trial"
+    ]
+  },
+  {
+    "case": 2,
+    "name": "Acute Myeloid Leukemia (AML)",
+    "patient_history": "58-year-old male recently diagnosed with acute myeloid leukemia. Bone marrow biopsy showed 64% myeloblasts with myeloid immunophenotype. PML::RARA testing is negative, excluding acute promyelocytic leukemia. Cytogenetics demonstrate a complex karyotype consistent with adverse-risk AML. FLT3, IDH1 and IDH2 mutations are not detected. He has never received AML-directed therapy or hematopoietic cell transplantation.",
+    "current_opd_note": "Initial AML treatment-planning visit. Patient is functionally fit with ECOG 1, normal cardiac systolic function and no major renal or hepatic impairment. Treating team considers him eligible for intensive induction. Disease remains active and untreated. No CNS involvement. Current classification is non-APL AML with adverse-risk genetics.",
+    "expected_cancer": "ACUTE_MYELOID_LEUKEMIA",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "adverse_unclassified",
+    "expected_result_text": "RECOMMENDATION → AML → non-APL AML → intensive-induction eligible → adverse-risk pathway. Expected direction is intensive induction followed by response-directed consolidation, with early consideration of allogeneic HCT because of adverse-risk disease.",
+    "required_option_ids": [
+      "aml_unclassified_intensive"
+    ]
+  },
+  {
+    "case": 3,
+    "name": "Anal Carcinoma",
+    "patient_history": "58-year-old woman evaluated for several months of rectal discomfort and intermittent bleeding. Biopsy of an anal canal lesion confirmed invasive squamous cell carcinoma. She has never received chemotherapy, radiation therapy, or surgery for this cancer.",
+    "current_opd_note": "Pelvic MRI shows a 3.4 cm anal canal primary consistent with cT2 disease. One involved regional pelvic lymph node is present. CT chest and abdomen show no distant metastatic disease. Clinical stage is cT2N1M0. Histology is squamous cell carcinoma of the anal canal. ECOG 0. Seen today before initiation of definitive therapy.",
+    "expected_cancer": "ANAL_CARCINOMA",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "canal_local",
+    "expected_result_text": "RECOMMENDATION → Anal carcinoma → anal canal squamous cell carcinoma → locoregional nonmetastatic pathway → definitive chemoradiation. Expected options include fluoropyrimidine/mitomycin-based concurrent radiation therapy, with the guideline-listed alternatives where applicable.",
+    "required_option_ids": [
+      "anal_5fu_mmc_rt"
+    ]
+  },
+  {
+    "case": 4,
+    "name": "B-Cell Lymphomas",
+    "patient_history": "64-year-old man with newly diagnosed diffuse large B-cell lymphoma. Excisional biopsy of a cervical lymph node confirms DLBCL. He has not previously received chemotherapy, immunotherapy, radiation therapy, stem-cell transplantation, or CAR-T therapy.",
+    "current_opd_note": "PET/CT demonstrates FDG-avid cervical, mediastinal, retroperitoneal and pelvic lymphadenopathy involving nodal regions on both sides of the diaphragm. No CNS disease is identified. Disease is classified as stage III DLBCL. ECOG performance status 1. This is the initial treatment-planning encounter and systemic therapy has not started.",
+    "expected_cancer": "B_CELL_LYMPHOMA",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "dlbcl_full_first",
+    "expected_result_text": "RECOMMENDATION → B-Cell Lymphoma → DLBCL → advanced-stage disease → curative first-line immunochemotherapy pathway, with PET-based response assessment and CNS-directed measures only when indicated by validated high-risk features.",
+    "required_option_ids": [
+      "dlbcl_rchop6"
+    ]
+  },
+  {
+    "case": 5,
+    "name": "Basal Cell Skin Cancer",
+    "patient_history": "70-year-old man with a recently biopsied basal cell carcinoma of the left nasal ala. Pathology shows infiltrative basal cell carcinoma. There is no prior history of treatment to this lesion and no previous hedgehog inhibitor therapy.",
+    "current_opd_note": "Examination shows a 1.4 cm poorly defined lesion involving the nasal ala. No clinical lymphadenopathy. Imaging shows no nodal or distant metastatic disease. No named-nerve involvement or clinical perineural spread is identified. The lesion is considered technically resectable, and the patient is medically suitable for surgery. This is a primary localized BCC in a high-risk facial location with aggressive histology.",
+    "expected_cancer": "BASAL_CELL_SKIN_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "high_primary_surgery",
+    "expected_result_text": "RECOMMENDATION → Basal Cell Skin Cancer → localized high-risk BCC → surgical pathway with complete margin assessment, commonly Mohs/PDEMA where appropriate, with radiation considered according to specific risk and surgical factors.",
+    "required_option_ids": [
+      "bcc_high_mohs_pdema"
+    ]
+  },
+  {
+    "case": 6,
+    "name": "Biliary Tract Cancers",
+    "patient_history": "61-year-old woman with biopsy-confirmed intrahepatic cholangiocarcinoma. She has received no previous systemic therapy, liver-directed therapy, radiotherapy, or surgery for the cancer.",
+    "current_opd_note": "Contrast MRI demonstrates a 7.2 cm intrahepatic cholangiocarcinoma involving central hepatic structures with vascular encasement. Multidisciplinary hepatobiliary review concludes that the tumor is currently unresectable. No prior cancer-directed treatment has been given. ECOG 1. Adequate hepatic and renal function. Comprehensive tumor molecular profiling has been requested and is pending. Seen for first-line treatment planning.",
+    "expected_cancer": "BILIARY_TRACT_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "sys_first",
+    "expected_result_text": "RECOMMENDATION → Biliary Tract Cancer → intrahepatic cholangiocarcinoma → unresectable/advanced pathway. Expected result should route toward first-line systemic therapy plus broad molecular profiling, with liver-directed approaches considered in selected liver-dominant cases and targeted options depending on actionable alterations.",
+    "required_option_ids": []
+  },
+  {
+    "case": 7,
+    "name": "Bladder Cancer",
+    "patient_history": "68-year-old man diagnosed 14 months ago with high-grade T1 urothelial carcinoma of the urinary bladder. Initial TURBT was followed by adequate BCG induction and maintenance therapy. He has not undergone radical cystectomy. There is no history of distant metastatic disease.",
+    "current_opd_note": "Surveillance cystoscopy identified a recurrent bladder lesion five months after adequate BCG. Repeat TURBT again confirms high-grade T1 urothelial carcinoma with muscularis propria present and uninvolved. CT chest, abdomen and pelvis shows no nodal or distant metastatic disease. Current disease is considered high-risk BCG-unresponsive non-muscle-invasive bladder cancer. Patient is medically fit for radical cystectomy and accepts consideration of definitive surgery.",
+    "expected_cancer": "BLADDER_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "bcg_unresp_cyst_action",
+    "expected_result_text": "RECOMMENDATION → Bladder Cancer → urothelial carcinoma → high-risk NMIBC → BCG-unresponsive after adequate BCG → radical cystectomy candidate → radical cystectomy preferred definitive pathway.",
+    "required_option_ids": [
+      "bl_bcg_u_cyst"
+    ]
+  },
+  {
+    "case": 8,
+    "name": "Bone Cancer",
+    "patient_history": "20-year-old man recently diagnosed with conventional high-grade osteosarcoma of the distal femur. Core biopsy confirms high-grade osteoblastic osteosarcoma. No previous systemic treatment, radiation therapy, or surgery has been performed.",
+    "current_opd_note": "MRI demonstrates a localized distal femoral primary without neurovascular encasement. CT chest shows no pulmonary metastases, and staging bone imaging shows no additional skeletal lesions. Disease is localized and considered surgically resectable with limb-sparing surgery. ECOG 0. Seen for initial treatment planning.",
+    "expected_cancer": "BONE_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "osteo_high",
+    "expected_result_text": "RECOMMENDATION → Bone Cancer → osteosarcoma → localized high-grade disease → neoadjuvant multiagent chemotherapy → complete surgical resection → postoperative/adjuvant chemotherapy with pathologic response assessment.",
+    "required_option_ids": [
+      "osteo_high_chemo"
+    ]
+  },
+  {
+    "case": 9,
+    "name": "Breast Cancer",
+    "patient_history": "46-year-old woman with newly diagnosed right breast invasive ductal carcinoma. She has undergone biopsy and staging imaging only. No breast surgery, systemic therapy, endocrine therapy, HER2-directed therapy, or radiation therapy has started.",
+    "current_opd_note": "Right breast mass measures 3.2 cm. Core biopsy shows grade 3 invasive ductal carcinoma, ER 0%, PR 0%, HER2 IHC 3+ positive. Biopsy of one ipsilateral axillary node confirms metastatic breast carcinoma. CT chest/abdomen/pelvis and bone imaging show no distant metastatic disease. Clinical stage is cT2N1M0. No inflammatory breast changes. ECOG 0. Seen for initial pretreatment planning.",
+    "expected_cancer": "BREAST_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "preop_her2",
+    "expected_result_text": "RECOMMENDATION → Breast Cancer → invasive HER2-positive, cT2N1M0 disease → preoperative systemic therapy preferred, with systemic therapy selected according to HER2/HR status before definitive surgery and subsequent response-directed postoperative management.",
+    "required_option_ids": [
+      "breast_preop_her2_regimen"
+    ]
+  },
+  {
+    "case": 10,
+    "name": "Cervical Cancer",
+    "patient_history": "47-year-old woman recently diagnosed with invasive squamous cell carcinoma of the cervix after investigation of postcoital bleeding. She has not received cervical cancer surgery, chemotherapy, immunotherapy, or radiotherapy.",
+    "current_opd_note": "Pelvic MRI demonstrates a cervical primary with parametrial invasion but no extension to the pelvic sidewall, consistent with FIGO stage IIB. PET/CT shows no distant metastatic disease. Histology is squamous cell carcinoma. Renal function is adequate for platinum-based therapy. ECOG 1. This is the initial definitive-treatment planning visit.",
+    "expected_cancer": "CERVICAL_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "la_nodal_pending",
+    "expected_result_text": "RECOMMENDATION → Cervical Cancer → FIGO IIB locally advanced disease → definitive concurrent platinum-based chemoradiation plus image-guided brachytherapy, with radiation fields adjusted according to nodal staging.",
+    "required_option_ids": [
+      "cerv_la_crt"
+    ]
+  },
+  {
+    "case": 11,
+    "name": "Gastric Cancer",
+    "patient_history": "62-year-old man with newly diagnosed adenocarcinoma of the distal stomach. Upper-GI endoscopy and biopsy confirmed moderately differentiated gastric adenocarcinoma. He has received no chemotherapy, immunotherapy, surgery, or radiotherapy.",
+    "current_opd_note": "EUS and staging imaging demonstrate a primary tumor extending into the subserosa with regional nodal involvement, cT3N1M0. There is no peritoneal or distant metastatic disease. Tumor is pMMR/MSS. Multidisciplinary review considers the disease potentially resectable and the patient medically fit for systemic therapy and gastrectomy. ECOG 0. Initial treatment-planning visit.",
+    "expected_cancer": "GASTRIC_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "locoreg_standard",
+    "expected_result_text": "RECOMMENDATION → Gastric Cancer → locoregional, medically fit, potentially resectable disease → perioperative systemic-therapy pathway followed by gastrectomy with appropriate lymphadenectomy, with postoperative management based on response and pathology.",
+    "required_option_ids": [
+      "gastric_peri_systemic"
+    ]
+  },
+  {
+    "case": 12,
+    "name": "Gastrointestinal Stromal Tumor (GIST)",
+    "patient_history": "58-year-old man underwent complete surgical resection of a primary gastric gastrointestinal stromal tumor three weeks ago. He did not receive preoperative imatinib or another TKI. Final pathology confirms GIST with a KIT exon 11 mutation.",
+    "current_opd_note": "Postoperative oncology consultation. Resected gastric GIST measured 7.5 cm with a high mitotic rate of 10 mitoses per 5 mm². Resection is complete with negative margins. No tumor rupture occurred. CT chest/abdomen/pelvis shows no metastatic disease. Mutation testing demonstrates an imatinib-sensitive KIT exon 11 mutation. Patient is being evaluated for postoperative therapy.",
+    "expected_cancer": "GIST",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "post_adjuvant",
+    "expected_result_text": "RECOMMENDATION → GIST → completely resected primary tumor → high recurrence risk → postoperative imatinib pathway. For high-risk disease, the guideline supports prolonged adjuvant imatinib, with at least 36 months considered.",
+    "required_option_ids": [
+      "gist_adj_imatinib"
+    ]
+  },
+  {
+    "case": 13,
+    "name": "Hodgkin Lymphoma",
+    "patient_history": "35-year-old man with newly diagnosed classical Hodgkin lymphoma confirmed on excisional lymph-node biopsy. He has received no lymphoma-directed systemic therapy or radiation therapy.",
+    "current_opd_note": "PET/CT demonstrates FDG-avid cervical, mediastinal, abdominal and pelvic lymphadenopathy with focal osseous involvement, consistent with stage IV classical Hodgkin lymphoma. Patient reports drenching night sweats and 8% unintentional weight loss. ECOG 1. He is medically fit for curative systemic therapy. This is the initial treatment-planning visit.",
+    "expected_cancer": "HODGKIN_LYMPHOMA",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "adv_initial",
+    "expected_result_text": "RECOMMENDATION → Hodgkin Lymphoma → classical Hodgkin lymphoma → stage III/IV advanced disease → curative frontline systemic-therapy pathway with PET-adapted response assessment.",
+    "required_option_ids": [
+      "hodg_adv_nivoavd"
+    ]
+  },
+  {
+    "case": 14,
+    "name": "Kidney Cancer",
+    "patient_history": "55-year-old woman with a newly diagnosed enhancing left renal cortical mass discovered incidentally. Biopsy confirms clear-cell renal cell carcinoma. No prior renal cancer surgery or systemic therapy.",
+    "current_opd_note": "Contrast CT demonstrates a solitary 3.2 cm left renal cortical tumor confined to the kidney, cT1aN0M0. No renal vein invasion, regional lymphadenopathy, or distant metastatic disease. The contralateral kidney is normal. ECOG 0. Urologic review confirms that partial nephrectomy is technically feasible and the patient is an appropriate surgical candidate.",
+    "expected_cancer": "KIDNEY_CANCER",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "partial",
+    "expected_result_text": "RECOMMENDATION → Kidney Cancer → localized clinical T1a renal cell carcinoma → partial nephrectomy pathway, with nephron-sparing surgery preferred when technically feasible.",
+    "required_option_ids": [
+      "kid_partial"
+    ]
+  },
+  {
+    "case": 15,
+    "name": "Myeloproliferative Neoplasms (MPN)",
+    "patient_history": "66-year-old man diagnosed with JAK2 V617F-positive polycythemia vera. Bone marrow findings are consistent with PV. He had a lower-extremity deep-vein thrombosis two years ago. He has not previously received hydroxyurea, interferon, ruxolitinib, or another cytoreductive agent.",
+    "current_opd_note": "Seen for treatment planning. Hematocrit is 56%, hemoglobin 18.4 g/dL, WBC 12.8 ×10⁹/L and platelets 510 ×10⁹/L. JAK2 V617F remains positive. No evidence of accelerated or blast-phase transformation. Because he is older than 60 years and has a prior thrombosis, he meets high-risk PV criteria. No aspirin contraindication or active major bleeding is present.",
+    "expected_cancer": "MYELOPROLIFERATIVE_NEOPLASM",
+    "expected_status": "RECOMMENDATION",
+    "expected_node": "pv_high",
+    "expected_result_text": "RECOMMENDATION → Myeloproliferative Neoplasm → Polycythemia Vera → high-risk PV → phlebotomy + low-dose aspirin + cytoreductive therapy. Expected cytoreductive options include preferred hydroxyurea or ropeginterferon alfa-2b, with other options depending on tolerance and response. Target hematocrit is below 45%.",
+    "required_option_ids": [
+      "pv_high_phleb"
+    ]
+  }
+]

@@ -1,0 +1,3393 @@
+[
+  {
+    "decision_id": "aml_scope",
+    "source_section": "EVAL-1",
+    "source_page_label": "EVAL-1",
+    "source_anchor": "EVAL-1:pages:13",
+    "clinical_question": "AML/APL/BPDCN ruleset?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "family_bpdcn",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_family_bpdcn",
+    "source_section": "BPDCN-INTRO",
+    "source_page_label": "BPDCN-INTRO",
+    "source_anchor": "BPDCN-INTRO:pages:76",
+    "clinical_question": "BPDCN?",
+    "input_fact_ids": [
+      "disease_family"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "bpdcn_workup_state",
+      "family_apl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "family_bpdcn",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_family_apl",
+    "source_section": "EVAL-2",
+    "source_page_label": "EVAL-2",
+    "source_anchor": "EVAL-2:pages:14",
+    "clinical_question": "APL?",
+    "input_fact_ids": [
+      "disease_family"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "apl_workup_state",
+      "family_nonapl"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "family_apl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_family_nonapl",
+    "source_section": "EVAL-2",
+    "source_page_label": "EVAL-2",
+    "source_anchor": "EVAL-2:pages:14",
+    "clinical_question": "Non-APL AML?",
+    "input_fact_ids": [
+      "disease_family"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "aml_workup_state",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "family_nonapl",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_bpdcn_rr_state",
+    "source_section": "BPDCN-4",
+    "source_page_label": "BPDCN-4",
+    "source_anchor": "BPDCN-4:pages:81",
+    "clinical_question": "Relapsed/refractory BPDCN?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_rr_chemo",
+      "bpdcn_rr_hct",
+      "bpdcn_rr_hma_ven",
+      "bpdcn_rr_pivekimab",
+      "bpdcn_rr_rt",
+      "bpdcn_rr_tagrax",
+      "bpdcn_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_rr",
+      "bpdcn_initial_response"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bpdcn_rr_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_bpdcn_postind",
+    "source_section": "BPDCN-2",
+    "source_page_label": "BPDCN-2",
+    "source_anchor": "BPDCN-2:pages:78",
+    "clinical_question": "Post-induction BPDCN response assessment?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_aml_induction",
+      "bpdcn_chop",
+      "bpdcn_hma_ven",
+      "bpdcn_hypercvad",
+      "bpdcn_it",
+      "bpdcn_pivekimab",
+      "bpdcn_tagrax"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_response",
+      "bpdcn_initial"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bpdcn_initial_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_bpdcn_response",
+    "source_section": "BPDCN-2",
+    "source_page_label": "BPDCN-2",
+    "source_anchor": "BPDCN-2:pages:78",
+    "clinical_question": "Complete response after BPDCN induction?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_cr_allohct",
+      "bpdcn_cr_autohct",
+      "bpdcn_cr_continue",
+      "bpdcn_rr_chemo",
+      "bpdcn_rr_hct",
+      "bpdcn_rr_hma_ven",
+      "bpdcn_rr_pivekimab",
+      "bpdcn_rr_rt",
+      "bpdcn_rr_tagrax",
+      "bpdcn_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_cr",
+      "bpdcn_rr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bpdcn_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_apl_rr",
+    "source_section": "APL-6",
+    "source_page_label": "APL-6",
+    "source_anchor": "APL-6:pages:21",
+    "clinical_question": "Relapsed APL?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "apl_rel_hct",
+      "apl_rel_salvage"
+    ],
+    "internal_transfer_targets": [
+      "apl_relapse",
+      "apl_postcon"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "apl_rr_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_apl_postcon",
+    "source_section": "APL-5",
+    "source_page_label": "APL-5",
+    "source_anchor": "APL-5:pages:20",
+    "clinical_question": "Post-consolidation/monitoring phase?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "apl_monitor_maintenance",
+      "apl_monitor_molecular"
+    ],
+    "internal_transfer_targets": [
+      "apl_monitor",
+      "apl_postind"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "apl_postcon",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_apl_postind",
+    "source_section": "APL-2",
+    "source_page_label": "APL-2",
+    "source_anchor": "APL-2:pages:17",
+    "clinical_question": "Post-induction APL response phase?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "apl_consolidation_protocol"
+    ],
+    "internal_transfer_targets": [
+      "apl_consolidation",
+      "apl_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "apl_postind",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_apl_wbc_risk",
+    "source_section": "APL-1",
+    "source_page_label": "APL-1",
+    "source_anchor": "APL-1:pages:16",
+    "clinical_question": "High-risk APL by WBC >10 x10^9/L?",
+    "input_fact_ids": [
+      "wbc_count"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "apl_low_atra_ato_daily",
+      "apl_low_atra_ato_intermit",
+      "apl_low_atra_go",
+      "apl_low_atra_ida"
+    ],
+    "internal_transfer_targets": [
+      "apl_high_cardiac",
+      "apl_low"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "apl_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_apl_cardiac",
+    "source_section": "APL-1",
+    "source_page_label": "APL-1",
+    "source_anchor": "APL-1:pages:16",
+    "clinical_question": "Cardiac issues affecting high-risk APL regimen?",
+    "input_fact_ids": [
+      "cardiac_issues"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "apl_high_atra_daily_ato_go",
+      "apl_high_atra_dauno_cyt",
+      "apl_high_atra_ida",
+      "apl_high_atra_ida_ato",
+      "apl_high_atra_inter_ato_go",
+      "apl_high_card_ato_atra_go"
+    ],
+    "internal_transfer_targets": [
+      "apl_high_card",
+      "apl_high"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "apl_high_cardiac",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_rr_state",
+    "source_section": "AML-8",
+    "source_page_label": "AML-8",
+    "source_anchor": "AML-8:pages:42",
+    "clinical_question": "Relapsed/refractory AML?",
+    "input_fact_ids": [
+      "response_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "rr_npm1",
+      "aml_postind_state"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "aml_care_rr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_postind_state",
+    "source_section": "AML-3",
+    "source_page_label": "AML-3",
+    "source_anchor": "AML-3:pages:34",
+    "clinical_question": "Post-induction assessment?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postind_response",
+      "aml_postcon_state"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "aml_postind_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_postcon_state",
+    "source_section": "AML-7",
+    "source_page_label": "AML-7",
+    "source_anchor": "AML-7:pages:41",
+    "clinical_question": "Post-consolidation/maintenance/surveillance state?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "maintenance_router",
+      "aml_new_state"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "aml_postcon_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_new_state",
+    "source_section": "AML-1",
+    "source_page_label": "AML-1",
+    "source_anchor": "AML-1:pages:31",
+    "clinical_question": "New-diagnosis AML?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "intensive_elig",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "aml_new_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_intensive_eligibility",
+    "source_section": "AML-1",
+    "source_page_label": "AML-1",
+    "source_anchor": "AML-1:pages:31",
+    "clinical_question": "Eligible for intensive induction?",
+    "input_fact_ids": [
+      "intensive_induction_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "intensive_tp53",
+      "lower_idh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "intensive_elig",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_tp53",
+    "source_section": "AML-2",
+    "source_page_label": "AML-2",
+    "source_anchor": "AML-2:pages:32",
+    "clinical_question": "TP53 mutation or del(17p) adverse-risk state?",
+    "input_fact_ids": [
+      "tp53_mutation_or_del17p"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_tp53_7_3",
+      "aml_tp53_aza_ven",
+      "aml_tp53_cpx",
+      "aml_tp53_dec_ven",
+      "aml_tp53_trial"
+    ],
+    "internal_transfer_targets": [
+      "tp53_trial",
+      "intensive_mrc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "intensive_tp53",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_mrc_biology",
+    "source_section": "AML-2",
+    "source_page_label": "AML-2",
+    "source_anchor": "AML-2:pages:32",
+    "clinical_question": "Therapy-related AML / antecedent MDS-CMML / MDS-related biology?",
+    "input_fact_ids": [
+      "therapy_related_or_mrc"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "mrc_age",
+      "intensive_cbf"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "intensive_mrc",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_mrc_age",
+    "source_section": "AML-2",
+    "source_page_label": "AML-2",
+    "source_anchor": "AML-2:pages:32",
+    "clinical_question": "Age >=60?",
+    "input_fact_ids": [
+      "age_ge_60"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_mrc60_7_3",
+      "aml_mrc60_aza_ven",
+      "aml_mrc60_cpx",
+      "aml_mrc60_dec_ven",
+      "aml_mrclt60_7_3",
+      "aml_mrclt60_aza_ven",
+      "aml_mrclt60_cpx"
+    ],
+    "internal_transfer_targets": [
+      "mrc_age60",
+      "mrc_lt60"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "mrc_age",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_cbf",
+    "source_section": "AML-1",
+    "source_page_label": "AML-1",
+    "source_anchor": "AML-1:pages:31",
+    "clinical_question": "Core-binding-factor AML?",
+    "input_fact_ids": [
+      "cbf_aml"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_cbf_7_3",
+      "aml_cbf_7_3_go",
+      "aml_cbf_flagida_go",
+      "aml_cbf_midostaurin",
+      "aml_cbf_quizartinib"
+    ],
+    "internal_transfer_targets": [
+      "cbf_options",
+      "intensive_adverse"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "intensive_cbf",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_eln_adverse",
+    "source_section": "AML-1",
+    "source_page_label": "AML-1",
+    "source_anchor": "AML-1:pages:31",
+    "clinical_question": "ELN adverse-risk AML?",
+    "input_fact_ids": [
+      "eln_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_adv_7_3",
+      "aml_adv_aza_ven",
+      "aml_adv_dec_ven",
+      "aml_adv_hct_plan",
+      "aml_adv_trial",
+      "aml_nonadv_7_3",
+      "aml_nonadv_go",
+      "aml_nonadv_hct_plan",
+      "aml_nonadv_midostaurin",
+      "aml_nonadv_quiz"
+    ],
+    "internal_transfer_targets": [
+      "adverse_options",
+      "nonadverse_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "intensive_adverse",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_lower_idh1",
+    "source_section": "AML-4",
+    "source_page_label": "AML-4",
+    "source_anchor": "AML-4:pages:36",
+    "clinical_question": "IDH1-mutated AML?",
+    "input_fact_ids": [
+      "idh1_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_aza_ven",
+      "aml_low_dec_ven",
+      "aml_low_enasidenib",
+      "aml_low_gilteritinib",
+      "aml_low_go",
+      "aml_low_hma_alone",
+      "aml_low_idh1_aza_ivo",
+      "aml_low_idh1_aza_ven",
+      "aml_low_idh1_dec_ven",
+      "aml_low_idh1_hma_alone",
+      "aml_low_idh1_ivo",
+      "aml_low_idh1_ldac_ven",
+      "aml_low_idh1_oluta",
+      "aml_low_idh1_oraldec_ven",
+      "aml_low_ldac",
+      "aml_low_ldac_ven",
+      "aml_low_oraldec_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_idh1_action",
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "lower_idh1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_postind_response",
+    "source_section": "AML-3",
+    "source_page_label": "AML-3",
+    "source_anchor": "AML-3:pages:34",
+    "clinical_question": "Response/remission achieved after induction?",
+    "input_fact_ids": [
+      "response_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postind_remission",
+      "postind_noresponse"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postind_response",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_postind_regimen",
+    "source_section": "AML-5",
+    "source_page_label": "AML-5",
+    "source_anchor": "AML-5:pages:38",
+    "clinical_question": "Was lower-intensity induction used?",
+    "input_fact_ids": [
+      "induction_regimen"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "lower_response_hct",
+      "consol_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postind_remission",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_lower_response_hct",
+    "source_section": "AML-5",
+    "source_page_label": "AML-5",
+    "source_anchor": "AML-5:pages:38",
+    "clinical_question": "Transplant candidate with donor/appropriate first-remission plan?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_lower_continue",
+      "aml_lower_hct"
+    ],
+    "internal_transfer_targets": [
+      "lower_hct",
+      "lower_continue"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "lower_response_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_postind_noresponse_regimen",
+    "source_section": "AML-3",
+    "source_page_label": "AML-3",
+    "source_anchor": "AML-3:pages:34",
+    "clinical_question": "Lower-intensity induction with no response/progression?",
+    "input_fact_ids": [
+      "induction_regimen"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_lower_noresp_bsc",
+      "aml_lower_noresp_rr"
+    ],
+    "internal_transfer_targets": [
+      "lower_noresp",
+      "intensive_reind_cpx"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postind_noresponse",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_reind_cpx",
+    "source_section": "AML-3",
+    "source_page_label": "AML-3",
+    "source_anchor": "AML-3:pages:34",
+    "clinical_question": "Was CPX-351 used during induction?",
+    "input_fact_ids": [
+      "induction_regimen"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_reind_7_3",
+      "aml_reind_cpx351",
+      "aml_reind_cpx_rr",
+      "aml_reind_cytarabine",
+      "aml_reind_hma_ven",
+      "aml_reind_targeted"
+    ],
+    "internal_transfer_targets": [
+      "reind_cpx",
+      "reind_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "intensive_reind_cpx",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_consol_risk_fav",
+    "source_section": "AML-6",
+    "source_page_label": "AML-6",
+    "source_anchor": "AML-6:pages:39",
+    "clinical_question": "Favorable-risk AML?",
+    "input_fact_ids": [
+      "eln_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "consol_fav_mrd",
+      "consol_flt3"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "consol_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_consol_fav_mrd",
+    "source_section": "AML-6",
+    "source_page_label": "AML-6",
+    "source_anchor": "AML-6:pages:39",
+    "clinical_question": "MRD positive/high-risk feature despite favorable-risk AML?",
+    "input_fact_ids": [
+      "mrd_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_fav_cyt",
+      "aml_consol_fav_go",
+      "aml_consol_fav_hct"
+    ],
+    "internal_transfer_targets": [
+      "consol_fav_hct",
+      "consol_fav"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "consol_fav_mrd",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_consol_flt3",
+    "source_section": "AML-6",
+    "source_page_label": "AML-6",
+    "source_anchor": "AML-6:pages:39",
+    "clinical_question": "FLT3-mutated AML?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_flt3_hct",
+      "aml_consol_flt3_mido",
+      "aml_consol_flt3_quiz"
+    ],
+    "internal_transfer_targets": [
+      "consol_flt3_action",
+      "consol_other_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "consol_flt3",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_consol_adverse",
+    "source_section": "AML-6",
+    "source_page_label": "AML-6",
+    "source_anchor": "AML-6:pages:39",
+    "clinical_question": "Adverse-risk AML?",
+    "input_fact_ids": [
+      "eln_risk"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_adv_cpx",
+      "aml_consol_adv_cyt",
+      "aml_consol_adv_hct",
+      "aml_consol_int_cyt",
+      "aml_consol_int_hct"
+    ],
+    "internal_transfer_targets": [
+      "consol_adverse",
+      "consol_intermediate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "consol_other_risk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_maintenance_posthct",
+    "source_section": "AML-7",
+    "source_page_label": "AML-7",
+    "source_anchor": "AML-7:pages:41",
+    "clinical_question": "Post-allogeneic HCT?",
+    "input_fact_ids": [
+      "post_hct"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "maintenance_posthct",
+      "maintenance_nohct_flt3_history"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "maintenance_router",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_posthct_flt3",
+    "source_section": "AML-7",
+    "source_page_label": "AML-7",
+    "source_anchor": "AML-7:pages:41",
+    "clinical_question": "History of FLT3 mutation?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_mnt_gilteritinib",
+      "aml_mnt_lowdec_gcsf",
+      "aml_mnt_midostaurin",
+      "aml_mnt_quizartinib",
+      "aml_mnt_sorafenib",
+      "aml_mnt_surveillance"
+    ],
+    "internal_transfer_targets": [
+      "maintenance_flt3_hct",
+      "maintenance_highrisk_hct"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "maintenance_posthct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_nonhct_maintenance",
+    "source_section": "AML-7",
+    "source_page_label": "AML-7",
+    "source_anchor": "AML-7:pages:41",
+    "clinical_question": "Non-CBF AML after intensive chemotherapy, in remission, with no planned HCT?",
+    "input_fact_ids": [
+      "cbf_aml",
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_mnt_hma12",
+      "aml_mnt_oralaza",
+      "aml_surv_mrd",
+      "aml_surv_schedule"
+    ],
+    "internal_transfer_targets": [
+      "maintenance_oralaza",
+      "surveillance_aml"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "maintenance_nohct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_rr_npm1",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "NPM1-mutated relapsed/refractory AML?",
+    "input_fact_ids": [
+      "npm1_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct",
+      "aml_rr_intensive",
+      "aml_rr_lessint",
+      "aml_rr_reinduction_long",
+      "aml_rr_revumenib_npm1",
+      "aml_rr_targeted_rechallenge",
+      "aml_rr_trial",
+      "aml_rr_ziftomenib"
+    ],
+    "internal_transfer_targets": [
+      "rr_npm1_action",
+      "rr_kmt2a"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rr_npm1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_rr_kmt2a",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "KMT2A-rearranged relapsed/refractory AML?",
+    "input_fact_ids": [
+      "kmt2a_rearranged"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct",
+      "aml_rr_intensive",
+      "aml_rr_lessint",
+      "aml_rr_reinduction_long",
+      "aml_rr_revumenib_kmt2a",
+      "aml_rr_targeted_rechallenge",
+      "aml_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "rr_kmt2a_action",
+      "rr_flt3"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rr_kmt2a",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_rr_flt3",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "FLT3-mutated relapsed/refractory AML?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_gilteritinib",
+      "aml_rr_hct",
+      "aml_rr_intensive",
+      "aml_rr_lessint",
+      "aml_rr_quizartinib",
+      "aml_rr_reinduction_long",
+      "aml_rr_sorafenib_hma",
+      "aml_rr_targeted_rechallenge",
+      "aml_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "rr_flt3_action",
+      "rr_idh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rr_flt3",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_rr_idh1",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "IDH1-mutated relapsed/refractory AML?",
+    "input_fact_ids": [
+      "idh1_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct",
+      "aml_rr_intensive",
+      "aml_rr_ivosidenib",
+      "aml_rr_lessint",
+      "aml_rr_olutasidenib",
+      "aml_rr_reinduction_long",
+      "aml_rr_targeted_rechallenge",
+      "aml_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh1_action",
+      "rr_idh2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rr_idh1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_rr_idh2",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "IDH2-mutated relapsed/refractory AML?",
+    "input_fact_ids": [
+      "idh2_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_enasidenib",
+      "aml_rr_hct",
+      "aml_rr_intensive",
+      "aml_rr_lessint",
+      "aml_rr_reinduction_long",
+      "aml_rr_targeted_rechallenge",
+      "aml_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh2_action",
+      "rr_cd33"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rr_idh2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_rr_cd33",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "CD33-positive relapsed/refractory AML?",
+    "input_fact_ids": [
+      "cd33_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_go",
+      "aml_rr_hct",
+      "aml_rr_intensive",
+      "aml_rr_lessint",
+      "aml_rr_reinduction_long",
+      "aml_rr_trial"
+    ],
+    "internal_transfer_targets": [
+      "rr_cd33_action",
+      "rr_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "rr_cd33",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_postchemo_flt3_maintenance_eligibility",
+    "source_section": "AML-7",
+    "source_page_label": "AML-7",
+    "source_anchor": "AML-7:pages:41",
+    "clinical_question": "History of FLT3 mutation with prior FLT3 inhibitor and no allogeneic HCT planned?",
+    "input_fact_ids": [
+      "flt3_mutation",
+      "prior_flt3_inhibitor",
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_postchemo_mido",
+      "aml_postchemo_quiz"
+    ],
+    "internal_transfer_targets": [
+      "maintenance_flt3_postchemo",
+      "maintenance_nohct"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "maintenance_nohct_flt3_history",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_bpdcn_workup_state",
+    "source_section": "BPDCN-1",
+    "source_page_label": "BPDCN-1",
+    "source_anchor": "BPDCN-1:pages:77",
+    "clinical_question": "BPDCN diagnostic/workup phase?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_complete_workup"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_workup_action",
+      "bpdcn_rr_state"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "bpdcn_workup_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_apl_workup_state",
+    "source_section": "EVAL-2",
+    "source_page_label": "EVAL-2",
+    "source_anchor": "EVAL-2:pages:14",
+    "clinical_question": "APL diagnostic/workup phase?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "apl_complete_workup"
+    ],
+    "internal_transfer_targets": [
+      "apl_workup_action",
+      "apl_rr_state"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "apl_workup_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "aml_nonapl_workup_state",
+    "source_section": "EVAL-1",
+    "source_page_label": "EVAL-1",
+    "source_anchor": "EVAL-1:pages:13",
+    "clinical_question": "Non-APL AML diagnostic/workup phase?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_cns_positive_pathway",
+      "aml_complete_workup"
+    ],
+    "internal_transfer_targets": [
+      "aml_workup_action",
+      "aml_care_rr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "aml_workup_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bpdcn_initial::bpdcn_tagrax",
+    "source_section": "BPDCN-2",
+    "source_page_label": "BPDCN-2",
+    "source_anchor": "BPDCN-2:pages:78",
+    "clinical_question": "Is option Tagraxofusp-erzs applicable to the current patient state?",
+    "input_fact_ids": [
+      "bpdc_n_cd123_positive",
+      "tagraxofusp_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_tagrax"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_initial"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bpdcn_initial:bpdcn_tagrax",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bpdcn_initial::bpdcn_pivekimab",
+    "source_section": "BPDCN-2",
+    "source_page_label": "BPDCN-2",
+    "source_anchor": "BPDCN-2:pages:78",
+    "clinical_question": "Is option Pivekimab sunirine-pvzy applicable to the current patient state?",
+    "input_fact_ids": [
+      "bpdc_n_cd123_positive",
+      "pivekimab_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_pivekimab"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_initial"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bpdcn_initial:bpdcn_pivekimab",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bpdcn_cr::bpdcn_cr_allohct",
+    "source_section": "BPDCN-A",
+    "source_page_label": "BPDCN-A",
+    "source_anchor": "BPDCN-A:pages:83",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_cr_allohct"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_cr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bpdcn_cr:bpdcn_cr_allohct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bpdcn_cr::bpdcn_cr_autohct",
+    "source_section": "BPDCN-A",
+    "source_page_label": "BPDCN-A",
+    "source_anchor": "BPDCN-A:pages:83",
+    "clinical_question": "Is option Autologous HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_cr_autohct"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_cr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bpdcn_cr:bpdcn_cr_autohct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bpdcn_rr::bpdcn_rr_pivekimab",
+    "source_section": "BPDCN-A",
+    "source_page_label": "BPDCN-A",
+    "source_anchor": "BPDCN-A:pages:83",
+    "clinical_question": "Is option Pivekimab sunirine-pvzy applicable to the current patient state?",
+    "input_fact_ids": [
+      "bpdc_n_cd123_positive",
+      "pivekimab_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_rr_pivekimab"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_rr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bpdcn_rr:bpdcn_rr_pivekimab",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bpdcn_rr::bpdcn_rr_tagrax",
+    "source_section": "BPDCN-A",
+    "source_page_label": "BPDCN-A",
+    "source_anchor": "BPDCN-A:pages:83",
+    "clinical_question": "Is option Tagraxofusp-erzs applicable to the current patient state?",
+    "input_fact_ids": [
+      "bpdc_n_cd123_positive",
+      "tagraxofusp_eligible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_rr_tagrax"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_rr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bpdcn_rr:bpdcn_rr_tagrax",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::bpdcn_rr::bpdcn_rr_hct",
+    "source_section": "BPDCN-A",
+    "source_page_label": "BPDCN-A",
+    "source_anchor": "BPDCN-A:pages:83",
+    "clinical_question": "Is option Donor search / allogeneic HCT planning applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bpdcn_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "bpdcn_rr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "bpdcn_rr:bpdcn_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::apl_relapse::apl_rel_hct",
+    "source_section": "APL-A",
+    "source_page_label": "APL-A",
+    "source_anchor": "APL-A:pages:23",
+    "clinical_question": "Is option Transplant consolidation applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "apl_rel_hct"
+    ],
+    "internal_transfer_targets": [
+      "apl_relapse"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "apl_relapse:apl_rel_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::cbf_options::aml_cbf_7_3_go",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option 7+3 + gemtuzumab ozogamicin applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd33_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_cbf_7_3_go"
+    ],
+    "internal_transfer_targets": [
+      "cbf_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "cbf_options:aml_cbf_7_3_go",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::cbf_options::aml_cbf_flagida_go",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option FLAG-IDA + gemtuzumab ozogamicin applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd33_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_cbf_flagida_go"
+    ],
+    "internal_transfer_targets": [
+      "cbf_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "cbf_options:aml_cbf_flagida_go",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::cbf_options::aml_cbf_midostaurin",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option 7+3 + midostaurin applicable to the current patient state?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_cbf_midostaurin"
+    ],
+    "internal_transfer_targets": [
+      "cbf_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "cbf_options:aml_cbf_midostaurin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::cbf_options::aml_cbf_quizartinib",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option 7+3 + quizartinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_cbf_quizartinib"
+    ],
+    "internal_transfer_targets": [
+      "cbf_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "cbf_options:aml_cbf_quizartinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::adverse_options::aml_adv_hct_plan",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option Early allogeneic HCT planning applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_adv_hct_plan"
+    ],
+    "internal_transfer_targets": [
+      "adverse_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "adverse_options:aml_adv_hct_plan",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nonadverse_options::aml_nonadv_go",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option 7+3 + gemtuzumab ozogamicin applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd33_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_nonadv_go"
+    ],
+    "internal_transfer_targets": [
+      "nonadverse_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nonadverse_options:aml_nonadv_go",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nonadverse_options::aml_nonadv_midostaurin",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option 7+3 + midostaurin applicable to the current patient state?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_nonadv_midostaurin"
+    ],
+    "internal_transfer_targets": [
+      "nonadverse_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nonadverse_options:aml_nonadv_midostaurin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nonadverse_options::aml_nonadv_quiz",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option 7+3 + quizartinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_nonadv_quiz"
+    ],
+    "internal_transfer_targets": [
+      "nonadverse_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nonadverse_options:aml_nonadv_quiz",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nonadverse_options::aml_nonadv_hct_plan",
+    "source_section": "AML-A",
+    "source_page_label": "AML-A",
+    "source_anchor": "AML-A:pages:44",
+    "clinical_question": "Is option HCT planning applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_nonadv_hct_plan"
+    ],
+    "internal_transfer_targets": [
+      "nonadverse_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nonadverse_options:aml_nonadv_hct_plan",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_idh1_action::aml_low_idh1_aza_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Azacitidine + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_idh1_aza_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_idh1_action:aml_low_idh1_aza_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_idh1_action::aml_low_idh1_dec_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Decitabine + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_idh1_dec_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_idh1_action:aml_low_idh1_dec_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_idh1_action::aml_low_idh1_oraldec_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Oral decitabine/cedazuridine + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_idh1_oraldec_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_idh1_action:aml_low_idh1_oraldec_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_idh1_action::aml_low_idh1_ldac_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option LDAC + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma",
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_idh1_ldac_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_idh1_action:aml_low_idh1_ldac_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_idh1_action::aml_low_idh1_hma_alone",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Azacitidine or decitabine applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_idh1_hma_alone"
+    ],
+    "internal_transfer_targets": [
+      "lower_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_idh1_action:aml_low_idh1_hma_alone",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_aza_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Azacitidine + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_aza_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_aza_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_dec_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Decitabine + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_dec_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_dec_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_oraldec_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Oral decitabine/cedazuridine + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_oraldec_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_oraldec_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_ldac_ven",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option LDAC + venetoclax applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma",
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_ldac_ven"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_ldac_ven",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_hma_alone",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Azacitidine or decitabine applicable to the current patient state?",
+    "input_fact_ids": [
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_hma_alone"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_hma_alone",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_ldac",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option LDAC applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma",
+      "venetoclax_contraindicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_ldac"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_ldac",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_gilteritinib",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Gilteritinib +/- azacitidine applicable to the current patient state?",
+    "input_fact_ids": [
+      "flt3_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_gilteritinib"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_gilteritinib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_enasidenib",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Enasidenib +/- azacitidine applicable to the current patient state?",
+    "input_fact_ids": [
+      "idh2_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_enasidenib"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_enasidenib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::lower_noidh1::aml_low_go",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Gemtuzumab ozogamicin applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd33_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_low_go"
+    ],
+    "internal_transfer_targets": [
+      "lower_noidh1"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "lower_noidh1:aml_low_go",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::reind_other::aml_reind_targeted",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Mutation-directed AML-9 therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd33_positive",
+      "flt3_mutation",
+      "idh1_mutation",
+      "idh2_mutation",
+      "kmt2a_rearranged",
+      "npm1_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_reind_targeted"
+    ],
+    "internal_transfer_targets": [
+      "reind_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "reind_other:aml_reind_targeted",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::consol_fav_hct::aml_consol_fav_hct",
+    "source_section": "AML-H",
+    "source_page_label": "AML-H",
+    "source_anchor": "AML-H:pages:67,68,69,70",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_fav_hct"
+    ],
+    "internal_transfer_targets": [
+      "consol_fav_hct"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "consol_fav_hct:aml_consol_fav_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::consol_fav::aml_consol_fav_go",
+    "source_section": "AML-H",
+    "source_page_label": "AML-H",
+    "source_anchor": "AML-H:pages:67,68,69,70",
+    "clinical_question": "Is option Cytarabine +/- gemtuzumab ozogamicin applicable to the current patient state?",
+    "input_fact_ids": [
+      "cd33_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_fav_go"
+    ],
+    "internal_transfer_targets": [
+      "consol_fav"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "consol_fav:aml_consol_fav_go",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::consol_flt3_action::aml_consol_flt3_hct",
+    "source_section": "AML-H",
+    "source_page_label": "AML-H",
+    "source_anchor": "AML-H:pages:67,68,69,70",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_flt3_hct"
+    ],
+    "internal_transfer_targets": [
+      "consol_flt3_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "consol_flt3_action:aml_consol_flt3_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::consol_adverse::aml_consol_adv_hct",
+    "source_section": "AML-H",
+    "source_page_label": "AML-H",
+    "source_anchor": "AML-H:pages:67,68,69,70",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_adv_hct"
+    ],
+    "internal_transfer_targets": [
+      "consol_adverse"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "consol_adverse:aml_consol_adv_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::consol_adverse::aml_consol_adv_cpx",
+    "source_section": "AML-H",
+    "source_page_label": "AML-H",
+    "source_anchor": "AML-H:pages:67,68,69,70",
+    "clinical_question": "Is option CPX-351 consolidation applicable to the current patient state?",
+    "input_fact_ids": [
+      "induction_regimen"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_adv_cpx"
+    ],
+    "internal_transfer_targets": [
+      "consol_adverse"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "consol_adverse:aml_consol_adv_cpx",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::consol_intermediate::aml_consol_int_hct",
+    "source_section": "AML-H",
+    "source_page_label": "AML-H",
+    "source_anchor": "AML-H:pages:67,68,69,70",
+    "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_consol_int_hct"
+    ],
+    "internal_transfer_targets": [
+      "consol_intermediate"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "consol_intermediate:aml_consol_int_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_npm1_action::aml_rr_lessint",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Less-intensive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_lessint"
+    ],
+    "internal_transfer_targets": [
+      "rr_npm1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_npm1_action:aml_rr_lessint",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_npm1_action::aml_rr_hct",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Allogeneic HCT after remission applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "rr_npm1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_npm1_action:aml_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_npm1_action::aml_rr_reinduction_long",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Reinduction with a previously effective cytotoxic regimen applicable to the current patient state?",
+    "input_fact_ids": [
+      "long_first_remission_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_reinduction_long"
+    ],
+    "internal_transfer_targets": [
+      "rr_npm1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_npm1_action:aml_rr_reinduction_long",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_npm1_action::aml_rr_targeted_rechallenge",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Rechallenge a previously used targeted agent applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_targeted_therapy_resistance",
+      "targeted_agent_rechallenge_considered"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_targeted_rechallenge"
+    ],
+    "internal_transfer_targets": [
+      "rr_npm1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_npm1_action:aml_rr_targeted_rechallenge",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_kmt2a_action::aml_rr_lessint",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Less-intensive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_lessint"
+    ],
+    "internal_transfer_targets": [
+      "rr_kmt2a_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_kmt2a_action:aml_rr_lessint",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_kmt2a_action::aml_rr_hct",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Allogeneic HCT after remission applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "rr_kmt2a_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_kmt2a_action:aml_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_kmt2a_action::aml_rr_reinduction_long",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Reinduction with a previously effective cytotoxic regimen applicable to the current patient state?",
+    "input_fact_ids": [
+      "long_first_remission_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_reinduction_long"
+    ],
+    "internal_transfer_targets": [
+      "rr_kmt2a_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_kmt2a_action:aml_rr_reinduction_long",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_kmt2a_action::aml_rr_targeted_rechallenge",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Rechallenge a previously used targeted agent applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_targeted_therapy_resistance",
+      "targeted_agent_rechallenge_considered"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_targeted_rechallenge"
+    ],
+    "internal_transfer_targets": [
+      "rr_kmt2a_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_kmt2a_action:aml_rr_targeted_rechallenge",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_flt3_action::aml_rr_lessint",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Less-intensive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_lessint"
+    ],
+    "internal_transfer_targets": [
+      "rr_flt3_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_flt3_action:aml_rr_lessint",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_flt3_action::aml_rr_hct",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Allogeneic HCT after remission applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "rr_flt3_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_flt3_action:aml_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_flt3_action::aml_rr_reinduction_long",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Reinduction with a previously effective cytotoxic regimen applicable to the current patient state?",
+    "input_fact_ids": [
+      "long_first_remission_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_reinduction_long"
+    ],
+    "internal_transfer_targets": [
+      "rr_flt3_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_flt3_action:aml_rr_reinduction_long",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_flt3_action::aml_rr_targeted_rechallenge",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Rechallenge a previously used targeted agent applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_targeted_therapy_resistance",
+      "targeted_agent_rechallenge_considered"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_targeted_rechallenge"
+    ],
+    "internal_transfer_targets": [
+      "rr_flt3_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_flt3_action:aml_rr_targeted_rechallenge",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh1_action::aml_rr_lessint",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Less-intensive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_lessint"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh1_action:aml_rr_lessint",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh1_action::aml_rr_hct",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Allogeneic HCT after remission applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh1_action:aml_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh1_action::aml_rr_reinduction_long",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Reinduction with a previously effective cytotoxic regimen applicable to the current patient state?",
+    "input_fact_ids": [
+      "long_first_remission_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_reinduction_long"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh1_action:aml_rr_reinduction_long",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh1_action::aml_rr_targeted_rechallenge",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Rechallenge a previously used targeted agent applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_targeted_therapy_resistance",
+      "targeted_agent_rechallenge_considered"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_targeted_rechallenge"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh1_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh1_action:aml_rr_targeted_rechallenge",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh2_action::aml_rr_lessint",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Less-intensive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_lessint"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh2_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh2_action:aml_rr_lessint",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh2_action::aml_rr_hct",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Allogeneic HCT after remission applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh2_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh2_action:aml_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh2_action::aml_rr_reinduction_long",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Reinduction with a previously effective cytotoxic regimen applicable to the current patient state?",
+    "input_fact_ids": [
+      "long_first_remission_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_reinduction_long"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh2_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh2_action:aml_rr_reinduction_long",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_idh2_action::aml_rr_targeted_rechallenge",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Rechallenge a previously used targeted agent applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_targeted_therapy_resistance",
+      "targeted_agent_rechallenge_considered"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_targeted_rechallenge"
+    ],
+    "internal_transfer_targets": [
+      "rr_idh2_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_idh2_action:aml_rr_targeted_rechallenge",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_cd33_action::aml_rr_lessint",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Less-intensive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_lessint"
+    ],
+    "internal_transfer_targets": [
+      "rr_cd33_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_cd33_action:aml_rr_lessint",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_cd33_action::aml_rr_hct",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Allogeneic HCT after remission applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "rr_cd33_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_cd33_action:aml_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_cd33_action::aml_rr_reinduction_long",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Reinduction with a previously effective cytotoxic regimen applicable to the current patient state?",
+    "input_fact_ids": [
+      "long_first_remission_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_reinduction_long"
+    ],
+    "internal_transfer_targets": [
+      "rr_cd33_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_cd33_action:aml_rr_reinduction_long",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_other::aml_rr_lessint",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Less-intensive therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hma"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_lessint"
+    ],
+    "internal_transfer_targets": [
+      "rr_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_other:aml_rr_lessint",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_other::aml_rr_hct",
+    "source_section": "AML-E",
+    "source_page_label": "AML-E",
+    "source_anchor": "AML-E:pages:48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64",
+    "clinical_question": "Is option Allogeneic HCT after remission applicable to the current patient state?",
+    "input_fact_ids": [
+      "transplant_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_hct"
+    ],
+    "internal_transfer_targets": [
+      "rr_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_other:aml_rr_hct",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::rr_other::aml_rr_reinduction_long",
+    "source_section": "AML-9",
+    "source_page_label": "AML-9",
+    "source_anchor": "AML-9:pages:43",
+    "clinical_question": "Is option Reinduction with a previously effective cytotoxic regimen applicable to the current patient state?",
+    "input_fact_ids": [
+      "long_first_remission_confirmed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_rr_reinduction_long"
+    ],
+    "internal_transfer_targets": [
+      "rr_other"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "rr_other:aml_rr_reinduction_long",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::maintenance_flt3_postchemo::aml_postchemo_quiz",
+    "source_section": "AML-7",
+    "source_page_label": "AML-7",
+    "source_anchor": "AML-7:pages:41",
+    "clinical_question": "Is option Quizartinib applicable to the current patient state?",
+    "input_fact_ids": [
+      "flt3_itd"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_postchemo_quiz"
+    ],
+    "internal_transfer_targets": [
+      "maintenance_flt3_postchemo"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "maintenance_flt3_postchemo:aml_postchemo_quiz",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::aml_workup_action::aml_cns_positive_pathway",
+    "source_section": "AML-B",
+    "source_page_label": "AML-B",
+    "source_anchor": "AML-B:pages:45",
+    "clinical_question": "Is option Execute AML CNS leukemia evaluation/treatment pathway applicable to the current patient state?",
+    "input_fact_ids": [
+      "cns_involvement"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "aml_cns_positive_pathway"
+    ],
+    "internal_transfer_targets": [
+      "aml_workup_action"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "aml_workup_action:aml_cns_positive_pathway",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

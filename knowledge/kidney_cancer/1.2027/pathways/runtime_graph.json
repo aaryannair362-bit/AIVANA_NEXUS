@@ -1,0 +1,701 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Kidney cancer?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "KIDNEY_CANCER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase_her",
+        "FALSE": "outside"
+      }
+    },
+    "phase_her": {
+      "kind": "decision",
+      "label": "Hereditary risk evaluation episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "HEREDITARY_RISK"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "hered",
+        "FALSE": "phase_rel"
+      }
+    },
+    "hered": {
+      "kind": "action",
+      "label": "Hereditary RCC risk evaluation: genetic risk assessment/testing and syndrome-specific screening/management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_hereditary",
+      "source_pathways": [
+        "HERED-RCC-1"
+      ],
+      "recommendation": {
+        "title": "Hereditary RCC risk evaluation: genetic risk assessment/testing and syndrome-specific screening/management.",
+        "options": [
+          {
+            "label": "Genetic evaluation",
+            "text": "Apply hereditary criteria and testing pathway."
+          },
+          {
+            "label": "Syndrome-specific management",
+            "text": "Use hereditary screening, surgery, and systemic recommendations when a syndrome is confirmed."
+          }
+        ],
+        "supporting_sections": [
+          "HERED-RCC-2",
+          "GENE-1",
+          "HERED-RCC-B",
+          "HERED-RCC-C",
+          "HERED-RCC-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "phase_rel": {
+      "kind": "decision",
+      "label": "Relapsed/stage IV episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RELAPSED_STAGE_IV"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "stage4_hist",
+        "FALSE": "phase_post"
+      }
+    },
+    "phase_post": {
+      "kind": "decision",
+      "label": "Post-nephrectomy episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_NEPHRECTOMY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_hist",
+        "FALSE": "initial_m"
+      }
+    },
+    "initial_m": {
+      "kind": "decision",
+      "label": "M1 disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "stage4_hist",
+        "FALSE": "t1"
+      }
+    },
+    "t1": {
+      "kind": "decision",
+      "label": "T1a?",
+      "expression": {
+        "all": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T1A"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "t1a_partial",
+        "FALSE": "t1b"
+      }
+    },
+    "t1b": {
+      "kind": "decision",
+      "label": "T1b?",
+      "expression": {
+        "all": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T1B"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "t1_partial",
+        "FALSE": "stage23"
+      }
+    },
+    "t1a_partial": {
+      "kind": "decision",
+      "label": "Partial nephrectomy feasible and surgery candidate?",
+      "expression": {
+        "all": [
+          {
+            "fact": "partial_nephrectomy_feasible",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "surgery_candidate",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "partial",
+        "FALSE": "t1a_small"
+      }
+    },
+    "t1a_small": {
+      "kind": "decision",
+      "label": "Small <2 cm/predominantly cystic state supporting surveillance?",
+      "expression": {
+        "any": [
+          {
+            "fact": "tumor_size_cm",
+            "op": "lt",
+            "value": 2
+          },
+          {
+            "fact": "predominantly_cystic",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "surv",
+        "FALSE": "t1_local_alt"
+      }
+    },
+    "t1_partial": {
+      "kind": "decision",
+      "label": "Partial nephrectomy feasible and surgery candidate?",
+      "expression": {
+        "all": [
+          {
+            "fact": "partial_nephrectomy_feasible",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "surgery_candidate",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "partial",
+        "FALSE": "t1_local_alt"
+      }
+    },
+    "partial": {
+      "kind": "action",
+      "label": "Stage I renal mass with nephron-sparing feasibility: partial nephrectomy pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_partial",
+      "source_pathways": [
+        "KID-1"
+      ],
+      "recommendation": {
+        "title": "Stage I renal mass with nephron-sparing feasibility: partial nephrectomy pathway.",
+        "options": [
+          {
+            "label": "Partial nephrectomy",
+            "text": "Preferred when technically feasible in appropriate patients."
+          }
+        ],
+        "supporting_sections": [
+          "KID-A",
+          "KID-B",
+          "KID-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "surv": {
+      "kind": "action",
+      "label": "Selected small renal mass: active surveillance pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_active_surveillance",
+      "source_pathways": [
+        "KID-1"
+      ],
+      "recommendation": {
+        "title": "Selected small renal mass: active surveillance pathway.",
+        "options": [
+          {
+            "label": "Active surveillance",
+            "text": "Serial imaging/clinical follow-up according to KID-C."
+          }
+        ],
+        "supporting_sections": [
+          "KID-A",
+          "KID-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "t1_local_alt": {
+      "kind": "action",
+      "label": "Stage I renal mass not suited to partial nephrectomy: radical nephrectomy, ablation, or SBRT pathway based on patient/tumor factors.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_t1_alternative",
+      "source_pathways": [
+        "KID-1"
+      ],
+      "recommendation": {
+        "title": "Stage I renal mass not suited to partial nephrectomy: radical nephrectomy, ablation, or SBRT pathway based on patient/tumor factors.",
+        "options": [
+          {
+            "label": "Radical nephrectomy",
+            "text": "When nephron-sparing not appropriate."
+          },
+          {
+            "label": "Ablation/SBRT",
+            "text": "For selected nonsurgical/local-therapy candidates."
+          }
+        ],
+        "supporting_sections": [
+          "KID-A",
+          "KID-B",
+          "KID-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "stage23": {
+      "kind": "decision",
+      "label": "T2 or T3 M0?",
+      "expression": {
+        "any": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T2"
+          },
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T3"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "stage23_resect",
+        "FALSE": "t4"
+      }
+    },
+    "stage23_resect": {
+      "kind": "decision",
+      "label": "Resectable surgical candidate?",
+      "expression": {
+        "all": [
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "surgery_candidate",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "stage23_surg",
+        "FALSE": "nonmet_unres"
+      }
+    },
+    "stage23_surg": {
+      "kind": "action",
+      "label": "Stage II/III RCC: definitive nephrectomy with risk/histology-directed adjuvant planning.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_stage23",
+      "source_pathways": [
+        "KID-2"
+      ],
+      "recommendation": {
+        "title": "Stage II/III RCC: definitive nephrectomy with risk/histology-directed adjuvant planning.",
+        "options": [
+          {
+            "label": "Surgery",
+            "text": "Radical or partial nephrectomy as anatomically appropriate."
+          },
+          {
+            "label": "Adjuvant planning",
+            "text": "For eligible clear-cell high-risk states, consider source-listed adjuvant systemic options; otherwise surveillance."
+          }
+        ],
+        "supporting_sections": [
+          "KID-A",
+          "KID-C",
+          "KID-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "t4": {
+      "kind": "decision",
+      "label": "T4 M0?",
+      "expression": {
+        "all": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T4"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "t4_resect",
+        "FALSE": "outside_stage"
+      }
+    },
+    "t4_resect": {
+      "kind": "decision",
+      "label": "T4 resectable?",
+      "expression": {
+        "all": [
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "t4_surg",
+        "FALSE": "nonmet_unres"
+      }
+    },
+    "t4_surg": {
+      "kind": "action",
+      "label": "Resectable T4 M0 RCC: surgery followed by histology/risk-directed adjuvant therapy or surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_t4_resect",
+      "source_pathways": [
+        "KID-3"
+      ],
+      "recommendation": {
+        "title": "Resectable T4 M0 RCC: surgery followed by histology/risk-directed adjuvant therapy or surveillance.",
+        "options": [
+          {
+            "label": "Nephrectomy",
+            "text": "Resection in expert multidisciplinary setting."
+          },
+          {
+            "label": "Adjuvant/surveillance",
+            "text": "Use clear-cell risk-directed options after resection."
+          }
+        ],
+        "supporting_sections": [
+          "KID-C",
+          "KID-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "nonmet_unres": {
+      "kind": "action",
+      "label": "Nonmetastatic unresectable RCC: tissue confirmation and presurgical/systemic or definitive nonsurgical management with reassessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_nonmet_unresectable",
+      "source_pathways": [
+        "KID-3"
+      ],
+      "recommendation": {
+        "title": "Nonmetastatic unresectable RCC: tissue confirmation and presurgical/systemic or definitive nonsurgical management with reassessment.",
+        "options": [
+          {
+            "label": "Systemic/presurgical therapy",
+            "text": "Use expert-center source-defined approach."
+          },
+          {
+            "label": "Local RT/SBRT",
+            "text": "Consider in selected patients per KID-B."
+          }
+        ],
+        "supporting_sections": [
+          "KID-B",
+          "KID-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "post_hist": {
+      "kind": "decision",
+      "label": "Clear-cell histology?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "CLEAR_CELL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_risk",
+        "FALSE": "post_surv"
+      }
+    },
+    "post_risk": {
+      "kind": "decision",
+      "label": "High-risk postoperative state?",
+      "expression": {
+        "all": [
+          {
+            "fact": "postop_high_risk",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_adj",
+        "FALSE": "post_surv"
+      }
+    },
+    "post_adj": {
+      "kind": "action",
+      "label": "Post-nephrectomy clear-cell RCC with high-risk features: adjuvant systemic therapy options or surveillance per current KID-2/KID-3 criteria.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_postop_adjuvant",
+      "source_pathways": [
+        "KID-2",
+        "KID-3"
+      ],
+      "recommendation": {
+        "title": "Post-nephrectomy clear-cell RCC with high-risk features: adjuvant systemic therapy options or surveillance per current KID-2/KID-3 criteria.",
+        "options": [
+          {
+            "label": "Adjuvant therapy",
+            "text": "Use source-listed eligible adjuvant regimen(s) based on stage/grade/prior therapy."
+          },
+          {
+            "label": "Surveillance",
+            "text": "An alternative depending on risk/eligibility/preferences."
+          }
+        ],
+        "supporting_sections": [
+          "KID-C",
+          "KID-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "post_surv": {
+      "kind": "action",
+      "label": "Post-nephrectomy RCC without an encoded adjuvant indication: risk-adapted surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_postop_surveillance",
+      "source_pathways": [
+        "KID-2",
+        "KID-3"
+      ],
+      "recommendation": {
+        "title": "Post-nephrectomy RCC without an encoded adjuvant indication: risk-adapted surveillance.",
+        "options": [
+          {
+            "label": "Surveillance",
+            "text": "Stage/risk-adapted follow-up per KID-C."
+          }
+        ],
+        "supporting_sections": [
+          "KID-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "stage4_hist": {
+      "kind": "decision",
+      "label": "Clear-cell histology?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "CLEAR_CELL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "stage4_oligo",
+        "FALSE": "nonclear"
+      }
+    },
+    "stage4_oligo": {
+      "kind": "decision",
+      "label": "Oligometastatic disease amenable to complete local treatment?",
+      "expression": {
+        "all": [
+          {
+            "fact": "oligometastatic",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "oligo",
+        "FALSE": "clear_sys"
+      }
+    },
+    "oligo": {
+      "kind": "action",
+      "label": "Selected oligometastatic clear-cell RCC: integrate metastasis-directed therapy with systemic/adjuvant considerations.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_oligometastatic",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Selected oligometastatic clear-cell RCC: integrate metastasis-directed therapy with systemic/adjuvant considerations.",
+        "options": [
+          {
+            "label": "Metastasis-directed therapy",
+            "text": "Metastasectomy/SBRT/ablation when appropriate."
+          },
+          {
+            "label": "Systemic/adjuvant therapy",
+            "text": "Use source timing/risk criteria after complete resection or with unresected disease."
+          }
+        ],
+        "supporting_sections": [
+          "KID-B",
+          "KID-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "clear_sys": {
+      "kind": "action",
+      "label": "Stage IV/relapsed clear-cell RCC: first-line and subsequent systemic therapy by prior exposure/risk, with local palliation or cytoreductive surgery in selected cases.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_clear_stage4",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Stage IV/relapsed clear-cell RCC: first-line and subsequent systemic therapy by prior exposure/risk, with local palliation or cytoreductive surgery in selected cases.",
+        "options": [
+          {
+            "label": "First-line systemic therapy",
+            "text": "Use preferred immune-checkpoint/TKI combinations per KID-D."
+          },
+          {
+            "label": "Subsequent therapy",
+            "text": "Choose based on prior IO/TKI exposure and comorbidity."
+          }
+        ],
+        "supporting_sections": [
+          "KID-D",
+          "KID-E",
+          "KID-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "nonclear": {
+      "kind": "decision",
+      "label": "Renal medullary carcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "RENAL_MEDULLARY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rmc",
+        "FALSE": "nonclear_other"
+      }
+    },
+    "rmc": {
+      "kind": "action",
+      "label": "Renal medullary carcinoma: platinum-based chemotherapy is the preferred first-line systemic approach outside a clinical trial; avoid applying the generic non-clear-cell targeted list.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_rmc",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Renal medullary carcinoma: platinum-based chemotherapy is the preferred first-line systemic approach outside a clinical trial; avoid applying the generic non-clear-cell targeted list.",
+        "options": [
+          {
+            "label": "Platinum-based chemotherapy",
+            "text": "Use source-listed RMC regimens/sequence."
+          }
+        ],
+        "supporting_sections": [
+          "KID-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "nonclear_other": {
+      "kind": "action",
+      "label": "Stage IV/relapsed non-clear-cell RCC: histology-specific systemic therapy or clinical trial, plus local treatment when appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "kidney_nonclear",
+      "source_pathways": [
+        "KID-4"
+      ],
+      "recommendation": {
+        "title": "Stage IV/relapsed non-clear-cell RCC: histology-specific systemic therapy or clinical trial, plus local treatment when appropriate.",
+        "options": [
+          {
+            "label": "Histology-directed therapy",
+            "text": "Use papillary/chromophobe/collecting-duct/other subtype options from KID-D."
+          }
+        ],
+        "supporting_sections": [
+          "KID-D",
+          "KID-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside_stage": {
+      "kind": "status",
+      "label": "Stage facts do not establish an encoded kidney treatment state.",
+      "status": "NEEDS_INFORMATION"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Kidney ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "GIST-1": {
+    "code": "GIST-1",
+    "pages": [
+      6
+    ],
+    "page_count": 1,
+    "source_text_sha256": "767347e52792482ce9919e382f23cbec3cbe9dcb79e10ac3e298224dece54e53",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GIST-2": {
+    "code": "GIST-2",
+    "pages": [
+      7
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0456dc13f95e3c18cabdbb668112f873438f6bd070825d5e0684dd50fffdc756",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GIST-3": {
+    "code": "GIST-3",
+    "pages": [
+      8
+    ],
+    "page_count": 1,
+    "source_text_sha256": "1116d486d4a262f16d15756d81330eda2793e86f683a42a0dde3dbb41a6f2f57",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GIST-4": {
+    "code": "GIST-4",
+    "pages": [
+      9
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0c25675da2c7489e02f044b3e18a757a3742bf87b621f8fa549a92cfa2b58ae2",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GIST-5": {
+    "code": "GIST-5",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "30efe6bdb97bcc51f202c2603fb107dd6cb2b5834753e4b3f393edadc413a150",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "GIST-A": {
+    "code": "GIST-A",
+    "pages": [
+      11,
+      12,
+      13
+    ],
+    "page_count": 3,
+    "source_text_sha256": "fa0a0168750cdcb61d08a9ef87c1d16042a35148e7777f1c8a5b026ded3fe42d",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "GIST-B": {
+    "code": "GIST-B",
+    "pages": [
+      14
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0efb357e19d605ad2ed1e4e0391b6d4d0c8583d73fbc899513eead6f5ebfbcbd",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "GIST-C": {
+    "code": "GIST-C",
+    "pages": [
+      15
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ea0af69949c3435d92d32a708537470df861a8c270372e0b0168f85a7a0b2e27",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "GIST-D": {
+    "code": "GIST-D",
+    "pages": [
+      16,
+      17
+    ],
+    "page_count": 2,
+    "source_text_sha256": "c1e5dd698fbd7a9d6077892bf22f1ded3cb25ea215cc962f5fa16347fc9171eb",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "GIST-E": {
+    "code": "GIST-E",
+    "pages": [
+      18,
+      19,
+      20,
+      21
+    ],
+    "page_count": 4,
+    "source_text_sha256": "06f82b562f3f83b132c714d65806709bcef1ff93e20b0046ae4b77ca8f3a345c",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "GIST-F": {
+    "code": "GIST-F",
+    "pages": [
+      22
+    ],
+    "page_count": 1,
+    "source_text_sha256": "92fbea901d7c57b3774cde7060e22d76e3453d07237bc0db959f091c04ee9fe0",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ST-1": {
+    "code": "ST-1",
+    "pages": [
+      23
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3c6e2e262704f148624bd0fc7d0bc703459c1a8981d00e841798d961893b53d2",
+    "kind": "STAGING",
+    "found": true
+  }
+}

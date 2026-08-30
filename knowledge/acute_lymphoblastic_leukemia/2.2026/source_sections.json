@@ -1,0 +1,225 @@
+{
+  "ALL-1": {
+    "code": "ALL-1",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ca56d428f9aa7301193fb7d3d714daf3ffc53be9d3755d67e05f62e46171cea9",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-1A": {
+    "code": "ALL-1A",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "d942db24029b00f770fb786a87b5aaf60e9a3822436c2a6f13d5299162b33b8a",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-2": {
+    "code": "ALL-2",
+    "pages": [
+      12
+    ],
+    "page_count": 1,
+    "source_text_sha256": "905e57b485e1203907538f7396c7fb401262bf3601f555c6ac7b1bb04e4f649a",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-2A": {
+    "code": "ALL-2A",
+    "pages": [
+      13
+    ],
+    "page_count": 1,
+    "source_text_sha256": "82e96487b710e01a0878a08ada898b7e4a2c5ef291afbf16525614e9dc7b3616",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-3": {
+    "code": "ALL-3",
+    "pages": [
+      14
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2f2420b4c6ea8eb176abc63536422f824a3bbd26c4df2b5cda7c320b64fb2730",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-4": {
+    "code": "ALL-4",
+    "pages": [
+      15
+    ],
+    "page_count": 1,
+    "source_text_sha256": "869250f769c67ca156989c0964e7ef7e66c196e2c29fcd28ec1eab09c8b19bdd",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-4A": {
+    "code": "ALL-4A",
+    "pages": [
+      16
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2b480b52a187c70254ad2e3e2113652f08003f8499a1e6eb57d34e26cb02ac2c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-5": {
+    "code": "ALL-5",
+    "pages": [
+      17
+    ],
+    "page_count": 1,
+    "source_text_sha256": "7f67fce11bcfd5fcf9a06236682905bc9eb79d6ac2d35d4caedb5b15119f9a87",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-6": {
+    "code": "ALL-6",
+    "pages": [
+      18
+    ],
+    "page_count": 1,
+    "source_text_sha256": "9ff6774da574c5ad183e573e3333c39b672018ff4ef1d6ae3796a7110d69ee28",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-7": {
+    "code": "ALL-7",
+    "pages": [
+      19
+    ],
+    "page_count": 1,
+    "source_text_sha256": "d4e80cdcac1ac5c94357456a724424811791c2f8981b3085fea090da83cfc27e",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-8": {
+    "code": "ALL-8",
+    "pages": [
+      20
+    ],
+    "page_count": 1,
+    "source_text_sha256": "63dc92d346179054838c28d2d3c83880dad2c91c675802a4a6f03b1d08f0d48f",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ALL-A": {
+    "code": "ALL-A",
+    "pages": [
+      21,
+      22
+    ],
+    "page_count": 2,
+    "source_text_sha256": "38306e86f0342500cc15360722821f83eb52d06a8781df1e4dc177d05038d77f",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ALL-B": {
+    "code": "ALL-B",
+    "pages": [
+      23
+    ],
+    "page_count": 1,
+    "source_text_sha256": "5514e39972eaf867c6bcb5a7accab48685ef4457bc5cced12b80b15ac2badf75",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ALL-C": {
+    "code": "ALL-C",
+    "pages": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "page_count": 6,
+    "source_text_sha256": "ee9c5e3b4eca9536427666334fd7c24d3df4af8a9226a3dc0dfc901d7882f920",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ALL-D": {
+    "code": "ALL-D",
+    "pages": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65
+    ],
+    "page_count": 36,
+    "source_text_sha256": "8e7662cee0c1e2c6d871ec56ce239f9087b80baf4d9dbbb3819627b6a4d450e6",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ALL-E": {
+    "code": "ALL-E",
+    "pages": [
+      66,
+      67
+    ],
+    "page_count": 2,
+    "source_text_sha256": "7f265903fb9322452de9455d91cbccf9901a903a079b8a214732248f44d8d47f",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ALL-F": {
+    "code": "ALL-F",
+    "pages": [
+      68
+    ],
+    "page_count": 1,
+    "source_text_sha256": "391ba1651ca0562621ec29ee9947dd634debdc6cfcfeabdaebf9bce67ec6c5fe",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ALL-G": {
+    "code": "ALL-G",
+    "pages": [
+      69,
+      70
+    ],
+    "page_count": 2,
+    "source_text_sha256": "d84be91d966cb167057529becce524b7bb64ccb73231299e302a30fba4846d7c",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  }
+}

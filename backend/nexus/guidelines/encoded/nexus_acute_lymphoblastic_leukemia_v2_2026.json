@@ -1,0 +1,6399 @@
+{
+  "schema_version": "nexus-full-pathway/2.1",
+  "guideline_id": "NCCN_ALL",
+  "title": "Acute Lymphoblastic Leukemia",
+  "version": "2.2026",
+  "cancer_type": "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization.",
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 70,
+      "implemented_decisions": 70,
+      "tested_decisions": 70,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    }
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "diagnosis_confirmed",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "lineage",
+      "value_type": "CODED",
+      "allowed_values": [
+        "B_ALL",
+        "T_ALL",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "ph_status",
+      "value_type": "CODED",
+      "allowed_values": [
+        "POSITIVE",
+        "NEGATIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "WORKUP",
+        "NEW_DIAGNOSIS",
+        "POST_INDUCTION",
+        "POST_CONSOLIDATION",
+        "SURVEILLANCE",
+        "RELAPSED_REFRACTORY",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "response_status",
+      "value_type": "CODED",
+      "allowed_values": [
+        "CR",
+        "CR_WITH_MRD",
+        "REFRACTORY",
+        "RELAPSED",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "mrd_status",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEGATIVE",
+        "POSITIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "transplant_candidate",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "cns_involvement",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "age_years",
+      "value_type": "NUMERIC",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "substantial_comorbidities",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "poor_risk_b_all",
+      "value_type": "BOOLEAN",
+      "fact_role": "DERIVED_DETERMINISTIC"
+    },
+    {
+      "key": "high_risk_t_all",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "prior_hct",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "relapse_interval_years",
+      "value_type": "NUMERIC",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_tki_count",
+      "value_type": "NUMERIC",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "cd19_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "cd22_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "kmt2a_rearranged",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "extramedullary_disease",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Acute lymphoblastic leukemia?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "ACUTE_LYMPHOBLASTIC_LEUKEMIA"
+      },
+      "on": {
+        "TRUE": "diag",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "ALL-1"
+      ],
+      "decision_id": "all_scope"
+    },
+    "diag": {
+      "kind": "decision",
+      "label": "Diagnosis confirmed?",
+      "expression": {
+        "fact": "diagnosis_confirmed",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "care_rr",
+        "FALSE": "workup"
+      },
+      "source_pathways": [
+        "ALL-1",
+        "ALL-1A"
+      ],
+      "decision_id": "all_diagnosis_confirmed"
+    },
+    "workup": {
+      "kind": "action",
+      "label": "Complete ALL diagnosis, molecular characterization, baseline MRD clone definition, CNS evaluation, workup and transplant evaluation before treatment routing.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "workup",
+      "source_pathways": [
+        "ALL-1",
+        "ALL-2",
+        "ALL-3",
+        "ALL-1A",
+        "ALL-2A"
+      ],
+      "recommendation": {
+        "title": "Complete ALL diagnosis, molecular characterization, baseline MRD clone definition, CNS evaluation, workup and transplant evaluation before treatment routing.",
+        "options": [
+          {
+            "option_id": "all_workup_molecular",
+            "label": "Molecular/cytogenetic characterization",
+            "text": "Complete BCR::ABL1 and recurrent genomic testing required for subtype/risk-directed therapy.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-1",
+              "page_label": "ALL-1",
+              "physical_pages": [
+                10
+              ],
+              "source_anchor": "ALL-1:pages:10"
+            }
+          },
+          {
+            "option_id": "all_workup_cns",
+            "label": "Lumbar puncture with intrathecal therapy",
+            "text": "Perform CNS evaluation/prophylaxis according to ALL-3/ALL-B.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-3",
+              "page_label": "ALL-3",
+              "physical_pages": [
+                14
+              ],
+              "source_anchor": "ALL-3:pages:14"
+            }
+          },
+          {
+            "option_id": "all_workup_transplant",
+            "label": "Early transplant evaluation/donor search",
+            "text": "Strongly consider early HCT evaluation.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-3",
+              "page_label": "ALL-3",
+              "physical_pages": [
+                14
+              ],
+              "source_anchor": "ALL-3:pages:14"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-A",
+          "ALL-B",
+          "ALL-C",
+          "ALL-F",
+          "ALL-G",
+          "ALL-1A",
+          "ALL-2A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_WORKUP"
+    },
+    "care_rr": {
+      "kind": "decision",
+      "label": "Relapsed/refractory or active progression episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "not_in",
+            "value": [
+              "NEW_DIAGNOSIS",
+              "WORKUP"
+            ]
+          },
+          {
+            "any": [
+              {
+                "fact": "treatment_phase",
+                "op": "eq",
+                "value": "RELAPSED_REFRACTORY"
+              },
+              {
+                "fact": "response_status",
+                "op": "in",
+                "value": [
+                  "REFRACTORY",
+                  "RELAPSED"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_lineage",
+        "FALSE": "care_surv"
+      },
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "decision_id": "all_care_state_rr"
+    },
+    "care_surv": {
+      "kind": "decision",
+      "label": "Post-treatment surveillance episode?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "SURVEILLANCE"
+      },
+      "on": {
+        "TRUE": "surveillance",
+        "FALSE": "lineage_b"
+      },
+      "source_pathways": [
+        "ALL-7"
+      ],
+      "decision_id": "all_care_state_surveillance"
+    },
+    "surveillance": {
+      "kind": "action",
+      "label": "ALL surveillance after completion of therapy with clinical/CBC follow-up, disease-specific molecular monitoring, and prompt relapse workup when indicated.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "surveillance",
+      "source_pathways": [
+        "ALL-7"
+      ],
+      "recommendation": {
+        "title": "ALL surveillance after completion of therapy with clinical/CBC follow-up, disease-specific molecular monitoring, and prompt relapse workup when indicated.",
+        "options": [
+          {
+            "option_id": "all_surv_standard",
+            "label": "Scheduled surveillance",
+            "text": "Follow ALL-7 surveillance intervals.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-F",
+              "page_label": "ALL-F",
+              "physical_pages": [
+                68
+              ],
+              "source_anchor": "ALL-F:pages:68"
+            }
+          },
+          {
+            "option_id": "all_surv_phplus_bcrabl",
+            "label": "Periodic BCR::ABL1 quantification",
+            "text": "For Ph-positive ALL.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "ph_status",
+              "op": "eq",
+              "value": "POSITIVE"
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-F",
+              "page_label": "ALL-F",
+              "physical_pages": [
+                68
+              ],
+              "source_anchor": "ALL-F:pages:68"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_SURVEILLANCE"
+    },
+    "lineage_b": {
+      "kind": "decision",
+      "label": "B-ALL lineage?",
+      "expression": {
+        "fact": "lineage",
+        "op": "eq",
+        "value": "B_ALL"
+      },
+      "on": {
+        "TRUE": "b_ph",
+        "FALSE": "lineage_t"
+      },
+      "source_pathways": [
+        "ALL-3"
+      ],
+      "decision_id": "all_lineage_b"
+    },
+    "lineage_t": {
+      "kind": "decision",
+      "label": "T-ALL lineage?",
+      "expression": {
+        "fact": "lineage",
+        "op": "eq",
+        "value": "T_ALL"
+      },
+      "on": {
+        "TRUE": "t_phase",
+        "FALSE": "lineage_missing"
+      },
+      "source_pathways": [
+        "ALL-3"
+      ],
+      "decision_id": "all_lineage_t"
+    },
+    "lineage_missing": {
+      "kind": "status",
+      "label": "ALL lineage is unresolved or outside B-ALL/T-ALL scope.",
+      "status": "NEEDS_DIFFERENT_PATHWAY",
+      "source_pathways": [
+        "ALL-1",
+        "ALL-3"
+      ]
+    },
+    "b_ph": {
+      "kind": "decision",
+      "label": "BCR::ABL1/Philadelphia chromosome positive?",
+      "expression": {
+        "fact": "ph_status",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "bph_phase",
+        "FALSE": "bph_negative_confirm"
+      },
+      "source_pathways": [
+        "ALL-4"
+      ],
+      "decision_id": "all_b_ph_status_positive"
+    },
+    "bph_negative_confirm": {
+      "kind": "decision",
+      "label": "BCR::ABL1/Philadelphia chromosome confirmed negative?",
+      "expression": {
+        "fact": "ph_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "bneg_phase",
+        "FALSE": "need_ph"
+      },
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "decision_id": "all_b_ph_status_negative"
+    },
+    "need_ph": {
+      "kind": "status",
+      "label": "BCR::ABL1/Philadelphia status is required before B-ALL treatment routing.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "ALL-4",
+        "ALL-5"
+      ]
+    },
+    "bph_phase": {
+      "kind": "decision",
+      "label": "Post-induction/consolidation response assessment?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_INDUCTION"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_CONSOLIDATION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "bph_response",
+        "FALSE": "bph_initial"
+      },
+      "source_pathways": [
+        "ALL-4",
+        "ALL-4A"
+      ],
+      "decision_id": "all_bph_phase_response"
+    },
+    "bph_response": {
+      "kind": "decision",
+      "label": "Marrow CR achieved?",
+      "expression": {
+        "fact": "response_status",
+        "op": "in",
+        "value": [
+          "CR",
+          "CR_WITH_MRD"
+        ]
+      },
+      "on": {
+        "TRUE": "bph_mrd",
+        "FALSE": "rr_phplus"
+      },
+      "source_pathways": [
+        "ALL-4",
+        "ALL-4A"
+      ],
+      "decision_id": "all_bph_marrow_cr"
+    },
+    "bph_mrd": {
+      "kind": "decision",
+      "label": "MRD negative at current post-treatment timepoint?",
+      "expression": {
+        "fact": "mrd_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "bph_mrdneg",
+        "FALSE": "bph_mrdpos_confirm"
+      },
+      "source_pathways": [
+        "ALL-4",
+        "ALL-4A"
+      ],
+      "decision_id": "all_bph_mrd"
+    },
+    "bph_mrdpos_confirm": {
+      "kind": "decision",
+      "label": "MRD positive?",
+      "expression": {
+        "fact": "mrd_status",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "bph_mrdpos",
+        "FALSE": "need_mrd_bph"
+      },
+      "source_pathways": [
+        "ALL-4",
+        "ALL-4A"
+      ],
+      "decision_id": "all_bph_mrd_positive"
+    },
+    "need_mrd_bph": {
+      "kind": "status",
+      "label": "Current MRD status is required for Ph-positive B-ALL post-remission routing.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "ALL-4"
+      ]
+    },
+    "bph_initial": {
+      "kind": "action",
+      "label": "Ph-positive B-ALL initial therapy: TKI-containing induction selected by age/comorbidity, with mandatory CNS prophylaxis and response/MRD assessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bph_initial",
+      "source_pathways": [
+        "ALL-4",
+        "ALL-4A"
+      ],
+      "recommendation": {
+        "title": "Ph-positive B-ALL initial therapy: TKI-containing induction selected by age/comorbidity, with mandatory CNS prophylaxis and response/MRD assessment.",
+        "options": [
+          {
+            "option_id": "all_bph_trial",
+            "label": "Clinical trial",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_blin_tki",
+            "label": "TKI + blinatumomab",
+            "text": "Other recommended frontline induction.",
+            "decision_relevant": true,
+            "preference_category": "OTHER_RECOMMENDED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_hypercvad_tki",
+            "label": "TKI + HyperCVAD",
+            "text": "Other recommended for patients <65 without substantial comorbidities.",
+            "decision_relevant": false,
+            "preference_category": "OTHER_RECOMMENDED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_steroid_tki",
+            "label": "TKI + corticosteroid",
+            "text": "Useful in certain circumstances; also low-intensity option in older/comorbid patients.",
+            "decision_relevant": true,
+            "preference_category": "USEFUL_IN_CERTAIN_CIRCUMSTANCES",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_vin_dex_tki",
+            "label": "TKI + vincristine + dexamethasone",
+            "text": "Useful/low-intensity option.",
+            "decision_relevant": true,
+            "preference_category": "USEFUL_IN_CERTAIN_CIRCUMSTANCES",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_epoch_tki",
+            "label": "TKI + dose-adjusted EPOCH",
+            "text": "Moderate-intensity option for age >=65 or substantial comorbidities.",
+            "decision_relevant": false,
+            "preference_category": "OTHER_RECOMMENDED",
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_minihypercvd_tki",
+            "label": "TKI + mini-hyperCVD",
+            "text": "Moderate-intensity option for age >=65 or substantial comorbidities.",
+            "decision_relevant": false,
+            "preference_category": "OTHER_RECOMMENDED",
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_phallcon",
+            "label": "TKI + PhALLCON regimen",
+            "text": "Moderate-intensity option for age >=65 or substantial comorbidities.",
+            "decision_relevant": false,
+            "preference_category": "OTHER_RECOMMENDED",
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bph_cns",
+            "label": "CNS prophylaxis / intrathecal therapy",
+            "text": "All ALL regimens include CNS prophylaxis.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-C",
+          "ALL-D",
+          "ALL-E",
+          "ALL-F",
+          "ALL-G",
+          "ALL-4A"
+        ],
+        "next_steps": [
+          "Response assessment",
+          "MRD assessment",
+          "Consolidation"
+        ]
+      },
+      "pathway_id": "ALL_PH_POSITIVE_INITIAL"
+    },
+    "bph_mrdpos": {
+      "kind": "action",
+      "label": "Ph-positive B-ALL in marrow CR with persistent MRD: MRD-directed consolidation/escalation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bph_mrdpos",
+      "source_pathways": [
+        "ALL-4",
+        "ALL-4A"
+      ],
+      "recommendation": {
+        "title": "Ph-positive B-ALL in marrow CR with persistent MRD: MRD-directed consolidation/escalation.",
+        "options": [
+          {
+            "option_id": "all_bph_mrdpos_blin_tki",
+            "label": "Blinatumomab + TKI",
+            "text": "Preferred for MRD-positive consolidation.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          },
+          {
+            "option_id": "all_bph_mrdpos_multi_tki",
+            "label": "Multiagent therapy + TKI",
+            "text": "Alternative consolidation.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          },
+          {
+            "option_id": "all_bph_mrdpos_tki",
+            "label": "TKI",
+            "text": "Alternative consolidation.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          },
+          {
+            "option_id": "all_bph_mrdpos_hct",
+            "label": "Allogeneic HCT",
+            "text": "Consider in appropriate candidates after response.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "transplant_candidate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          },
+          {
+            "option_id": "all_bph_mrdpos_cns",
+            "label": "CNS-directed/prophylactic intrathecal therapy",
+            "text": "Required per ALL regimen and CNS status.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-D",
+          "ALL-E",
+          "ALL-F",
+          "ALL-G",
+          "ALL-4A"
+        ],
+        "next_steps": [
+          "Repeat MRD",
+          "ABL1 kinase-domain testing if indicated",
+          "HCT evaluation"
+        ]
+      },
+      "pathway_id": "ALL_PH_POSITIVE_MRD_POSITIVE"
+    },
+    "bph_mrdneg": {
+      "kind": "action",
+      "label": "Ph-positive B-ALL in MRD-negative marrow CR: continue source-defined consolidation/maintenance with HCT for appropriate candidates.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bph_mrdneg",
+      "source_pathways": [
+        "ALL-4",
+        "ALL-4A"
+      ],
+      "recommendation": {
+        "title": "Ph-positive B-ALL in MRD-negative marrow CR: continue source-defined consolidation/maintenance with HCT for appropriate candidates.",
+        "options": [
+          {
+            "option_id": "all_bph_mrdneg_blin_tki",
+            "label": "Blinatumomab + TKI",
+            "text": "Post-remission option.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          },
+          {
+            "option_id": "all_bph_mrdneg_multi_tki",
+            "label": "Continue multiagent therapy + TKI",
+            "text": "Post-remission option.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          },
+          {
+            "option_id": "all_bph_mrdneg_tki",
+            "label": "TKI",
+            "text": "Post-remission option.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          },
+          {
+            "option_id": "all_bph_mrdneg_hct",
+            "label": "Allogeneic HCT",
+            "text": "For appropriate candidates.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "transplant_candidate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-4",
+              "page_label": "ALL-4",
+              "physical_pages": [
+                15
+              ],
+              "source_anchor": "ALL-4:pages:15"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-D",
+          "ALL-F",
+          "ALL-G",
+          "ALL-4A"
+        ],
+        "next_steps": [
+          "Surveillance after MRD-negative CR",
+          "TKI maintenance when applicable"
+        ]
+      },
+      "pathway_id": "ALL_PH_POSITIVE_MRD_NEGATIVE"
+    },
+    "bneg_phase": {
+      "kind": "decision",
+      "label": "Post-induction/consolidation response assessment?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_INDUCTION"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_CONSOLIDATION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "bneg_response",
+        "FALSE": "bneg_initial"
+      },
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "decision_id": "all_bneg_phase_response"
+    },
+    "bneg_response": {
+      "kind": "decision",
+      "label": "Marrow CR achieved?",
+      "expression": {
+        "fact": "response_status",
+        "op": "in",
+        "value": [
+          "CR",
+          "CR_WITH_MRD"
+        ]
+      },
+      "on": {
+        "TRUE": "bneg_mrd",
+        "FALSE": "rr_phnegative"
+      },
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "decision_id": "all_bneg_marrow_cr"
+    },
+    "bneg_mrd": {
+      "kind": "decision",
+      "label": "MRD negative?",
+      "expression": {
+        "fact": "mrd_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "bneg_mrdneg",
+        "FALSE": "bneg_mrdpos_confirm"
+      },
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "decision_id": "all_bneg_mrd"
+    },
+    "bneg_mrdpos_confirm": {
+      "kind": "decision",
+      "label": "MRD positive?",
+      "expression": {
+        "fact": "mrd_status",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "bneg_mrdpos",
+        "FALSE": "need_mrd_bneg"
+      },
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "decision_id": "all_bneg_mrd_positive"
+    },
+    "need_mrd_bneg": {
+      "kind": "status",
+      "label": "Current MRD status is required for Ph-negative B-ALL post-remission routing.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "ALL-5"
+      ]
+    },
+    "bneg_initial": {
+      "kind": "action",
+      "label": "Ph-negative B-ALL initial induction selected by age/fitness with CNS prophylaxis and planned response/MRD assessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bneg_initial",
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "recommendation": {
+        "title": "Ph-negative B-ALL initial induction selected by age/fitness with CNS prophylaxis and planned response/MRD assessment.",
+        "options": [
+          {
+            "option_id": "all_bneg_trial",
+            "label": "Clinical trial",
+            "text": "Preferred across age groups.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_calgb10403",
+            "label": "CALGB 10403",
+            "text": "Preferred for AYA without substantial comorbidities.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 40
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_dfci",
+            "label": "DFCI ALL regimen",
+            "text": "Preferred for AYA without substantial comorbidities.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 40
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_ecog1910",
+            "label": "ECOG 1910",
+            "text": "Other recommended for adults <65 without substantial comorbidities; also high-intensity option in older/comorbid patients.",
+            "decision_relevant": true,
+            "preference_category": "OTHER_RECOMMENDED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_hypercvad",
+            "label": "HyperCVAD",
+            "text": "Other recommended for <65 without substantial comorbidities.",
+            "decision_relevant": true,
+            "preference_category": "OTHER_RECOMMENDED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_low_vp",
+            "label": "Vincristine + prednisone",
+            "text": "Low-intensity older/comorbid option.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_pomp",
+            "label": "POMP",
+            "text": "Low-intensity older/comorbid option.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_inotuz_mini",
+            "label": "Inotuzumab ozogamicin + mini-hyperCVD",
+            "text": "Moderate-intensity older/comorbid option.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_minihypercvd",
+            "label": "Mini-hyperCVD",
+            "text": "Moderate-intensity older/comorbid option.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-C",
+          "ALL-D",
+          "ALL-E",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_PH_NEGATIVE_INITIAL"
+    },
+    "bneg_mrdpos": {
+      "kind": "action",
+      "label": "Ph-negative B-ALL in marrow CR with MRD positivity: blinatumomab-based post-remission therapy with HCT consideration for high-risk/eligible patients.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bneg_mrdpos",
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "recommendation": {
+        "title": "Ph-negative B-ALL in marrow CR with MRD positivity: blinatumomab-based post-remission therapy with HCT consideration for high-risk/eligible patients.",
+        "options": [
+          {
+            "option_id": "all_bneg_mrdpos_blin_multi",
+            "label": "Blinatumomab + continued multiagent therapy",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_mrdpos_blin",
+            "label": "Blinatumomab",
+            "text": "Alternative when multiagent therapy is contraindicated.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_mrdpos_hct",
+            "label": "Allogeneic HCT",
+            "text": "Especially with high-risk features.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "transplant_candidate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-D",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_PH_NEGATIVE_MRD_POSITIVE"
+    },
+    "bneg_mrdneg": {
+      "kind": "action",
+      "label": "Ph-negative B-ALL in MRD-negative marrow CR: post-remission blinatumomab/continued multiagent therapy and maintenance or HCT according to risk/candidacy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bneg_mrdneg",
+      "source_pathways": [
+        "ALL-5"
+      ],
+      "recommendation": {
+        "title": "Ph-negative B-ALL in MRD-negative marrow CR: post-remission blinatumomab/continued multiagent therapy and maintenance or HCT according to risk/candidacy.",
+        "options": [
+          {
+            "option_id": "all_bneg_mrdneg_blin_multi",
+            "label": "Blinatumomab + continued multiagent therapy",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_mrdneg_blin",
+            "label": "Blinatumomab",
+            "text": "Alternative.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_mrdneg_hct",
+            "label": "Allogeneic HCT",
+            "text": "Consider especially if high-risk.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "transplant_candidate",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "poor_risk_b_all",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_bneg_mrdneg_pomp",
+            "label": "POMP maintenance",
+            "text": "Post-remission maintenance option.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-D",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_PH_NEGATIVE_MRD_NEGATIVE"
+    },
+    "t_phase": {
+      "kind": "decision",
+      "label": "Post-induction/consolidation response assessment?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_INDUCTION"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_CONSOLIDATION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "t_response",
+        "FALSE": "t_initial"
+      },
+      "source_pathways": [
+        "ALL-6"
+      ],
+      "decision_id": "all_t_phase_response"
+    },
+    "t_response": {
+      "kind": "decision",
+      "label": "Marrow CR achieved?",
+      "expression": {
+        "fact": "response_status",
+        "op": "in",
+        "value": [
+          "CR",
+          "CR_WITH_MRD"
+        ]
+      },
+      "on": {
+        "TRUE": "t_mrd",
+        "FALSE": "rr_tall"
+      },
+      "source_pathways": [
+        "ALL-6"
+      ],
+      "decision_id": "all_t_marrow_cr"
+    },
+    "t_mrd": {
+      "kind": "decision",
+      "label": "MRD negative?",
+      "expression": {
+        "fact": "mrd_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "t_mrdneg",
+        "FALSE": "t_mrdpos_confirm"
+      },
+      "source_pathways": [
+        "ALL-6"
+      ],
+      "decision_id": "all_t_mrd"
+    },
+    "t_mrdpos_confirm": {
+      "kind": "decision",
+      "label": "MRD positive?",
+      "expression": {
+        "fact": "mrd_status",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "t_mrdpos",
+        "FALSE": "need_mrd_t"
+      },
+      "source_pathways": [
+        "ALL-6"
+      ],
+      "decision_id": "all_t_mrd_positive"
+    },
+    "need_mrd_t": {
+      "kind": "status",
+      "label": "Current MRD status is required for T-ALL post-remission routing.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "ALL-6"
+      ]
+    },
+    "t_initial": {
+      "kind": "action",
+      "label": "T-ALL initial induction selected by age/fitness with CNS prophylaxis.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "t_initial",
+      "source_pathways": [
+        "ALL-6"
+      ],
+      "recommendation": {
+        "title": "T-ALL initial induction selected by age/fitness with CNS prophylaxis.",
+        "options": [
+          {
+            "option_id": "all_t_trial",
+            "label": "Clinical trial",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-C",
+              "page_label": "ALL-C",
+              "physical_pages": [
+                24,
+                25,
+                26,
+                27,
+                28,
+                29
+              ],
+              "source_anchor": "ALL-C:pages:24,25,26,27,28,29"
+            }
+          },
+          {
+            "option_id": "all_t_calgb10403",
+            "label": "CALGB 10403",
+            "text": "Preferred for AYA without substantial comorbidities.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 40
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-C",
+              "page_label": "ALL-C",
+              "physical_pages": [
+                24,
+                25,
+                26,
+                27,
+                28,
+                29
+              ],
+              "source_anchor": "ALL-C:pages:24,25,26,27,28,29"
+            }
+          },
+          {
+            "option_id": "all_t_cog0434",
+            "label": "COG AALL0434",
+            "text": "Preferred for AYA without substantial comorbidities.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 40
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-C",
+              "page_label": "ALL-C",
+              "physical_pages": [
+                24,
+                25,
+                26,
+                27,
+                28,
+                29
+              ],
+              "source_anchor": "ALL-C:pages:24,25,26,27,28,29"
+            }
+          },
+          {
+            "option_id": "all_t_hypercvad",
+            "label": "HyperCVAD",
+            "text": "Other recommended for <65 without substantial comorbidities.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-C",
+              "page_label": "ALL-C",
+              "physical_pages": [
+                24,
+                25,
+                26,
+                27,
+                28,
+                29
+              ],
+              "source_anchor": "ALL-C:pages:24,25,26,27,28,29"
+            }
+          },
+          {
+            "option_id": "all_t_graall",
+            "label": "Dose-adjusted GRAALL-2014",
+            "text": "Other recommended for adults <65 without substantial comorbidities.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-C",
+              "page_label": "ALL-C",
+              "physical_pages": [
+                24,
+                25,
+                26,
+                27,
+                28,
+                29
+              ],
+              "source_anchor": "ALL-C:pages:24,25,26,27,28,29"
+            }
+          },
+          {
+            "option_id": "all_t_minihypercvd",
+            "label": "Mini-hyperCVD",
+            "text": "Moderate-intensity older/comorbid option.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 65
+                },
+                {
+                  "fact": "substantial_comorbidities",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-C",
+              "page_label": "ALL-C",
+              "physical_pages": [
+                24,
+                25,
+                26,
+                27,
+                28,
+                29
+              ],
+              "source_anchor": "ALL-C:pages:24,25,26,27,28,29"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-C",
+          "ALL-D",
+          "ALL-E",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_T_INITIAL"
+    },
+    "t_mrdpos": {
+      "kind": "action",
+      "label": "T-ALL in marrow CR with MRD positivity: continue multiagent therapy and consider allogeneic HCT, particularly with high-risk disease or slow/incomplete MRD clearance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "t_mrdpos",
+      "source_pathways": [
+        "ALL-6"
+      ],
+      "recommendation": {
+        "title": "T-ALL in marrow CR with MRD positivity: continue multiagent therapy and consider allogeneic HCT, particularly with high-risk disease or slow/incomplete MRD clearance.",
+        "options": [
+          {
+            "option_id": "all_t_mrdpos_multi",
+            "label": "Continue multiagent therapy",
+            "text": "Continue multiagent therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_t_mrdpos_hct",
+            "label": "Allogeneic HCT",
+            "text": "Favored for high-risk T-ALL/slow MRD clearance.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "transplant_candidate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-D",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_T_MRD_POSITIVE"
+    },
+    "t_mrdneg": {
+      "kind": "action",
+      "label": "T-ALL in MRD-negative marrow CR: continue multiagent therapy then maintenance or HCT when high-risk/appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "t_mrdneg",
+      "source_pathways": [
+        "ALL-6"
+      ],
+      "recommendation": {
+        "title": "T-ALL in MRD-negative marrow CR: continue multiagent therapy then maintenance or HCT when high-risk/appropriate.",
+        "options": [
+          {
+            "option_id": "all_t_mrdneg_multi",
+            "label": "Continue multiagent therapy",
+            "text": "Continue multiagent therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_t_mrdneg_hct",
+            "label": "Allogeneic HCT",
+            "text": "For high-risk/appropriate candidates.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "transplant_candidate",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "high_risk_t_all",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          },
+          {
+            "option_id": "all_t_pomp",
+            "label": "POMP maintenance",
+            "text": "POMP maintenance",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-D",
+              "page_label": "ALL-D",
+              "physical_pages": [
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65
+              ],
+              "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-D",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_T_MRD_NEGATIVE"
+    },
+    "rr_lineage": {
+      "kind": "decision",
+      "label": "Relapsed/refractory B-ALL?",
+      "expression": {
+        "fact": "lineage",
+        "op": "eq",
+        "value": "B_ALL"
+      },
+      "on": {
+        "TRUE": "rr_b_ph",
+        "FALSE": "rr_t_lineage"
+      },
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "decision_id": "all_rr_lineage_b"
+    },
+    "rr_b_ph": {
+      "kind": "decision",
+      "label": "Relapsed/refractory Ph-positive B-ALL?",
+      "expression": {
+        "fact": "ph_status",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "rr_phplus",
+        "FALSE": "rr_phnegative_confirm"
+      },
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "decision_id": "all_rr_b_ph"
+    },
+    "rr_phnegative_confirm": {
+      "kind": "decision",
+      "label": "Relapsed/refractory Ph-negative B-ALL?",
+      "expression": {
+        "fact": "ph_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "rr_phnegative",
+        "FALSE": "need_ph"
+      },
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "decision_id": "all_rr_b_phneg"
+    },
+    "rr_t_lineage": {
+      "kind": "decision",
+      "label": "Relapsed/refractory T-ALL?",
+      "expression": {
+        "fact": "lineage",
+        "op": "eq",
+        "value": "T_ALL"
+      },
+      "on": {
+        "TRUE": "rr_tall",
+        "FALSE": "lineage_missing"
+      },
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "decision_id": "all_rr_lineage_t"
+    },
+    "rr_phplus": {
+      "kind": "action",
+      "label": "Relapsed/refractory Ph-positive B-ALL: ABL1 mutation-directed TKI-based salvage with immunotherapy/cellular therapy and HCT consolidation when appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rr_phplus",
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory Ph-positive B-ALL: ABL1 mutation-directed TKI-based salvage with immunotherapy/cellular therapy and HCT consolidation when appropriate.",
+        "options": [
+          {
+            "option_id": "all_rr_phplus_tki",
+            "label": "Mutation-appropriate TKI",
+            "text": "Asciminib +/- another TKI, bosutinib, dasatinib, imatinib, nilotinib, or ponatinib per mutation/tolerance.",
+            "decision_relevant": true,
+            "preference_category": "OTHER_RECOMMENDED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_phplus_blin",
+            "label": "Blinatumomab +/- TKI",
+            "text": "CD19-directed salvage.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "cd19_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_phplus_inotuz",
+            "label": "Inotuzumab ozogamicin +/- TKI",
+            "text": "CD22-directed salvage.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "cd22_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_phplus_tisa",
+            "label": "Tisagenlecleucel",
+            "text": "Age <26, refractory or >=2 relapses, after therapy including two TKIs.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 26
+                },
+                {
+                  "fact": "prior_tki_count",
+                  "op": "gte",
+                  "value": 2
+                },
+                {
+                  "fact": "cd19_positive",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_phplus_brexu",
+            "label": "Brexucabtagene autoleucel",
+            "text": "Following TKI therapy.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_tki_count",
+                  "op": "gte",
+                  "value": 1
+                },
+                {
+                  "fact": "cd19_positive",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_phplus_obeca",
+            "label": "Obecabtagene autoleucel",
+            "text": "Following TKI therapy.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "prior_tki_count",
+                  "op": "gte",
+                  "value": 1
+                },
+                {
+                  "fact": "cd19_positive",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_phplus_hct",
+            "label": "Allogeneic HCT after second remission",
+            "text": "If eligible and appropriate.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "transplant_candidate",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_hct",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hct",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_cns",
+            "label": "CNS-directed therapy/prophylaxis",
+            "text": "Systemic therapy is required even for isolated extramedullary relapse.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "cns_involvement",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "extramedullary_disease",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_phplus_hct_second",
+            "label": "Second allogeneic HCT and/or donor lymphocyte infusion",
+            "text": "For relapse after prior allogeneic HCT, a second HCT and/or DLI can be considered when clinically appropriate.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-8",
+              "page_label": "ALL-8",
+              "physical_pages": [
+                20
+              ],
+              "source_anchor": "ALL-8:pages:20"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "transplant_candidate",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_hct",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-B",
+          "ALL-D",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_RR_PH_POSITIVE"
+    },
+    "rr_phnegative": {
+      "kind": "action",
+      "label": "Relapsed/refractory Ph-negative B-ALL: antigen/age/prior-treatment-directed immunotherapy or cellular therapy, other salvage regimens, and HCT consolidation when appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rr_phnegative",
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory Ph-negative B-ALL: antigen/age/prior-treatment-directed immunotherapy or cellular therapy, other salvage regimens, and HCT consolidation when appropriate.",
+        "options": [
+          {
+            "option_id": "all_rr_bneg_blin",
+            "label": "Blinatumomab",
+            "text": "Preferred; CD19-directed.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "cd19_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_inotuz",
+            "label": "Inotuzumab ozogamicin",
+            "text": "Preferred; CD22-directed.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "cd22_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_tisa",
+            "label": "Tisagenlecleucel",
+            "text": "Preferred for age <26 with refractory disease or >=2 relapses.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "lt",
+                  "value": 26
+                },
+                {
+                  "fact": "cd19_positive",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_brexu",
+            "label": "Brexucabtagene autoleucel",
+            "text": "Preferred CD19 CAR-T option.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "fact": "cd19_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_obeca",
+            "label": "Obecabtagene autoleucel",
+            "text": "Preferred CD19 CAR-T option.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "fact": "cd19_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_revumenib",
+            "label": "Revumenib",
+            "text": "For KMT2A-rearranged disease.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "kmt2a_rearranged",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_late_reuse",
+            "label": "Consider initial regimen again",
+            "text": "For late relapse >3 years.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "relapse_interval_years",
+              "op": "gt",
+              "value": 3
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_hct",
+            "label": "Allogeneic HCT after second remission",
+            "text": "If eligible.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "transplant_candidate",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_hct",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hct",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_cns",
+            "label": "CNS-directed therapy/prophylaxis",
+            "text": "For CNS/extramedullary involvement.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "cns_involvement",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "extramedullary_disease",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_bneg_hct_second",
+            "label": "Second allogeneic HCT and/or donor lymphocyte infusion",
+            "text": "For relapse after prior allogeneic HCT, a second HCT and/or DLI can be considered when clinically appropriate.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-8",
+              "page_label": "ALL-8",
+              "physical_pages": [
+                20
+              ],
+              "source_anchor": "ALL-8:pages:20"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "transplant_candidate",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_hct",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-B",
+          "ALL-D",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_RR_PH_NEGATIVE"
+    },
+    "rr_tall": {
+      "kind": "action",
+      "label": "Relapsed/refractory T-ALL: clinical trial preferred; source-listed salvage regimens with molecularly directed therapy when applicable, CNS management, and HCT consolidation when appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rr_tall",
+      "source_pathways": [
+        "ALL-8"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory T-ALL: clinical trial preferred; source-listed salvage regimens with molecularly directed therapy when applicable, CNS management, and HCT consolidation when appropriate.",
+        "options": [
+          {
+            "option_id": "all_rr_t_trial",
+            "label": "Clinical trial",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_nelarabine",
+            "label": "Nelarabine +/- etoposide/cyclophosphamide",
+            "text": "Other recommended.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_bortezomib",
+            "label": "Bortezomib-containing regimen",
+            "text": "Other recommended.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_daratumumab",
+            "label": "Daratumumab-containing regimen",
+            "text": "Other recommended; category 2B.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_venetoclax",
+            "label": "Venetoclax-containing regimen",
+            "text": "Other recommended.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_revumenib",
+            "label": "Revumenib",
+            "text": "For KMT2A-rearranged disease.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "kmt2a_rearranged",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_late_reuse",
+            "label": "Consider initial regimen again",
+            "text": "For late relapse >3 years.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "relapse_interval_years",
+              "op": "gt",
+              "value": 3
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_hct",
+            "label": "Allogeneic HCT after second remission",
+            "text": "If eligible.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "all": [
+                    {
+                      "fact": "transplant_candidate",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "fact": "prior_hct",
+                      "op": "eq",
+                      "value": false
+                    }
+                  ]
+                },
+                {
+                  "fact": "prior_hct",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_cns",
+            "label": "CNS-directed therapy/prophylaxis",
+            "text": "For CNS/extramedullary involvement.",
+            "decision_relevant": true,
+            "applicability": {
+              "any": [
+                {
+                  "fact": "cns_involvement",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "extramedullary_disease",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-B",
+              "page_label": "ALL-B",
+              "physical_pages": [
+                23
+              ],
+              "source_anchor": "ALL-B:pages:23"
+            }
+          },
+          {
+            "option_id": "all_rr_t_hct_second",
+            "label": "Second allogeneic HCT and/or donor lymphocyte infusion",
+            "text": "For relapse after prior allogeneic HCT, a second HCT and/or DLI can be considered when clinically appropriate.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Acute Lymphoblastic Leukemia",
+              "version": "2.2026",
+              "section": "ALL-8",
+              "page_label": "ALL-8",
+              "physical_pages": [
+                20
+              ],
+              "source_anchor": "ALL-8:pages:20"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "transplant_candidate",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_hct",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "ALL-B",
+          "ALL-D",
+          "ALL-F",
+          "ALL-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "ALL_RR_T"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside the acute lymphoblastic leukemia ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "ALL-1"
+      ]
+    }
+  },
+  "consistency_rules": [
+    {
+      "id": "all_ph_positive_requires_b_lineage",
+      "when": {
+        "all": [
+          {
+            "fact": "ph_status",
+            "op": "eq",
+            "value": "POSITIVE"
+          },
+          {
+            "fact": "lineage",
+            "op": "neq",
+            "value": "B_ALL"
+          }
+        ]
+      },
+      "message": "Ph-positive ALL branch is B-lineage-specific in this package.",
+      "source_pathways": [
+        "ALL-4"
+      ]
+    },
+    {
+      "id": "all_surveillance_active_relapse_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "SURVEILLANCE"
+          },
+          {
+            "fact": "response_status",
+            "op": "in",
+            "value": [
+              "REFRACTORY",
+              "RELAPSED"
+            ]
+          }
+        ]
+      },
+      "message": "Active relapse/refractory disease cannot remain on routine surveillance.",
+      "source_pathways": [
+        "ALL-7",
+        "ALL-8"
+      ]
+    }
+  ],
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "cross_state_consistency_gate": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true
+  },
+  "coverage": {
+    "primary_sections": {
+      "ALL-1": {
+        "code": "ALL-1",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ca56d428f9aa7301193fb7d3d714daf3ffc53be9d3755d67e05f62e46171cea9",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-1A": {
+        "code": "ALL-1A",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d942db24029b00f770fb786a87b5aaf60e9a3822436c2a6f13d5299162b33b8a",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-2": {
+        "code": "ALL-2",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "905e57b485e1203907538f7396c7fb401262bf3601f555c6ac7b1bb04e4f649a",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-2A": {
+        "code": "ALL-2A",
+        "pages": [
+          13
+        ],
+        "page_count": 1,
+        "source_text_sha256": "82e96487b710e01a0878a08ada898b7e4a2c5ef291afbf16525614e9dc7b3616",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-3": {
+        "code": "ALL-3",
+        "pages": [
+          14
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2f2420b4c6ea8eb176abc63536422f824a3bbd26c4df2b5cda7c320b64fb2730",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-4": {
+        "code": "ALL-4",
+        "pages": [
+          15
+        ],
+        "page_count": 1,
+        "source_text_sha256": "869250f769c67ca156989c0964e7ef7e66c196e2c29fcd28ec1eab09c8b19bdd",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-4A": {
+        "code": "ALL-4A",
+        "pages": [
+          16
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2b480b52a187c70254ad2e3e2113652f08003f8499a1e6eb57d34e26cb02ac2c",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-5": {
+        "code": "ALL-5",
+        "pages": [
+          17
+        ],
+        "page_count": 1,
+        "source_text_sha256": "7f67fce11bcfd5fcf9a06236682905bc9eb79d6ac2d35d4caedb5b15119f9a87",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-6": {
+        "code": "ALL-6",
+        "pages": [
+          18
+        ],
+        "page_count": 1,
+        "source_text_sha256": "9ff6774da574c5ad183e573e3333c39b672018ff4ef1d6ae3796a7110d69ee28",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-7": {
+        "code": "ALL-7",
+        "pages": [
+          19
+        ],
+        "page_count": 1,
+        "source_text_sha256": "d4e80cdcac1ac5c94357456a724424811791c2f8981b3085fea090da83cfc27e",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "ALL-8": {
+        "code": "ALL-8",
+        "pages": [
+          20
+        ],
+        "page_count": 1,
+        "source_text_sha256": "63dc92d346179054838c28d2d3c83880dad2c91c675802a4a6f03b1d08f0d48f",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "ALL-A": {
+        "code": "ALL-A",
+        "pages": [
+          21,
+          22
+        ],
+        "page_count": 2,
+        "source_text_sha256": "38306e86f0342500cc15360722821f83eb52d06a8781df1e4dc177d05038d77f",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ALL-B": {
+        "code": "ALL-B",
+        "pages": [
+          23
+        ],
+        "page_count": 1,
+        "source_text_sha256": "5514e39972eaf867c6bcb5a7accab48685ef4457bc5cced12b80b15ac2badf75",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ALL-C": {
+        "code": "ALL-C",
+        "pages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "page_count": 6,
+        "source_text_sha256": "ee9c5e3b4eca9536427666334fd7c24d3df4af8a9226a3dc0dfc901d7882f920",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ALL-D": {
+        "code": "ALL-D",
+        "pages": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "page_count": 36,
+        "source_text_sha256": "8e7662cee0c1e2c6d871ec56ce239f9087b80baf4d9dbbb3819627b6a4d450e6",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ALL-E": {
+        "code": "ALL-E",
+        "pages": [
+          66,
+          67
+        ],
+        "page_count": 2,
+        "source_text_sha256": "7f265903fb9322452de9455d91cbccf9901a903a079b8a214732248f44d8d47f",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ALL-F": {
+        "code": "ALL-F",
+        "pages": [
+          68
+        ],
+        "page_count": 1,
+        "source_text_sha256": "391ba1651ca0562621ec29ee9947dd634debdc6cfcfeabdaebf9bce67ec6c5fe",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ALL-G": {
+        "code": "ALL-G",
+        "pages": [
+          69,
+          70
+        ],
+        "page_count": 2,
+        "source_text_sha256": "d84be91d966cb167057529becce524b7bb64ccb73231299e302a30fba4846d7c",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      }
+    },
+    "coverage_semantics": "Every clinically operative primary section in the source algorithm window is source-mapped. Executable major branch routing is separate from clinician validation."
+  },
+  "source": {
+    "filename": "all(6).pdf",
+    "sha256": "e2113144f4c51c4e6600cdef05561d31c94df50e2b84a3a81fa73f8447ad3bb9",
+    "pdf_pages": 170
+  },
+  "derived_rules": [],
+  "executable_decisions": [
+    {
+      "decision_id": "all_scope",
+      "source_section": "ALL-1",
+      "source_page_label": "ALL-1",
+      "source_anchor": "ALL-1:pages:10",
+      "clinical_question": "Acute lymphoblastic leukemia?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "diag",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_diagnosis_confirmed",
+      "source_section": "ALL-1",
+      "source_page_label": "ALL-1",
+      "source_anchor": "ALL-1:pages:10",
+      "clinical_question": "Diagnosis confirmed?",
+      "input_fact_ids": [
+        "diagnosis_confirmed"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_workup_cns",
+        "all_workup_molecular",
+        "all_workup_transplant"
+      ],
+      "internal_transfer_targets": [
+        "care_rr",
+        "workup"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "diag",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_care_state_rr",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Relapsed/refractory or active progression episode?",
+      "input_fact_ids": [
+        "response_status",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "rr_lineage",
+        "care_surv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_rr",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_care_state_surveillance",
+      "source_section": "ALL-7",
+      "source_page_label": "ALL-7",
+      "source_anchor": "ALL-7:pages:19",
+      "clinical_question": "Post-treatment surveillance episode?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_surv_phplus_bcrabl",
+        "all_surv_standard"
+      ],
+      "internal_transfer_targets": [
+        "surveillance",
+        "lineage_b"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_surv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_lineage_b",
+      "source_section": "ALL-3",
+      "source_page_label": "ALL-3",
+      "source_anchor": "ALL-3:pages:14",
+      "clinical_question": "B-ALL lineage?",
+      "input_fact_ids": [
+        "lineage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "b_ph",
+        "lineage_t"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "lineage_b",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_lineage_t",
+      "source_section": "ALL-3",
+      "source_page_label": "ALL-3",
+      "source_anchor": "ALL-3:pages:14",
+      "clinical_question": "T-ALL lineage?",
+      "input_fact_ids": [
+        "lineage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "t_phase",
+        "lineage_missing"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "lineage_t",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_b_ph_status_positive",
+      "source_section": "ALL-4",
+      "source_page_label": "ALL-4",
+      "source_anchor": "ALL-4:pages:15",
+      "clinical_question": "BCR::ABL1/Philadelphia chromosome positive?",
+      "input_fact_ids": [
+        "ph_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "bph_phase",
+        "bph_negative_confirm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "b_ph",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_b_ph_status_negative",
+      "source_section": "ALL-5",
+      "source_page_label": "ALL-5",
+      "source_anchor": "ALL-5:pages:17",
+      "clinical_question": "BCR::ABL1/Philadelphia chromosome confirmed negative?",
+      "input_fact_ids": [
+        "ph_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "bneg_phase",
+        "need_ph"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bph_negative_confirm",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bph_phase_response",
+      "source_section": "ALL-4",
+      "source_page_label": "ALL-4",
+      "source_anchor": "ALL-4:pages:15",
+      "clinical_question": "Post-induction/consolidation response assessment?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_blin_tki",
+        "all_bph_cns",
+        "all_bph_epoch_tki",
+        "all_bph_hypercvad_tki",
+        "all_bph_minihypercvd_tki",
+        "all_bph_phallcon",
+        "all_bph_steroid_tki",
+        "all_bph_trial",
+        "all_bph_vin_dex_tki"
+      ],
+      "internal_transfer_targets": [
+        "bph_response",
+        "bph_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bph_phase",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bph_marrow_cr",
+      "source_section": "ALL-4",
+      "source_page_label": "ALL-4",
+      "source_anchor": "ALL-4:pages:15",
+      "clinical_question": "Marrow CR achieved?",
+      "input_fact_ids": [
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_cns",
+        "all_rr_phplus_blin",
+        "all_rr_phplus_brexu",
+        "all_rr_phplus_hct",
+        "all_rr_phplus_hct_second",
+        "all_rr_phplus_inotuz",
+        "all_rr_phplus_obeca",
+        "all_rr_phplus_tisa",
+        "all_rr_phplus_tki"
+      ],
+      "internal_transfer_targets": [
+        "bph_mrd",
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bph_response",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bph_mrd",
+      "source_section": "ALL-4",
+      "source_page_label": "ALL-4",
+      "source_anchor": "ALL-4:pages:15",
+      "clinical_question": "MRD negative at current post-treatment timepoint?",
+      "input_fact_ids": [
+        "mrd_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_mrdneg_blin_tki",
+        "all_bph_mrdneg_hct",
+        "all_bph_mrdneg_multi_tki",
+        "all_bph_mrdneg_tki"
+      ],
+      "internal_transfer_targets": [
+        "bph_mrdneg",
+        "bph_mrdpos_confirm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bph_mrd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bph_mrd_positive",
+      "source_section": "ALL-4",
+      "source_page_label": "ALL-4",
+      "source_anchor": "ALL-4:pages:15",
+      "clinical_question": "MRD positive?",
+      "input_fact_ids": [
+        "mrd_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_mrdpos_blin_tki",
+        "all_bph_mrdpos_cns",
+        "all_bph_mrdpos_hct",
+        "all_bph_mrdpos_multi_tki",
+        "all_bph_mrdpos_tki"
+      ],
+      "internal_transfer_targets": [
+        "bph_mrdpos",
+        "need_mrd_bph"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bph_mrdpos_confirm",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bneg_phase_response",
+      "source_section": "ALL-5",
+      "source_page_label": "ALL-5",
+      "source_anchor": "ALL-5:pages:17",
+      "clinical_question": "Post-induction/consolidation response assessment?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_calgb10403",
+        "all_bneg_dfci",
+        "all_bneg_ecog1910",
+        "all_bneg_hypercvad",
+        "all_bneg_inotuz_mini",
+        "all_bneg_low_vp",
+        "all_bneg_minihypercvd",
+        "all_bneg_pomp",
+        "all_bneg_trial"
+      ],
+      "internal_transfer_targets": [
+        "bneg_response",
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bneg_phase",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bneg_marrow_cr",
+      "source_section": "ALL-5",
+      "source_page_label": "ALL-5",
+      "source_anchor": "ALL-5:pages:17",
+      "clinical_question": "Marrow CR achieved?",
+      "input_fact_ids": [
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_blin",
+        "all_rr_bneg_brexu",
+        "all_rr_bneg_cns",
+        "all_rr_bneg_hct",
+        "all_rr_bneg_hct_second",
+        "all_rr_bneg_inotuz",
+        "all_rr_bneg_late_reuse",
+        "all_rr_bneg_obeca",
+        "all_rr_bneg_revumenib",
+        "all_rr_bneg_tisa"
+      ],
+      "internal_transfer_targets": [
+        "bneg_mrd",
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bneg_response",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bneg_mrd",
+      "source_section": "ALL-5",
+      "source_page_label": "ALL-5",
+      "source_anchor": "ALL-5:pages:17",
+      "clinical_question": "MRD negative?",
+      "input_fact_ids": [
+        "mrd_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_mrdneg_blin",
+        "all_bneg_mrdneg_blin_multi",
+        "all_bneg_mrdneg_hct",
+        "all_bneg_mrdneg_pomp"
+      ],
+      "internal_transfer_targets": [
+        "bneg_mrdneg",
+        "bneg_mrdpos_confirm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bneg_mrd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_bneg_mrd_positive",
+      "source_section": "ALL-5",
+      "source_page_label": "ALL-5",
+      "source_anchor": "ALL-5:pages:17",
+      "clinical_question": "MRD positive?",
+      "input_fact_ids": [
+        "mrd_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_mrdpos_blin",
+        "all_bneg_mrdpos_blin_multi",
+        "all_bneg_mrdpos_hct"
+      ],
+      "internal_transfer_targets": [
+        "bneg_mrdpos",
+        "need_mrd_bneg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bneg_mrdpos_confirm",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_t_phase_response",
+      "source_section": "ALL-6",
+      "source_page_label": "ALL-6",
+      "source_anchor": "ALL-6:pages:18",
+      "clinical_question": "Post-induction/consolidation response assessment?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_calgb10403",
+        "all_t_cog0434",
+        "all_t_graall",
+        "all_t_hypercvad",
+        "all_t_minihypercvd",
+        "all_t_trial"
+      ],
+      "internal_transfer_targets": [
+        "t_response",
+        "t_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t_phase",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_t_marrow_cr",
+      "source_section": "ALL-6",
+      "source_page_label": "ALL-6",
+      "source_anchor": "ALL-6:pages:18",
+      "clinical_question": "Marrow CR achieved?",
+      "input_fact_ids": [
+        "response_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_t_bortezomib",
+        "all_rr_t_cns",
+        "all_rr_t_daratumumab",
+        "all_rr_t_hct",
+        "all_rr_t_hct_second",
+        "all_rr_t_late_reuse",
+        "all_rr_t_nelarabine",
+        "all_rr_t_revumenib",
+        "all_rr_t_trial",
+        "all_rr_t_venetoclax"
+      ],
+      "internal_transfer_targets": [
+        "t_mrd",
+        "rr_tall"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t_response",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_t_mrd",
+      "source_section": "ALL-6",
+      "source_page_label": "ALL-6",
+      "source_anchor": "ALL-6:pages:18",
+      "clinical_question": "MRD negative?",
+      "input_fact_ids": [
+        "mrd_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_mrdneg_hct",
+        "all_t_mrdneg_multi",
+        "all_t_pomp"
+      ],
+      "internal_transfer_targets": [
+        "t_mrdneg",
+        "t_mrdpos_confirm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t_mrd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_t_mrd_positive",
+      "source_section": "ALL-6",
+      "source_page_label": "ALL-6",
+      "source_anchor": "ALL-6:pages:18",
+      "clinical_question": "MRD positive?",
+      "input_fact_ids": [
+        "mrd_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_mrdpos_hct",
+        "all_t_mrdpos_multi"
+      ],
+      "internal_transfer_targets": [
+        "t_mrdpos",
+        "need_mrd_t"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "t_mrdpos_confirm",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_rr_lineage_b",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Relapsed/refractory B-ALL?",
+      "input_fact_ids": [
+        "lineage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "rr_b_ph",
+        "rr_t_lineage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rr_lineage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_rr_b_ph",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Relapsed/refractory Ph-positive B-ALL?",
+      "input_fact_ids": [
+        "ph_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_cns",
+        "all_rr_phplus_blin",
+        "all_rr_phplus_brexu",
+        "all_rr_phplus_hct",
+        "all_rr_phplus_hct_second",
+        "all_rr_phplus_inotuz",
+        "all_rr_phplus_obeca",
+        "all_rr_phplus_tisa",
+        "all_rr_phplus_tki"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus",
+        "rr_phnegative_confirm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rr_b_ph",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_rr_b_phneg",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Relapsed/refractory Ph-negative B-ALL?",
+      "input_fact_ids": [
+        "ph_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_blin",
+        "all_rr_bneg_brexu",
+        "all_rr_bneg_cns",
+        "all_rr_bneg_hct",
+        "all_rr_bneg_hct_second",
+        "all_rr_bneg_inotuz",
+        "all_rr_bneg_late_reuse",
+        "all_rr_bneg_obeca",
+        "all_rr_bneg_revumenib",
+        "all_rr_bneg_tisa"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative",
+        "need_ph"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rr_phnegative_confirm",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "all_rr_lineage_t",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Relapsed/refractory T-ALL?",
+      "input_fact_ids": [
+        "lineage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_t_bortezomib",
+        "all_rr_t_cns",
+        "all_rr_t_daratumumab",
+        "all_rr_t_hct",
+        "all_rr_t_hct_second",
+        "all_rr_t_late_reuse",
+        "all_rr_t_nelarabine",
+        "all_rr_t_revumenib",
+        "all_rr_t_trial",
+        "all_rr_t_venetoclax"
+      ],
+      "internal_transfer_targets": [
+        "rr_tall",
+        "lineage_missing"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rr_t_lineage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::surveillance::all_surv_phplus_bcrabl",
+      "source_section": "ALL-F",
+      "source_page_label": "ALL-F",
+      "source_anchor": "ALL-F:pages:68",
+      "clinical_question": "Is option Periodic BCR::ABL1 quantification applicable to the current patient state?",
+      "input_fact_ids": [
+        "ph_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_surv_phplus_bcrabl"
+      ],
+      "internal_transfer_targets": [
+        "surveillance"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "surveillance:all_surv_phplus_bcrabl",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bph_initial::all_bph_hypercvad_tki",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option TKI + HyperCVAD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_hypercvad_tki"
+      ],
+      "internal_transfer_targets": [
+        "bph_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bph_initial:all_bph_hypercvad_tki",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bph_initial::all_bph_epoch_tki",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option TKI + dose-adjusted EPOCH applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_epoch_tki"
+      ],
+      "internal_transfer_targets": [
+        "bph_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bph_initial:all_bph_epoch_tki",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bph_initial::all_bph_minihypercvd_tki",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option TKI + mini-hyperCVD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_minihypercvd_tki"
+      ],
+      "internal_transfer_targets": [
+        "bph_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bph_initial:all_bph_minihypercvd_tki",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bph_initial::all_bph_phallcon",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option TKI + PhALLCON regimen applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_phallcon"
+      ],
+      "internal_transfer_targets": [
+        "bph_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bph_initial:all_bph_phallcon",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bph_mrdpos::all_bph_mrdpos_hct",
+      "source_section": "ALL-4",
+      "source_page_label": "ALL-4",
+      "source_anchor": "ALL-4:pages:15",
+      "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+      "input_fact_ids": [
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_mrdpos_hct"
+      ],
+      "internal_transfer_targets": [
+        "bph_mrdpos"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bph_mrdpos:all_bph_mrdpos_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bph_mrdneg::all_bph_mrdneg_hct",
+      "source_section": "ALL-4",
+      "source_page_label": "ALL-4",
+      "source_anchor": "ALL-4:pages:15",
+      "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+      "input_fact_ids": [
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bph_mrdneg_hct"
+      ],
+      "internal_transfer_targets": [
+        "bph_mrdneg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bph_mrdneg:all_bph_mrdneg_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_initial::all_bneg_calgb10403",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option CALGB 10403 applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_calgb10403"
+      ],
+      "internal_transfer_targets": [
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_initial:all_bneg_calgb10403",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_initial::all_bneg_dfci",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option DFCI ALL regimen applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_dfci"
+      ],
+      "internal_transfer_targets": [
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_initial:all_bneg_dfci",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_initial::all_bneg_hypercvad",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option HyperCVAD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_hypercvad"
+      ],
+      "internal_transfer_targets": [
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_initial:all_bneg_hypercvad",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_initial::all_bneg_low_vp",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option Vincristine + prednisone applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_low_vp"
+      ],
+      "internal_transfer_targets": [
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_initial:all_bneg_low_vp",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_initial::all_bneg_pomp",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option POMP applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_pomp"
+      ],
+      "internal_transfer_targets": [
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_initial:all_bneg_pomp",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_initial::all_bneg_inotuz_mini",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option Inotuzumab ozogamicin + mini-hyperCVD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_inotuz_mini"
+      ],
+      "internal_transfer_targets": [
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_initial:all_bneg_inotuz_mini",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_initial::all_bneg_minihypercvd",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option Mini-hyperCVD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_minihypercvd"
+      ],
+      "internal_transfer_targets": [
+        "bneg_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_initial:all_bneg_minihypercvd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_mrdpos::all_bneg_mrdpos_hct",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+      "input_fact_ids": [
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_mrdpos_hct"
+      ],
+      "internal_transfer_targets": [
+        "bneg_mrdpos"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_mrdpos:all_bneg_mrdpos_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::bneg_mrdneg::all_bneg_mrdneg_hct",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+      "input_fact_ids": [
+        "poor_risk_b_all",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_bneg_mrdneg_hct"
+      ],
+      "internal_transfer_targets": [
+        "bneg_mrdneg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "bneg_mrdneg:all_bneg_mrdneg_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t_initial::all_t_calgb10403",
+      "source_section": "ALL-C",
+      "source_page_label": "ALL-C",
+      "source_anchor": "ALL-C:pages:24,25,26,27,28,29",
+      "clinical_question": "Is option CALGB 10403 applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_calgb10403"
+      ],
+      "internal_transfer_targets": [
+        "t_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t_initial:all_t_calgb10403",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t_initial::all_t_cog0434",
+      "source_section": "ALL-C",
+      "source_page_label": "ALL-C",
+      "source_anchor": "ALL-C:pages:24,25,26,27,28,29",
+      "clinical_question": "Is option COG AALL0434 applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_cog0434"
+      ],
+      "internal_transfer_targets": [
+        "t_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t_initial:all_t_cog0434",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t_initial::all_t_hypercvad",
+      "source_section": "ALL-C",
+      "source_page_label": "ALL-C",
+      "source_anchor": "ALL-C:pages:24,25,26,27,28,29",
+      "clinical_question": "Is option HyperCVAD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_hypercvad"
+      ],
+      "internal_transfer_targets": [
+        "t_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t_initial:all_t_hypercvad",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t_initial::all_t_graall",
+      "source_section": "ALL-C",
+      "source_page_label": "ALL-C",
+      "source_anchor": "ALL-C:pages:24,25,26,27,28,29",
+      "clinical_question": "Is option Dose-adjusted GRAALL-2014 applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_graall"
+      ],
+      "internal_transfer_targets": [
+        "t_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t_initial:all_t_graall",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t_initial::all_t_minihypercvd",
+      "source_section": "ALL-C",
+      "source_page_label": "ALL-C",
+      "source_anchor": "ALL-C:pages:24,25,26,27,28,29",
+      "clinical_question": "Is option Mini-hyperCVD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "substantial_comorbidities"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_minihypercvd"
+      ],
+      "internal_transfer_targets": [
+        "t_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t_initial:all_t_minihypercvd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t_mrdpos::all_t_mrdpos_hct",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+      "input_fact_ids": [
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_mrdpos_hct"
+      ],
+      "internal_transfer_targets": [
+        "t_mrdpos"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t_mrdpos:all_t_mrdpos_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::t_mrdneg::all_t_mrdneg_hct",
+      "source_section": "ALL-D",
+      "source_page_label": "ALL-D",
+      "source_anchor": "ALL-D:pages:30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65",
+      "clinical_question": "Is option Allogeneic HCT applicable to the current patient state?",
+      "input_fact_ids": [
+        "high_risk_t_all",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_t_mrdneg_hct"
+      ],
+      "internal_transfer_targets": [
+        "t_mrdneg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "t_mrdneg:all_t_mrdneg_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_phplus_blin",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Blinatumomab +/- TKI applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd19_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_phplus_blin"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_phplus_blin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_phplus_inotuz",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Inotuzumab ozogamicin +/- TKI applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd22_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_phplus_inotuz"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_phplus_inotuz",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_phplus_tisa",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Tisagenlecleucel applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "cd19_positive",
+        "prior_tki_count"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_phplus_tisa"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_phplus_tisa",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_phplus_brexu",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Brexucabtagene autoleucel applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd19_positive",
+        "prior_tki_count"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_phplus_brexu"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_phplus_brexu",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_phplus_obeca",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Obecabtagene autoleucel applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd19_positive",
+        "prior_tki_count"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_phplus_obeca"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_phplus_obeca",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_phplus_hct",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Allogeneic HCT after second remission applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hct",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_phplus_hct"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_phplus_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_cns",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option CNS-directed therapy/prophylaxis applicable to the current patient state?",
+      "input_fact_ids": [
+        "cns_involvement",
+        "extramedullary_disease"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_cns"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_cns",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phplus::all_rr_phplus_hct_second",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Is option Second allogeneic HCT and/or donor lymphocyte infusion applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hct",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_phplus_hct_second"
+      ],
+      "internal_transfer_targets": [
+        "rr_phplus"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phplus:all_rr_phplus_hct_second",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_blin",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Blinatumomab applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd19_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_blin"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_blin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_inotuz",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Inotuzumab ozogamicin applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd22_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_inotuz"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_inotuz",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_tisa",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Tisagenlecleucel applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years",
+        "cd19_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_tisa"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_tisa",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_brexu",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Brexucabtagene autoleucel applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd19_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_brexu"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_brexu",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_obeca",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Obecabtagene autoleucel applicable to the current patient state?",
+      "input_fact_ids": [
+        "cd19_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_obeca"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_obeca",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_revumenib",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Revumenib applicable to the current patient state?",
+      "input_fact_ids": [
+        "kmt2a_rearranged"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_revumenib"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_revumenib",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_late_reuse",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Consider initial regimen again applicable to the current patient state?",
+      "input_fact_ids": [
+        "relapse_interval_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_late_reuse"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_late_reuse",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_hct",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Allogeneic HCT after second remission applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hct",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_hct"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_cns",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option CNS-directed therapy/prophylaxis applicable to the current patient state?",
+      "input_fact_ids": [
+        "cns_involvement",
+        "extramedullary_disease"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_cns"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_cns",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_phnegative::all_rr_bneg_hct_second",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Is option Second allogeneic HCT and/or donor lymphocyte infusion applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hct",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_bneg_hct_second"
+      ],
+      "internal_transfer_targets": [
+        "rr_phnegative"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_phnegative:all_rr_bneg_hct_second",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_tall::all_rr_t_revumenib",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Revumenib applicable to the current patient state?",
+      "input_fact_ids": [
+        "kmt2a_rearranged"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_t_revumenib"
+      ],
+      "internal_transfer_targets": [
+        "rr_tall"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_tall:all_rr_t_revumenib",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_tall::all_rr_t_late_reuse",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Consider initial regimen again applicable to the current patient state?",
+      "input_fact_ids": [
+        "relapse_interval_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_t_late_reuse"
+      ],
+      "internal_transfer_targets": [
+        "rr_tall"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_tall:all_rr_t_late_reuse",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_tall::all_rr_t_hct",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option Allogeneic HCT after second remission applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hct",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_t_hct"
+      ],
+      "internal_transfer_targets": [
+        "rr_tall"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_tall:all_rr_t_hct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_tall::all_rr_t_cns",
+      "source_section": "ALL-B",
+      "source_page_label": "ALL-B",
+      "source_anchor": "ALL-B:pages:23",
+      "clinical_question": "Is option CNS-directed therapy/prophylaxis applicable to the current patient state?",
+      "input_fact_ids": [
+        "cns_involvement",
+        "extramedullary_disease"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_t_cns"
+      ],
+      "internal_transfer_targets": [
+        "rr_tall"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_tall:all_rr_t_cns",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_tall::all_rr_t_hct_second",
+      "source_section": "ALL-8",
+      "source_page_label": "ALL-8",
+      "source_anchor": "ALL-8:pages:20",
+      "clinical_question": "Is option Second allogeneic HCT and/or donor lymphocyte infusion applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_hct",
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "all_rr_t_hct_second"
+      ],
+      "internal_transfer_targets": [
+        "rr_tall"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_tall:all_rr_t_hct_second",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

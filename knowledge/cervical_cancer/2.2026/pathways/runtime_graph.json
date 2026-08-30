@@ -1,0 +1,695 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Cervical cancer?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "CERVICAL_CANCER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "hist",
+        "FALSE": "outside"
+      }
+    },
+    "hist": {
+      "kind": "decision",
+      "label": "Small-cell neuroendocrine cervical carcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "SMALL_CELL_NEUROENDOCRINE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "necc_phase",
+        "FALSE": "phase_metrec"
+      }
+    },
+    "necc_phase": {
+      "kind": "decision",
+      "label": "Locally advanced IIA-IVA NECC?",
+      "expression": {
+        "any": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IIA2"
+          },
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IIB"
+          },
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "III"
+          },
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IVA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "necc_la",
+        "FALSE": "necc_primary"
+      }
+    },
+    "necc_primary": {
+      "kind": "action",
+      "label": "Small-cell neuroendocrine carcinoma of cervix: NECC-specific workup and stage-directed multimodality primary treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_necc_primary",
+      "source_pathways": [
+        "CERV-13"
+      ],
+      "recommendation": {
+        "title": "Small-cell neuroendocrine carcinoma of cervix: NECC-specific workup and stage-directed multimodality primary treatment.",
+        "options": [
+          {
+            "label": "NECC-specific treatment",
+            "text": "Use systemic therapy with surgery/RT according to stage and source algorithm."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-A",
+          "CERV-B",
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "necc_la": {
+      "kind": "action",
+      "label": "Locally advanced small-cell NECC: systemic therapy plus definitive RT/brachytherapy pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_necc_locally_advanced",
+      "source_pathways": [
+        "CERV-14"
+      ],
+      "recommendation": {
+        "title": "Locally advanced small-cell NECC: systemic therapy plus definitive RT/brachytherapy pathway.",
+        "options": [
+          {
+            "label": "Multimodality treatment",
+            "text": "Use NECC systemic therapy and definitive radiation/brachytherapy per source."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "phase_metrec": {
+      "kind": "decision",
+      "label": "Distant metastatic recurrence / IVB?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "DISTANT_METASTATIC_RECURRENCE"
+          },
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IVB"
+          },
+          {
+            "fact": "distant_metastases",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "met",
+        "FALSE": "phase_localrec"
+      }
+    },
+    "phase_localrec": {
+      "kind": "decision",
+      "label": "Locoregional recurrence?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "LOCAL_REGIONAL_RECURRENCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "localrec_rt",
+        "FALSE": "phase_surv"
+      }
+    },
+    "phase_surv": {
+      "kind": "decision",
+      "label": "Surveillance episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "SURVEILLANCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "surv",
+        "FALSE": "phase_inc"
+      }
+    },
+    "phase_inc": {
+      "kind": "decision",
+      "label": "Incidental invasive cancer after simple/total hysterectomy?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "INCIDENTAL_POST_HYSTERECTOMY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "incidental",
+        "FALSE": "phase_post"
+      }
+    },
+    "phase_post": {
+      "kind": "decision",
+      "label": "Post-surgical findings/adjuvant planning?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_SURGERY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_high",
+        "FALSE": "new_stage_ia1"
+      }
+    },
+    "post_high": {
+      "kind": "decision",
+      "label": "Positive nodes, margin, or parametrium?",
+      "expression": {
+        "any": [
+          {
+            "fact": "positive_nodes",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "positive_margin",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "positive_parametrium",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_highrisk",
+        "FALSE": "post_intermediate"
+      }
+    },
+    "post_highrisk": {
+      "kind": "action",
+      "label": "Post-radical surgery with positive nodes/margin/parametrium: adjuvant chemoradiation field/intensity based on distant disease and nodal distribution.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_postop_highrisk",
+      "source_pathways": [
+        "CERV-6"
+      ],
+      "recommendation": {
+        "title": "Post-radical surgery with positive nodes/margin/parametrium: adjuvant chemoradiation field/intensity based on distant disease and nodal distribution.",
+        "options": [
+          {
+            "label": "Adjuvant chemoradiation",
+            "text": "Use pelvic/extended-field RT + concurrent platinum as source-defined; add brachytherapy when indicated."
+          },
+          {
+            "label": "If distant metastases",
+            "text": "Transition to metastatic systemic treatment pathway."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "post_intermediate": {
+      "kind": "action",
+      "label": "Post-radical surgery node/margin/parametrium negative: observe or use pelvic RT based on Sedlis/intermediate risk factors.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_postop_intermediate",
+      "source_pathways": [
+        "CERV-6"
+      ],
+      "recommendation": {
+        "title": "Post-radical surgery node/margin/parametrium negative: observe or use pelvic RT based on Sedlis/intermediate risk factors.",
+        "options": [
+          {
+            "label": "Observation",
+            "text": "When no source-defined adjuvant risk indication."
+          },
+          {
+            "label": "Pelvic EBRT",
+            "text": "When combination of risk factors meets source criteria; concurrent chemotherapy only in source-defined circumstances."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-E",
+          "CERV-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "incidental": {
+      "kind": "action",
+      "label": "Incidental cervical carcinoma after simple/total hysterectomy: stage/pathology/margin-directed completion surgery or chemoradiation pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_incidental",
+      "source_pathways": [
+        "CERV-8",
+        "CERV-9"
+      ],
+      "recommendation": {
+        "title": "Incidental cervical carcinoma after simple/total hysterectomy: stage/pathology/margin-directed completion surgery or chemoradiation pathway.",
+        "options": [
+          {
+            "label": "Completion surgery/nodal assessment",
+            "text": "For source-defined early operable states."
+          },
+          {
+            "label": "Definitive/adjuvant chemoradiation",
+            "text": "For positive margins, higher stage, or nonsurgical states."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-B",
+          "CERV-C",
+          "CERV-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "surv": {
+      "kind": "action",
+      "label": "Cervical cancer surveillance after treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_surveillance",
+      "source_pathways": [
+        "CERV-10"
+      ],
+      "recommendation": {
+        "title": "Cervical cancer surveillance after treatment.",
+        "options": [
+          {
+            "label": "Surveillance",
+            "text": "History/physical and clinically indicated imaging/testing; cytology has limited recurrence-detection value."
+          },
+          {
+            "label": "Survivorship",
+            "text": "Address sexual health, lymphedema, bone, psychosocial and general survivorship needs."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "localrec_rt": {
+      "kind": "decision",
+      "label": "Recurrence amenable to local salvage?",
+      "expression": {
+        "all": [
+          {
+            "fact": "recurrence_resectable_or_local_treatable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "localrec",
+        "FALSE": "met"
+      }
+    },
+    "localrec": {
+      "kind": "action",
+      "label": "Locoregional cervical recurrence: salvage surgery and/or radiation based on prior RT, site, and resectability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_local_recurrence",
+      "source_pathways": [
+        "CERV-11"
+      ],
+      "recommendation": {
+        "title": "Locoregional cervical recurrence: salvage surgery and/or radiation based on prior RT, site, and resectability.",
+        "options": [
+          {
+            "label": "Local salvage",
+            "text": "Exenteration/resection and/or definitive RT/chemoradiation when feasible."
+          },
+          {
+            "label": "Systemic therapy",
+            "text": "Use when not locally salvageable or with disseminated disease."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "met": {
+      "kind": "action",
+      "label": "Stage IVB or distant metastatic/recurrent cervical cancer: systemic therapy based on PD-L1/biomarkers/prior treatment, with local palliation as appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_metastatic",
+      "source_pathways": [
+        "CERV-12"
+      ],
+      "recommendation": {
+        "title": "Stage IVB or distant metastatic/recurrent cervical cancer: systemic therapy based on PD-L1/biomarkers/prior treatment, with local palliation as appropriate.",
+        "options": [
+          {
+            "label": "First-line systemic therapy",
+            "text": "Use source-preferred platinum/taxane ± bevacizumab with immunotherapy when biomarker/eligibility criteria are met."
+          },
+          {
+            "label": "Subsequent therapy",
+            "text": "Use source-listed immunotherapy/ADC/chemotherapy options by biomarkers and prior exposure."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-F",
+          "CERV-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "new_stage_ia1": {
+      "kind": "decision",
+      "label": "Stage IA1?",
+      "expression": {
+        "all": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IA1"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "ia1_fert",
+        "FALSE": "new_ia2ib1"
+      }
+    },
+    "ia1_fert": {
+      "kind": "decision",
+      "label": "Fertility sparing desired?",
+      "expression": {
+        "all": [
+          {
+            "fact": "fertility_sparing_desired",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "fertility",
+        "FALSE": "ia1_nonfert"
+      }
+    },
+    "fertility": {
+      "kind": "action",
+      "label": "Early cervical cancer with fertility-sparing intent: cone/trachelectomy/nodal staging pathway according to LVSI, margins, stage and conservative-surgery criteria.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_fertility",
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "recommendation": {
+        "title": "Early cervical cancer with fertility-sparing intent: cone/trachelectomy/nodal staging pathway according to LVSI, margins, stage and conservative-surgery criteria.",
+        "options": [
+          {
+            "label": "Conservative surgery",
+            "text": "Use cone or trachelectomy/nodal assessment only when source criteria are met."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "ia1_nonfert": {
+      "kind": "action",
+      "label": "Stage IA1 non-fertility-sparing: margin/LVSI/operability-directed cone or hysterectomy ± nodal assessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_ia1_nonfert",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "Stage IA1 non-fertility-sparing: margin/LVSI/operability-directed cone or hysterectomy ± nodal assessment.",
+        "options": [
+          {
+            "label": "Surgery",
+            "text": "Type A/B hysterectomy or repeat cone depending on margin/LVSI/operability."
+          },
+          {
+            "label": "Brachytherapy/RT",
+            "text": "For medically inoperable source-defined states."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "new_ia2ib1": {
+      "kind": "decision",
+      "label": "Stage IA2/IB1?",
+      "expression": {
+        "any": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IA2"
+          },
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IB1"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "early_cons",
+        "FALSE": "new_ib2_iia1"
+      }
+    },
+    "early_cons": {
+      "kind": "decision",
+      "label": "Conservative surgery criteria met?",
+      "expression": {
+        "all": [
+          {
+            "fact": "conservative_surgery_criteria_met",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "early_conservative",
+        "FALSE": "early_noncons"
+      }
+    },
+    "early_conservative": {
+      "kind": "action",
+      "label": "Stage IA2-IB1 meeting conservative surgery criteria: less-radical surgery + nodal staging pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_early_conservative",
+      "source_pathways": [
+        "CERV-4"
+      ],
+      "recommendation": {
+        "title": "Stage IA2-IB1 meeting conservative surgery criteria: less-radical surgery + nodal staging pathway.",
+        "options": [
+          {
+            "label": "Conservative surgery",
+            "text": "Use source-defined less-radical hysterectomy/conization strategy with SLN/pelvic nodal assessment as applicable."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "early_noncons": {
+      "kind": "action",
+      "label": "Stage IB1 not meeting conservative criteria (and selected IB2/IIA1): radical surgery or definitive chemoradiation pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_early_nonconservative",
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "recommendation": {
+        "title": "Stage IB1 not meeting conservative criteria (and selected IB2/IIA1): radical surgery or definitive chemoradiation pathway.",
+        "options": [
+          {
+            "label": "Radical surgery",
+            "text": "For operable appropriate stage."
+          },
+          {
+            "label": "Definitive chemoradiation + brachytherapy",
+            "text": "Alternative/primary option according to stage and patient factors."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "new_ib2_iia1": {
+      "kind": "decision",
+      "label": "IB2 or IIA1?",
+      "expression": {
+        "any": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IB2"
+          },
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IIA1"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "early_noncons",
+        "FALSE": "new_ib3_iia2"
+      }
+    },
+    "new_ib3_iia2": {
+      "kind": "decision",
+      "label": "IB3 or IIA2?",
+      "expression": {
+        "any": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IB3"
+          },
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IIA2"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "bulky",
+        "FALSE": "locallyadv"
+      }
+    },
+    "bulky": {
+      "kind": "action",
+      "label": "Stage IB3/IIA2: definitive chemoradiation + brachytherapy or selected surgical approach per source; completion hysterectomy is not routine.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_ib3_iia2",
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "recommendation": {
+        "title": "Stage IB3/IIA2: definitive chemoradiation + brachytherapy or selected surgical approach per source; completion hysterectomy is not routine.",
+        "options": [
+          {
+            "label": "Definitive chemoradiation",
+            "text": "Concurrent platinum + EBRT + brachytherapy; stage-appropriate immunotherapy considerations per current source."
+          },
+          {
+            "label": "Selected surgery",
+            "text": "Only in appropriate multidisciplinary settings."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "locallyadv": {
+      "kind": "action",
+      "label": "Stage IIB-IVA cervical cancer: definitive EBRT + concurrent platinum + brachytherapy, with stage/source-defined pembrolizumab integration.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "cervical_locally_advanced",
+      "source_pathways": [
+        "CERV-7"
+      ],
+      "recommendation": {
+        "title": "Stage IIB-IVA cervical cancer: definitive EBRT + concurrent platinum + brachytherapy, with stage/source-defined pembrolizumab integration.",
+        "options": [
+          {
+            "label": "Definitive chemoradiation + brachytherapy",
+            "text": "Core treatment."
+          },
+          {
+            "label": "Immunotherapy integration",
+            "text": "Use stage/source-defined concurrent and maintenance pembrolizumab criteria."
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Cervical cancer ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

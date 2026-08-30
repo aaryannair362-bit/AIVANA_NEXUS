@@ -1,0 +1,710 @@
+{
+  "DCIS-1": {
+    "code": "DCIS-1",
+    "pages": [
+      12
+    ],
+    "page_count": 1,
+    "source_text_sha256": "89213dad6b626ce172d738b04be3243074a01dfebec08a7fa388be84a63bd263",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "DCIS-2": {
+    "code": "DCIS-2",
+    "pages": [
+      13
+    ],
+    "page_count": 1,
+    "source_text_sha256": "659e744c0091fa1350515da5d35c0640f393af39b6e2b0cd866412b3182c8b62",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-1": {
+    "code": "BINV-1",
+    "pages": [
+      14
+    ],
+    "page_count": 1,
+    "source_text_sha256": "149aa164580239ab15cb5da1ae5a18a696b0a802c150a7e4abb59231df86a62c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-2": {
+    "code": "BINV-2",
+    "pages": [
+      15
+    ],
+    "page_count": 1,
+    "source_text_sha256": "6039fc4939e6d31ca09f2a5a499f6739440f96777dac11b380fc0e96cfcf0b98",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-3": {
+    "code": "BINV-3",
+    "pages": [
+      16
+    ],
+    "page_count": 1,
+    "source_text_sha256": "82100aa686ba2471b254676b3736bedb6a14b782bf5ed6c27f7967caebbae6d7",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-4": {
+    "code": "BINV-4",
+    "pages": [
+      17
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3fcfd05d32bd6dec33164402ad843434d56da8bfab701c5b3a42db875429ceeb",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-5": {
+    "code": "BINV-5",
+    "pages": [
+      18
+    ],
+    "page_count": 1,
+    "source_text_sha256": "b13b79593c787ad7b214b4d0d2617d8622b1202c7b72268b760f54a4f0014a70",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-6": {
+    "code": "BINV-6",
+    "pages": [
+      19
+    ],
+    "page_count": 1,
+    "source_text_sha256": "c188c8eefec675d3978fc023abc4ad976738d021161f8c449acdf85146e3fd10",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-7": {
+    "code": "BINV-7",
+    "pages": [
+      20
+    ],
+    "page_count": 1,
+    "source_text_sha256": "63f8af9582ebd046a30f27c9ba6c473f46f6abc00702566556c09c1a9c55bd5c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-8": {
+    "code": "BINV-8",
+    "pages": [
+      21
+    ],
+    "page_count": 1,
+    "source_text_sha256": "19f8fb9150aa4875c20ef8ed4cd5e9a53e09758e845d69c71ff6cdcd4cdf0022",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-9": {
+    "code": "BINV-9",
+    "pages": [
+      22
+    ],
+    "page_count": 1,
+    "source_text_sha256": "11b248e6f703c450acc47bf89bc678da7286cdf28d5b6f316ca41998303d6d3f",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-10": {
+    "code": "BINV-10",
+    "pages": [
+      23
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0016e44254266c3eedb81539d2a2138e34305c8f0af44de3f85507539ec8eeff",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-11": {
+    "code": "BINV-11",
+    "pages": [
+      24
+    ],
+    "page_count": 1,
+    "source_text_sha256": "f25bb4fd66eb77e243826f32efbedf146de285017cd635cf814fc14a88012eeb",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-12": {
+    "code": "BINV-12",
+    "pages": [
+      25
+    ],
+    "page_count": 1,
+    "source_text_sha256": "4858b537a01ce2b96366b3aecc9f40ef699d0b440452df062cd20d748a172979",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-13": {
+    "code": "BINV-13",
+    "pages": [
+      26
+    ],
+    "page_count": 1,
+    "source_text_sha256": "83d966bb742bb8602bd5eba8450012369eda97d7f6eb46b9b6a4f2f96ceb9ce5",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-14": {
+    "code": "BINV-14",
+    "pages": [
+      27
+    ],
+    "page_count": 1,
+    "source_text_sha256": "afc9d9e929607f2816a78021277c192abf87cd4345c1800570b57993dfdcc4e6",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-15": {
+    "code": "BINV-15",
+    "pages": [
+      28
+    ],
+    "page_count": 1,
+    "source_text_sha256": "164bfa90f26ea7653ca02cca1193eb1c9e0511d3456d00082db3bf4db5b91fd5",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-16": {
+    "code": "BINV-16",
+    "pages": [
+      29
+    ],
+    "page_count": 1,
+    "source_text_sha256": "698034e75a09827c5b47f49d9ea6c46727f50ea0ddc5dc759d3ce1b019caf4af",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-17": {
+    "code": "BINV-17",
+    "pages": [
+      30
+    ],
+    "page_count": 1,
+    "source_text_sha256": "e808bb52581cd2a903a0f0c15f9e36adcf3e669a01a79e4691bc9e0325713223",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-18": {
+    "code": "BINV-18",
+    "pages": [
+      31
+    ],
+    "page_count": 1,
+    "source_text_sha256": "101c349869e7587dd4f4c354a28c08e260f91a1b5587f8bee13ce75397f8a221",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-19": {
+    "code": "BINV-19",
+    "pages": [
+      32
+    ],
+    "page_count": 1,
+    "source_text_sha256": "d5fbaccdb0b852e78e5b47ea537aaec1d5202204f9aa8f9d83cc69487d6ada3c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-20": {
+    "code": "BINV-20",
+    "pages": [
+      33
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8f5c515ef98e35820aeb61341da781d959c4b2448c2cd21b676a91bc6da68112",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-21": {
+    "code": "BINV-21",
+    "pages": [
+      34
+    ],
+    "page_count": 1,
+    "source_text_sha256": "eea3c64e018289093d02862e4ba6878f448dba7f60c9f784b46b745ff3bd399b",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-22": {
+    "code": "BINV-22",
+    "pages": [
+      35
+    ],
+    "page_count": 1,
+    "source_text_sha256": "d2cc5edddafb55004b31b7e9b193142cd88d05c8ba01746a5151d4382e0ab549",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-23": {
+    "code": "BINV-23",
+    "pages": [
+      36
+    ],
+    "page_count": 1,
+    "source_text_sha256": "5fe0c2f4f91b8102a6d52c28b40c7dea99e7ce24dda8d3398a21a6bab76178cb",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-24": {
+    "code": "BINV-24",
+    "pages": [
+      37
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ed12945b534b87e824d045b6a3bb0bf28a06a2006a18e677a3425e73ffa05fbc",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-25": {
+    "code": "BINV-25",
+    "pages": [
+      38
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ffd93925e1c15ab578c71f59175287966a27ebb69207507168bef3ee9442a6e6",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-26": {
+    "code": "BINV-26",
+    "pages": [
+      39
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a6ea7b8e071595801381453e2acf6b1cb269da1ad57bc0646b41c68212e75f69",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-27": {
+    "code": "BINV-27",
+    "pages": [
+      40
+    ],
+    "page_count": 1,
+    "source_text_sha256": "51c06d3eeb9d91a288f4bc9e17fd5816895d9d9407d346fccf1e0a60f6cffa08",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-28": {
+    "code": "BINV-28",
+    "pages": [
+      41
+    ],
+    "page_count": 1,
+    "source_text_sha256": "09541df09aa46fa3464fa76cfef727b23ba053097f27a506a7a325fdfdc3f02b",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "PHYLL-1": {
+    "code": "PHYLL-1",
+    "pages": [
+      108
+    ],
+    "page_count": 1,
+    "source_text_sha256": "003cca2e576c4cf42a866b7efd7e0c2bcb52af655a9099b30bff9f18ea315e1d",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "PAGET-1": {
+    "code": "PAGET-1",
+    "pages": [
+      109
+    ],
+    "page_count": 1,
+    "source_text_sha256": "945ad3448f1842796b0396e961bd885dec4b3de571862cfe2c6ca69c20dad294",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "PAGET-2": {
+    "code": "PAGET-2",
+    "pages": [
+      110
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ce0f64d45f337af6e8c00b3f1c886949ff3877babd48bd27e3ff6c7e1d4e85f3",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "PREG-1": {
+    "code": "PREG-1",
+    "pages": [
+      111
+    ],
+    "page_count": 1,
+    "source_text_sha256": "29f985da838a8d244b9942b481669ad41329c127035a6e77404abdb4a1005a47",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "PREG-2": {
+    "code": "PREG-2",
+    "pages": [
+      112
+    ],
+    "page_count": 1,
+    "source_text_sha256": "9eb4b442f0bbe8ca6ce42d83c9de62ce4949c1f0a987a67cc97d7cb04baec50c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "IBC-1": {
+    "code": "IBC-1",
+    "pages": [
+      113
+    ],
+    "page_count": 1,
+    "source_text_sha256": "1ba5c7e78b51f5e82e1f7a2fc52cb4761fc4d4533fb00363e15f71aef6a83c59",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "IBC-2": {
+    "code": "IBC-2",
+    "pages": [
+      114
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ad59314e6b3bb6b3b3a554ffb407c5373dfa697b8776aa3227cd5b05b912d3f1",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BINV-A": {
+    "code": "BINV-A",
+    "pages": [
+      42,
+      43,
+      44,
+      45
+    ],
+    "page_count": 4,
+    "source_text_sha256": "17b999725ca0d4a59dbaf9cbb589e037d143a36b95bf3f7b9cbe7833d24f4f1a",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-B": {
+    "code": "BINV-B",
+    "pages": [
+      46
+    ],
+    "page_count": 1,
+    "source_text_sha256": "f4c253e9491535a001d6ab2ab49882e8541da850dd0c45bcea38f52771013201",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-C": {
+    "code": "BINV-C",
+    "pages": [
+      47
+    ],
+    "page_count": 1,
+    "source_text_sha256": "7c1658995c9713bac2d1e371791f48ef9c5ba0ea59b4e4480a8a8f16bc7fc58a",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-D": {
+    "code": "BINV-D",
+    "pages": [
+      48
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a2453d9e264df406735d17788f9e15308ce9210cd59d5b4a022f4de645530ae5",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-E": {
+    "code": "BINV-E",
+    "pages": [
+      49
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8efce7aa95d452005ecb5280411b8d9bc652b7e3acbe5523daa0d28be422c211",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-F": {
+    "code": "BINV-F",
+    "pages": [
+      50,
+      51
+    ],
+    "page_count": 2,
+    "source_text_sha256": "887e38716dee13c0cf009c19807764f384dce692562634d043ea260241d3f232",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-G": {
+    "code": "BINV-G",
+    "pages": [
+      52
+    ],
+    "page_count": 1,
+    "source_text_sha256": "bb27a5ef77fa467987fe72d70d539278d6cce2ca4c6746b401b2709381d826f4",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-H": {
+    "code": "BINV-H",
+    "pages": [
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59
+    ],
+    "page_count": 7,
+    "source_text_sha256": "490755cdac1b0296b9bfab88fd3c725fa6fc279ad3b6790f069b87915330919a",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-I": {
+    "code": "BINV-I",
+    "pages": [
+      60,
+      61,
+      62
+    ],
+    "page_count": 3,
+    "source_text_sha256": "02ab8303a4032cb67316e2dc71e2207aedcd7cb5f4a51b6802985a6b787aef39",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-J": {
+    "code": "BINV-J",
+    "pages": [
+      63,
+      64
+    ],
+    "page_count": 2,
+    "source_text_sha256": "ea20378f7b93755b6fea4ff0a6ec6a127fa00ec25da1263ef7a3a519a539c26f",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-K": {
+    "code": "BINV-K",
+    "pages": [
+      65,
+      66,
+      67,
+      68
+    ],
+    "page_count": 4,
+    "source_text_sha256": "629676220f23868884ec8477e1b7dc2b2f5b466caa08b6ef410244a82f1ba6fe",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-L": {
+    "code": "BINV-L",
+    "pages": [
+      69,
+      70
+    ],
+    "page_count": 2,
+    "source_text_sha256": "0f86a42fbe80f986c8ffac355c0db4baa2a2cd28df82c054f92c5c11e55f3993",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-M": {
+    "code": "BINV-M",
+    "pages": [
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80
+    ],
+    "page_count": 10,
+    "source_text_sha256": "9ecb07d5a03e8d5979123333d48eed7f44e90fbd39f72eb5d36a9da99b516405",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-N": {
+    "code": "BINV-N",
+    "pages": [
+      81,
+      82,
+      83,
+      84,
+      85
+    ],
+    "page_count": 5,
+    "source_text_sha256": "30ebcac36c7bb66a6de4ba67161f60db6b17ab0ae20858f4817f8858b6ce3ff3",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-O": {
+    "code": "BINV-O",
+    "pages": [
+      86
+    ],
+    "page_count": 1,
+    "source_text_sha256": "b0c8b7488760e2bc454568adc3409bd2c97253918b9ed6686ed2985e62eaad57",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-P": {
+    "code": "BINV-P",
+    "pages": [
+      87,
+      88,
+      89
+    ],
+    "page_count": 3,
+    "source_text_sha256": "e5188e3217824b32147c504ccc3eb6f948d70d7094b04b91716a8240852c68e1",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-Q": {
+    "code": "BINV-Q",
+    "pages": [
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104
+    ],
+    "page_count": 15,
+    "source_text_sha256": "b53b0046585cf0a286aa202e521837cb3a48c0e3f4838489d155386af820a306",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BINV-R": {
+    "code": "BINV-R",
+    "pages": [
+      105,
+      106,
+      107
+    ],
+    "page_count": 3,
+    "source_text_sha256": "e8145d0aa1e4724583cf528380ccc6a6d8022203f22c99a583cb9a34aaa2cbe7",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ST-1": {
+    "code": "ST-1",
+    "pages": [
+      115
+    ],
+    "page_count": 1,
+    "source_text_sha256": "66f1f939e85336cf53427ddca2f2411cfbb37ccd58c705d4303c03ffe7db98b3",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-2": {
+    "code": "ST-2",
+    "pages": [
+      116
+    ],
+    "page_count": 1,
+    "source_text_sha256": "be4f56e45259342f82b15c96682f279e454cb26231e36300be43418dfc272e7e",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-3": {
+    "code": "ST-3",
+    "pages": [
+      117
+    ],
+    "page_count": 1,
+    "source_text_sha256": "34d2b1a18f0c4a0a6b06941888c3e54253a96b12d7bd77539b279d4ccaadea21",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-4": {
+    "code": "ST-4",
+    "pages": [
+      118
+    ],
+    "page_count": 1,
+    "source_text_sha256": "b7b72392fd96359ec584029903bf24532a0d0b32b2ca0bc6cc1a02bea398c24e",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-5": {
+    "code": "ST-5",
+    "pages": [
+      119
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2303ad38dae534440a66a74d70c971fa74ea3f2aca8bee4d2e8809b204baec68",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-6": {
+    "code": "ST-6",
+    "pages": [
+      120
+    ],
+    "page_count": 1,
+    "source_text_sha256": "56981c5bd2c98683298a12b00530c13f57e94ea151e4f7208f56e7b335b52c36",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-7": {
+    "code": "ST-7",
+    "pages": [
+      121
+    ],
+    "page_count": 1,
+    "source_text_sha256": "5cc434a4221f8afcbbe687f9fc64aab8441d8d331dcfd1d506a5271cdc9a3934",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-8": {
+    "code": "ST-8",
+    "pages": [
+      122
+    ],
+    "page_count": 1,
+    "source_text_sha256": "106be3f4bcfae01ea00358f5ea5d99df65767625fdc4d0195a9781568eb1e17f",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-9": {
+    "code": "ST-9",
+    "pages": [
+      123
+    ],
+    "page_count": 1,
+    "source_text_sha256": "883e12fa57e813957404978d4c1fb066eb2e527b0dea73b7cdd4f346064156e4",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-10": {
+    "code": "ST-10",
+    "pages": [
+      124
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0ad21e124234b28b69dde9d266a2253f1ed74dfc5b2c10650614f8e8097039f3",
+    "kind": "STAGING",
+    "found": true
+  },
+  "ST-11": {
+    "code": "ST-11",
+    "pages": [
+      125
+    ],
+    "page_count": 1,
+    "source_text_sha256": "da68f0a6ddfd730ec4d21b025a91353866f5e2be67bce7748df7d807bcd325c1",
+    "kind": "STAGING",
+    "found": true
+  }
+}

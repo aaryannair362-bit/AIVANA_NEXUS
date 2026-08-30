@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_HODGKIN",
+  "title": "Hodgkin Lymphoma",
+  "version": "2.2026",
+  "cancer_type": "HODGKIN_LYMPHOMA",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 56,
+    "implemented_decisions": 56,
+    "tested_decisions": 56,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "hodgkins(5).pdf",
+    "sha256": "32ecb6c74f4908d02bf701a612b6f930df4798b781cbbc5a96bc530ff8695dfb",
+    "pdf_pages": 124
+  },
+  "primary_expected": 28,
+  "supporting_expected": 4
+}

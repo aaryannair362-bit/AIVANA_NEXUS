@@ -1,0 +1,144 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "ACUTE_MYELOID_LEUKEMIA",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "disease_family",
+    "value_type": "CODED",
+    "allowed_values": [
+      "APL",
+      "NON_APL_AML",
+      "BPDCN",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "WORKUP",
+      "NEW_DIAGNOSIS",
+      "POST_INDUCTION",
+      "POST_CONSOLIDATION",
+      "MAINTENANCE",
+      "SURVEILLANCE",
+      "RELAPSED_REFRACTORY"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "wbc_count",
+    "value_type": "NUMERIC"
+  },
+  {
+    "key": "intensive_induction_eligible",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "eln_risk",
+    "value_type": "CODED",
+    "allowed_values": [
+      "FAVORABLE",
+      "INTERMEDIATE",
+      "ADVERSE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "cbf_aml",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "cd33_positive",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "therapy_related_or_mrc",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "age_ge_60",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "flt3_mutation",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "idh1_mutation",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "idh2_mutation",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "npm1_mutation",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "kmt2a_rearranged",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "response_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "CR",
+      "CRH_CRI",
+      "MLFS",
+      "PERSISTENT",
+      "REFRACTORY",
+      "RELAPSED",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "mrd_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEGATIVE",
+      "POSITIVE",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "transplant_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "prior_cpx351",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "prior_hma",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "venetoclax_contraindicated",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "bpdc_n_cd123_positive",
+    "value_type": "BOOLEAN"
+  }
+]

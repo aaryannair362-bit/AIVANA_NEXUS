@@ -1,0 +1,594 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Gastric cancer?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "GASTRIC_CANCER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase_pall",
+        "FALSE": "outside"
+      }
+    },
+    "phase_pall": {
+      "kind": "decision",
+      "label": "Palliative episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "PALLIATIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "pall",
+        "FALSE": "phase_rec"
+      }
+    },
+    "phase_rec": {
+      "kind": "decision",
+      "label": "Recurrence episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rec_perit",
+        "FALSE": "phase_surv"
+      }
+    },
+    "phase_surv": {
+      "kind": "decision",
+      "label": "Surveillance episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "SURVEILLANCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "surv",
+        "FALSE": "phase_posttx"
+      }
+    },
+    "phase_posttx": {
+      "kind": "decision",
+      "label": "Post-treatment assessment?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_TREATMENT"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "posttx",
+        "FALSE": "phase_postsurg"
+      }
+    },
+    "phase_postsurg": {
+      "kind": "decision",
+      "label": "Post-surgery episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_SURGERY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "postsurg_pre",
+        "FALSE": "phase_postpre"
+      }
+    },
+    "phase_postpre": {
+      "kind": "decision",
+      "label": "After preoperative therapy?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_PREOPERATIVE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "postpre_resp",
+        "FALSE": "new_m"
+      }
+    },
+    "new_m": {
+      "kind": "decision",
+      "label": "Metastatic disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "clinical_m",
+            "op": "eq",
+            "value": "M1"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "pall",
+        "FALSE": "early_tis"
+      }
+    },
+    "early_tis": {
+      "kind": "decision",
+      "label": "Tis/T1a or superficial T1b?",
+      "expression": {
+        "any": [
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "TIS"
+          },
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T1A"
+          },
+          {
+            "fact": "clinical_t",
+            "op": "eq",
+            "value": "T1B_SUPERFICIAL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "endo_cand",
+        "FALSE": "locoregional"
+      }
+    },
+    "endo_cand": {
+      "kind": "decision",
+      "label": "Endoscopic resection candidate?",
+      "expression": {
+        "all": [
+          {
+            "fact": "endoscopic_resection_candidate",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "endo",
+        "FALSE": "locoregional"
+      }
+    },
+    "endo": {
+      "kind": "action",
+      "label": "Early gastric neoplasia meeting endoscopic criteria: endoscopic staging/resection pathway with pathology-directed additional management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_endoscopic",
+      "source_pathways": [
+        "GAST-2",
+        "GAST-2A"
+      ],
+      "recommendation": {
+        "title": "Early gastric neoplasia meeting endoscopic criteria: endoscopic staging/resection pathway with pathology-directed additional management.",
+        "options": [
+          {
+            "label": "Endoscopic resection",
+            "text": "Use EMR/ESD criteria and pathology review from GAST-A/GAST-B."
+          },
+          {
+            "label": "Escalate if noncurative features",
+            "text": "Proceed to surgical/multidisciplinary management when source criteria are not met."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-A",
+          "GAST-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "locoregional": {
+      "kind": "decision",
+      "label": "Medically fit and potentially resectable locoregional disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "medically_fit",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "potentially_resectable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "locoreg_fit",
+        "FALSE": "unresect"
+      }
+    },
+    "locoreg_fit": {
+      "kind": "action",
+      "label": "Medically fit, potentially resectable gastric cancer: multidisciplinary perioperative/preoperative treatment and gastrectomy pathway according to clinical stage and biomarkers.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_resectable",
+      "source_pathways": [
+        "GAST-2",
+        "GAST-2A"
+      ],
+      "recommendation": {
+        "title": "Medically fit, potentially resectable gastric cancer: multidisciplinary perioperative/preoperative treatment and gastrectomy pathway according to clinical stage and biomarkers.",
+        "options": [
+          {
+            "label": "Perioperative therapy + surgery",
+            "text": "Use source-preferred perioperative regimens and surgical sequencing for appropriate cT/N stage."
+          },
+          {
+            "label": "MSI-H/dMMR consideration",
+            "text": "Consider perioperative immunotherapy strategy in MDT per source caveats."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-B",
+          "GAST-C",
+          "GAST-E",
+          "GAST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "unresect": {
+      "kind": "action",
+      "label": "Unresectable, medically unfit, or metastatic gastric cancer: palliative/systemic management with biomarker testing and symptom-directed local care.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_unresectable",
+      "source_pathways": [
+        "GAST-2",
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "Unresectable, medically unfit, or metastatic gastric cancer: palliative/systemic management with biomarker testing and symptom-directed local care.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Select by HER2, PD-L1, MSI/MMR, CLDN18.2 and line/prior exposure."
+          },
+          {
+            "label": "Palliative local/supportive care",
+            "text": "Endoscopic, RT, surgery or supportive interventions for symptoms when indicated."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-B",
+          "GAST-F",
+          "GAST-G",
+          "GAST-J"
+        ],
+        "next_steps": []
+      }
+    },
+    "postpre_resp": {
+      "kind": "decision",
+      "label": "Residual disease remains resectable?",
+      "expression": {
+        "all": [
+          {
+            "fact": "response_status",
+            "op": "eq",
+            "value": "RESIDUAL_RESECTABLE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "postpre_surg",
+        "FALSE": "postpre_nonres"
+      }
+    },
+    "postpre_surg": {
+      "kind": "action",
+      "label": "After preoperative therapy with resectable disease: gastrectomy/lymphadenectomy then postoperative completion/assessment pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_postpre_resectable",
+      "source_pathways": [
+        "GAST-3",
+        "GAST-3A"
+      ],
+      "recommendation": {
+        "title": "After preoperative therapy with resectable disease: gastrectomy/lymphadenectomy then postoperative completion/assessment pathway.",
+        "options": [
+          {
+            "label": "Surgery",
+            "text": "Proceed to definitive gastrectomy with appropriate lymphadenectomy."
+          },
+          {
+            "label": "Postoperative therapy",
+            "text": "Complete perioperative strategy or use pathology-directed postoperative management."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-C",
+          "GAST-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "postpre_nonres": {
+      "kind": "action",
+      "label": "After preoperative therapy with unresectable/progressive disease: transition to noncurative systemic/palliative management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_postpre_unresectable",
+      "source_pathways": [
+        "GAST-3",
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "After preoperative therapy with unresectable/progressive disease: transition to noncurative systemic/palliative management.",
+        "options": [
+          {
+            "label": "Systemic/palliative management",
+            "text": "Use biomarker- and prior-treatment-directed therapy plus supportive care."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G",
+          "GAST-J"
+        ],
+        "next_steps": []
+      }
+    },
+    "postsurg_pre": {
+      "kind": "decision",
+      "label": "Did patient receive preoperative systemic therapy?",
+      "expression": {
+        "all": [
+          {
+            "fact": "postop_received_preop_systemic",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_surgery5",
+        "FALSE": "post_surgery4"
+      }
+    },
+    "post_surgery4": {
+      "kind": "action",
+      "label": "Surgical outcome after upfront surgery (no preoperative systemic therapy): pathology/margin/node-directed adjuvant management per GAST-4.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_postop_no_pre",
+      "source_pathways": [
+        "GAST-4"
+      ],
+      "recommendation": {
+        "title": "Surgical outcome after upfront surgery (no preoperative systemic therapy): pathology/margin/node-directed adjuvant management per GAST-4.",
+        "options": [
+          {
+            "label": "Pathology-directed adjuvant therapy",
+            "text": "Use pT/pN/margin/lymphadenectomy-based options from GAST-4 and GAST-F/G."
+          },
+          {
+            "label": "Surveillance",
+            "text": "For source-defined early/low-risk completely resected states."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-B",
+          "GAST-C",
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "post_surgery5": {
+      "kind": "action",
+      "label": "Surgical outcome after preoperative systemic therapy: pathology/response/margin-directed completion or adjuvant management per GAST-5.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_postop_after_pre",
+      "source_pathways": [
+        "GAST-5"
+      ],
+      "recommendation": {
+        "title": "Surgical outcome after preoperative systemic therapy: pathology/response/margin-directed completion or adjuvant management per GAST-5.",
+        "options": [
+          {
+            "label": "Complete perioperative/adjuvant therapy",
+            "text": "Use prior regimen, response, pathologic findings and biomarkers."
+          },
+          {
+            "label": "Consider chemoradiation in selected margin/therapy states",
+            "text": "Only when source criteria are met."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-B",
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "posttx": {
+      "kind": "action",
+      "label": "Post-treatment assessment: response evaluation and additional management based on residual disease/resectability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_post_treatment",
+      "source_pathways": [
+        "GAST-6"
+      ],
+      "recommendation": {
+        "title": "Post-treatment assessment: response evaluation and additional management based on residual disease/resectability.",
+        "options": [
+          {
+            "label": "Response-based management",
+            "text": "Route complete response, residual locoregional disease, or metastatic/progressive disease to source-defined next step."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "surv": {
+      "kind": "action",
+      "label": "Gastric cancer follow-up/surveillance after curative-intent treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_surveillance",
+      "source_pathways": [
+        "GAST-7"
+      ],
+      "recommendation": {
+        "title": "Gastric cancer follow-up/surveillance after curative-intent treatment.",
+        "options": [
+          {
+            "label": "Surveillance",
+            "text": "History/physical, labs/imaging/endoscopy/nutrition as stage/treatment clinically indicated per GAST-H."
+          },
+          {
+            "label": "Survivorship",
+            "text": "Address nutrition, bone health, B12/iron, psychosocial and other long-term issues."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-H",
+          "GAST-I"
+        ],
+        "next_steps": []
+      }
+    },
+    "rec_perit": {
+      "kind": "decision",
+      "label": "Peritoneal carcinoma as only disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "peritoneal_only_disease",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "perit",
+        "FALSE": "rec"
+      }
+    },
+    "perit": {
+      "kind": "action",
+      "label": "Peritoneal-only recurrence/disease: multidisciplinary systemic and selected peritoneal-directed management pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_peritoneal_only",
+      "source_pathways": [
+        "GAST-10"
+      ],
+      "recommendation": {
+        "title": "Peritoneal-only recurrence/disease: multidisciplinary systemic and selected peritoneal-directed management pathway.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use appropriate systemic therapy."
+          },
+          {
+            "label": "Selected peritoneal-directed approach",
+            "text": "Only in source-defined selected settings/centers."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-J"
+        ],
+        "next_steps": []
+      }
+    },
+    "rec": {
+      "kind": "action",
+      "label": "Recurrent gastric cancer: re-stage and use resectable/local salvage when feasible or systemic/palliative therapy for unresectable/metastatic recurrence.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_recurrence",
+      "source_pathways": [
+        "GAST-8"
+      ],
+      "recommendation": {
+        "title": "Recurrent gastric cancer: re-stage and use resectable/local salvage when feasible or systemic/palliative therapy for unresectable/metastatic recurrence.",
+        "options": [
+          {
+            "label": "Localized salvage",
+            "text": "Surgery/RT/endoscopic management in selected cases."
+          },
+          {
+            "label": "Systemic therapy",
+            "text": "Biomarker/prior-exposure directed therapy for unresectable/metastatic recurrence."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G",
+          "GAST-J"
+        ],
+        "next_steps": []
+      }
+    },
+    "pall": {
+      "kind": "action",
+      "label": "Palliative management for unresectable/metastatic/symptomatic gastric cancer.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "gastric_palliative",
+      "source_pathways": [
+        "GAST-9"
+      ],
+      "recommendation": {
+        "title": "Palliative management for unresectable/metastatic/symptomatic gastric cancer.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Biomarker-directed line-appropriate therapy."
+          },
+          {
+            "label": "Symptom palliation",
+            "text": "Bleeding/obstruction/pain/nutrition/supportive interventions per source."
+          }
+        ],
+        "supporting_sections": [
+          "GAST-F",
+          "GAST-G",
+          "GAST-J"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Gastric cancer ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

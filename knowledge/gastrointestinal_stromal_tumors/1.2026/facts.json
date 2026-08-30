@@ -1,0 +1,97 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "GIST",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "NEW_DIAGNOSIS",
+      "POSTOPERATIVE",
+      "UNRESECTABLE_METASTATIC",
+      "PROGRESSIVE"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "very_small_gastric_lt2cm",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "high_risk_eus_or_biopsy",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "resectable",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "significant_surgical_morbidity",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "genotype",
+    "value_type": "CODED",
+    "allowed_values": [
+      "KIT_PDGFRA_SENSITIVE",
+      "PDGFRA_D842V",
+      "SDH_DEFICIENT",
+      "NF1",
+      "OTHER",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "postop_resection_complete",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "recurrence_risk",
+    "value_type": "CODED",
+    "allowed_values": [
+      "VERY_LOW",
+      "LOW",
+      "MODERATE",
+      "HIGH",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "response_status",
+    "value_type": "CODED",
+    "allowed_values": [
+      "RESPONSE",
+      "STABLE",
+      "PROGRESSION",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "progression_extent",
+    "value_type": "CODED",
+    "allowed_values": [
+      "LIMITED",
+      "WIDESPREAD",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  }
+]

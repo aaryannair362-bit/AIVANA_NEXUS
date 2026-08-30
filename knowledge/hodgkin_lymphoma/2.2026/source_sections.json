@@ -1,0 +1,345 @@
+{
+  "HODG-1": {
+    "code": "HODG-1",
+    "pages": [
+      8
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8326ef60158a12c5e65b46bf5d8e3ac4212d772ca7de9476e4313f0ad9161461",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-1A": {
+    "code": "HODG-1A",
+    "pages": [
+      9
+    ],
+    "page_count": 1,
+    "source_text_sha256": "15a114318b7e729f8dd180a6f4642e401e0fb1758560385def2ff9fa99b989df",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-2": {
+    "code": "HODG-2",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "f14449a89f52a4ece646810fe27b1ac0c3a37569e5642913a57c12eba5876757",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-3": {
+    "code": "HODG-3",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8d384bf7c69cd87de5c76ae5e818db8f8a951e21eafb4f748498dcc1cfc54d79",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-3A": {
+    "code": "HODG-3A",
+    "pages": [
+      12
+    ],
+    "page_count": 1,
+    "source_text_sha256": "f20d0c818a3286989a06643a16ad014ddb4cac6f905c1ca6029436ef75e3c1a8",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-4": {
+    "code": "HODG-4",
+    "pages": [
+      13
+    ],
+    "page_count": 1,
+    "source_text_sha256": "719383a889dd4543feba21a6327766e602380c8a9f20465ff7834321042183d0",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-5": {
+    "code": "HODG-5",
+    "pages": [
+      14
+    ],
+    "page_count": 1,
+    "source_text_sha256": "027a4294b775647600721faa89e0c8e5027962bd39244df1fb71bfaee7202eaf",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-5A": {
+    "code": "HODG-5A",
+    "pages": [
+      15
+    ],
+    "page_count": 1,
+    "source_text_sha256": "10cb6cb1714e95d0f125d8db5d5e919443d34f271fa7f6db27dd6b8afedb0d22",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-5B": {
+    "code": "HODG-5B",
+    "pages": [
+      16
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0dfcafe4b3ec74d166744a04e88d28dd6db3db4e6d1f7875a8e55f3855edadfd",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-6": {
+    "code": "HODG-6",
+    "pages": [
+      17
+    ],
+    "page_count": 1,
+    "source_text_sha256": "9ee4b8cd527430ccbf3063e5e3725e3382fe3c34cd502099238efcc144f2a24f",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-6A": {
+    "code": "HODG-6A",
+    "pages": [
+      18
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ae1e8bb32487e63a7c244c35b2e2350a1abfc18e4f254c3ba59ebed2f79fc456",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-6B": {
+    "code": "HODG-6B",
+    "pages": [
+      19
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a9cb2aa59543888c5c90a45e06f3c8e7fb7720a1f1460749cae592fae680b8bb",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-7": {
+    "code": "HODG-7",
+    "pages": [
+      20
+    ],
+    "page_count": 1,
+    "source_text_sha256": "80d37ecc531b489417f67bad945b79faf88f5d57cb776b29d6e47827f80d103a",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-7A": {
+    "code": "HODG-7A",
+    "pages": [
+      21
+    ],
+    "page_count": 1,
+    "source_text_sha256": "cac8e575c5e5dbcbfd4b2555b9cb209da18046940b8fe39377624ed62835accd",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-7B": {
+    "code": "HODG-7B",
+    "pages": [
+      22
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ae65f7d9bc179fbd376b4b7de9be3ed63979980e022d99902b7c58246f508775",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-7C": {
+    "code": "HODG-7C",
+    "pages": [
+      23
+    ],
+    "page_count": 1,
+    "source_text_sha256": "089bd018ba73b5e78a7c6ccb966a0beae7df3784fe2de55acd5c8d79f5de0f6c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-7D": {
+    "code": "HODG-7D",
+    "pages": [
+      24
+    ],
+    "page_count": 1,
+    "source_text_sha256": "f5b4e83e031f78e93091be662cf7883d9216f2b4a40a582973bdb2fe2136329f",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-8": {
+    "code": "HODG-8",
+    "pages": [
+      25
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3f64f4f871f47e733d498946b092bd8bd598392456d48fad6014b5c3e25dbcd3",
+    "kind": "REFERENCE",
+    "found": true
+  },
+  "HODG-9": {
+    "code": "HODG-9",
+    "pages": [
+      26
+    ],
+    "page_count": 1,
+    "source_text_sha256": "b6722eeec787b155c1c336f73179fafd7983308bdebddf901c2ecef32bb78d38",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-10": {
+    "code": "HODG-10",
+    "pages": [
+      27
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ae686220b8ca1b8be960019dfbdaaaaa00b080e97d99f31328f895a8e2753ef3",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-11": {
+    "code": "HODG-11",
+    "pages": [
+      28
+    ],
+    "page_count": 1,
+    "source_text_sha256": "9fd04a401afc0da7f31d6cb0758ed092f956a0ab30668b89270ca689c72e10b4",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-12": {
+    "code": "HODG-12",
+    "pages": [
+      29
+    ],
+    "page_count": 1,
+    "source_text_sha256": "871f3b213f6936fa4541aed2a54f3f5770781729240c06ce6ad58f21937de677",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-12A": {
+    "code": "HODG-12A",
+    "pages": [
+      30
+    ],
+    "page_count": 1,
+    "source_text_sha256": "6db21e4a148d962181d0d8bee0f9a99bd6372f671f5b25c9556ebf0c262f8e56",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-13": {
+    "code": "HODG-13",
+    "pages": [
+      31
+    ],
+    "page_count": 1,
+    "source_text_sha256": "b269469cc57f2fd2fd0fb28b8658efc15984e29c868b6c3c3720e293eb13b541",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-14": {
+    "code": "HODG-14",
+    "pages": [
+      32
+    ],
+    "page_count": 1,
+    "source_text_sha256": "7028f7dc1da3fcd15fb721173464b3fec2edf5e0188664fda921c748cc353c36",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-15": {
+    "code": "HODG-15",
+    "pages": [
+      33
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2ee396262a42b58fae428ccfd4765ea5d26fb44e6a17328be27243bcaeefed9e",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-16": {
+    "code": "HODG-16",
+    "pages": [
+      34
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8ce8f8646b0621ce16514fb08af2bb753e96b94e54715f8038c709d2c4670848",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-17": {
+    "code": "HODG-17",
+    "pages": [
+      35
+    ],
+    "page_count": 1,
+    "source_text_sha256": "31f4af5f32c74e76abb6321ff068c70131c021463955107a2ee59e6b9b97ff5f",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "HODG-A": {
+    "code": "HODG-A",
+    "pages": [
+      36,
+      37
+    ],
+    "page_count": 2,
+    "source_text_sha256": "ec74051a69c67ace14a86397f6b037667f4b695b375480d68c86ec70d8886d35",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "HODG-B": {
+    "code": "HODG-B",
+    "pages": [
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "page_count": 8,
+    "source_text_sha256": "1b8a4965721338eaecd9d5452d767dc0ddb97a63ee956aa9ae2f7e1399927342",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "HODG-C": {
+    "code": "HODG-C",
+    "pages": [
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "page_count": 16,
+    "source_text_sha256": "45b2fa1b90935b29a2ab389012352ed1e812c510fc9ca27e306a3f0ab431d5b8",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ST-1": {
+    "code": "ST-1",
+    "pages": [
+      62
+    ],
+    "page_count": 1,
+    "source_text_sha256": "db6721c1c75451ebef13b251d2119e3984364def83c3d321242a8b59b23cdca3",
+    "kind": "STAGING",
+    "found": true
+  }
+}

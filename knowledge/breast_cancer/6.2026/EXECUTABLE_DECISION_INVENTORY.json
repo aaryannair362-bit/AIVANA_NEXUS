@@ -1,0 +1,2793 @@
+[
+  {
+    "decision_id": "derived::breast_her2_highrisk_initial_cT4",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Should high_risk_recurrence be deterministically derived as True?",
+    "input_fact_ids": [
+      "clinical_t"
+    ],
+    "derived_rule_ids": [
+      "breast_her2_highrisk_initial_cT4"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "high_risk_recurrence"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "breast_her2_highrisk_initial_cT4",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::breast_her2_highrisk_initial_cN23",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Should high_risk_recurrence be deterministically derived as True?",
+    "input_fact_ids": [
+      "clinical_n"
+    ],
+    "derived_rule_ids": [
+      "breast_her2_highrisk_initial_cN23"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "high_risk_recurrence"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "breast_her2_highrisk_initial_cN23",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "derived::breast_her2_highrisk_residual_node",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Should high_risk_recurrence be deterministically derived as True?",
+    "input_fact_ids": [
+      "pathologic_node_status"
+    ],
+    "derived_rule_ids": [
+      "breast_her2_highrisk_residual_node"
+    ],
+    "possible_branches": [
+      "DERIVE",
+      "NO_DERIVE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "high_risk_recurrence"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "DERIVED_RULE",
+    "implementation_ref": "breast_her2_highrisk_residual_node",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_scope",
+    "source_section": "BINV-1",
+    "source_page_label": "BINV-1",
+    "source_anchor": "BINV-1:pages:14",
+    "clinical_question": "Breast cancer?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "special_phyll",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_phyllodes",
+    "source_section": "PHYLL-1",
+    "source_page_label": "PHYLL-1",
+    "source_anchor": "PHYLL-1:pages:108",
+    "clinical_question": "Phyllodes tumor?",
+    "input_fact_ids": [
+      "diagnosis_class"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "phyll_phase",
+      "special_paget"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "special_phyll",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_phyll_phase",
+    "source_section": "PHYLL-1",
+    "source_page_label": "PHYLL-1",
+    "source_anchor": "PHYLL-1:pages:108",
+    "clinical_question": "Recurrent/metastatic phyllodes disease?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "phyll_recur_surg",
+      "phyll_recur_systemic"
+    ],
+    "internal_transfer_targets": [
+      "phyll_recur",
+      "phyll_margin"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "phyll_phase",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_phyll_margin",
+    "source_section": "PHYLL-1",
+    "source_page_label": "PHYLL-1",
+    "source_anchor": "PHYLL-1:pages:108",
+    "clinical_question": "Positive/inadequate phyllodes surgical margin?",
+    "input_fact_ids": [
+      "phyllodes_margin_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "phyll_reexcision_opt",
+      "phyll_surgery",
+      "phyll_surv"
+    ],
+    "internal_transfer_targets": [
+      "phyll_reexcision",
+      "phyll_primary"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "phyll_margin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_paget",
+    "source_section": "PAGET-1",
+    "source_page_label": "PAGET-1",
+    "source_anchor": "PAGET-1:pages:109",
+    "clinical_question": "Paget disease?",
+    "input_fact_ids": [
+      "diagnosis_class"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "paget_underlying",
+      "phase_preg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "special_paget",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_paget_underlying",
+    "source_section": "PAGET-1",
+    "source_page_label": "PAGET-1",
+    "source_anchor": "PAGET-1:pages:109",
+    "clinical_question": "Underlying invasive carcinoma present?",
+    "input_fact_ids": [
+      "paget_underlying_invasive_cancer"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "paget_bcs",
+      "paget_inv_local",
+      "paget_inv_nodes",
+      "paget_inv_systemic",
+      "paget_mast",
+      "paget_nodes"
+    ],
+    "internal_transfer_targets": [
+      "paget_invasive",
+      "paget_noninv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "paget_underlying",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_pregnancy",
+    "source_section": "PREG-1",
+    "source_page_label": "PREG-1",
+    "source_anchor": "PREG-1:pages:111",
+    "clinical_question": "Breast cancer during pregnancy?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "preg_trimester",
+      "class_dcis"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "phase_preg",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_preg_trimester_first",
+    "source_section": "PREG-1",
+    "source_page_label": "PREG-1",
+    "source_anchor": "PREG-1:pages:111",
+    "clinical_question": "First trimester?",
+    "input_fact_ids": [
+      "pregnancy_trimester"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "preg_first_delay_chemo",
+      "preg_first_no_rt",
+      "preg_first_surg"
+    ],
+    "internal_transfer_targets": [
+      "preg_first",
+      "preg_later_confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "preg_trimester",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_preg_trimester_later",
+    "source_section": "PREG-1",
+    "source_page_label": "PREG-1",
+    "source_anchor": "PREG-1:pages:111",
+    "clinical_question": "Second/third trimester?",
+    "input_fact_ids": [
+      "pregnancy_trimester"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "preg_later_chemo",
+      "preg_later_no_rt",
+      "preg_later_surg"
+    ],
+    "internal_transfer_targets": [
+      "preg_later",
+      "preg_unknown"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "preg_later_confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_class_dcis",
+    "source_section": "DCIS-1",
+    "source_page_label": "DCIS-1",
+    "source_anchor": "DCIS-1:pages:12",
+    "clinical_question": "Ductal carcinoma in situ?",
+    "input_fact_ids": [
+      "diagnosis_class"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dcis_phase",
+      "class_inv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "class_dcis",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_dcis_phase",
+    "source_section": "DCIS-1",
+    "source_page_label": "DCIS-1",
+    "source_anchor": "DCIS-1:pages:12",
+    "clinical_question": "Postsurgical/surveillance DCIS episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "dcis_margin",
+      "dcis_local_choice"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dcis_phase",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_dcis_local_choice",
+    "source_section": "DCIS-1",
+    "source_page_label": "DCIS-1",
+    "source_anchor": "DCIS-1:pages:12",
+    "clinical_question": "Breast-conserving approach feasible/selected?",
+    "input_fact_ids": [
+      "breast_conserving_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dcis_bcs_excision",
+      "dcis_bcs_slnb",
+      "dcis_mast_slnb",
+      "dcis_mastectomy"
+    ],
+    "internal_transfer_targets": [
+      "dcis_bcs",
+      "dcis_mast"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dcis_local_choice",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_dcis_margin",
+    "source_section": "DCIS-2",
+    "source_page_label": "DCIS-2",
+    "source_anchor": "DCIS-2:pages:13",
+    "clinical_question": "DCIS surgical margin positive?",
+    "input_fact_ids": [
+      "dcis_margin_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dcis_endocrine",
+      "dcis_omit_rt",
+      "dcis_reexcision",
+      "dcis_surveillance",
+      "dcis_wbrt"
+    ],
+    "internal_transfer_targets": [
+      "dcis_reexcision",
+      "dcis_post_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "dcis_margin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_class_invasive",
+    "source_section": "BINV-1",
+    "source_page_label": "BINV-1",
+    "source_anchor": "BINV-1:pages:14",
+    "clinical_question": "Invasive breast cancer?",
+    "input_fact_ids": [
+      "diagnosis_class"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "care_met",
+      "class_missing"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "class_inv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_care_met",
+    "source_section": "BINV-18",
+    "source_page_label": "BINV-18",
+    "source_anchor": "BINV-18:pages:31",
+    "clinical_question": "Active metastatic/stage IV disease?",
+    "input_fact_ids": [
+      "clinical_m",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_hr",
+      "care_recur"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_met",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_care_recur",
+    "source_section": "BINV-19",
+    "source_page_label": "BINV-19",
+    "source_anchor": "BINV-19:pages:32",
+    "clinical_question": "Locoregional recurrence without distant disease?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_recur_rt",
+      "breast_recur_surgery",
+      "breast_recur_systemic"
+    ],
+    "internal_transfer_targets": [
+      "recur_local",
+      "care_postpre"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_recur",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_care_postpre",
+    "source_section": "BINV-16",
+    "source_page_label": "BINV-16",
+    "source_anchor": "BINV-16:pages:29",
+    "clinical_question": "After preoperative systemic therapy?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postpre_residual",
+      "care_postop"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_postpre",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postpre_residual",
+    "source_section": "BINV-16",
+    "source_page_label": "BINV-16",
+    "source_anchor": "BINV-16:pages:29",
+    "clinical_question": "Residual invasive disease after preoperative therapy?",
+    "input_fact_ids": [
+      "residual_invasive_disease"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postpre_receptor",
+      "postpre_pcr_receptor"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postpre_residual",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postpre_resid_her2",
+    "source_section": "BINV-16",
+    "source_page_label": "BINV-16",
+    "source_anchor": "BINV-16:pages:29",
+    "clinical_question": "HER2-positive residual disease?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_endocrine",
+      "breast_postpre_tdm1",
+      "breast_postpre_tdx"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_her2",
+      "postpre_resid_hr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postpre_receptor",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postpre_resid_hr",
+    "source_section": "BINV-16",
+    "source_page_label": "BINV-16",
+    "source_anchor": "BINV-16:pages:29",
+    "clinical_question": "HR-positive/HER2-negative residual disease?",
+    "input_fact_ids": [
+      "her2_status",
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_hr_cdk",
+      "breast_postpre_hr_endocrine",
+      "breast_postpre_hr_olaparib",
+      "breast_postpre_tnbc_capec",
+      "breast_postpre_tnbc_olaparib",
+      "breast_postpre_tnbc_pembro"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_hrpos",
+      "postpre_resid_tnbc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postpre_resid_hr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postpre_pcr_her2",
+    "source_section": "BINV-16",
+    "source_page_label": "BINV-16",
+    "source_anchor": "BINV-16:pages:29",
+    "clinical_question": "HER2-positive pCR/ypT0N0?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_pcr_her2_complete",
+      "breast_pcr_her2_endocrine",
+      "breast_pcr_hr_endocrine",
+      "breast_pcr_tnbc_pembro"
+    ],
+    "internal_transfer_targets": [
+      "postpre_pcr_her2",
+      "postpre_pcr_nonher2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postpre_pcr_receptor",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_care_postop",
+    "source_section": "BINV-5",
+    "source_page_label": "BINV-5",
+    "source_anchor": "BINV-5:pages:18",
+    "clinical_question": "Postoperative/adjuvant planning after upfront surgery?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postop_her2",
+      "care_surv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_postop",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postop_her2",
+    "source_section": "BINV-5",
+    "source_page_label": "BINV-5",
+    "source_anchor": "BINV-5:pages:18",
+    "clinical_question": "HER2-positive postoperative disease?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postop_her2_hr",
+      "postop_her2neg_confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postop_her2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postop_her2_hr",
+    "source_section": "BINV-5",
+    "source_page_label": "BINV-5",
+    "source_anchor": "BINV-5:pages:18",
+    "clinical_question": "HR-positive?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_her2_chemo",
+      "breast_adj_her2_endocrine",
+      "breast_adj_her2_pert",
+      "breast_adj_hrneg_her2",
+      "breast_adj_hrneg_pert"
+    ],
+    "internal_transfer_targets": [
+      "postop_hrpos_her2",
+      "postop_hrneg_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postop_her2_hr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postop_her2neg",
+    "source_section": "BINV-6",
+    "source_page_label": "BINV-6",
+    "source_anchor": "BINV-6:pages:19",
+    "clinical_question": "HER2-negative?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postop_hr",
+      "need_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postop_her2neg_confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postop_hr",
+    "source_section": "BINV-6",
+    "source_page_label": "BINV-6",
+    "source_anchor": "BINV-6:pages:19",
+    "clinical_question": "HR-positive?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_tnbc_chemo",
+      "breast_adj_tnbc_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postop_meno",
+      "postop_tnbc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postop_hr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postop_meno",
+    "source_section": "BINV-6",
+    "source_page_label": "BINV-6",
+    "source_anchor": "BINV-6:pages:19",
+    "clinical_question": "Postmenopausal?",
+    "input_fact_ids": [
+      "menopause"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_hrpost_chemo",
+      "breast_adj_hrpost_endocrine",
+      "breast_adj_hrpost_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postop_hrpost",
+      "postop_pre_confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postop_meno",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postop_pre",
+    "source_section": "BINV-7",
+    "source_page_label": "BINV-7",
+    "source_anchor": "BINV-7:pages:20",
+    "clinical_question": "Premenopausal?",
+    "input_fact_ids": [
+      "menopause"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "postop_pre_node",
+      "need_meno"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postop_pre_confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_postop_node",
+    "source_section": "BINV-7",
+    "source_page_label": "BINV-7",
+    "source_anchor": "BINV-7:pages:20",
+    "clinical_question": "Pathologic node-positive?",
+    "input_fact_ids": [
+      "pathologic_node_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_pre_n0_chemo",
+      "breast_adj_pre_n0_endocrine",
+      "breast_adj_pre_npos_chemo",
+      "breast_adj_pre_npos_endocrine",
+      "breast_adj_pre_npos_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postop_pre_npos",
+      "postop_pre_n0"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "postop_pre_node",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_care_surv",
+    "source_section": "BINV-17",
+    "source_page_label": "BINV-17",
+    "source_anchor": "BINV-17:pages:30",
+    "clinical_question": "Surveillance/follow-up episode?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_surv_exam",
+      "breast_surv_mammo"
+    ],
+    "internal_transfer_targets": [
+      "surv",
+      "care_preop"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_surv",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_preop",
+    "source_section": "BINV-12",
+    "source_page_label": "BINV-12",
+    "source_anchor": "BINV-12:pages:25",
+    "clinical_question": "Preoperative systemic therapy selected/planned or source-defined HER2+/TNBC cT2+/cN+ criteria met?",
+    "input_fact_ids": [
+      "clinical_n",
+      "clinical_t",
+      "her2_status",
+      "hr_status",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "preop_receptor",
+      "localized_ibc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_preop",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_preop_her2",
+    "source_section": "BINV-12",
+    "source_page_label": "BINV-12",
+    "source_anchor": "BINV-12:pages:25",
+    "clinical_question": "HER2-positive preoperative disease?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_preop_her2_regimen",
+      "breast_preop_her2_surg"
+    ],
+    "internal_transfer_targets": [
+      "preop_her2",
+      "preop_hr"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "preop_receptor",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_preop_hr",
+    "source_section": "BINV-12",
+    "source_page_label": "BINV-12",
+    "source_anchor": "BINV-12:pages:25",
+    "clinical_question": "HR-positive/HER2-negative preoperative disease?",
+    "input_fact_ids": [
+      "her2_status",
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_preop_hr_chemo",
+      "breast_preop_hr_endocrine",
+      "breast_preop_tnbc_regimen",
+      "breast_preop_tnbc_surg"
+    ],
+    "internal_transfer_targets": [
+      "preop_hrpos",
+      "preop_tnbc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "preop_hr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_ibc",
+    "source_section": "IBC-1",
+    "source_page_label": "IBC-1",
+    "source_anchor": "IBC-1:pages:113",
+    "clinical_question": "Inflammatory breast cancer?",
+    "input_fact_ids": [
+      "inflammatory"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "ibc_adjuvant",
+      "ibc_preop",
+      "ibc_rt",
+      "ibc_surgery"
+    ],
+    "internal_transfer_targets": [
+      "ibc",
+      "localized_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "localized_ibc",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_localized_local",
+    "source_section": "BINV-1",
+    "source_page_label": "BINV-1",
+    "source_anchor": "BINV-1:pages:14",
+    "clinical_question": "Breast-conserving approach feasible?",
+    "input_fact_ids": [
+      "breast_conserving_candidate"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_local_bcs",
+      "breast_local_mast",
+      "breast_local_mast_nodes",
+      "breast_local_nodes",
+      "breast_local_pmrt",
+      "breast_local_rt"
+    ],
+    "internal_transfer_targets": [
+      "localized_bcs",
+      "localized_mast"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "localized_local",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_hr",
+    "source_section": "BINV-21",
+    "source_page_label": "BINV-21",
+    "source_anchor": "BINV-21:pages:34",
+    "clinical_question": "HR-positive metastatic disease?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_hr_her2",
+      "met_her2neg_hrneg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_hr",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_hr_her2",
+    "source_section": "BINV-24",
+    "source_page_label": "BINV-24",
+    "source_anchor": "BINV-24:pages:37",
+    "clinical_question": "HER2-positive?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_hrpos_her2",
+      "met_hrneg_her2confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_hr_her2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_hr_her2neg",
+    "source_section": "BINV-22",
+    "source_page_label": "BINV-22",
+    "source_anchor": "BINV-22:pages:35",
+    "clinical_question": "HER2-negative?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_hrpos_her2neg_visc",
+      "need_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_hrneg_her2confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_hr_visceral",
+    "source_section": "BINV-22",
+    "source_page_label": "BINV-22",
+    "source_anchor": "BINV-22:pages:35",
+    "clinical_question": "Visceral crisis?",
+    "input_fact_ids": [
+      "visceral_crisis"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hrvis_cytotoxic",
+      "breast_hrvis_targeted_endo"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_visceral",
+      "met_hrpos_line"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_hrpos_her2neg_visc",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_hr_line",
+    "source_section": "BINV-22",
+    "source_page_label": "BINV-22",
+    "source_anchor": "BINV-22:pages:35",
+    "clinical_question": "First-line metastatic therapy?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hr1_ai_abema",
+      "breast_hr1_ai_palbo",
+      "breast_hr1_ai_ribo",
+      "breast_hr1_fulv_cdk",
+      "breast_hr1_inavolisib",
+      "breast_hrlater_aktpi3k",
+      "breast_hrlater_cytotoxic",
+      "breast_hrlater_esr1",
+      "breast_hrlater_everolimus",
+      "breast_hrlater_fulv_cdk",
+      "breast_hrlater_geda",
+      "breast_hrlater_tdx_low_ultralow"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_first",
+      "met_hrpos_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_hrpos_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_her2_line",
+    "source_section": "BINV-24",
+    "source_page_label": "BINV-24",
+    "source_anchor": "BINV-24:pages:37",
+    "clinical_question": "First-line HER2-positive metastatic therapy?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_1_doc_thp",
+      "breast_her2_1_endocrine",
+      "breast_her2_1_pac_thp",
+      "breast_her2_1_tdx_p",
+      "breast_her2_gbrca_parpi",
+      "breast_her2_later_4plus",
+      "breast_her2_later_endocrine",
+      "breast_her2_later_tdm1",
+      "breast_her2_later_tdx",
+      "breast_her2_later_tuc"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_first",
+      "met_her2_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_hrpos_her2",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_hrneg_her2",
+    "source_section": "BINV-26",
+    "source_page_label": "BINV-26",
+    "source_anchor": "BINV-26:pages:39",
+    "clinical_question": "HER2-positive metastatic disease?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_her2_line_hrneg",
+      "met_tnbc_confirm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_her2neg_hrneg",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_her2_line_hrneg",
+    "source_section": "BINV-26",
+    "source_page_label": "BINV-26",
+    "source_anchor": "BINV-26:pages:39",
+    "clinical_question": "First-line HER2-positive metastatic therapy?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_1_doc_thp",
+      "breast_her2_1_endocrine",
+      "breast_her2_1_pac_thp",
+      "breast_her2_1_tdx_p",
+      "breast_her2_gbrca_parpi",
+      "breast_her2_later_4plus",
+      "breast_her2_later_endocrine",
+      "breast_her2_later_tdm1",
+      "breast_her2_later_tdx",
+      "breast_her2_later_tuc"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_first",
+      "met_her2_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_her2_line_hrneg",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_met_tnbc_confirm",
+    "source_section": "BINV-27",
+    "source_page_label": "BINV-27",
+    "source_anchor": "BINV-27:pages:40",
+    "clinical_question": "HER2-negative confirmed?",
+    "input_fact_ids": [
+      "her2_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "met_tnbc_line",
+      "need_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_tnbc_confirm",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_tnbc_line",
+    "source_section": "BINV-27",
+    "source_page_label": "BINV-27",
+    "source_anchor": "BINV-27:pages:40",
+    "clinical_question": "First-line TNBC?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "tnbc_first_pdl1",
+      "tnbc_second"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "met_tnbc_line",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_tnbc_pdl1",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "PD-L1 CPS >=10?",
+    "input_fact_ids": [
+      "pd_l1_cps_ge10"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_pdl1_chemo_pembro",
+      "tnbc_pdl1_saci_pembro"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_first_pdl1pos",
+      "tnbc_first_gbrca"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "tnbc_first_pdl1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_tnbc_gbrca",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Germline BRCA1/2 pathogenic variant?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_gbrca_parpi",
+      "tnbc_gbrca_platinum",
+      "tnbc_std_chemo",
+      "tnbc_std_dato",
+      "tnbc_std_saci"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_first_gbrca_pos",
+      "tnbc_first_standard"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "tnbc_first_gbrca",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_tnbc_second",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Second-line TNBC?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_3_chemo",
+      "tnbc_3_saci",
+      "tnbc_3_targeted",
+      "tnbc_3_tdx"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_second_gbrca",
+      "tnbc_thirdplus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "tnbc_second",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "breast_tnbc_second_gbrca",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Germline BRCA1/2 pathogenic variant?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_2_chemo",
+      "tnbc_2_gbrca_parpi",
+      "tnbc_2_saci",
+      "tnbc_2_saci_nobr",
+      "tnbc_2_tdx"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_second_gbrca_pos",
+      "tnbc_second_nogbrca"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "tnbc_second_gbrca",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::paget_noninv::paget_nodes",
+    "source_section": "BINV-D",
+    "source_page_label": "BINV-D",
+    "source_anchor": "BINV-D:pages:48",
+    "clinical_question": "Is option Nodal staging if source indications are present applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgical_nodal_staging_indicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "paget_nodes"
+    ],
+    "internal_transfer_targets": [
+      "paget_noninv"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "paget_noninv:paget_nodes",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dcis_bcs::dcis_bcs_slnb",
+    "source_section": "BINV-D",
+    "source_page_label": "BINV-D",
+    "source_anchor": "BINV-D:pages:48",
+    "clinical_question": "Is option Sentinel lymph node biopsy applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgical_nodal_staging_indicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dcis_bcs_slnb"
+    ],
+    "internal_transfer_targets": [
+      "dcis_bcs"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dcis_bcs:dcis_bcs_slnb",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dcis_mast::dcis_mast_slnb",
+    "source_section": "BINV-D",
+    "source_page_label": "BINV-D",
+    "source_anchor": "BINV-D:pages:48",
+    "clinical_question": "Is option Sentinel lymph node biopsy applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgical_nodal_staging_indicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dcis_mast_slnb"
+    ],
+    "internal_transfer_targets": [
+      "dcis_mast"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dcis_mast:dcis_mast_slnb",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dcis_post_options::dcis_omit_rt",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Omit RT with endocrine therapy alone applicable to the current patient state?",
+    "input_fact_ids": [
+      "dcis_low_risk_rt_omission_criteria"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dcis_omit_rt"
+    ],
+    "internal_transfer_targets": [
+      "dcis_post_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dcis_post_options:dcis_omit_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::dcis_post_options::dcis_endocrine",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Endocrine risk-reduction therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "dcis_er_positive"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "dcis_endocrine"
+    ],
+    "internal_transfer_targets": [
+      "dcis_post_options"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "dcis_post_options:dcis_endocrine",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_resid_her2::breast_postpre_tdx",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Is option Fam-trastuzumab deruxtecan-nxki applicable to the current patient state?",
+    "input_fact_ids": [
+      "high_risk_recurrence"
+    ],
+    "derived_rule_ids": [
+      "breast_her2_highrisk_initial_cN23",
+      "breast_her2_highrisk_initial_cT4",
+      "breast_her2_highrisk_residual_node"
+    ],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_tdx"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_resid_her2:breast_postpre_tdx",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_resid_her2::breast_postpre_endocrine",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Is option Adjuvant endocrine therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_endocrine"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_resid_her2:breast_postpre_endocrine",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_resid_hrpos::breast_postpre_hr_olaparib",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Adjuvant olaparib for 1 year applicable to the current patient state?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_hr_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_hrpos"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_resid_hrpos:breast_postpre_hr_olaparib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_resid_hrpos::breast_postpre_hr_cdk",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Adjuvant abemaciclib or ribociclib applicable to the current patient state?",
+    "input_fact_ids": [
+      "high_risk_recurrence"
+    ],
+    "derived_rule_ids": [
+      "breast_her2_highrisk_initial_cN23",
+      "breast_her2_highrisk_initial_cT4",
+      "breast_her2_highrisk_residual_node"
+    ],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_hr_cdk"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_hrpos"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_resid_hrpos:breast_postpre_hr_cdk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_resid_tnbc::breast_postpre_tnbc_pembro",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Is option Adjuvant pembrolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "preop_pembrolizumab_received"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_tnbc_pembro"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_tnbc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_resid_tnbc:breast_postpre_tnbc_pembro",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_resid_tnbc::breast_postpre_tnbc_olaparib",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Is option Adjuvant olaparib for 1 year applicable to the current patient state?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_postpre_tnbc_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postpre_resid_tnbc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_resid_tnbc:breast_postpre_tnbc_olaparib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_pcr_her2::breast_pcr_her2_endocrine",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Adjuvant endocrine therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_pcr_her2_endocrine"
+    ],
+    "internal_transfer_targets": [
+      "postpre_pcr_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_pcr_her2:breast_pcr_her2_endocrine",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_pcr_nonher2::breast_pcr_hr_endocrine",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Adjuvant endocrine therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_pcr_hr_endocrine"
+    ],
+    "internal_transfer_targets": [
+      "postpre_pcr_nonher2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_pcr_nonher2:breast_pcr_hr_endocrine",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postpre_pcr_nonher2::breast_pcr_tnbc_pembro",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Complete adjuvant pembrolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "hr_status",
+      "preop_pembrolizumab_received"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_pcr_tnbc_pembro"
+    ],
+    "internal_transfer_targets": [
+      "postpre_pcr_nonher2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postpre_pcr_nonher2:breast_pcr_tnbc_pembro",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postop_hrpos_her2::breast_adj_her2_pert",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Pertuzumab + trastuzumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "pathologic_node_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_her2_pert"
+    ],
+    "internal_transfer_targets": [
+      "postop_hrpos_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postop_hrpos_her2:breast_adj_her2_pert",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postop_hrneg_her2::breast_adj_hrneg_pert",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Is option Pertuzumab + trastuzumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "pathologic_node_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_hrneg_pert"
+    ],
+    "internal_transfer_targets": [
+      "postop_hrneg_her2"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postop_hrneg_her2:breast_adj_hrneg_pert",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postop_hrpost::breast_adj_hrpost_olaparib",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Adjuvant olaparib applicable to the current patient state?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_hrpost_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postop_hrpost"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postop_hrpost:breast_adj_hrpost_olaparib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postop_pre_npos::breast_adj_pre_npos_olaparib",
+    "source_section": "BINV-K",
+    "source_page_label": "BINV-K",
+    "source_anchor": "BINV-K:pages:65,66,67,68",
+    "clinical_question": "Is option Adjuvant olaparib applicable to the current patient state?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_pre_npos_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postop_pre_npos"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postop_pre_npos:breast_adj_pre_npos_olaparib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::postop_tnbc::breast_adj_tnbc_olaparib",
+    "source_section": "BINV-M",
+    "source_page_label": "BINV-M",
+    "source_anchor": "BINV-M:pages:71,72,73,74,75,76,77,78,79,80",
+    "clinical_question": "Is option Adjuvant olaparib applicable to the current patient state?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_adj_tnbc_olaparib"
+    ],
+    "internal_transfer_targets": [
+      "postop_tnbc"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "postop_tnbc:breast_adj_tnbc_olaparib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::localized_bcs::breast_local_nodes",
+    "source_section": "BINV-D",
+    "source_page_label": "BINV-D",
+    "source_anchor": "BINV-D:pages:48",
+    "clinical_question": "Is option Axillary staging when indicated applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgical_nodal_staging_indicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_local_nodes"
+    ],
+    "internal_transfer_targets": [
+      "localized_bcs"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "localized_bcs:breast_local_nodes",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::localized_mast::breast_local_mast_nodes",
+    "source_section": "BINV-D",
+    "source_page_label": "BINV-D",
+    "source_anchor": "BINV-D:pages:48",
+    "clinical_question": "Is option Axillary staging when indicated applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgical_nodal_staging_indicated"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_local_mast_nodes"
+    ],
+    "internal_transfer_targets": [
+      "localized_mast"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "localized_mast:breast_local_mast_nodes",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_hrpos_first::breast_hr1_fulv_cdk",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Fulvestrant + CDK4/6 inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_endocrine_within_1y"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hr1_fulv_cdk"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_hrpos_first:breast_hr1_fulv_cdk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_hrpos_first::breast_hr1_inavolisib",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Fulvestrant + inavolisib + palbociclib applicable to the current patient state?",
+    "input_fact_ids": [
+      "pik3ca_mutation",
+      "prior_endocrine_within_1y"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hr1_inavolisib"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_hrpos_first:breast_hr1_inavolisib",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_hrpos_later::breast_hrlater_fulv_cdk",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Fulvestrant + CDK4/6 inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_cdk46_inhibitor"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hrlater_fulv_cdk"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_hrpos_later:breast_hrlater_fulv_cdk",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_hrpos_later::breast_hrlater_geda",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Fulvestrant + gedatolisib +/- palbociclib applicable to the current patient state?",
+    "input_fact_ids": [
+      "pik3ca_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hrlater_geda"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_hrpos_later:breast_hrlater_geda",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_hrpos_later::breast_hrlater_aktpi3k",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option PI3K/AKT-pathway targeted therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "akt1_or_pten_alteration",
+      "pik3ca_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hrlater_aktpi3k"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_hrpos_later:breast_hrlater_aktpi3k",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_hrpos_later::breast_hrlater_esr1",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option ESR1-targeted endocrine therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "esr1_mutation"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hrlater_esr1"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_hrpos_later:breast_hrlater_esr1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_hrpos_later::breast_hrlater_tdx_low_ultralow",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Is option Fam-trastuzumab deruxtecan-nxki applicable to the current patient state?",
+    "input_fact_ids": [
+      "her2_low",
+      "her2_ultralow"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_hrlater_tdx_low_ultralow"
+    ],
+    "internal_transfer_targets": [
+      "met_hrpos_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_hrpos_later:breast_hrlater_tdx_low_ultralow",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_her2_first::breast_her2_1_endocrine",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Endocrine therapy + trastuzumab +/- pertuzumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_1_endocrine"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_her2_first:breast_her2_1_endocrine",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_her2_first::breast_her2_gbrca_parpi",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option PARP inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "germline_brca_pathogenic"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_gbrca_parpi"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_her2_first:breast_her2_gbrca_parpi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_her2_later::breast_her2_later_tuc",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Capecitabine + tucatinib + trastuzumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_her2_targeted_therapy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_later_tuc"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_her2_later:breast_her2_later_tuc",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_her2_later::breast_her2_later_tdx",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Fam-trastuzumab deruxtecan-nxki applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_her2_targeted_therapy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_later_tdx"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_her2_later:breast_her2_later_tdx",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_her2_later::breast_her2_later_tdm1",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option T-DM1 applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_her2_targeted_therapy"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_later_tdm1"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_her2_later:breast_her2_later_tdm1",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_her2_later::breast_her2_later_4plus",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Fourth-line and beyond HER2 regimens applicable to the current patient state?",
+    "input_fact_ids": [
+      "metastatic_line"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_later_4plus"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_her2_later:breast_her2_later_4plus",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met_her2_later::breast_her2_later_endocrine",
+    "source_section": "BINV-P",
+    "source_page_label": "BINV-P",
+    "source_anchor": "BINV-P:pages:87,88,89",
+    "clinical_question": "Is option Alternate endocrine therapy +/- HER2-targeted therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "hr_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "breast_her2_later_endocrine"
+    ],
+    "internal_transfer_targets": [
+      "met_her2_later"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met_her2_later:breast_her2_later_endocrine",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::tnbc_first_pdl1pos::tnbc_pdl1_chemo_pembro",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Is option Chemotherapy + pembrolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_pd1_pdl1_inhibitor"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_pdl1_chemo_pembro"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_first_pdl1pos"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "tnbc_first_pdl1pos:tnbc_pdl1_chemo_pembro",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::tnbc_first_pdl1pos::tnbc_pdl1_saci_pembro",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Is option Sacituzumab govitecan + pembrolizumab applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_pd1_pdl1_inhibitor"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_pdl1_saci_pembro"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_first_pdl1pos"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "tnbc_first_pdl1pos:tnbc_pdl1_saci_pembro",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::tnbc_second_nogbrca::tnbc_2_tdx",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Is option Fam-trastuzumab deruxtecan-nxki applicable to the current patient state?",
+    "input_fact_ids": [
+      "her2_low"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_2_tdx"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_second_nogbrca"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "tnbc_second_nogbrca:tnbc_2_tdx",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::tnbc_thirdplus::tnbc_3_targeted",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Is option Tumor-agnostic targeted therapy applicable to the current patient state?",
+    "input_fact_ids": [
+      "tumor_agnostic_targetable_marker"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_3_targeted"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_thirdplus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "tnbc_thirdplus:tnbc_3_targeted",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::tnbc_thirdplus::tnbc_3_tdx",
+    "source_section": "BINV-Q",
+    "source_page_label": "BINV-Q",
+    "source_anchor": "BINV-Q:pages:90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
+    "clinical_question": "Is option Fam-trastuzumab deruxtecan-nxki applicable to the current patient state?",
+    "input_fact_ids": [
+      "her2_low"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "tnbc_3_tdx"
+    ],
+    "internal_transfer_targets": [
+      "tnbc_thirdplus"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "tnbc_thirdplus:tnbc_3_tdx",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

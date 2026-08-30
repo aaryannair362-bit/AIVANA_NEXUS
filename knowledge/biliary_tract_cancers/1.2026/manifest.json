@@ -1,0 +1,28 @@
+{
+  "guideline_id": "NCCN_BILIARY",
+  "title": "Biliary Tract Cancers",
+  "version": "1.2026",
+  "cancer_type": "BILIARY_TRACT_CANCER",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 42,
+    "implemented_decisions": 42,
+    "tested_decisions": 42,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "btc(5).pdf",
+    "sha256": "69cf24af73c4020d0d79ce4b4ffe56dee3e47a0f42f8715d3e159726caeee0b7",
+    "pdf_pages": 108
+  },
+  "primary_expected": 10,
+  "supporting_expected": 16
+}

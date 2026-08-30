@@ -1,0 +1,5153 @@
+{
+  "schema_version": "nexus-full-pathway/2.1",
+  "guideline_id": "NCCN_HODGKIN",
+  "title": "Hodgkin Lymphoma",
+  "version": "2.2026",
+  "cancer_type": "HODGKIN_LYMPHOMA",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 56,
+      "implemented_decisions": 56,
+      "tested_decisions": 56,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "HODGKIN_LYMPHOMA",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "histology",
+      "value_type": "CODED",
+      "allowed_values": [
+        "CLASSIC_HODGKIN",
+        "NLPHL",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEW_DIAGNOSIS",
+        "INTERIM_RESPONSE",
+        "POST_INITIAL_THERAPY",
+        "FOLLOW_UP",
+        "RELAPSED_REFRACTORY",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "stage_group",
+      "value_type": "CODED",
+      "allowed_values": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "risk_system",
+      "value_type": "CODED",
+      "allowed_values": [
+        "GHSG",
+        "EORTC",
+        "NCCN",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "early_favorable",
+      "value_type": "BOOLEAN",
+      "fact_role": "DERIVED_DETERMINISTIC"
+    },
+    {
+      "key": "b_symptoms",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "bulky_disease",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "age_over_60_or_unfit",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "pregnant",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "deauville",
+      "value_type": "CODED",
+      "allowed_values": [
+        "1_2",
+        "3",
+        "4_5",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "biopsy_result",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEGATIVE",
+        "POSITIVE",
+        "NOT_DONE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "transplant_candidate",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "relapse_timing",
+      "value_type": "CODED",
+      "allowed_values": [
+        "PRIMARY_REFRACTORY_OR_LT3MO",
+        "GE3MO",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "asymptomatic_nlphl",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "prior_autologous_hct",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "esr_mm_hr",
+      "value_type": "NUMERIC",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "nodal_region_count",
+      "value_type": "NUMERIC",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "e_lesion",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "mediastinal_bulk",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "age_years",
+      "value_type": "NUMERIC",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "anthracycline_candidate",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "prior_bv",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_cpi",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "cpi_progression_lt3mo",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "bv_progression_lt3mo",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "high_risk_post_ascr",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "current_response",
+      "value_type": "CODED",
+      "fact_role": "PROVENANCE_ONLY",
+      "allowed_values": [
+        "CR",
+        "PR",
+        "CLINICAL_BENEFIT",
+        "NO_CLINICAL_BENEFIT",
+        "PROGRESSIVE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role_rationale": "PET-adapted CHL decisions use current Deauville and biopsy status; generic current_response is retained for longitudinal provenance."
+    },
+    {
+      "key": "nlphl_bulky",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "transformation_to_aggressive_bcell",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Hodgkin lymphoma?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "HODGKIN_LYMPHOMA"
+      },
+      "on": {
+        "TRUE": "hist_nlphl",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "HODG-1",
+        "HODG-1A"
+      ],
+      "decision_id": "scope"
+    },
+    "hist_nlphl": {
+      "kind": "decision",
+      "label": "NLPHL?",
+      "expression": {
+        "fact": "histology",
+        "op": "eq",
+        "value": "NLPHL"
+      },
+      "on": {
+        "TRUE": "nlphl_care",
+        "FALSE": "hist_chl"
+      },
+      "source_pathways": [
+        "HODG-1",
+        "HODG-11",
+        "HODG-1A"
+      ],
+      "decision_id": "hist_nlphl"
+    },
+    "hist_chl": {
+      "kind": "decision",
+      "label": "Classic Hodgkin lymphoma?",
+      "expression": {
+        "fact": "histology",
+        "op": "eq",
+        "value": "CLASSIC_HODGKIN"
+      },
+      "on": {
+        "TRUE": "chl_care_rr",
+        "FALSE": "otherhist"
+      },
+      "source_pathways": [
+        "HODG-1",
+        "HODG-1A"
+      ],
+      "decision_id": "hist_chl"
+    },
+    "otherhist": {
+      "kind": "status",
+      "label": "Hodgkin histology is unresolved/outside CHL/NLPHL package route.",
+      "status": "NEEDS_DIFFERENT_PATHWAY",
+      "source_pathways": [
+        "HODG-1"
+      ]
+    },
+    "nlphl_care": {
+      "kind": "decision",
+      "label": "NLPHL refractory/relapse?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "RELAPSED_REFRACTORY"
+      },
+      "on": {
+        "TRUE": "nlphl_biopsy",
+        "FALSE": "nlphl_stage"
+      },
+      "source_pathways": [
+        "HODG-16",
+        "HODG-17"
+      ],
+      "decision_id": "nlphl_care"
+    },
+    "nlphl_stage": {
+      "kind": "decision",
+      "label": "Early localized NLPHL (I/II)?",
+      "expression": {
+        "fact": "stage_group",
+        "op": "in",
+        "value": [
+          "I",
+          "II"
+        ]
+      },
+      "on": {
+        "TRUE": "nlphl_early_sym",
+        "FALSE": "nlphl_adv"
+      },
+      "source_pathways": [
+        "HODG-11"
+      ],
+      "decision_id": "nlphl_stage"
+    },
+    "nlphl_early_sym": {
+      "kind": "decision",
+      "label": "Asymptomatic/nonbulky?",
+      "expression": {
+        "all": [
+          {
+            "fact": "asymptomatic_nlphl",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "nlphl_bulky",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "nlphl_observe",
+        "FALSE": "nlphl_early_tx"
+      },
+      "source_pathways": [
+        "HODG-11"
+      ],
+      "decision_id": "nlphl_early_sym"
+    },
+    "nlphl_observe": {
+      "kind": "action",
+      "label": "Selected asymptomatic nonbulky NLPHL: observation/active surveillance may be appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nlphl_observe",
+      "source_pathways": [
+        "HODG-11"
+      ],
+      "recommendation": {
+        "title": "Selected asymptomatic nonbulky NLPHL: observation/active surveillance may be appropriate.",
+        "options": [
+          {
+            "option_id": "nlphl_observe_opt",
+            "label": "Observation/active surveillance",
+            "text": "Observation/active surveillance",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-11",
+              "page_label": "HODG-11",
+              "physical_pages": [
+                28
+              ],
+              "source_anchor": "HODG-11:pages:28"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "NLPHL_EARLY_OBSERVE"
+    },
+    "nlphl_early_tx": {
+      "kind": "action",
+      "label": "Localized symptomatic/bulky NLPHL: ISRT and/or rituximab-containing therapy according to stage/site; systemic therapy for selected disease.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nlphl_early_tx",
+      "source_pathways": [
+        "HODG-11"
+      ],
+      "recommendation": {
+        "title": "Localized symptomatic/bulky NLPHL: ISRT and/or rituximab-containing therapy according to stage/site; systemic therapy for selected disease.",
+        "options": [
+          {
+            "option_id": "nlphl_isrt",
+            "label": "ISRT",
+            "text": "ISRT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "nlphl_ritux",
+            "label": "Rituximab-containing therapy",
+            "text": "Rituximab-containing therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "NLPHL_EARLY_TREATMENT"
+    },
+    "nlphl_adv": {
+      "kind": "action",
+      "label": "Advanced NLPHL: rituximab-containing systemic therapy +/- ISRT according to burden/symptoms.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nlphl_adv",
+      "source_pathways": [
+        "HODG-11"
+      ],
+      "recommendation": {
+        "title": "Advanced NLPHL: rituximab-containing systemic therapy +/- ISRT according to burden/symptoms.",
+        "options": [
+          {
+            "option_id": "nlphl_adv_ritux",
+            "label": "Rituximab-containing systemic therapy",
+            "text": "Rituximab-containing systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "nlphl_adv_isrt",
+            "label": "ISRT to selected sites",
+            "text": "ISRT to selected sites",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "NLPHL_ADVANCED"
+    },
+    "nlphl_biopsy": {
+      "kind": "decision",
+      "label": "Relapse biopsy shows aggressive B-cell transformation?",
+      "expression": {
+        "fact": "transformation_to_aggressive_bcell",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "nlphl_transform",
+        "FALSE": "nlphl_bxneg"
+      },
+      "source_pathways": [
+        "HODG-16"
+      ],
+      "decision_id": "nlphl_biopsy"
+    },
+    "nlphl_transform": {
+      "kind": "status",
+      "label": "Aggressive B-cell transformation of NLPHL routes to B-cell lymphoma relapsed/refractory guideline.",
+      "status": "NEEDS_DIFFERENT_PATHWAY",
+      "source_pathways": [
+        "HODG-16"
+      ]
+    },
+    "nlphl_bxneg": {
+      "kind": "decision",
+      "label": "Biopsy negative for lymphoma?",
+      "expression": {
+        "fact": "biopsy_result",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "nlphl_bxneg_obs",
+        "FALSE": "nlphl_sym"
+      },
+      "source_pathways": [
+        "HODG-16"
+      ],
+      "decision_id": "nlphl_bxneg"
+    },
+    "nlphl_bxneg_obs": {
+      "kind": "action",
+      "label": "Suspected NLPHL relapse with negative biopsy: short-interval observation/repeat imaging.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nlphl_bxneg_obs",
+      "source_pathways": [
+        "HODG-16"
+      ],
+      "recommendation": {
+        "title": "Suspected NLPHL relapse with negative biopsy: short-interval observation/repeat imaging.",
+        "options": [
+          {
+            "option_id": "nlphl_bxneg_follow",
+            "label": "Short-interval follow-up",
+            "text": "Short-interval follow-up",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-16",
+              "page_label": "HODG-16",
+              "physical_pages": [
+                34
+              ],
+              "source_anchor": "HODG-16:pages:34"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "NLPHL_BIOPSY_NEGATIVE"
+    },
+    "nlphl_sym": {
+      "kind": "decision",
+      "label": "Asymptomatic and nonbulky relapse?",
+      "expression": {
+        "all": [
+          {
+            "fact": "asymptomatic_nlphl",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "nlphl_bulky",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "nlphl_rr_obs",
+        "FALSE": "nlphl_rr_tx"
+      },
+      "source_pathways": [
+        "HODG-17"
+      ],
+      "decision_id": "nlphl_sym"
+    },
+    "nlphl_rr_obs": {
+      "kind": "action",
+      "label": "Asymptomatic nonbulky relapsed NLPHL: observe or rituximab or ISRT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nlphl_rr_obs",
+      "source_pathways": [
+        "HODG-17"
+      ],
+      "recommendation": {
+        "title": "Asymptomatic nonbulky relapsed NLPHL: observe or rituximab or ISRT.",
+        "options": [
+          {
+            "option_id": "nlphl_rr_observe",
+            "label": "Observe",
+            "text": "Observe",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "nlphl_rr_ritux",
+            "label": "Rituximab",
+            "text": "Rituximab",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "nlphl_rr_isrt",
+            "label": "ISRT",
+            "text": "ISRT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "NLPHL_RR_INDOLENT"
+    },
+    "nlphl_rr_tx": {
+      "kind": "action",
+      "label": "Symptomatic/bulky relapsed NLPHL: second-line systemic therapy +/- ISRT +/- HDT/ASCR; avoid repeating ASCR if already done.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "nlphl_rr_tx",
+      "source_pathways": [
+        "HODG-17"
+      ],
+      "recommendation": {
+        "title": "Symptomatic/bulky relapsed NLPHL: second-line systemic therapy +/- ISRT +/- HDT/ASCR; avoid repeating ASCR if already done.",
+        "options": [
+          {
+            "option_id": "nlphl_rr_second",
+            "label": "Second-line NLPHL systemic therapy",
+            "text": "Second-line NLPHL systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "nlphl_rr_isrt2",
+            "label": "ISRT",
+            "text": "ISRT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "nlphl_rr_ascr",
+            "label": "HDT/ASCR",
+            "text": "If not previously performed.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "prior_autologous_hct",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "NLPHL_RR_TREATMENT"
+    },
+    "chl_care_rr": {
+      "kind": "decision",
+      "label": "Relapsed/refractory CHL?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "RELAPSED_REFRACTORY"
+      },
+      "on": {
+        "TRUE": "chl_rr_candidate",
+        "FALSE": "chl_follow"
+      },
+      "source_pathways": [
+        "HODG-13",
+        "HODG-14",
+        "HODG-15"
+      ],
+      "decision_id": "chl_care_rr"
+    },
+    "chl_follow": {
+      "kind": "decision",
+      "label": "Follow-up after completion?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "FOLLOW_UP"
+      },
+      "on": {
+        "TRUE": "follow",
+        "FALSE": "chl_post_initial"
+      },
+      "source_pathways": [
+        "HODG-12",
+        "HODG-12A"
+      ],
+      "decision_id": "chl_follow"
+    },
+    "follow": {
+      "kind": "action",
+      "label": "CHL follow-up after completion: source-defined clinical/lab surveillance and late-effects screening including thyroid/cardiovascular/secondary malignancy considerations.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "follow",
+      "source_pathways": [
+        "HODG-12",
+        "HODG-12A"
+      ],
+      "recommendation": {
+        "title": "CHL follow-up after completion: source-defined clinical/lab surveillance and late-effects screening including thyroid/cardiovascular/secondary malignancy considerations.",
+        "options": [
+          {
+            "option_id": "hodg_follow",
+            "label": "Scheduled follow-up/late-effects monitoring",
+            "text": "Scheduled follow-up/late-effects monitoring",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-12",
+              "page_label": "HODG-12",
+              "physical_pages": [
+                29
+              ],
+              "source_anchor": "HODG-12:pages:29"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_FOLLOW_UP"
+    },
+    "chl_post_initial": {
+      "kind": "decision",
+      "label": "Post-initial/interim response state?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "in",
+        "value": [
+          "INTERIM_RESPONSE",
+          "POST_INITIAL_THERAPY"
+        ]
+      },
+      "on": {
+        "TRUE": "resp_stage",
+        "FALSE": "special_preg"
+      },
+      "source_pathways": [
+        "HODG-5",
+        "HODG-6",
+        "HODG-7"
+      ],
+      "decision_id": "chl_post_initial"
+    },
+    "special_preg": {
+      "kind": "decision",
+      "label": "Pregnant?",
+      "expression": {
+        "fact": "pregnant",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "preg_action",
+        "FALSE": "special_old"
+      },
+      "source_pathways": [
+        "HODG-10"
+      ],
+      "decision_id": "special_preg"
+    },
+    "preg_action": {
+      "kind": "action",
+      "label": "CHL during pregnancy: trimester/symptom-dependent multidisciplinary management; defer treatment when safe, use pregnancy-compatible therapy when necessary, then standard therapy postpartum/second trimester as source-defined.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "preg_action",
+      "source_pathways": [
+        "HODG-10"
+      ],
+      "recommendation": {
+        "title": "CHL during pregnancy: trimester/symptom-dependent multidisciplinary management; defer treatment when safe, use pregnancy-compatible therapy when necessary, then standard therapy postpartum/second trimester as source-defined.",
+        "options": [
+          {
+            "option_id": "hodg_preg_mdt",
+            "label": "Pregnancy-specific multidisciplinary treatment",
+            "text": "Pregnancy-specific multidisciplinary treatment",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_PREGNANCY"
+    },
+    "special_old": {
+      "kind": "decision",
+      "label": "Age >60 or unfit for intensive therapy?",
+      "expression": {
+        "any": [
+          {
+            "fact": "age_years",
+            "op": "gt",
+            "value": 60
+          },
+          {
+            "fact": "age_over_60_or_unfit",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "older_stage",
+        "FALSE": "initial_stage",
+        "UNKNOWN": "initial_stage"
+      },
+      "source_pathways": [
+        "HODG-9"
+      ],
+      "decision_id": "special_old"
+    },
+    "older_stage": {
+      "kind": "decision",
+      "label": "Stage III-IV older/unfit?",
+      "expression": {
+        "fact": "stage_group",
+        "op": "in",
+        "value": [
+          "III",
+          "IV"
+        ]
+      },
+      "on": {
+        "TRUE": "older_adv",
+        "FALSE": "older_early"
+      },
+      "source_pathways": [
+        "HODG-9",
+        "HODG-B"
+      ],
+      "decision_id": "older_stage"
+    },
+    "older_adv": {
+      "kind": "action",
+      "label": "Older/unfit stage III-IV CHL: nivolumab-AVD x6 category 1 preferred when anthracycline candidate; BV-based or CPI-alone alternatives if not anthracycline candidate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "older_adv",
+      "source_pathways": [
+        "HODG-9"
+      ],
+      "recommendation": {
+        "title": "Older/unfit stage III-IV CHL: nivolumab-AVD x6 category 1 preferred when anthracycline candidate; BV-based or CPI-alone alternatives if not anthracycline candidate.",
+        "options": [
+          {
+            "option_id": "hodg_old_nivoavd",
+            "label": "Nivolumab-AVD x6",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "anthracycline_candidate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_old_bvdtic",
+            "label": "BV + dacarbazine",
+            "text": "For no anthracycline.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "anthracycline_candidate",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_old_bvnivo",
+            "label": "BV + nivolumab",
+            "text": "For no anthracycline.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "anthracycline_candidate",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_old_cpi",
+            "label": "Nivolumab or pembrolizumab",
+            "text": "If BV contraindicated and no anthracycline.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "anthracycline_candidate",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_OLDER_ADVANCED"
+    },
+    "older_early": {
+      "kind": "action",
+      "label": "Older/unfit stage I-II CHL: stage/risk-adapted A(B)VD/AVD + ISRT when anthracycline candidate; BV/CPI-based alternatives otherwise.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "older_early",
+      "source_pathways": [
+        "HODG-9"
+      ],
+      "recommendation": {
+        "title": "Older/unfit stage I-II CHL: stage/risk-adapted A(B)VD/AVD + ISRT when anthracycline candidate; BV/CPI-based alternatives otherwise.",
+        "options": [
+          {
+            "option_id": "hodg_old_abvd_isrt",
+            "label": "A(B)VD/AVD + ISRT",
+            "text": "For anthracycline candidates.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "anthracycline_candidate",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_old_nonanth",
+            "label": "BV-dacarbazine / BV-nivolumab / CPI +/- ISRT",
+            "text": "For non-anthracycline candidates.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "anthracycline_candidate",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_OLDER_EARLY"
+    },
+    "initial_stage": {
+      "kind": "decision",
+      "label": "Stage III-IV?",
+      "expression": {
+        "fact": "stage_group",
+        "op": "in",
+        "value": [
+          "III",
+          "IV"
+        ]
+      },
+      "on": {
+        "TRUE": "adv_initial",
+        "FALSE": "early_risk_system"
+      },
+      "source_pathways": [
+        "HODG-2",
+        "HODG-7"
+      ],
+      "decision_id": "initial_stage"
+    },
+    "early_risk_system": {
+      "kind": "decision",
+      "label": "Risk system GHSG or EORTC specified?",
+      "expression": {
+        "fact": "risk_system",
+        "op": "in",
+        "value": [
+          "GHSG",
+          "EORTC"
+        ]
+      },
+      "on": {
+        "TRUE": "early_fav_dec",
+        "FALSE": "need_risk"
+      },
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3",
+        "HODG-3A"
+      ],
+      "decision_id": "early_risk_system"
+    },
+    "need_risk": {
+      "kind": "status",
+      "label": "GHSG/EORTC risk system and risk-factor inputs are required for early-stage CHL routing.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3"
+      ]
+    },
+    "early_fav_dec": {
+      "kind": "decision",
+      "label": "Derived favorable early-stage category?",
+      "expression": {
+        "fact": "early_favorable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "early_fav_system",
+        "FALSE": "early_unfav_confirm"
+      },
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3A"
+      ],
+      "decision_id": "early_fav_dec"
+    },
+    "early_unfav_confirm": {
+      "kind": "decision",
+      "label": "Derived unfavorable early-stage category?",
+      "expression": {
+        "fact": "early_favorable",
+        "op": "eq",
+        "value": false
+      },
+      "on": {
+        "TRUE": "early_unfav",
+        "FALSE": "need_riskfacts"
+      },
+      "source_pathways": [
+        "HODG-6",
+        "HODG-3A"
+      ],
+      "decision_id": "early_unfav_confirm"
+    },
+    "need_riskfacts": {
+      "kind": "status",
+      "label": "Early-stage risk factors remain insufficient to deterministically classify favorable vs unfavorable disease.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3"
+      ]
+    },
+    "early_fav_system": {
+      "kind": "decision",
+      "label": "GHSG favorable?",
+      "expression": {
+        "fact": "risk_system",
+        "op": "eq",
+        "value": "GHSG"
+      },
+      "on": {
+        "TRUE": "ghsg_fav",
+        "FALSE": "eortc_fav_action"
+      },
+      "source_pathways": [
+        "HODG-5",
+        "HODG-5A"
+      ],
+      "decision_id": "early_fav_system"
+    },
+    "ghsg_fav": {
+      "kind": "action",
+      "label": "Age 18-60 Stage IA/IIA favorable by GHSG: ABVD x2 category 1 then interim PET/CT; Deauville response determines ISRT vs additional chemotherapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ghsg_fav",
+      "source_pathways": [
+        "HODG-5"
+      ],
+      "recommendation": {
+        "title": "Age 18-60 Stage IA/IIA favorable by GHSG: ABVD x2 category 1 then interim PET/CT; Deauville response determines ISRT vs additional chemotherapy.",
+        "options": [
+          {
+            "option_id": "hodg_ghsg_abvd2",
+            "label": "ABVD x2",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B"
+        ],
+        "next_steps": [
+          "HODG-5"
+        ]
+      },
+      "pathway_id": "HODG_GHSG_FAVORABLE_INITIAL"
+    },
+    "eortc_fav_action": {
+      "kind": "action",
+      "label": "Age 18-60 Stage IA/IIA favorable by EORTC: ABVD x2 category 1 then PET; Deauville 1-2, 3, or 4-5 lead to distinct additional therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "eortc_fav_action",
+      "source_pathways": [
+        "HODG-5A"
+      ],
+      "recommendation": {
+        "title": "Age 18-60 Stage IA/IIA favorable by EORTC: ABVD x2 category 1 then PET; Deauville 1-2, 3, or 4-5 lead to distinct additional therapy.",
+        "options": [
+          {
+            "option_id": "hodg_eortc_abvd2",
+            "label": "ABVD x2",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B"
+        ],
+        "next_steps": [
+          "HODG-5A"
+        ]
+      },
+      "pathway_id": "HODG_EORTC_FAVORABLE_INITIAL"
+    },
+    "early_unfav": {
+      "kind": "action",
+      "label": "Stage I-II unfavorable CHL: ABVD-based or source-listed contemporary systemic therapy with PET-adapted escalation/de-escalation and ISRT by response/risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "early_unfav",
+      "source_pathways": [
+        "HODG-6",
+        "HODG-6A",
+        "HODG-6B"
+      ],
+      "recommendation": {
+        "title": "Stage I-II unfavorable CHL: ABVD-based or source-listed contemporary systemic therapy with PET-adapted escalation/de-escalation and ISRT by response/risk.",
+        "options": [
+          {
+            "option_id": "hodg_unfav_abvd",
+            "label": "ABVD-based PET-adapted therapy",
+            "text": "ABVD-based PET-adapted therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "hodg_unfav_nivoavd",
+            "label": "Nivolumab-AVD source option where specified",
+            "text": "Nivolumab-AVD source option where specified",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "hodg_unfav_isrt",
+            "label": "ISRT according to response/risk",
+            "text": "ISRT according to response/risk",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C",
+          "HODG-6A",
+          "HODG-6B"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_EARLY_UNFAVORABLE"
+    },
+    "adv_initial": {
+      "kind": "action",
+      "label": "Stage III-IV CHL: preferred contemporary systemic regimen (nivolumab-AVD category 1/preferred in applicable adults) or other HODG-B regimen with PET-adapted management.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "adv_initial",
+      "source_pathways": [
+        "HODG-7",
+        "HODG-7A",
+        "HODG-7B",
+        "HODG-7C",
+        "HODG-7D"
+      ],
+      "recommendation": {
+        "title": "Stage III-IV CHL: preferred contemporary systemic regimen (nivolumab-AVD category 1/preferred in applicable adults) or other HODG-B regimen with PET-adapted management.",
+        "options": [
+          {
+            "option_id": "hodg_adv_nivoavd",
+            "label": "Nivolumab-AVD",
+            "text": "Preferred category 1 where applicable.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "hodg_adv_bvavd",
+            "label": "BV-AVD + G-CSF",
+            "text": "BV-AVD + G-CSF",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "hodg_adv_brecadd",
+            "label": "BrECADD + G-CSF",
+            "text": "BrECADD + G-CSF",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          },
+          {
+            "option_id": "hodg_adv_abvd",
+            "label": "ABVD / PET-adapted AVD",
+            "text": "ABVD / PET-adapted AVD",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            },
+            "applicability": {
+              "all": [
+                {
+                  "fact": "age_years",
+                  "op": "gte",
+                  "value": 18
+                },
+                {
+                  "fact": "age_years",
+                  "op": "lte",
+                  "value": 60
+                }
+              ]
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-7A",
+          "HODG-7B",
+          "HODG-7C",
+          "HODG-7D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_ADVANCED_INITIAL"
+    },
+    "resp_stage": {
+      "kind": "decision",
+      "label": "Early favorable category?",
+      "expression": {
+        "fact": "early_favorable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "resp_fav",
+        "FALSE": "resp_adv_unfav"
+      },
+      "source_pathways": [
+        "HODG-5",
+        "HODG-5A",
+        "HODG-5B"
+      ],
+      "decision_id": "resp_stage"
+    },
+    "resp_fav": {
+      "kind": "decision",
+      "label": "Interim Deauville 1-3 after 2 cycles?",
+      "expression": {
+        "fact": "deauville",
+        "op": "in",
+        "value": [
+          "1_2",
+          "3"
+        ],
+        "timepoint": "AFTER_2_CYCLES"
+      },
+      "on": {
+        "TRUE": "resp_fav_good",
+        "FALSE": "resp_fav_45"
+      },
+      "source_pathways": [
+        "HODG-5",
+        "HODG-5A"
+      ],
+      "decision_id": "resp_fav"
+    },
+    "resp_fav_45": {
+      "kind": "decision",
+      "label": "Interim Deauville 4-5 after 2 cycles?",
+      "expression": {
+        "fact": "deauville",
+        "op": "eq",
+        "value": "4_5",
+        "timepoint": "AFTER_2_CYCLES"
+      },
+      "on": {
+        "TRUE": "resp_fav45_action",
+        "FALSE": "need_pet"
+      },
+      "source_pathways": [
+        "HODG-5B"
+      ],
+      "decision_id": "resp_fav_45"
+    },
+    "resp_fav_good": {
+      "kind": "action",
+      "label": "Early favorable CHL with Deauville 1-3 after 2 ABVD cycles: additional therapy depends on GHSG/EORTC and Deauville score.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "resp_fav_good",
+      "source_pathways": [
+        "HODG-5",
+        "HODG-5A"
+      ],
+      "recommendation": {
+        "title": "Early favorable CHL with Deauville 1-3 after 2 ABVD cycles: additional therapy depends on GHSG/EORTC and Deauville score.",
+        "options": [
+          {
+            "option_id": "hodg_fav_isrt",
+            "label": "ISRT 20-30 Gy",
+            "text": "Preferred combined modality according to risk system/score.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-C",
+              "page_label": "HODG-C",
+              "physical_pages": [
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "HODG-C:pages:46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "hodg_fav_chemoalone",
+            "label": "Additional ABVD/AVD chemotherapy",
+            "text": "Chemotherapy-alone alternative in source-defined circumstances.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-C",
+              "page_label": "HODG-C",
+              "physical_pages": [
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "HODG-C:pages:46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_FAVORABLE_PET_GOOD"
+    },
+    "resp_fav45_action": {
+      "kind": "action",
+      "label": "Early favorable CHL Deauville 4-5 after 2 ABVD: continue ABVD x2 then repeat PET; Deauville 4-5 may require biopsy, with positive biopsy routing to primary refractory treatment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "resp_fav45_action",
+      "source_pathways": [
+        "HODG-5B"
+      ],
+      "recommendation": {
+        "title": "Early favorable CHL Deauville 4-5 after 2 ABVD: continue ABVD x2 then repeat PET; Deauville 4-5 may require biopsy, with positive biopsy routing to primary refractory treatment.",
+        "options": [
+          {
+            "option_id": "hodg_fav45_abvd2",
+            "label": "ABVD x2 additional cycles",
+            "text": "ABVD x2 additional cycles",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-A",
+              "page_label": "HODG-A",
+              "physical_pages": [
+                36,
+                37
+              ],
+              "source_anchor": "HODG-A:pages:36,37"
+            }
+          },
+          {
+            "option_id": "hodg_fav45_repeatpet",
+            "label": "Repeat FDG-PET/CT",
+            "text": "Repeat FDG-PET/CT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-A",
+              "page_label": "HODG-A",
+              "physical_pages": [
+                36,
+                37
+              ],
+              "source_anchor": "HODG-A:pages:36,37"
+            }
+          },
+          {
+            "option_id": "hodg_fav45_biopsy",
+            "label": "Biopsy persistent Deauville 4-5 lesion when feasible",
+            "text": "Biopsy persistent Deauville 4-5 lesion when feasible",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-A",
+              "page_label": "HODG-A",
+              "physical_pages": [
+                36,
+                37
+              ],
+              "source_anchor": "HODG-A:pages:36,37"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_FAVORABLE_PET45"
+    },
+    "resp_adv_unfav": {
+      "kind": "decision",
+      "label": "Current Deauville 1-3?",
+      "expression": {
+        "fact": "deauville",
+        "op": "in",
+        "value": [
+          "1_2",
+          "3"
+        ]
+      },
+      "on": {
+        "TRUE": "resp_good",
+        "FALSE": "resp_45"
+      },
+      "source_pathways": [
+        "HODG-6",
+        "HODG-7",
+        "HODG-6B",
+        "HODG-7A",
+        "HODG-7B",
+        "HODG-7C",
+        "HODG-7D"
+      ],
+      "decision_id": "resp_adv_unfav"
+    },
+    "resp_good": {
+      "kind": "action",
+      "label": "Unfavorable/advanced CHL with favorable interim/post-treatment PET response: continue/de-escalate source-defined regimen +/- ISRT and then follow-up.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "resp_good",
+      "source_pathways": [
+        "HODG-6",
+        "HODG-7"
+      ],
+      "recommendation": {
+        "title": "Unfavorable/advanced CHL with favorable interim/post-treatment PET response: continue/de-escalate source-defined regimen +/- ISRT and then follow-up.",
+        "options": [
+          {
+            "option_id": "hodg_resp_continue",
+            "label": "Continue/de-escalate PET-adapted systemic therapy",
+            "text": "Continue/de-escalate PET-adapted systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_resp_isrt",
+            "label": "ISRT for source-defined bulky/residual sites",
+            "text": "ISRT for source-defined bulky/residual sites",
+            "decision_relevant": false,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_RESPONSE_GOOD"
+    },
+    "resp_45": {
+      "kind": "decision",
+      "label": "Deauville 4-5?",
+      "expression": {
+        "fact": "deauville",
+        "op": "eq",
+        "value": "4_5"
+      },
+      "on": {
+        "TRUE": "resp_biopsy",
+        "FALSE": "need_pet"
+      },
+      "source_pathways": [
+        "HODG-4",
+        "HODG-6",
+        "HODG-7",
+        "HODG-6B",
+        "HODG-7A",
+        "HODG-7B",
+        "HODG-7C",
+        "HODG-7D"
+      ],
+      "decision_id": "resp_45"
+    },
+    "resp_biopsy": {
+      "kind": "decision",
+      "label": "Biopsy positive for CHL?",
+      "expression": {
+        "fact": "biopsy_result",
+        "op": "eq",
+        "value": "POSITIVE"
+      },
+      "on": {
+        "TRUE": "primary_refractory",
+        "FALSE": "resp_bxneg"
+      },
+      "source_pathways": [
+        "HODG-4",
+        "HODG-5B",
+        "HODG-13",
+        "HODG-6B",
+        "HODG-7A",
+        "HODG-7B",
+        "HODG-7C",
+        "HODG-7D"
+      ],
+      "decision_id": "resp_biopsy"
+    },
+    "resp_bxneg": {
+      "kind": "action",
+      "label": "Deauville 4-5 with negative biopsy/no refractory confirmation: continue/complete source-directed therapy or consolidation RT with short-interval reassessment rather than automatically declaring refractory disease.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "resp_bxneg",
+      "source_pathways": [
+        "HODG-4",
+        "HODG-5B"
+      ],
+      "recommendation": {
+        "title": "Deauville 4-5 with negative biopsy/no refractory confirmation: continue/complete source-directed therapy or consolidation RT with short-interval reassessment rather than automatically declaring refractory disease.",
+        "options": [
+          {
+            "option_id": "hodg_bxneg_continue",
+            "label": "Continue/complete current therapy",
+            "text": "Continue/complete current therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-C",
+              "page_label": "HODG-C",
+              "physical_pages": [
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "HODG-C:pages:46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "hodg_bxneg_rt",
+            "label": "Consolidation ISRT",
+            "text": "If focal PET-positive and clinically appropriate.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-C",
+              "page_label": "HODG-C",
+              "physical_pages": [
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "HODG-C:pages:46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_PET_POS_BIOPSY_NEG"
+    },
+    "need_pet": {
+      "kind": "status",
+      "label": "Current Deauville response at the relevant treatment timepoint is required.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "HODG-A"
+      ]
+    },
+    "chl_rr_candidate": {
+      "kind": "decision",
+      "label": "Candidate for HDT/ASCR?",
+      "expression": {
+        "fact": "transplant_candidate",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "rr_timing",
+        "FALSE": "rr_nonhct"
+      },
+      "source_pathways": [
+        "HODG-13",
+        "HODG-14",
+        "HODG-15"
+      ],
+      "decision_id": "chl_rr_candidate"
+    },
+    "rr_timing": {
+      "kind": "decision",
+      "label": "Primary refractory or relapse <3 months?",
+      "expression": {
+        "fact": "relapse_timing",
+        "op": "eq",
+        "value": "PRIMARY_REFRACTORY_OR_LT3MO"
+      },
+      "on": {
+        "TRUE": "primary_refractory",
+        "FALSE": "rr_ge3"
+      },
+      "source_pathways": [
+        "HODG-13",
+        "HODG-14"
+      ],
+      "decision_id": "rr_timing"
+    },
+    "primary_refractory": {
+      "kind": "action",
+      "label": "Primary refractory CHL or relapse <3 months and HDT/ASCR candidate: second-line systemic therapy, response assessment, then HDT/ASCR +/- ISRT if responsive.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "primary_refractory",
+      "source_pathways": [
+        "HODG-13"
+      ],
+      "recommendation": {
+        "title": "Primary refractory CHL or relapse <3 months and HDT/ASCR candidate: second-line systemic therapy, response assessment, then HDT/ASCR +/- ISRT if responsive.",
+        "options": [
+          {
+            "option_id": "hodg_rr2_cpi",
+            "label": "CPI-based second-line systemic therapy",
+            "text": "Preferred where no contraindication/prior context.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "prior_cpi",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_rr2_bv",
+            "label": "BV-containing salvage",
+            "text": "If appropriate/prior exposure allows.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "prior_bv",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_rr_ascr",
+            "label": "HDT/ASCR after response",
+            "text": "HDT/ASCR after response",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_PRIMARY_REFRACTORY_ASCR"
+    },
+    "rr_ge3": {
+      "kind": "action",
+      "label": "Biopsy-proven CHL relapse >=3 months and HDT/ASCR candidate: CPI-based second-line preferred if no prior CPI; response -> HDT/ASCR +/- ISRT, with selected localized relapse RT option.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rr_ge3",
+      "source_pathways": [
+        "HODG-14"
+      ],
+      "recommendation": {
+        "title": "Biopsy-proven CHL relapse >=3 months and HDT/ASCR candidate: CPI-based second-line preferred if no prior CPI; response -> HDT/ASCR +/- ISRT, with selected localized relapse RT option.",
+        "options": [
+          {
+            "option_id": "hodg_ge3_cpi",
+            "label": "CPI-based second-line systemic therapy",
+            "text": "Preferred if no prior CPI exposure.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "fact": "prior_cpi",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_ge3_salvage",
+            "label": "Other second-line systemic therapy",
+            "text": "Other second-line systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_ge3_ascr",
+            "label": "HDT/ASCR after response",
+            "text": "HDT/ASCR after response",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_ge3_bvmaint",
+            "label": "BV maintenance after HDT/ASCR",
+            "text": "For high relapse risk and no prior BV.",
+            "decision_relevant": true,
+            "applicability": {
+              "all": [
+                {
+                  "fact": "high_risk_post_ascr",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_bv",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_RELAPSE_GE3_ASCR"
+    },
+    "rr_nonhct": {
+      "kind": "decision",
+      "label": "Prior CPI/BV with rapid progression?",
+      "expression": {
+        "any": [
+          {
+            "all": [
+              {
+                "fact": "prior_cpi",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "cpi_progression_lt3mo",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "fact": "prior_bv",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "bv_progression_lt3mo",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_nonhct_later",
+        "FALSE": "rr_nonhct_cpi"
+      },
+      "source_pathways": [
+        "HODG-15"
+      ],
+      "decision_id": "rr_nonhct"
+    },
+    "rr_nonhct_cpi": {
+      "kind": "action",
+      "label": "Relapsed/refractory CHL not HDT/ASCR candidate and no rapid CPI/BV failure: CPI-containing regimen x4 then continue while deriving clinical benefit +/- ISRT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rr_nonhct_cpi",
+      "source_pathways": [
+        "HODG-15"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory CHL not HDT/ASCR candidate and no rapid CPI/BV failure: CPI-containing regimen x4 then continue while deriving clinical benefit +/- ISRT.",
+        "options": [
+          {
+            "option_id": "hodg_nonhct_cpi",
+            "label": "CPI-containing regimen",
+            "text": "Use if no prior CPI/appropriate exposure.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "prior_cpi",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_nonhct_bv",
+            "label": "BV-containing regimen",
+            "text": "If BV appropriate and no prior failure.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "prior_bv",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_nonhct_rt",
+            "label": "ISRT for selected sites",
+            "text": "ISRT for selected sites",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_RR_NONASCR_CPI"
+    },
+    "rr_nonhct_later": {
+      "kind": "action",
+      "label": "Relapsed/refractory CHL not HDT/ASCR candidate after rapid CPI/BV failure: subsequent non-cross-resistant systemic therapy +/- ISRT; clinical trial/center expertise strongly considered.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rr_nonhct_later",
+      "source_pathways": [
+        "HODG-15"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory CHL not HDT/ASCR candidate after rapid CPI/BV failure: subsequent non-cross-resistant systemic therapy +/- ISRT; clinical trial/center expertise strongly considered.",
+        "options": [
+          {
+            "option_id": "hodg_nonhct_subsequent",
+            "label": "Subsequent systemic therapy not previously used",
+            "text": "Subsequent systemic therapy not previously used",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_nonhct_trial",
+            "label": "Clinical trial",
+            "text": "Clinical trial",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          },
+          {
+            "option_id": "hodg_nonhct_isrt",
+            "label": "ISRT",
+            "text": "ISRT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Hodgkin Lymphoma",
+              "version": "2.2026",
+              "section": "HODG-B",
+              "page_label": "HODG-B",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45
+              ],
+              "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "HODG-B",
+          "HODG-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "HODG_RR_NONASCR_AFTER_FAILURE"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside Hodgkin lymphoma package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "HODG-1"
+      ]
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "HODG-1": {
+        "code": "HODG-1",
+        "pages": [
+          8
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8326ef60158a12c5e65b46bf5d8e3ac4212d772ca7de9476e4313f0ad9161461",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-1A": {
+        "code": "HODG-1A",
+        "pages": [
+          9
+        ],
+        "page_count": 1,
+        "source_text_sha256": "15a114318b7e729f8dd180a6f4642e401e0fb1758560385def2ff9fa99b989df",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-2": {
+        "code": "HODG-2",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "f14449a89f52a4ece646810fe27b1ac0c3a37569e5642913a57c12eba5876757",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-3": {
+        "code": "HODG-3",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8d384bf7c69cd87de5c76ae5e818db8f8a951e21eafb4f748498dcc1cfc54d79",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-3A": {
+        "code": "HODG-3A",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "f20d0c818a3286989a06643a16ad014ddb4cac6f905c1ca6029436ef75e3c1a8",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-4": {
+        "code": "HODG-4",
+        "pages": [
+          13
+        ],
+        "page_count": 1,
+        "source_text_sha256": "719383a889dd4543feba21a6327766e602380c8a9f20465ff7834321042183d0",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-5": {
+        "code": "HODG-5",
+        "pages": [
+          14
+        ],
+        "page_count": 1,
+        "source_text_sha256": "027a4294b775647600721faa89e0c8e5027962bd39244df1fb71bfaee7202eaf",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-5A": {
+        "code": "HODG-5A",
+        "pages": [
+          15
+        ],
+        "page_count": 1,
+        "source_text_sha256": "10cb6cb1714e95d0f125d8db5d5e919443d34f271fa7f6db27dd6b8afedb0d22",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-5B": {
+        "code": "HODG-5B",
+        "pages": [
+          16
+        ],
+        "page_count": 1,
+        "source_text_sha256": "0dfcafe4b3ec74d166744a04e88d28dd6db3db4e6d1f7875a8e55f3855edadfd",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-6": {
+        "code": "HODG-6",
+        "pages": [
+          17
+        ],
+        "page_count": 1,
+        "source_text_sha256": "9ee4b8cd527430ccbf3063e5e3725e3382fe3c34cd502099238efcc144f2a24f",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-6A": {
+        "code": "HODG-6A",
+        "pages": [
+          18
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ae1e8bb32487e63a7c244c35b2e2350a1abfc18e4f254c3ba59ebed2f79fc456",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-6B": {
+        "code": "HODG-6B",
+        "pages": [
+          19
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a9cb2aa59543888c5c90a45e06f3c8e7fb7720a1f1460749cae592fae680b8bb",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-7": {
+        "code": "HODG-7",
+        "pages": [
+          20
+        ],
+        "page_count": 1,
+        "source_text_sha256": "80d37ecc531b489417f67bad945b79faf88f5d57cb776b29d6e47827f80d103a",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-7A": {
+        "code": "HODG-7A",
+        "pages": [
+          21
+        ],
+        "page_count": 1,
+        "source_text_sha256": "cac8e575c5e5dbcbfd4b2555b9cb209da18046940b8fe39377624ed62835accd",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-7B": {
+        "code": "HODG-7B",
+        "pages": [
+          22
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ae65f7d9bc179fbd376b4b7de9be3ed63979980e022d99902b7c58246f508775",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-7C": {
+        "code": "HODG-7C",
+        "pages": [
+          23
+        ],
+        "page_count": 1,
+        "source_text_sha256": "089bd018ba73b5e78a7c6ccb966a0beae7df3784fe2de55acd5c8d79f5de0f6c",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-7D": {
+        "code": "HODG-7D",
+        "pages": [
+          24
+        ],
+        "page_count": 1,
+        "source_text_sha256": "f5b4e83e031f78e93091be662cf7883d9216f2b4a40a582973bdb2fe2136329f",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-8": {
+        "code": "HODG-8",
+        "pages": [
+          25
+        ],
+        "page_count": 1,
+        "source_text_sha256": "3f64f4f871f47e733d498946b092bd8bd598392456d48fad6014b5c3e25dbcd3",
+        "kind": "REFERENCE",
+        "found": true
+      },
+      "HODG-9": {
+        "code": "HODG-9",
+        "pages": [
+          26
+        ],
+        "page_count": 1,
+        "source_text_sha256": "b6722eeec787b155c1c336f73179fafd7983308bdebddf901c2ecef32bb78d38",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-10": {
+        "code": "HODG-10",
+        "pages": [
+          27
+        ],
+        "page_count": 1,
+        "source_text_sha256": "ae686220b8ca1b8be960019dfbdaaaaa00b080e97d99f31328f895a8e2753ef3",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-11": {
+        "code": "HODG-11",
+        "pages": [
+          28
+        ],
+        "page_count": 1,
+        "source_text_sha256": "9fd04a401afc0da7f31d6cb0758ed092f956a0ab30668b89270ca689c72e10b4",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-12": {
+        "code": "HODG-12",
+        "pages": [
+          29
+        ],
+        "page_count": 1,
+        "source_text_sha256": "871f3b213f6936fa4541aed2a54f3f5770781729240c06ce6ad58f21937de677",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-12A": {
+        "code": "HODG-12A",
+        "pages": [
+          30
+        ],
+        "page_count": 1,
+        "source_text_sha256": "6db21e4a148d962181d0d8bee0f9a99bd6372f671f5b25c9556ebf0c262f8e56",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-13": {
+        "code": "HODG-13",
+        "pages": [
+          31
+        ],
+        "page_count": 1,
+        "source_text_sha256": "b269469cc57f2fd2fd0fb28b8658efc15984e29c868b6c3c3720e293eb13b541",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-14": {
+        "code": "HODG-14",
+        "pages": [
+          32
+        ],
+        "page_count": 1,
+        "source_text_sha256": "7028f7dc1da3fcd15fb721173464b3fec2edf5e0188664fda921c748cc353c36",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-15": {
+        "code": "HODG-15",
+        "pages": [
+          33
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2ee396262a42b58fae428ccfd4765ea5d26fb44e6a17328be27243bcaeefed9e",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-16": {
+        "code": "HODG-16",
+        "pages": [
+          34
+        ],
+        "page_count": 1,
+        "source_text_sha256": "8ce8f8646b0621ce16514fb08af2bb753e96b94e54715f8038c709d2c4670848",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "HODG-17": {
+        "code": "HODG-17",
+        "pages": [
+          35
+        ],
+        "page_count": 1,
+        "source_text_sha256": "31f4af5f32c74e76abb6321ff068c70131c021463955107a2ee59e6b9b97ff5f",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "HODG-A": {
+        "code": "HODG-A",
+        "pages": [
+          36,
+          37
+        ],
+        "page_count": 2,
+        "source_text_sha256": "ec74051a69c67ace14a86397f6b037667f4b695b375480d68c86ec70d8886d35",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "HODG-B": {
+        "code": "HODG-B",
+        "pages": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45
+        ],
+        "page_count": 8,
+        "source_text_sha256": "1b8a4965721338eaecd9d5452d767dc0ddb97a63ee956aa9ae2f7e1399927342",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "HODG-C": {
+        "code": "HODG-C",
+        "pages": [
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60,
+          61
+        ],
+        "page_count": 16,
+        "source_text_sha256": "45b2fa1b90935b29a2ab389012352ed1e812c510fc9ca27e306a3f0ab431d5b8",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ST-1": {
+        "code": "ST-1",
+        "pages": [
+          62
+        ],
+        "page_count": 1,
+        "source_text_sha256": "db6721c1c75451ebef13b251d2119e3984364def83c3d321242a8b59b23cdca3",
+        "kind": "STAGING",
+        "found": true
+      }
+    },
+    "primary_expected": 28,
+    "supporting_expected": 4
+  },
+  "source": {
+    "filename": "hodgkins(5).pdf",
+    "sha256": "32ecb6c74f4908d02bf701a612b6f930df4798b781cbbc5a96bc530ff8695dfb",
+    "pdf_pages": 124
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true,
+    "cross_state_consistency_gate": true
+  },
+  "derived_rules": [
+    {
+      "id": "hodg_fav_ghsg",
+      "target_fact": "early_favorable",
+      "when": {
+        "all": [
+          {
+            "fact": "risk_system",
+            "op": "eq",
+            "value": "GHSG"
+          },
+          {
+            "fact": "stage_group",
+            "op": "in",
+            "value": [
+              "I",
+              "II"
+            ]
+          },
+          {
+            "fact": "b_symptoms",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "bulky_disease",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "nodal_region_count",
+            "op": "lte",
+            "value": 2
+          },
+          {
+            "fact": "esr_mm_hr",
+            "op": "lt",
+            "value": 50
+          },
+          {
+            "fact": "mediastinal_bulk",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "e_lesion",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "value": true,
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3"
+      ]
+    },
+    {
+      "id": "hodg_fav_eortc",
+      "target_fact": "early_favorable",
+      "when": {
+        "all": [
+          {
+            "fact": "risk_system",
+            "op": "eq",
+            "value": "EORTC"
+          },
+          {
+            "fact": "stage_group",
+            "op": "in",
+            "value": [
+              "I",
+              "II"
+            ]
+          },
+          {
+            "fact": "b_symptoms",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "bulky_disease",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "nodal_region_count",
+            "op": "lte",
+            "value": 3
+          },
+          {
+            "fact": "esr_mm_hr",
+            "op": "lt",
+            "value": 50
+          },
+          {
+            "fact": "mediastinal_bulk",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "age_years",
+            "op": "lt",
+            "value": 50
+          }
+        ]
+      },
+      "value": true,
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3"
+      ]
+    },
+    {
+      "id": "hodg_unfav_ghsg",
+      "target_fact": "early_favorable",
+      "when": {
+        "all": [
+          {
+            "fact": "risk_system",
+            "op": "eq",
+            "value": "GHSG"
+          },
+          {
+            "fact": "stage_group",
+            "op": "in",
+            "value": [
+              "I",
+              "II"
+            ]
+          },
+          {
+            "any": [
+              {
+                "fact": "b_symptoms",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "bulky_disease",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "nodal_region_count",
+                "op": "gte",
+                "value": 3
+              },
+              {
+                "all": [
+                  {
+                    "fact": "b_symptoms",
+                    "op": "eq",
+                    "value": false
+                  },
+                  {
+                    "fact": "esr_mm_hr",
+                    "op": "gte",
+                    "value": 50
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "b_symptoms",
+                    "op": "eq",
+                    "value": true
+                  },
+                  {
+                    "fact": "esr_mm_hr",
+                    "op": "gte",
+                    "value": 30
+                  }
+                ]
+              },
+              {
+                "fact": "e_lesion",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "value": false,
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3"
+      ]
+    },
+    {
+      "id": "hodg_unfav_eortc",
+      "target_fact": "early_favorable",
+      "when": {
+        "all": [
+          {
+            "fact": "risk_system",
+            "op": "eq",
+            "value": "EORTC"
+          },
+          {
+            "fact": "stage_group",
+            "op": "in",
+            "value": [
+              "I",
+              "II"
+            ]
+          },
+          {
+            "any": [
+              {
+                "fact": "b_symptoms",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "bulky_disease",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "fact": "nodal_region_count",
+                "op": "gte",
+                "value": 4
+              },
+              {
+                "all": [
+                  {
+                    "fact": "b_symptoms",
+                    "op": "eq",
+                    "value": false
+                  },
+                  {
+                    "fact": "esr_mm_hr",
+                    "op": "gte",
+                    "value": 50
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "fact": "b_symptoms",
+                    "op": "eq",
+                    "value": true
+                  },
+                  {
+                    "fact": "esr_mm_hr",
+                    "op": "gte",
+                    "value": 30
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "value": false,
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3"
+      ]
+    },
+    {
+      "id": "hodg_unfav_mediastinal_bulk",
+      "target_fact": "early_favorable",
+      "value": false,
+      "when": {
+        "fact": "mediastinal_bulk",
+        "op": "eq",
+        "value": true
+      },
+      "source_pathways": [
+        "HODG-2",
+        "HODG-3",
+        "HODG-3A"
+      ]
+    }
+  ],
+  "consistency_rules": [
+    {
+      "id": "hodg_stage_adv_favorable_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "stage_group",
+            "op": "in",
+            "value": [
+              "III",
+              "IV"
+            ]
+          },
+          {
+            "fact": "early_favorable",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "message": "Stage III-IV cannot be classified as early favorable CHL.",
+      "source_pathways": [
+        "HODG-2"
+      ]
+    },
+    {
+      "id": "hodg_nlphl_chl_risk_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "histology",
+            "op": "eq",
+            "value": "NLPHL"
+          },
+          {
+            "fact": "risk_system",
+            "op": "in",
+            "value": [
+              "GHSG",
+              "EORTC"
+            ]
+          }
+        ]
+      },
+      "message": "GHSG/EORTC CHL early-risk system should not drive NLPHL routing.",
+      "source_pathways": [
+        "HODG-2",
+        "HODG-11"
+      ]
+    }
+  ],
+  "executable_decisions": [
+    {
+      "decision_id": "derived::hodg_fav_ghsg",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Should early_favorable be deterministically derived as True?",
+      "input_fact_ids": [
+        "b_symptoms",
+        "bulky_disease",
+        "e_lesion",
+        "esr_mm_hr",
+        "mediastinal_bulk",
+        "nodal_region_count",
+        "risk_system",
+        "stage_group"
+      ],
+      "derived_rule_ids": [
+        "hodg_fav_ghsg"
+      ],
+      "possible_branches": [
+        "DERIVE",
+        "NO_DERIVE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_favorable"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "DERIVED_RULE",
+      "implementation_ref": "hodg_fav_ghsg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "derived::hodg_fav_eortc",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Should early_favorable be deterministically derived as True?",
+      "input_fact_ids": [
+        "age_years",
+        "b_symptoms",
+        "bulky_disease",
+        "esr_mm_hr",
+        "mediastinal_bulk",
+        "nodal_region_count",
+        "risk_system",
+        "stage_group"
+      ],
+      "derived_rule_ids": [
+        "hodg_fav_eortc"
+      ],
+      "possible_branches": [
+        "DERIVE",
+        "NO_DERIVE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_favorable"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "DERIVED_RULE",
+      "implementation_ref": "hodg_fav_eortc",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "derived::hodg_unfav_ghsg",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Should early_favorable be deterministically derived as False?",
+      "input_fact_ids": [
+        "b_symptoms",
+        "bulky_disease",
+        "e_lesion",
+        "esr_mm_hr",
+        "nodal_region_count",
+        "risk_system",
+        "stage_group"
+      ],
+      "derived_rule_ids": [
+        "hodg_unfav_ghsg"
+      ],
+      "possible_branches": [
+        "DERIVE",
+        "NO_DERIVE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_favorable"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "DERIVED_RULE",
+      "implementation_ref": "hodg_unfav_ghsg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "derived::hodg_unfav_eortc",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Should early_favorable be deterministically derived as False?",
+      "input_fact_ids": [
+        "b_symptoms",
+        "bulky_disease",
+        "esr_mm_hr",
+        "nodal_region_count",
+        "risk_system",
+        "stage_group"
+      ],
+      "derived_rule_ids": [
+        "hodg_unfav_eortc"
+      ],
+      "possible_branches": [
+        "DERIVE",
+        "NO_DERIVE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_favorable"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "DERIVED_RULE",
+      "implementation_ref": "hodg_unfav_eortc",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "derived::hodg_unfav_mediastinal_bulk",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Should early_favorable be deterministically derived as False?",
+      "input_fact_ids": [
+        "mediastinal_bulk"
+      ],
+      "derived_rule_ids": [
+        "hodg_unfav_mediastinal_bulk"
+      ],
+      "possible_branches": [
+        "DERIVE",
+        "NO_DERIVE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_favorable"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "DERIVED_RULE",
+      "implementation_ref": "hodg_unfav_mediastinal_bulk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "scope",
+      "source_section": "HODG-1",
+      "source_page_label": "HODG-1",
+      "source_anchor": "HODG-1:pages:8",
+      "clinical_question": "Hodgkin lymphoma?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "hist_nlphl",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "hist_nlphl",
+      "source_section": "HODG-1",
+      "source_page_label": "HODG-1",
+      "source_anchor": "HODG-1:pages:8",
+      "clinical_question": "NLPHL?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "nlphl_care",
+        "hist_chl"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "hist_nlphl",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "hist_chl",
+      "source_section": "HODG-1",
+      "source_page_label": "HODG-1",
+      "source_anchor": "HODG-1:pages:8",
+      "clinical_question": "Classic Hodgkin lymphoma?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chl_care_rr",
+        "otherhist"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "hist_chl",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "nlphl_care",
+      "source_section": "HODG-16",
+      "source_page_label": "HODG-16",
+      "source_anchor": "HODG-16:pages:34",
+      "clinical_question": "NLPHL refractory/relapse?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "nlphl_biopsy",
+        "nlphl_stage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "nlphl_care",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "nlphl_stage",
+      "source_section": "HODG-11",
+      "source_page_label": "HODG-11",
+      "source_anchor": "HODG-11:pages:28",
+      "clinical_question": "Early localized NLPHL (I/II)?",
+      "input_fact_ids": [
+        "stage_group"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "nlphl_adv_isrt",
+        "nlphl_adv_ritux"
+      ],
+      "internal_transfer_targets": [
+        "nlphl_early_sym",
+        "nlphl_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "nlphl_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "nlphl_early_sym",
+      "source_section": "HODG-11",
+      "source_page_label": "HODG-11",
+      "source_anchor": "HODG-11:pages:28",
+      "clinical_question": "Asymptomatic/nonbulky?",
+      "input_fact_ids": [
+        "asymptomatic_nlphl",
+        "nlphl_bulky"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "nlphl_isrt",
+        "nlphl_observe_opt",
+        "nlphl_ritux"
+      ],
+      "internal_transfer_targets": [
+        "nlphl_observe",
+        "nlphl_early_tx"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "nlphl_early_sym",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "nlphl_biopsy",
+      "source_section": "HODG-16",
+      "source_page_label": "HODG-16",
+      "source_anchor": "HODG-16:pages:34",
+      "clinical_question": "Relapse biopsy shows aggressive B-cell transformation?",
+      "input_fact_ids": [
+        "transformation_to_aggressive_bcell"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "nlphl_transform",
+        "nlphl_bxneg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "nlphl_biopsy",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "nlphl_bxneg",
+      "source_section": "HODG-16",
+      "source_page_label": "HODG-16",
+      "source_anchor": "HODG-16:pages:34",
+      "clinical_question": "Biopsy negative for lymphoma?",
+      "input_fact_ids": [
+        "biopsy_result"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "nlphl_bxneg_follow"
+      ],
+      "internal_transfer_targets": [
+        "nlphl_bxneg_obs",
+        "nlphl_sym"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "nlphl_bxneg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "nlphl_sym",
+      "source_section": "HODG-17",
+      "source_page_label": "HODG-17",
+      "source_anchor": "HODG-17:pages:35",
+      "clinical_question": "Asymptomatic and nonbulky relapse?",
+      "input_fact_ids": [
+        "asymptomatic_nlphl",
+        "nlphl_bulky"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "nlphl_rr_ascr",
+        "nlphl_rr_isrt",
+        "nlphl_rr_isrt2",
+        "nlphl_rr_observe",
+        "nlphl_rr_ritux",
+        "nlphl_rr_second"
+      ],
+      "internal_transfer_targets": [
+        "nlphl_rr_obs",
+        "nlphl_rr_tx"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "nlphl_sym",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chl_care_rr",
+      "source_section": "HODG-13",
+      "source_page_label": "HODG-13",
+      "source_anchor": "HODG-13:pages:31",
+      "clinical_question": "Relapsed/refractory CHL?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "chl_rr_candidate",
+        "chl_follow"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chl_care_rr",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chl_follow",
+      "source_section": "HODG-12",
+      "source_page_label": "HODG-12",
+      "source_anchor": "HODG-12:pages:29",
+      "clinical_question": "Follow-up after completion?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_follow"
+      ],
+      "internal_transfer_targets": [
+        "follow",
+        "chl_post_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chl_follow",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chl_post_initial",
+      "source_section": "HODG-5",
+      "source_page_label": "HODG-5",
+      "source_anchor": "HODG-5:pages:14",
+      "clinical_question": "Post-initial/interim response state?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "resp_stage",
+        "special_preg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chl_post_initial",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "special_preg",
+      "source_section": "HODG-10",
+      "source_page_label": "HODG-10",
+      "source_anchor": "HODG-10:pages:27",
+      "clinical_question": "Pregnant?",
+      "input_fact_ids": [
+        "pregnant"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_preg_mdt"
+      ],
+      "internal_transfer_targets": [
+        "preg_action",
+        "special_old"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "special_preg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "special_old",
+      "source_section": "HODG-9",
+      "source_page_label": "HODG-9",
+      "source_anchor": "HODG-9:pages:26",
+      "clinical_question": "Age >60 or unfit for intensive therapy?",
+      "input_fact_ids": [
+        "age_over_60_or_unfit",
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "older_stage",
+        "initial_stage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "special_old",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "older_stage",
+      "source_section": "HODG-9",
+      "source_page_label": "HODG-9",
+      "source_anchor": "HODG-9:pages:26",
+      "clinical_question": "Stage III-IV older/unfit?",
+      "input_fact_ids": [
+        "stage_group"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_old_abvd_isrt",
+        "hodg_old_bvdtic",
+        "hodg_old_bvnivo",
+        "hodg_old_cpi",
+        "hodg_old_nivoavd",
+        "hodg_old_nonanth"
+      ],
+      "internal_transfer_targets": [
+        "older_adv",
+        "older_early"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "older_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "initial_stage",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Stage III-IV?",
+      "input_fact_ids": [
+        "stage_group"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_adv_abvd",
+        "hodg_adv_brecadd",
+        "hodg_adv_bvavd",
+        "hodg_adv_nivoavd"
+      ],
+      "internal_transfer_targets": [
+        "adv_initial",
+        "early_risk_system"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "initial_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "early_risk_system",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Risk system GHSG or EORTC specified?",
+      "input_fact_ids": [
+        "risk_system"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_fav_dec",
+        "need_risk"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "early_risk_system",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "early_fav_dec",
+      "source_section": "HODG-2",
+      "source_page_label": "HODG-2",
+      "source_anchor": "HODG-2:pages:10",
+      "clinical_question": "Derived favorable early-stage category?",
+      "input_fact_ids": [
+        "early_favorable"
+      ],
+      "derived_rule_ids": [
+        "hodg_fav_eortc",
+        "hodg_fav_ghsg",
+        "hodg_unfav_eortc",
+        "hodg_unfav_ghsg",
+        "hodg_unfav_mediastinal_bulk"
+      ],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "early_fav_system",
+        "early_unfav_confirm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "early_fav_dec",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "early_unfav_confirm",
+      "source_section": "HODG-6",
+      "source_page_label": "HODG-6",
+      "source_anchor": "HODG-6:pages:17",
+      "clinical_question": "Derived unfavorable early-stage category?",
+      "input_fact_ids": [
+        "early_favorable"
+      ],
+      "derived_rule_ids": [
+        "hodg_fav_eortc",
+        "hodg_fav_ghsg",
+        "hodg_unfav_eortc",
+        "hodg_unfav_ghsg",
+        "hodg_unfav_mediastinal_bulk"
+      ],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_unfav_abvd",
+        "hodg_unfav_isrt",
+        "hodg_unfav_nivoavd"
+      ],
+      "internal_transfer_targets": [
+        "early_unfav",
+        "need_riskfacts"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "early_unfav_confirm",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "early_fav_system",
+      "source_section": "HODG-5",
+      "source_page_label": "HODG-5",
+      "source_anchor": "HODG-5:pages:14",
+      "clinical_question": "GHSG favorable?",
+      "input_fact_ids": [
+        "risk_system"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_eortc_abvd2",
+        "hodg_ghsg_abvd2"
+      ],
+      "internal_transfer_targets": [
+        "ghsg_fav",
+        "eortc_fav_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "early_fav_system",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "resp_stage",
+      "source_section": "HODG-5",
+      "source_page_label": "HODG-5",
+      "source_anchor": "HODG-5:pages:14",
+      "clinical_question": "Early favorable category?",
+      "input_fact_ids": [
+        "early_favorable"
+      ],
+      "derived_rule_ids": [
+        "hodg_fav_eortc",
+        "hodg_fav_ghsg",
+        "hodg_unfav_eortc",
+        "hodg_unfav_ghsg",
+        "hodg_unfav_mediastinal_bulk"
+      ],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "resp_fav",
+        "resp_adv_unfav"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "resp_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "resp_fav",
+      "source_section": "HODG-5",
+      "source_page_label": "HODG-5",
+      "source_anchor": "HODG-5:pages:14",
+      "clinical_question": "Interim Deauville 1-3 after 2 cycles?",
+      "input_fact_ids": [
+        "deauville"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_fav_chemoalone",
+        "hodg_fav_isrt"
+      ],
+      "internal_transfer_targets": [
+        "resp_fav_good",
+        "resp_fav_45"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "resp_fav",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "resp_fav_45",
+      "source_section": "HODG-5B",
+      "source_page_label": "HODG-5B",
+      "source_anchor": "HODG-5B:pages:16",
+      "clinical_question": "Interim Deauville 4-5 after 2 cycles?",
+      "input_fact_ids": [
+        "deauville"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_fav45_abvd2",
+        "hodg_fav45_biopsy",
+        "hodg_fav45_repeatpet"
+      ],
+      "internal_transfer_targets": [
+        "resp_fav45_action",
+        "need_pet"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "resp_fav_45",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "resp_adv_unfav",
+      "source_section": "HODG-6",
+      "source_page_label": "HODG-6",
+      "source_anchor": "HODG-6:pages:17",
+      "clinical_question": "Current Deauville 1-3?",
+      "input_fact_ids": [
+        "deauville"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_resp_continue",
+        "hodg_resp_isrt"
+      ],
+      "internal_transfer_targets": [
+        "resp_good",
+        "resp_45"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "resp_adv_unfav",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "resp_45",
+      "source_section": "HODG-4",
+      "source_page_label": "HODG-4",
+      "source_anchor": "HODG-4:pages:13",
+      "clinical_question": "Deauville 4-5?",
+      "input_fact_ids": [
+        "deauville"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "resp_biopsy",
+        "need_pet"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "resp_45",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "resp_biopsy",
+      "source_section": "HODG-4",
+      "source_page_label": "HODG-4",
+      "source_anchor": "HODG-4:pages:13",
+      "clinical_question": "Biopsy positive for CHL?",
+      "input_fact_ids": [
+        "biopsy_result"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_bxneg_continue",
+        "hodg_bxneg_rt",
+        "hodg_rr2_bv",
+        "hodg_rr2_cpi",
+        "hodg_rr_ascr"
+      ],
+      "internal_transfer_targets": [
+        "primary_refractory",
+        "resp_bxneg"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "resp_biopsy",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "chl_rr_candidate",
+      "source_section": "HODG-13",
+      "source_page_label": "HODG-13",
+      "source_anchor": "HODG-13:pages:31",
+      "clinical_question": "Candidate for HDT/ASCR?",
+      "input_fact_ids": [
+        "transplant_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "rr_timing",
+        "rr_nonhct"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "chl_rr_candidate",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "rr_timing",
+      "source_section": "HODG-13",
+      "source_page_label": "HODG-13",
+      "source_anchor": "HODG-13:pages:31",
+      "clinical_question": "Primary refractory or relapse <3 months?",
+      "input_fact_ids": [
+        "relapse_timing"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_ge3_ascr",
+        "hodg_ge3_bvmaint",
+        "hodg_ge3_cpi",
+        "hodg_ge3_salvage",
+        "hodg_rr2_bv",
+        "hodg_rr2_cpi",
+        "hodg_rr_ascr"
+      ],
+      "internal_transfer_targets": [
+        "primary_refractory",
+        "rr_ge3"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rr_timing",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "rr_nonhct",
+      "source_section": "HODG-15",
+      "source_page_label": "HODG-15",
+      "source_anchor": "HODG-15:pages:33",
+      "clinical_question": "Prior CPI/BV with rapid progression?",
+      "input_fact_ids": [
+        "bv_progression_lt3mo",
+        "cpi_progression_lt3mo",
+        "prior_bv",
+        "prior_cpi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_nonhct_bv",
+        "hodg_nonhct_cpi",
+        "hodg_nonhct_isrt",
+        "hodg_nonhct_rt",
+        "hodg_nonhct_subsequent",
+        "hodg_nonhct_trial"
+      ],
+      "internal_transfer_targets": [
+        "rr_nonhct_later",
+        "rr_nonhct_cpi"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rr_nonhct",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::nlphl_rr_tx::nlphl_rr_ascr",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option HDT/ASCR applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_autologous_hct"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "nlphl_rr_ascr"
+      ],
+      "internal_transfer_targets": [
+        "nlphl_rr_tx"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "nlphl_rr_tx:nlphl_rr_ascr",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::older_adv::hodg_old_nivoavd",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option Nivolumab-AVD x6 applicable to the current patient state?",
+      "input_fact_ids": [
+        "anthracycline_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_old_nivoavd"
+      ],
+      "internal_transfer_targets": [
+        "older_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "older_adv:hodg_old_nivoavd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::older_adv::hodg_old_bvdtic",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BV + dacarbazine applicable to the current patient state?",
+      "input_fact_ids": [
+        "anthracycline_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_old_bvdtic"
+      ],
+      "internal_transfer_targets": [
+        "older_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "older_adv:hodg_old_bvdtic",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::older_adv::hodg_old_bvnivo",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BV + nivolumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "anthracycline_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_old_bvnivo"
+      ],
+      "internal_transfer_targets": [
+        "older_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "older_adv:hodg_old_bvnivo",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::older_adv::hodg_old_cpi",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option Nivolumab or pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "anthracycline_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_old_cpi"
+      ],
+      "internal_transfer_targets": [
+        "older_adv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "older_adv:hodg_old_cpi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::older_early::hodg_old_abvd_isrt",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option A(B)VD/AVD + ISRT applicable to the current patient state?",
+      "input_fact_ids": [
+        "anthracycline_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_old_abvd_isrt"
+      ],
+      "internal_transfer_targets": [
+        "older_early"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "older_early:hodg_old_abvd_isrt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::older_early::hodg_old_nonanth",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BV-dacarbazine / BV-nivolumab / CPI +/- ISRT applicable to the current patient state?",
+      "input_fact_ids": [
+        "anthracycline_candidate"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_old_nonanth"
+      ],
+      "internal_transfer_targets": [
+        "older_early"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "older_early:hodg_old_nonanth",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::ghsg_fav::hodg_ghsg_abvd2",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option ABVD x2 applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_ghsg_abvd2"
+      ],
+      "internal_transfer_targets": [
+        "ghsg_fav"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "ghsg_fav:hodg_ghsg_abvd2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::eortc_fav_action::hodg_eortc_abvd2",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option ABVD x2 applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_eortc_abvd2"
+      ],
+      "internal_transfer_targets": [
+        "eortc_fav_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "eortc_fav_action:hodg_eortc_abvd2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::early_unfav::hodg_unfav_abvd",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option ABVD-based PET-adapted therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_unfav_abvd"
+      ],
+      "internal_transfer_targets": [
+        "early_unfav"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "early_unfav:hodg_unfav_abvd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::early_unfav::hodg_unfav_nivoavd",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option Nivolumab-AVD source option where specified applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_unfav_nivoavd"
+      ],
+      "internal_transfer_targets": [
+        "early_unfav"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "early_unfav:hodg_unfav_nivoavd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::early_unfav::hodg_unfav_isrt",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option ISRT according to response/risk applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_unfav_isrt"
+      ],
+      "internal_transfer_targets": [
+        "early_unfav"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "early_unfav:hodg_unfav_isrt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::adv_initial::hodg_adv_nivoavd",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option Nivolumab-AVD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_adv_nivoavd"
+      ],
+      "internal_transfer_targets": [
+        "adv_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "adv_initial:hodg_adv_nivoavd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::adv_initial::hodg_adv_bvavd",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BV-AVD + G-CSF applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_adv_bvavd"
+      ],
+      "internal_transfer_targets": [
+        "adv_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "adv_initial:hodg_adv_bvavd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::adv_initial::hodg_adv_brecadd",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BrECADD + G-CSF applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_adv_brecadd"
+      ],
+      "internal_transfer_targets": [
+        "adv_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "adv_initial:hodg_adv_brecadd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::adv_initial::hodg_adv_abvd",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option ABVD / PET-adapted AVD applicable to the current patient state?",
+      "input_fact_ids": [
+        "age_years"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_adv_abvd"
+      ],
+      "internal_transfer_targets": [
+        "adv_initial"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "adv_initial:hodg_adv_abvd",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::primary_refractory::hodg_rr2_cpi",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option CPI-based second-line systemic therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_cpi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_rr2_cpi"
+      ],
+      "internal_transfer_targets": [
+        "primary_refractory"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "primary_refractory:hodg_rr2_cpi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::primary_refractory::hodg_rr2_bv",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BV-containing salvage applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_bv"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_rr2_bv"
+      ],
+      "internal_transfer_targets": [
+        "primary_refractory"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "primary_refractory:hodg_rr2_bv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_ge3::hodg_ge3_cpi",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option CPI-based second-line systemic therapy applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_cpi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_ge3_cpi"
+      ],
+      "internal_transfer_targets": [
+        "rr_ge3"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_ge3:hodg_ge3_cpi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_ge3::hodg_ge3_bvmaint",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BV maintenance after HDT/ASCR applicable to the current patient state?",
+      "input_fact_ids": [
+        "high_risk_post_ascr",
+        "prior_bv"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_ge3_bvmaint"
+      ],
+      "internal_transfer_targets": [
+        "rr_ge3"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_ge3:hodg_ge3_bvmaint",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_nonhct_cpi::hodg_nonhct_cpi",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option CPI-containing regimen applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_cpi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_nonhct_cpi"
+      ],
+      "internal_transfer_targets": [
+        "rr_nonhct_cpi"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_nonhct_cpi:hodg_nonhct_cpi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rr_nonhct_cpi::hodg_nonhct_bv",
+      "source_section": "HODG-B",
+      "source_page_label": "HODG-B",
+      "source_anchor": "HODG-B:pages:38,39,40,41,42,43,44,45",
+      "clinical_question": "Is option BV-containing regimen applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_bv"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "hodg_nonhct_bv"
+      ],
+      "internal_transfer_targets": [
+        "rr_nonhct_cpi"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rr_nonhct_cpi:hodg_nonhct_bv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

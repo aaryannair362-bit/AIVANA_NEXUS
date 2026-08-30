@@ -1,0 +1,700 @@
+{
+  "EXECUTABLE_COMPLETENESS_PROGRAM_STATUS": "PASS_COMPLETE_UNREVIEWED",
+  "TOTAL_PACKAGES": 15,
+  "PACKAGES_COMPLETE": 15,
+  "PACKAGES_FAILED": 0,
+  "ALL_SOURCE_DECISIONS": 984,
+  "IMPLEMENTED_SOURCE_DECISIONS": 984,
+  "TESTED_SOURCE_DECISIONS": 984,
+  "PATHWAY_CHANGING_FACTS": 447,
+  "UNUSED_PATHWAY_CHANGING_FACTS": 0,
+  "INTERNAL_DEFERRED_PATHS": 0,
+  "SOURCE_BUNDLE_SHORTCUTS": 0,
+  "BOUNDARY_TEST_STATUS": "PASS",
+  "ENUM_EXHAUSTIVENESS_STATUS": "PASS",
+  "MUTATION_TEST_STATUS": "PASS",
+  "METAMORPHIC_TEST_STATUS": "PASS",
+  "COMBINATION_TEST_STATUS": "PASS",
+  "OPTION_APPLICABILITY_STATUS": "PASS",
+  "TEMPORAL_STATE_STATUS": "PASS_STANDALONE_FACTCONTEXT_OBSERVATION_MODEL",
+  "CARE_STATE_STATUS": "PASS_PACKAGE_ROUTING_AND_PHASE_SAFETY",
+  "CONFLICT_SAFETY_STATUS": "PASS",
+  "UNKNOWN_SAFETY_STATUS": "PASS",
+  "STRUCTURED_ORACLE_EVALUATIONS": 10000,
+  "STRUCTURED_ORACLE_FAILURES": 0,
+  "HTTP_STABILITY_EVALUATIONS": 11281,
+  "HTTP_ENGINE_ERRORS": 0,
+  "PAIRWISE_COMBINATION_EVALUATIONS": 2504,
+  "PAIRWISE_COMBINATION_FAILURES": 0,
+  "PDF_PHYSICAL_PAGES_INVENTORIED": 2223,
+  "EXTRACTION_E2E_STATUS": "NOT_RUN_FULL_PRODUCTION_APPLICATION_NOT_INCLUDED_IN_STANDALONE_KNOWLEDGE_ENGINE",
+  "ALL_BACKEND_TESTS": "PASS_STANDALONE_CUSTOM_SUITES",
+  "KNOWLEDGE_VALIDATION": "PASS",
+  "EXECUTABLE_COMPLETENESS_VALIDATION": "PASS",
+  "PACKAGE_STATUS": "DRAFT",
+  "CLINICAL_STATUS": "REQUIRES_CLINICAL_REVIEW",
+  "RUNTIME_ELIGIBILITY": false,
+  "scope_note": "COMPLETE_UNREVIEWED certifies deterministic executable completeness of the 15 encoded knowledge packages under the source-provenanced inventory and engineering test gates. It is not clinician validation and does not activate packages for clinical use.",
+  "packages": [
+    {
+      "package_file": "nexus_acute_lymphoblastic_leukemia_v2_2026.json",
+      "guideline_id": "NCCN_ALL",
+      "title": "Acute Lymphoblastic Leukemia",
+      "version": "2.2026",
+      "SOURCE_DECISIONS": 70,
+      "IMPLEMENTED_DECISIONS": 70,
+      "TESTED_DECISIONS": 70,
+      "PATHWAY_CHANGING_FACTS": 20,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 48,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 14,
+      "OPTIONS": 79,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 23,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 30,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 15,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 15,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 469,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 513,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 752,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_acute_myeloid_leukemia_v5_2026.json",
+      "guideline_id": "NCCN_AML",
+      "title": "Acute Myeloid Leukemia",
+      "version": "5.2026",
+      "SOURCE_DECISIONS": 111,
+      "IMPLEMENTED_DECISIONS": 111,
+      "TESTED_DECISIONS": 111,
+      "PATHWAY_CHANGING_FACTS": 33,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 90,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 42,
+      "OPTIONS": 164,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 1,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 40,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 43,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 43,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 155,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 1163,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 752,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_anal_carcinoma_v2_2026.json",
+      "guideline_id": "NCCN_ANAL",
+      "title": "Anal Carcinoma",
+      "version": "2.2026",
+      "SOURCE_DECISIONS": 24,
+      "IMPLEMENTED_DECISIONS": 24,
+      "TESTED_DECISIONS": 24,
+      "PATHWAY_CHANGING_FACTS": 15,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 38,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 12,
+      "OPTIONS": 27,
+      "OPTION_APPLICABILITY_PASS": true,
+      "BOUNDARY_TESTS": {
+        "count": 0,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 35,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 14,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 14,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 9,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 70,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 751,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_b_cell_lymphomas_v4_2026.json",
+      "guideline_id": "NCCN_B_CELL_LYMPHOMAS",
+      "title": "B-Cell Lymphomas",
+      "version": "4.2026",
+      "SOURCE_DECISIONS": 219,
+      "IMPLEMENTED_DECISIONS": 219,
+      "TESTED_DECISIONS": 219,
+      "PATHWAY_CHANGING_FACTS": 66,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 280,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 95,
+      "OPTIONS": 224,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 12,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 81,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 127,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 127,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 314,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 2412,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 752,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_basal_cell_skin_cancer_v1_2027.json",
+      "guideline_id": "NCCN_BASAL_CELL",
+      "title": "Basal Cell Skin Cancer",
+      "version": "1.2027",
+      "SOURCE_DECISIONS": 37,
+      "IMPLEMENTED_DECISIONS": 37,
+      "TESTED_DECISIONS": 37,
+      "PATHWAY_CHANGING_FACTS": 19,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 36,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 13,
+      "OPTIONS": 35,
+      "OPTION_APPLICABILITY_PASS": true,
+      "BOUNDARY_TESTS": {
+        "count": 0,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 18,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 14,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 14,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 251,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 214,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 750,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_biliary_tract_cancers_v1_2026.json",
+      "guideline_id": "NCCN_BILIARY",
+      "title": "Biliary Tract Cancers",
+      "version": "1.2026",
+      "SOURCE_DECISIONS": 42,
+      "IMPLEMENTED_DECISIONS": 42,
+      "TESTED_DECISIONS": 42,
+      "PATHWAY_CHANGING_FACTS": 25,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 40,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 15,
+      "OPTIONS": 45,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 0,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 51,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 19,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 19,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 58,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 349,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 752,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_bladder_cancer_v3_2026.json",
+      "guideline_id": "NCCN_BLADDER",
+      "title": "Bladder Cancer",
+      "version": "3.2026",
+      "SOURCE_DECISIONS": 61,
+      "IMPLEMENTED_DECISIONS": 61,
+      "TESTED_DECISIONS": 61,
+      "PATHWAY_CHANGING_FACTS": 41,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 76,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 27,
+      "OPTIONS": 69,
+      "OPTION_APPLICABILITY_PASS": true,
+      "BOUNDARY_TESTS": {
+        "count": 2,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 85,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 36,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 36,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 118,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 795,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 754,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_bone_cancer_v1_2027.json",
+      "guideline_id": "NCCN_BONE",
+      "title": "Bone Cancer",
+      "version": "1.2027",
+      "SOURCE_DECISIONS": 56,
+      "IMPLEMENTED_DECISIONS": 56,
+      "TESTED_DECISIONS": 56,
+      "PATHWAY_CHANGING_FACTS": 27,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 86,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 33,
+      "OPTIONS": 80,
+      "OPTION_APPLICABILITY_PASS": true,
+      "BOUNDARY_TESTS": {
+        "count": 0,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 60,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 40,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 40,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 73,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 383,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 753,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_breast_cancer_v6_2026.json",
+      "guideline_id": "NCCN_BREAST",
+      "title": "Breast Cancer",
+      "version": "6.2026",
+      "SOURCE_DECISIONS": 92,
+      "IMPLEMENTED_DECISIONS": 92,
+      "TESTED_DECISIONS": 92,
+      "PATHWAY_CHANGING_FACTS": 37,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 98,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 41,
+      "OPTIONS": 115,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 0,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 69,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 42,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 42,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 42,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 812,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 752,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_cervical_cancer_v2_2026.json",
+      "guideline_id": "NCCN_CERVICAL",
+      "title": "Cervical Cancer",
+      "version": "2.2026",
+      "SOURCE_DECISIONS": 50,
+      "IMPLEMENTED_DECISIONS": 50,
+      "TESTED_DECISIONS": 50,
+      "PATHWAY_CHANGING_FACTS": 34,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 78,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 33,
+      "OPTIONS": 68,
+      "OPTION_APPLICABILITY_PASS": true,
+      "BOUNDARY_TESTS": {
+        "count": 8,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 49,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 33,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 33,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 528,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 532,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 753,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_gastric_cancer_v3_2026.json",
+      "guideline_id": "NCCN_GASTRIC",
+      "title": "Gastric Cancer",
+      "version": "3.2026",
+      "SOURCE_DECISIONS": 48,
+      "IMPLEMENTED_DECISIONS": 48,
+      "TESTED_DECISIONS": 48,
+      "PATHWAY_CHANGING_FACTS": 27,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 70,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 28,
+      "OPTIONS": 49,
+      "OPTION_APPLICABILITY_PASS": true,
+      "BOUNDARY_TESTS": {
+        "count": 0,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 63,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 33,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 33,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 129,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 380,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 751,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_gastrointestinal_stromal_tumors_v1_2026.json",
+      "guideline_id": "NCCN_GIST",
+      "title": "Gastrointestinal Stromal Tumors",
+      "version": "1.2026",
+      "SOURCE_DECISIONS": 53,
+      "IMPLEMENTED_DECISIONS": 53,
+      "TESTED_DECISIONS": 53,
+      "PATHWAY_CHANGING_FACTS": 20,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 42,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 19,
+      "OPTIONS": 32,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 1,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 57,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 21,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 21,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 72,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 364,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 754,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_hodgkin_lymphoma_v2_2026.json",
+      "guideline_id": "NCCN_HODGKIN",
+      "title": "Hodgkin Lymphoma",
+      "version": "2.2026",
+      "SOURCE_DECISIONS": 56,
+      "IMPLEMENTED_DECISIONS": 56,
+      "TESTED_DECISIONS": 56,
+      "PATHWAY_CHANGING_FACTS": 29,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 58,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 22,
+      "OPTIONS": 51,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 18,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 47,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 26,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 26,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 18,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 292,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 752,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_kidney_cancer_v1_2027.json",
+      "guideline_id": "NCCN_KIDNEY",
+      "title": "Kidney Cancer",
+      "version": "1.2027",
+      "SOURCE_DECISIONS": 37,
+      "IMPLEMENTED_DECISIONS": 37,
+      "TESTED_DECISIONS": 37,
+      "PATHWAY_CHANGING_FACTS": 32,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 44,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 19,
+      "OPTIONS": 54,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 1,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 53,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 20,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 20,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 173,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 420,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 751,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    },
+    {
+      "package_file": "nexus_myeloproliferative_neoplasms_v2_2026.json",
+      "guideline_id": "NCCN_MPN",
+      "title": "Myeloproliferative Neoplasms",
+      "version": "2.2026",
+      "SOURCE_DECISIONS": 28,
+      "IMPLEMENTED_DECISIONS": 28,
+      "TESTED_DECISIONS": 28,
+      "PATHWAY_CHANGING_FACTS": 22,
+      "PATHWAY_CHANGING_UNUSED_FACTS": 0,
+      "INTERNAL_TRANSFERS": 28,
+      "UNRESOLVED_INTERNAL_TRANSFERS": 0,
+      "OPTION_SETS": 12,
+      "OPTIONS": 36,
+      "OPTION_APPLICABILITY_PASS": false,
+      "BOUNDARY_TESTS": {
+        "count": 7,
+        "status": "PASS"
+      },
+      "ENUM_TESTS": {
+        "count": 34,
+        "status": "PASS"
+      },
+      "MUTATION_TESTS": {
+        "count": 11,
+        "status": "PASS"
+      },
+      "METAMORPHIC_TESTS": {
+        "count": 11,
+        "status": "PASS"
+      },
+      "COMBINATION_TESTS": {
+        "count": 95,
+        "status": "PASS"
+      },
+      "STRUCTURED_ORACLE_CASES": 421,
+      "STRUCTURED_ORACLE_PASS": true,
+      "HTTP_STABILITY_CASES": 752,
+      "HTTP_ENGINE_ERRORS": 0,
+      "EXTRACTION_E2E_CASES": 0,
+      "EXTRACTION_E2E_PASS": null,
+      "PROVENANCE": "PASS",
+      "PATHWAY_COMPLETENESS": "COMPLETE_UNREVIEWED"
+    }
+  ]
+}

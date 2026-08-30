@@ -1,0 +1,624 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Biliary tract cancer?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "BILIARY_TRACT_CANCER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "site_gall",
+        "FALSE": "outside"
+      }
+    },
+    "site_gall": {
+      "kind": "decision",
+      "label": "Gallbladder primary?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "GALLBLADDER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gall_phase_adv",
+        "FALSE": "site_intra"
+      }
+    },
+    "site_intra": {
+      "kind": "decision",
+      "label": "Intrahepatic cholangiocarcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "INTRAHEPATIC_CHOLANGIOCARCINOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "intra_phase_adv",
+        "FALSE": "site_extra"
+      }
+    },
+    "site_extra": {
+      "kind": "decision",
+      "label": "Extrahepatic cholangiocarcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "primary_site",
+            "op": "eq",
+            "value": "EXTRAHEPATIC_CHOLANGIOCARCINOMA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "extra_phase_adv",
+        "FALSE": "outside_site"
+      }
+    },
+    "gall_phase_adv": {
+      "kind": "decision",
+      "label": "Recurrent/unresectable/metastatic care phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT_UNRESECTABLE_METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gall_advanced",
+        "FALSE": "gall_phase"
+      }
+    },
+    "gall_phase": {
+      "kind": "decision",
+      "label": "Post-resection/incidental pathology episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_RESECTION"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "INCIDENTAL_POST_CHOLECYSTECTOMY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gall_post",
+        "FALSE": "gall_phase_new"
+      }
+    },
+    "gall_phase_new": {
+      "kind": "decision",
+      "label": "New-diagnosis gallbladder phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gall_adv",
+        "FALSE": "phase_unknown"
+      }
+    },
+    "gall_post": {
+      "kind": "decision",
+      "label": "pT1a with R0?",
+      "expression": {
+        "all": [
+          {
+            "fact": "gallbladder_t_stage",
+            "op": "eq",
+            "value": "T1A"
+          },
+          {
+            "fact": "margin_status",
+            "op": "eq",
+            "value": "R0"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gall_t1a",
+        "FALSE": "gall_post_adv"
+      }
+    },
+    "gall_t1a": {
+      "kind": "action",
+      "label": "Incidental pT1a R0 gallbladder cancer after cholecystectomy: surveillance/observation pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_gall_t1a",
+      "source_pathways": [
+        "GALL-3",
+        "GALL-6"
+      ],
+      "recommendation": {
+        "title": "Incidental pT1a R0 gallbladder cancer after cholecystectomy: surveillance/observation pathway.",
+        "options": [
+          {
+            "label": "Observation/surveillance",
+            "text": "No additional oncologic hepatic resection when source criteria are satisfied; follow source surveillance."
+          }
+        ],
+        "supporting_sections": [
+          "GALL-A",
+          "GALL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "gall_post_adv": {
+      "kind": "action",
+      "label": "Gallbladder cancer after surgery beyond pT1a and/or with adverse margin/nodal features: completion resection when appropriate and pathology-directed adjuvant therapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_gall_post",
+      "source_pathways": [
+        "GALL-3",
+        "GALL-6"
+      ],
+      "recommendation": {
+        "title": "Gallbladder cancer after surgery beyond pT1a and/or with adverse margin/nodal features: completion resection when appropriate and pathology-directed adjuvant therapy.",
+        "options": [
+          {
+            "label": "Completion/definitive resection",
+            "text": "For appropriate residual-risk/resectable states."
+          },
+          {
+            "label": "Adjuvant therapy",
+            "text": "Use capecitabine/chemoradiation or combination sequence only as source-defined by margin/nodes/resection status."
+          }
+        ],
+        "supporting_sections": [
+          "GALL-A",
+          "GALL-B",
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "gall_adv": {
+      "kind": "decision",
+      "label": "Unresectable/metastatic or jaundiced presentation?",
+      "expression": {
+        "any": [
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "jaundice_or_biliary_obstruction",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "gall_advanced",
+        "FALSE": "gall_primary"
+      }
+    },
+    "gall_primary": {
+      "kind": "action",
+      "label": "Resectable gallbladder cancer: hepatobiliary surgical staging/resection pathway; avoid non-oncologic biopsy when it would compromise surgery.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_gall_resectable",
+      "source_pathways": [
+        "GALL-1",
+        "GALL-2",
+        "GALL-4"
+      ],
+      "recommendation": {
+        "title": "Resectable gallbladder cancer: hepatobiliary surgical staging/resection pathway; avoid non-oncologic biopsy when it would compromise surgery.",
+        "options": [
+          {
+            "label": "Oncologic resection",
+            "text": "Use hepatobiliary surgical principles and lymphadenectomy."
+          },
+          {
+            "label": "Selected neoadjuvant/clinical trial",
+            "text": "Consider in source-defined situations."
+          }
+        ],
+        "supporting_sections": [
+          "GALL-A",
+          "GALL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "gall_advanced": {
+      "kind": "action",
+      "label": "Unresectable/metastatic gallbladder cancer: biliary decompression/supportive care as needed plus systemic therapy and biomarker testing.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_gall_advanced",
+      "source_pathways": [
+        "GALL-5"
+      ],
+      "recommendation": {
+        "title": "Unresectable/metastatic gallbladder cancer: biliary decompression/supportive care as needed plus systemic therapy and biomarker testing.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use first-line biliary tract systemic therapy; subsequent targeted/immunotherapy by biomarkers."
+          },
+          {
+            "label": "Biliary drainage/palliation",
+            "text": "Manage obstruction and symptoms."
+          }
+        ],
+        "supporting_sections": [
+          "BIL-A",
+          "BIL-B",
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "intra_phase_adv": {
+      "kind": "decision",
+      "label": "Recurrent/unresectable/metastatic care phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT_UNRESECTABLE_METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "intra_unres",
+        "FALSE": "intra_phase"
+      }
+    },
+    "intra_phase": {
+      "kind": "decision",
+      "label": "Post-resection episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_RESECTION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "intra_post",
+        "FALSE": "intra_phase_new"
+      }
+    },
+    "intra_phase_new": {
+      "kind": "decision",
+      "label": "New-diagnosis intrahepatic phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "intra_adv",
+        "FALSE": "phase_unknown"
+      }
+    },
+    "intra_adv": {
+      "kind": "decision",
+      "label": "Resectable localized iCCA?",
+      "expression": {
+        "all": [
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "intra_resect",
+        "FALSE": "intra_unres"
+      }
+    },
+    "intra_resect": {
+      "kind": "action",
+      "label": "Resectable intrahepatic cholangiocarcinoma: multidisciplinary hepatic resection pathway followed by adjuvant planning.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_intra_resect",
+      "source_pathways": [
+        "INTRA-1"
+      ],
+      "recommendation": {
+        "title": "Resectable intrahepatic cholangiocarcinoma: multidisciplinary hepatic resection pathway followed by adjuvant planning.",
+        "options": [
+          {
+            "label": "Resection",
+            "text": "Curative-intent hepatic resection with appropriate nodal/pathologic assessment."
+          }
+        ],
+        "supporting_sections": [
+          "INTRA-A",
+          "INTRA-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "intra_unres": {
+      "kind": "action",
+      "label": "Unresectable/metastatic intrahepatic cholangiocarcinoma: systemic therapy + comprehensive molecular profiling; liver-directed therapy or transplant re-evaluation in selected source-defined cases.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_intra_advanced",
+      "source_pathways": [
+        "INTRA-1"
+      ],
+      "recommendation": {
+        "title": "Unresectable/metastatic intrahepatic cholangiocarcinoma: systemic therapy + comprehensive molecular profiling; liver-directed therapy or transplant re-evaluation in selected source-defined cases.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use preferred first-line regimen and biomarker-directed subsequent therapy."
+          },
+          {
+            "label": "Liver-directed therapy",
+            "text": "Consider arterial/ablative/RT approaches in selected liver-limited states."
+          },
+          {
+            "label": "Transplant re-evaluation",
+            "text": "Only for source-defined eligibility states after response/stability."
+          }
+        ],
+        "supporting_sections": [
+          "INTRA-B",
+          "INTRA-D",
+          "BIL-B",
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "intra_post": {
+      "kind": "action",
+      "label": "Post-resection intrahepatic cholangiocarcinoma: adjuvant therapy/surveillance by margin/nodal/pathology status; do not import gallbladder/extrahepatic-specific chemoradiation options unless source supports them.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_intra_post",
+      "source_pathways": [
+        "INTRA-2"
+      ],
+      "recommendation": {
+        "title": "Post-resection intrahepatic cholangiocarcinoma: adjuvant therapy/surveillance by margin/nodal/pathology status; do not import gallbladder/extrahepatic-specific chemoradiation options unless source supports them.",
+        "options": [
+          {
+            "label": "Adjuvant systemic therapy",
+            "text": "Use source-defined adjuvant option(s)."
+          },
+          {
+            "label": "Chemoradiation",
+            "text": "Only when INTRA-2 criteria support it; no cross-subtype leakage."
+          },
+          {
+            "label": "Surveillance",
+            "text": "Cross-sectional imaging and clinically indicated labs."
+          }
+        ],
+        "supporting_sections": [
+          "INTRA-C",
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "extra_phase_adv": {
+      "kind": "decision",
+      "label": "Recurrent/unresectable/metastatic care phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENT_UNRESECTABLE_METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "extra_unres",
+        "FALSE": "extra_phase"
+      }
+    },
+    "extra_phase": {
+      "kind": "decision",
+      "label": "Post-resection episode?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_RESECTION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "extra_post",
+        "FALSE": "extra_phase_new"
+      }
+    },
+    "extra_phase_new": {
+      "kind": "decision",
+      "label": "New-diagnosis extrahepatic phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "extra_adv",
+        "FALSE": "phase_unknown"
+      }
+    },
+    "extra_adv": {
+      "kind": "decision",
+      "label": "Resectable extrahepatic cholangiocarcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "metastatic",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "extra_resect",
+        "FALSE": "extra_unres"
+      }
+    },
+    "extra_resect": {
+      "kind": "action",
+      "label": "Resectable extrahepatic cholangiocarcinoma: site-appropriate oncologic resection with lymphadenectomy and margin assessment.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_extra_resect",
+      "source_pathways": [
+        "EXTRA-1"
+      ],
+      "recommendation": {
+        "title": "Resectable extrahepatic cholangiocarcinoma: site-appropriate oncologic resection with lymphadenectomy and margin assessment.",
+        "options": [
+          {
+            "label": "Definitive surgery",
+            "text": "Hilar/distal site-appropriate resection per EXTRA-A."
+          }
+        ],
+        "supporting_sections": [
+          "EXTRA-A",
+          "EXTRA-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "extra_unres": {
+      "kind": "action",
+      "label": "Unresectable/metastatic extrahepatic cholangiocarcinoma: biliary decompression as needed, systemic therapy, biomarker testing, and RT/local palliation when indicated.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_extra_advanced",
+      "source_pathways": [
+        "EXTRA-1"
+      ],
+      "recommendation": {
+        "title": "Unresectable/metastatic extrahepatic cholangiocarcinoma: biliary decompression as needed, systemic therapy, biomarker testing, and RT/local palliation when indicated.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use biliary first-line regimen and biomarker-directed later-line options."
+          },
+          {
+            "label": "Drainage/local palliation",
+            "text": "Manage obstruction and local symptoms."
+          }
+        ],
+        "supporting_sections": [
+          "BIL-A",
+          "BIL-B",
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "extra_post": {
+      "kind": "action",
+      "label": "Post-resection extrahepatic cholangiocarcinoma: margin/nodal-directed adjuvant systemic therapy ± chemoradiation and surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "btc_extra_post",
+      "source_pathways": [
+        "EXTRA-2"
+      ],
+      "recommendation": {
+        "title": "Post-resection extrahepatic cholangiocarcinoma: margin/nodal-directed adjuvant systemic therapy ± chemoradiation and surveillance.",
+        "options": [
+          {
+            "label": "Adjuvant systemic therapy",
+            "text": "Use source-defined adjuvant treatment."
+          },
+          {
+            "label": "Chemoradiation",
+            "text": "May be included in source-defined margin/risk states."
+          },
+          {
+            "label": "Surveillance",
+            "text": "Imaging every 3–6 months initially, then spacing per source."
+          }
+        ],
+        "supporting_sections": [
+          "EXTRA-B",
+          "BIL-C",
+          "BIL-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "phase_unknown": {
+      "kind": "status",
+      "label": "Biliary treatment phase is not established for this pathway.",
+      "status": "NEEDS_INFORMATION"
+    },
+    "outside_site": {
+      "kind": "status",
+      "label": "Primary biliary site is not established.",
+      "status": "NEEDS_INFORMATION"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside Biliary tract cancer ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

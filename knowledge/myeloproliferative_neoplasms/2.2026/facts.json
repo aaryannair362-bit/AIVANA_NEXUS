@@ -1,0 +1,89 @@
+[
+  {
+    "key": "cancer_type",
+    "value_type": "CODED",
+    "allowed_values": [
+      "MYELOPROLIFERATIVE_NEOPLASM",
+      "OTHER"
+    ]
+  },
+  {
+    "key": "subtype",
+    "value_type": "CODED",
+    "allowed_values": [
+      "MYELOFIBROSIS",
+      "POLYCYTHEMIA_VERA",
+      "ESSENTIAL_THROMBOCYTHEMIA",
+      "ACCELERATED_BLAST_PHASE",
+      "UNCLASSIFIED",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "treatment_phase",
+    "value_type": "CODED",
+    "allowed_values": [
+      "WORKUP",
+      "NEW_DIAGNOSIS",
+      "ON_TREATMENT",
+      "PROGRESSIVE",
+      "ACCELERATED_BLAST_PHASE"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "mf_risk",
+    "value_type": "CODED",
+    "allowed_values": [
+      "LOWER",
+      "HIGHER",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "symptomatic_splenomegaly_or_constitutional",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "mf_anemia",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "transplant_candidate",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "pv_high_risk",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "et_risk",
+    "value_type": "CODED",
+    "allowed_values": [
+      "VERY_LOW",
+      "LOW",
+      "INTERMEDIATE",
+      "HIGH",
+      "UNKNOWN"
+    ],
+    "semantic_unknown_values": [
+      "UNKNOWN"
+    ]
+  },
+  {
+    "key": "prior_cytoreductive_inadequate_response",
+    "value_type": "BOOLEAN"
+  },
+  {
+    "key": "thrombosis_or_vascular_event",
+    "value_type": "BOOLEAN"
+  }
+]

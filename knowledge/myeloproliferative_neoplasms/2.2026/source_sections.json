@@ -1,0 +1,305 @@
+{
+  "MPN-1": {
+    "code": "MPN-1",
+    "pages": [
+      6
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3e8408b0579d4ff1cf30ad3000e652a72e7b3b273119edb774a9c5b04ce3e60d",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "MPN-2": {
+    "code": "MPN-2",
+    "pages": [
+      7
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3a8a525ede65aa9651d434b9bd27cb3cd6165df75f5a3628b50f56326a6cf8c4",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "MPN-2A": {
+    "code": "MPN-2A",
+    "pages": [
+      8
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2150216ddd88eee6e8d5579ccf9de15d2a558e2d86d53e2e96f9ac064b5c7871",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "MF-1": {
+    "code": "MF-1",
+    "pages": [
+      9
+    ],
+    "page_count": 1,
+    "source_text_sha256": "80e2e7dd6e6617a02cb5c484c1446a3fe2e55e57b25fadd57bb592dcae9d5114",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "MF-2": {
+    "code": "MF-2",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "3357f54a51845231e281649508fa62065fb2d47de516a5fbaf7480310dadba73",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "MF-2A": {
+    "code": "MF-2A",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2caf9f45c135da00e7c8feaaba6c6f9bbd9770c02398a74e7e588dfd38a076a9",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "MF-3": {
+    "code": "MF-3",
+    "pages": [
+      12
+    ],
+    "page_count": 1,
+    "source_text_sha256": "05db37c4706a24d3836900059fd1a1f89aa4d3ab2c1acf433dc37044097e90ba",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "PV-1": {
+    "code": "PV-1",
+    "pages": [
+      20
+    ],
+    "page_count": 1,
+    "source_text_sha256": "60b077b879f01eeb33cf11ab14b17a131b1defba489f31454f465634ad3b5ff6",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "PV-2": {
+    "code": "PV-2",
+    "pages": [
+      21
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8c1da092fba07d8b741ff0fb9f830bf166ed716b8d1e237caf93a9af4c806206",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ET-1": {
+    "code": "ET-1",
+    "pages": [
+      24
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2b3f815cdb844519b058b50ed53fe9795ee4e74f434ccbe227f41a32fb12bf11",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ET-2": {
+    "code": "ET-2",
+    "pages": [
+      25
+    ],
+    "page_count": 1,
+    "source_text_sha256": "650e7b47616bca1432a655b858989d915ad8b7ed1433e43fc45d0af731d7bbfd",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "ET-3": {
+    "code": "ET-3",
+    "pages": [
+      26
+    ],
+    "page_count": 1,
+    "source_text_sha256": "961ff2e42ff54dd0cfaa3fd69e52bb3bf7f65d3806611acbe1b2face8f2982e3",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "MPN-AP/BP-1": {
+    "code": "MPN-AP/BP-1",
+    "pages": [
+      29
+    ],
+    "page_count": 1,
+    "source_text_sha256": "aaabf03f15efc291386f3f6dc7f0bc3d527731e2ab416e74cc45b5f34c2785c1",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MF-A": {
+    "code": "MF-A",
+    "pages": [
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "page_count": 5,
+    "source_text_sha256": "275ce7c11017b326ad443c3e10e677bd30dd2bdc4bbcffebfb362ffea245af55",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MF-B": {
+    "code": "MF-B",
+    "pages": [
+      18
+    ],
+    "page_count": 1,
+    "source_text_sha256": "d9c6f116f98ea26067fd06bfbabd98a1fc819cab612033785812634ca056dde9",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MF-C": {
+    "code": "MF-C",
+    "pages": [
+      19
+    ],
+    "page_count": 1,
+    "source_text_sha256": "9297faf319253355be3b58e40ebb3b863139cd496846b22394ff3f913db435da",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "PV-A": {
+    "code": "PV-A",
+    "pages": [
+      22
+    ],
+    "page_count": 1,
+    "source_text_sha256": "b64fbeabad579238f1cf8b4709964ad23c38e0339b20cde5dd8a752c54d810bb",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "PV-B": {
+    "code": "PV-B",
+    "pages": [
+      23
+    ],
+    "page_count": 1,
+    "source_text_sha256": "caea95875bad0134de6485bb2179f5f4d3bf4fd56da10e3775ea45a7c83a180a",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ET-A": {
+    "code": "ET-A",
+    "pages": [
+      27
+    ],
+    "page_count": 1,
+    "source_text_sha256": "75fbc710cbe46774fee3f13d5cd64c459aab77a7feffbe9e68f94d2bca8d7432",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "ET-B": {
+    "code": "ET-B",
+    "pages": [
+      28
+    ],
+    "page_count": 1,
+    "source_text_sha256": "de63bdcb5670566e144b00e613ad2bebd9febecfc86059e1d08a14857d395707",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-A": {
+    "code": "MPN-A",
+    "pages": [
+      30,
+      31
+    ],
+    "page_count": 2,
+    "source_text_sha256": "503120461e0b7684e2476d90fe6fbe64b92a270f60ad4cf8caa92a9bf7174d58",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-B": {
+    "code": "MPN-B",
+    "pages": [
+      32
+    ],
+    "page_count": 1,
+    "source_text_sha256": "74a81e93604afe884f16ea885a5e9011233e65acf6f81255252b0421d46fdbe2",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-C": {
+    "code": "MPN-C",
+    "pages": [
+      33
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a38d0c320eb1ef2efa74fbbf3f0938e0d2af661bcd18bb61f4f168c8bc33fa14",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-D": {
+    "code": "MPN-D",
+    "pages": [
+      34,
+      35
+    ],
+    "page_count": 2,
+    "source_text_sha256": "8be37638a30cd5f3292af1772122d98e3941dbf3aef3d2bb98188fc7389d0394",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-E": {
+    "code": "MPN-E",
+    "pages": [
+      36,
+      37
+    ],
+    "page_count": 2,
+    "source_text_sha256": "af7d787513c5c7e4e0f12eb6e7b4cf1147a45e9d82e80987c25682e9985a78ad",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-F": {
+    "code": "MPN-F",
+    "pages": [
+      38,
+      39,
+      40
+    ],
+    "page_count": 3,
+    "source_text_sha256": "3d1c7d54e462c4550b7f51ad4d66d11197050819c66d185b47260195c16e1f87",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-G": {
+    "code": "MPN-G",
+    "pages": [
+      41,
+      42
+    ],
+    "page_count": 2,
+    "source_text_sha256": "38e8b65d3e8cc8761c312192d9cf3ccde7401cc7b24875399645c067b5ea73c7",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-H": {
+    "code": "MPN-H",
+    "pages": [
+      43,
+      44,
+      45,
+      46
+    ],
+    "page_count": 4,
+    "source_text_sha256": "f7b72002749e1d50a364a7e27a9c8bb102ed67e20015e9f01eac9fe1f559837c",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "MPN-I": {
+    "code": "MPN-I",
+    "pages": [
+      47
+    ],
+    "page_count": 1,
+    "source_text_sha256": "a733386ea27a604b2d4d8b6b37e19c60b076f0a897bb9f99d54e1c81c03eee46",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  }
+}

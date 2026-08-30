@@ -1,0 +1,29 @@
+{
+  "guideline_id": "NCCN_B_CELL_LYMPHOMAS",
+  "title": "B-Cell Lymphomas",
+  "version": "4.2026",
+  "cancer_type": "B_CELL_LYMPHOMA",
+  "package_status": "DRAFT",
+  "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+  "runtime_eligible": false,
+  "engineering_preview_eligible": true,
+  "review_note": "Full source-page ledger and deterministic major-branch implementation. Clinical validation required before activation.",
+  "pathway_completeness": {
+    "status": "COMPLETE_UNREVIEWED",
+    "total_decisions": 219,
+    "implemented_decisions": 219,
+    "tested_decisions": 219,
+    "unused_pathway_changing_facts": 0,
+    "internal_deferred_paths": 0,
+    "source_bundle_shortcuts": 0,
+    "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+    "clinical_review_required": true
+  },
+  "source": {
+    "filename": "b-cell(6).pdf",
+    "sha256": "3f60b89fe36bfb1fc212a43cff8a25d6d2792a9285df6377c5166a3659bd8003",
+    "pdf_pages": 369
+  },
+  "primary_expected": 57,
+  "supporting_expected": 24
+}

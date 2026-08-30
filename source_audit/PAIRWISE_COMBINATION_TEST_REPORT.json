@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "cases": 2551,
+  "failures": 0,
+  "by_package": {
+    "nexus_acute_lymphoblastic_leukemia_v2_2026.json": 469,
+    "nexus_acute_myeloid_leukemia_v5_2026.json": 156,
+    "nexus_anal_carcinoma_v2_2026.json": 9,
+    "nexus_b_cell_lymphomas_v4_2026.json": 314,
+    "nexus_basal_cell_skin_cancer_v1_2027.json": 250,
+    "nexus_biliary_tract_cancers_v1_2026.json": 58,
+    "nexus_bladder_cancer_v3_2026.json": 122,
+    "nexus_bone_cancer_v1_2027.json": 73,
+    "nexus_breast_cancer_v6_2026.json": 159,
+    "nexus_cervical_cancer_v2_2026.json": 434,
+    "nexus_gastric_cancer_v3_2026.json": 129,
+    "nexus_gastrointestinal_stromal_tumors_v1_2026.json": 72,
+    "nexus_hodgkin_lymphoma_v2_2026.json": 34,
+    "nexus_kidney_cancer_v1_2027.json": 177,
+    "nexus_myeloproliferative_neoplasms_v2_2026.json": 95
+  },
+  "failure_samples": []
+}

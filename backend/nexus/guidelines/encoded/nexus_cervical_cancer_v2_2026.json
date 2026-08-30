@@ -1,0 +1,5354 @@
+{
+  "schema_version": "nexus-full-pathway/2.1",
+  "guideline_id": "NCCN_CERVICAL",
+  "title": "Cervical Cancer",
+  "version": "2.2026",
+  "cancer_type": "CERVICAL_CANCER",
+  "entry_point": "scope",
+  "lifecycle": {
+    "package_status": "DRAFT",
+    "clinical_status": "REQUIRES_CLINICAL_REVIEW",
+    "runtime_eligible": false,
+    "engineering_preview_eligible": true,
+    "pathway_completeness": {
+      "status": "COMPLETE_UNREVIEWED",
+      "total_decisions": 50,
+      "implemented_decisions": 50,
+      "tested_decisions": 50,
+      "unused_pathway_changing_facts": 0,
+      "internal_deferred_paths": 0,
+      "source_bundle_shortcuts": 0,
+      "engineering_scope": "DETERMINISTIC_KNOWLEDGE_PACKAGE",
+      "clinical_review_required": true
+    },
+    "review_note": "Engineering executable-completeness gates passed for the encoded 15-package source scope. This is COMPLETE_UNREVIEWED, not clinical validation or autonomous prescribing authorization."
+  },
+  "fact_definitions": [
+    {
+      "key": "cancer_type",
+      "value_type": "CODED",
+      "allowed_values": [
+        "CERVICAL_CANCER",
+        "OTHER"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "histology",
+      "value_type": "CODED",
+      "allowed_values": [
+        "SQUAMOUS_ADENO_ADENOSQUAMOUS",
+        "SMALL_CELL_NEUROENDOCRINE",
+        "OTHER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "treatment_phase",
+      "value_type": "CODED",
+      "allowed_values": [
+        "NEW_DIAGNOSIS",
+        "POST_SURGERY",
+        "INCIDENTAL_POST_HYSTERECTOMY",
+        "SURVEILLANCE",
+        "LOCAL_REGIONAL_RECURRENCE",
+        "DISTANT_METASTATIC_RECURRENCE",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "figo_stage",
+      "value_type": "CODED",
+      "allowed_values": [
+        "IA1",
+        "IA2",
+        "IB1",
+        "IB2",
+        "IB3",
+        "IIA1",
+        "IIA2",
+        "IIB",
+        "IIIC1",
+        "IIIC2",
+        "III",
+        "IVA",
+        "IVB",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ],
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "lvsi",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "fertility_sparing_desired",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "conservative_surgery_criteria_met",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "medically_operable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "positive_nodes",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "positive_margin",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "positive_parametrium",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "distant_metastases",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "prior_pelvic_rt",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "recurrence_resectable_or_local_treatable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "pd_l1_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "msi_h_dmmr_or_tmbh",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "cone_margin_status",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "NEGATIVE",
+        "POSITIVE_DYSPLASIA",
+        "POSITIVE_CARCINOMA",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "tumor_size_cm",
+      "value_type": "NUMERIC",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "depth_invasion_mm",
+      "value_type": "NUMERIC",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "pelvic_nodes_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "para_aortic_nodes_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "central_recurrence",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "recurrence_outside_prior_rt_field",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "local_treatment_amenable",
+      "value_type": "BOOLEAN",
+      "fact_role": "ROUTING"
+    },
+    {
+      "key": "systemic_line",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "FIRST",
+        "SECOND_OR_LATER",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "tmb_high",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "her2_positive",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "her2_mutant",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "ntrk_fusion",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "ret_fusion",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "prior_checkpoint_inhibitor",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "cisplatin_intolerant",
+      "value_type": "BOOLEAN",
+      "fact_role": "OPTION_APPLICABILITY"
+    },
+    {
+      "key": "necc_disease_extent",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "CERVIX_CONFINED",
+        "LOCALLY_ADVANCED",
+        "DISTANT_METASTATIC",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    },
+    {
+      "key": "necc_response",
+      "value_type": "CODED",
+      "fact_role": "ROUTING",
+      "allowed_values": [
+        "RESPONSE",
+        "PERSISTENT_RECURRENT",
+        "UNKNOWN"
+      ],
+      "semantic_unknown_values": [
+        "UNKNOWN"
+      ]
+    }
+  ],
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Cervical cancer?",
+      "expression": {
+        "fact": "cancer_type",
+        "op": "eq",
+        "value": "CERVICAL_CANCER"
+      },
+      "on": {
+        "TRUE": "necc",
+        "FALSE": "outside"
+      },
+      "source_pathways": [
+        "CERV-1"
+      ],
+      "decision_id": "scope"
+    },
+    "necc": {
+      "kind": "decision",
+      "label": "Small-cell neuroendocrine carcinoma?",
+      "expression": {
+        "fact": "histology",
+        "op": "eq",
+        "value": "SMALL_CELL_NEUROENDOCRINE"
+      },
+      "on": {
+        "TRUE": "necc_extent",
+        "FALSE": "common_hist"
+      },
+      "source_pathways": [
+        "CERV-13",
+        "CERV-14"
+      ],
+      "decision_id": "necc"
+    },
+    "common_hist": {
+      "kind": "decision",
+      "label": "Squamous, adenocarcinoma, or adenosquamous cervical carcinoma?",
+      "expression": {
+        "fact": "histology",
+        "op": "eq",
+        "value": "SQUAMOUS_ADENO_ADENOSQUAMOUS"
+      },
+      "on": {
+        "TRUE": "care_met",
+        "FALSE": "otherhist"
+      },
+      "source_pathways": [
+        "CERV-1"
+      ],
+      "decision_id": "common_hist"
+    },
+    "otherhist": {
+      "kind": "status",
+      "label": "Histology is outside executable cervical source scope.",
+      "status": "NEEDS_DIFFERENT_PATHWAY",
+      "source_pathways": [
+        "CERV-A"
+      ]
+    },
+    "necc_extent": {
+      "kind": "decision",
+      "label": "NECC distant metastatic?",
+      "expression": {
+        "any": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IVB"
+          },
+          {
+            "fact": "necc_disease_extent",
+            "op": "eq",
+            "value": "DISTANT_METASTATIC"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "necc_met",
+        "FALSE": "necc_localadv"
+      },
+      "source_pathways": [
+        "CERV-13",
+        "CERV-14"
+      ],
+      "decision_id": "necc_extent"
+    },
+    "necc_met": {
+      "kind": "action",
+      "label": "Metastatic small-cell NECC of cervix: systemic therapy preferred or best supportive care.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "necc_met",
+      "source_pathways": [
+        "CERV-13",
+        "CERV-14"
+      ],
+      "recommendation": {
+        "title": "Metastatic small-cell NECC of cervix: systemic therapy preferred or best supportive care.",
+        "options": [
+          {
+            "option_id": "cerv_necc_sys",
+            "label": "Systemic therapy (cisplatin/etoposide or carboplatin/etoposide and later-line source options)",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_necc_bsc",
+            "label": "Best supportive care",
+            "text": "Best supportive care",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_NECC_METASTATIC"
+    },
+    "necc_localadv": {
+      "kind": "decision",
+      "label": "NECC locally advanced IIA-IVA / IB3?",
+      "expression": {
+        "fact": "figo_stage",
+        "op": "in",
+        "value": [
+          "IB3",
+          "IIA1",
+          "IIA2",
+          "IIB",
+          "IIIC1",
+          "IIIC2",
+          "III",
+          "IVA"
+        ]
+      },
+      "on": {
+        "TRUE": "necc_la",
+        "FALSE": "necc_early"
+      },
+      "source_pathways": [
+        "CERV-13",
+        "CERV-14"
+      ],
+      "decision_id": "necc_localadv"
+    },
+    "necc_early": {
+      "kind": "action",
+      "label": "Early NECC IA1-IB2 <=4 cm: radical hysterectomy + nodal staging preferred when suitable, followed by systemic +/- RT; chemoradiation is alternative.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "necc_early",
+      "source_pathways": [
+        "CERV-13"
+      ],
+      "recommendation": {
+        "title": "Early NECC IA1-IB2 <=4 cm: radical hysterectomy + nodal staging preferred when suitable, followed by systemic +/- RT; chemoradiation is alternative.",
+        "options": [
+          {
+            "option_id": "cerv_necc_early_surg",
+            "label": "Radical hysterectomy + SLN/pelvic lymphadenectomy",
+            "text": "Preferred if suitable.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_necc_early_chemo",
+            "label": "Cisplatin/etoposide or carboplatin/etoposide",
+            "text": "Cisplatin/etoposide or carboplatin/etoposide",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_necc_early_crt",
+            "label": "Chemoradiation",
+            "text": "Chemoradiation",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_NECC_EARLY"
+    },
+    "necc_la": {
+      "kind": "decision",
+      "label": "Post-treatment NECC response assessment?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "in",
+        "value": [
+          "SURVEILLANCE",
+          "LOCAL_REGIONAL_RECURRENCE",
+          "DISTANT_METASTATIC_RECURRENCE"
+        ]
+      },
+      "on": {
+        "TRUE": "necc_resp",
+        "FALSE": "necc_la_primary"
+      },
+      "source_pathways": [
+        "CERV-14"
+      ],
+      "decision_id": "necc_la"
+    },
+    "necc_la_primary": {
+      "kind": "action",
+      "label": "Locally advanced NECC: chemoradiation + brachytherapy +/- cisplatin/etoposide or carboplatin/etoposide preferred; neoadjuvant chemotherapy followed by chemoradiation is an alternative.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "necc_la_primary",
+      "source_pathways": [
+        "CERV-14"
+      ],
+      "recommendation": {
+        "title": "Locally advanced NECC: chemoradiation + brachytherapy +/- cisplatin/etoposide or carboplatin/etoposide preferred; neoadjuvant chemotherapy followed by chemoradiation is an alternative.",
+        "options": [
+          {
+            "option_id": "cerv_necc_la_crt",
+            "label": "Chemoradiation + brachytherapy +/- platinum/etoposide",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_necc_la_neoadj",
+            "label": "Neoadjuvant platinum/etoposide -> chemoradiation + brachytherapy",
+            "text": "Neoadjuvant platinum/etoposide -> chemoradiation + brachytherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_NECC_LOCALLY_ADVANCED"
+    },
+    "necc_resp": {
+      "kind": "decision",
+      "label": "NECC response to treatment?",
+      "expression": {
+        "fact": "necc_response",
+        "op": "eq",
+        "value": "RESPONSE"
+      },
+      "on": {
+        "TRUE": "surv",
+        "FALSE": "necc_persist"
+      },
+      "source_pathways": [
+        "CERV-14"
+      ],
+      "decision_id": "necc_resp"
+    },
+    "necc_persist": {
+      "kind": "action",
+      "label": "Persistent/recurrent NECC: systemic therapy or best supportive care; selected local pelvic exenteration in appropriate localized recurrence.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "necc_persist",
+      "source_pathways": [
+        "CERV-14"
+      ],
+      "recommendation": {
+        "title": "Persistent/recurrent NECC: systemic therapy or best supportive care; selected local pelvic exenteration in appropriate localized recurrence.",
+        "options": [
+          {
+            "option_id": "cerv_necc_rr_sys",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_necc_rr_exent",
+            "label": "Consider pelvic exenteration",
+            "text": "Selected local disease.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_NECC_PERSISTENT"
+    },
+    "care_met": {
+      "kind": "decision",
+      "label": "Current distant metastatic/IVB episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IVB"
+          },
+          {
+            "fact": "distant_metastases",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "DISTANT_METASTATIC_RECURRENCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "met_localable",
+        "FALSE": "care_rec"
+      },
+      "source_pathways": [
+        "CERV-12"
+      ],
+      "decision_id": "care_met"
+    },
+    "care_rec": {
+      "kind": "decision",
+      "label": "Current locoregional recurrence?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "LOCAL_REGIONAL_RECURRENCE"
+      },
+      "on": {
+        "TRUE": "rec_priorrt",
+        "FALSE": "care_incidental"
+      },
+      "source_pathways": [
+        "CERV-11"
+      ],
+      "decision_id": "care_rec"
+    },
+    "care_incidental": {
+      "kind": "decision",
+      "label": "Incidental invasive cancer after simple hysterectomy?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "INCIDENTAL_POST_HYSTERECTOMY"
+      },
+      "on": {
+        "TRUE": "incidental_stage",
+        "FALSE": "care_post"
+      },
+      "source_pathways": [
+        "CERV-8",
+        "CERV-9"
+      ],
+      "decision_id": "care_incidental"
+    },
+    "care_post": {
+      "kind": "decision",
+      "label": "Post-surgery/adjuvant state?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "POST_SURGERY"
+      },
+      "on": {
+        "TRUE": "post_high",
+        "FALSE": "care_surv"
+      },
+      "source_pathways": [
+        "CERV-6"
+      ],
+      "decision_id": "care_post"
+    },
+    "care_surv": {
+      "kind": "decision",
+      "label": "Surveillance state?",
+      "expression": {
+        "fact": "treatment_phase",
+        "op": "eq",
+        "value": "SURVEILLANCE"
+      },
+      "on": {
+        "TRUE": "surv",
+        "FALSE": "initial_stage"
+      },
+      "source_pathways": [
+        "CERV-10"
+      ],
+      "decision_id": "care_surv"
+    },
+    "surv": {
+      "kind": "action",
+      "label": "Cervical cancer surveillance with interval H&P, stage-dependent imaging, cytology only where indicated, late-effect/survivorship care; biopsy/workup any suspected recurrence.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "surv",
+      "source_pathways": [
+        "CERV-10"
+      ],
+      "recommendation": {
+        "title": "Cervical cancer surveillance with interval H&P, stage-dependent imaging, cytology only where indicated, late-effect/survivorship care; biopsy/workup any suspected recurrence.",
+        "options": [
+          {
+            "option_id": "cerv_surveillance",
+            "label": "Surveillance per CERV-10",
+            "text": "Surveillance per CERV-10",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-G",
+              "page_label": "CERV-G",
+              "physical_pages": [
+                62
+              ],
+              "source_anchor": "CERV-G:pages:62"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-G"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_SURVEILLANCE"
+    },
+    "initial_stage": {
+      "kind": "decision",
+      "label": "Early-stage fertility-sparing pathway selected?",
+      "expression": {
+        "all": [
+          {
+            "fact": "figo_stage",
+            "op": "in",
+            "value": [
+              "IA1",
+              "IA2",
+              "IB1"
+            ]
+          },
+          {
+            "fact": "fertility_sparing_desired",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "fertility_stage",
+        "FALSE": "nonfert_stage"
+      },
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "decision_id": "initial_stage"
+    },
+    "fertility_stage": {
+      "kind": "decision",
+      "label": "Stage IA1 no LVSI?",
+      "expression": {
+        "all": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IA1"
+          },
+          {
+            "fact": "lvsi",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "fert_ia1",
+        "FALSE": "fert_lvsi"
+      },
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "decision_id": "fertility_stage"
+    },
+    "fert_ia1": {
+      "kind": "action",
+      "label": "Fertility-sparing stage IA1 without LVSI: cone biopsy with negative margins.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "fert_ia1",
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "recommendation": {
+        "title": "Fertility-sparing stage IA1 without LVSI: cone biopsy with negative margins.",
+        "options": [
+          {
+            "option_id": "cerv_fert_cone",
+            "label": "Cone biopsy with negative margins",
+            "text": "Cone biopsy with negative margins",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-2",
+              "page_label": "CERV-2",
+              "physical_pages": [
+                11
+              ],
+              "source_anchor": "CERV-2:pages:11"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_FERTILITY_IA1"
+    },
+    "fert_lvsi": {
+      "kind": "decision",
+      "label": "Stage IA1 with LVSI?",
+      "expression": {
+        "all": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IA1"
+          },
+          {
+            "fact": "lvsi",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "fert_ia1_lvsi",
+        "FALSE": "fert_cons"
+      },
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "decision_id": "fert_lvsi"
+    },
+    "fert_ia1_lvsi": {
+      "kind": "action",
+      "label": "Fertility-sparing stage IA1 with LVSI: cone with negative margins + SLN mapping/pelvic lymphadenectomy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "fert_ia1_lvsi",
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "recommendation": {
+        "title": "Fertility-sparing stage IA1 with LVSI: cone with negative margins + SLN mapping/pelvic lymphadenectomy.",
+        "options": [
+          {
+            "option_id": "cerv_fert_ia1lvsi",
+            "label": "Cone + SLN mapping/pelvic lymphadenectomy",
+            "text": "Cone + SLN mapping/pelvic lymphadenectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_FERTILITY_IA1_LVSI"
+    },
+    "fert_cons": {
+      "kind": "decision",
+      "label": "IA2-IB1 meeting conservative surgery criteria?",
+      "expression": {
+        "all": [
+          {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "figo_stage",
+                    "op": "in",
+                    "value": [
+                      "IA2",
+                      "IB1"
+                    ]
+                  },
+                  {
+                    "fact": "conservative_surgery_criteria_met",
+                    "op": "eq",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "fact": "tumor_size_cm",
+                "op": "lte",
+                "value": 2
+              },
+              {
+                "fact": "depth_invasion_mm",
+                "op": "lte",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "fact": "tumor_size_cm",
+            "op": "lte",
+            "value": 2
+          },
+          {
+            "fact": "depth_invasion_mm",
+            "op": "lte",
+            "value": 10
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "fert_cons_action",
+        "FALSE": "fert_radical"
+      },
+      "source_pathways": [
+        "CERV-2",
+        "CERV-2A",
+        "CERV-3A"
+      ],
+      "decision_id": "fert_cons"
+    },
+    "fert_cons_action": {
+      "kind": "action",
+      "label": "Fertility-sparing IA2-IB1 meeting all conservative criteria: cone with negative margins + SLN/pelvic lymphadenectomy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "fert_cons_action",
+      "source_pathways": [
+        "CERV-2",
+        "CERV-2A",
+        "CERV-3A"
+      ],
+      "recommendation": {
+        "title": "Fertility-sparing IA2-IB1 meeting all conservative criteria: cone with negative margins + SLN/pelvic lymphadenectomy.",
+        "options": [
+          {
+            "option_id": "cerv_fert_cons_cone",
+            "label": "Cone + SLN/pelvic lymphadenectomy",
+            "text": "Cone + SLN/pelvic lymphadenectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-2A",
+          "CERV-3A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_FERTILITY_CONSERVATIVE"
+    },
+    "fert_radical": {
+      "kind": "decision",
+      "label": "IB1 not meeting conservative criteria or selected IB2?",
+      "expression": {
+        "fact": "figo_stage",
+        "op": "in",
+        "value": [
+          "IB1",
+          "IB2"
+        ]
+      },
+      "on": {
+        "TRUE": "fert_trach",
+        "FALSE": "fert_not"
+      },
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "decision_id": "fert_radical"
+    },
+    "fert_trach": {
+      "kind": "action",
+      "label": "Fertility-sparing selected IB1/IB2: radical trachelectomy + SLN/pelvic lymphadenectomy +/- para-aortic staging.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "fert_trach",
+      "source_pathways": [
+        "CERV-2"
+      ],
+      "recommendation": {
+        "title": "Fertility-sparing selected IB1/IB2: radical trachelectomy + SLN/pelvic lymphadenectomy +/- para-aortic staging.",
+        "options": [
+          {
+            "option_id": "cerv_rad_trach",
+            "label": "Radical trachelectomy + nodal staging",
+            "text": "Radical trachelectomy + nodal staging",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_FERTILITY_TRACHELECTOMY"
+    },
+    "fert_not": {
+      "kind": "status",
+      "label": "Fertility-sparing primary treatment is not supported for this stage/histology in the encoded source route.",
+      "status": "NEEDS_DIFFERENT_PATHWAY",
+      "source_pathways": [
+        "CERV-2"
+      ]
+    },
+    "nonfert_stage": {
+      "kind": "decision",
+      "label": "Stage IA1?",
+      "expression": {
+        "fact": "figo_stage",
+        "op": "eq",
+        "value": "IA1"
+      },
+      "on": {
+        "TRUE": "ia1_lvsi",
+        "FALSE": "early_ia2"
+      },
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "decision_id": "nonfert_stage"
+    },
+    "ia1_lvsi": {
+      "kind": "decision",
+      "label": "LVSI present?",
+      "expression": {
+        "fact": "lvsi",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "ia1_lvsi_margin",
+        "FALSE": "ia1_margin"
+      },
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "decision_id": "ia1_lvsi"
+    },
+    "ia1_margin": {
+      "kind": "decision",
+      "label": "Cone margin negative?",
+      "expression": {
+        "fact": "cone_margin_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "ia1_operable",
+        "FALSE": "ia1_posmargin"
+      },
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "decision_id": "ia1_margin"
+    },
+    "ia1_operable": {
+      "kind": "decision",
+      "label": "Medically operable?",
+      "expression": {
+        "fact": "medically_operable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "ia1_hyst",
+        "FALSE": "ia1_observe"
+      },
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "decision_id": "ia1_operable"
+    },
+    "ia1_hyst": {
+      "kind": "action",
+      "label": "Stage IA1 no LVSI, negative cone margins, medically operable: type A hysterectomy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ia1_hyst",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "Stage IA1 no LVSI, negative cone margins, medically operable: type A hysterectomy.",
+        "options": [
+          {
+            "option_id": "cerv_ia1_hyst",
+            "label": "Type A hysterectomy",
+            "text": "Type A hysterectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-3",
+              "page_label": "CERV-3",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "CERV-3:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IA1_HYST"
+    },
+    "ia1_observe": {
+      "kind": "action",
+      "label": "Stage IA1 no LVSI, negative cone margins, medically inoperable: observation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ia1_observe",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "Stage IA1 no LVSI, negative cone margins, medically inoperable: observation.",
+        "options": [
+          {
+            "option_id": "cerv_ia1_observe",
+            "label": "Observe",
+            "text": "Observe",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-3",
+              "page_label": "CERV-3",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "CERV-3:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IA1_OBSERVE"
+    },
+    "ia1_posmargin": {
+      "kind": "decision",
+      "label": "Positive margin for carcinoma?",
+      "expression": {
+        "fact": "cone_margin_status",
+        "op": "eq",
+        "value": "POSITIVE_CARCINOMA"
+      },
+      "on": {
+        "TRUE": "ia1_pm_operable",
+        "FALSE": "ia1_pd"
+      },
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "decision_id": "ia1_posmargin"
+    },
+    "ia1_pm_operable": {
+      "kind": "decision",
+      "label": "Medically operable?",
+      "expression": {
+        "fact": "medically_operable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "ia1_pm_surg",
+        "FALSE": "ia1_pm_inop"
+      },
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "decision_id": "ia1_pm_operable"
+    },
+    "ia1_pm_surg": {
+      "kind": "action",
+      "label": "IA1 no LVSI with positive carcinoma margin and operable: repeat cone to clarify invasion or type B radical hysterectomy + nodal staging.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ia1_pm_surg",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "IA1 no LVSI with positive carcinoma margin and operable: repeat cone to clarify invasion or type B radical hysterectomy + nodal staging.",
+        "options": [
+          {
+            "option_id": "cerv_ia1_pm_cone",
+            "label": "Repeat cone biopsy",
+            "text": "Repeat cone biopsy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-3",
+              "page_label": "CERV-3",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "CERV-3:pages:13"
+            }
+          },
+          {
+            "option_id": "cerv_ia1_pm_rad",
+            "label": "Type B radical hysterectomy + SLN/pelvic lymphadenectomy",
+            "text": "Type B radical hysterectomy + SLN/pelvic lymphadenectomy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-3",
+              "page_label": "CERV-3",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "CERV-3:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IA1_POS_CARC_MARGIN"
+    },
+    "ia1_pm_inop": {
+      "kind": "action",
+      "label": "IA1 no LVSI positive carcinoma margin and medically inoperable: repeat cone preferred or brachytherapy +/- pelvic EBRT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ia1_pm_inop",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "IA1 no LVSI positive carcinoma margin and medically inoperable: repeat cone preferred or brachytherapy +/- pelvic EBRT.",
+        "options": [
+          {
+            "option_id": "cerv_ia1_pm_recone",
+            "label": "Repeat cone biopsy",
+            "text": "Preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_ia1_pm_brachy",
+            "label": "Brachytherapy +/- pelvic EBRT",
+            "text": "Brachytherapy +/- pelvic EBRT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IA1_POS_MARGIN_INOPERABLE"
+    },
+    "ia1_pd": {
+      "kind": "action",
+      "label": "IA1 no LVSI positive dysplasia margin: repeat cone or type A hysterectomy according to operability/preferences.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ia1_pd",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "IA1 no LVSI positive dysplasia margin: repeat cone or type A hysterectomy according to operability/preferences.",
+        "options": [
+          {
+            "option_id": "cerv_ia1_pd_cone",
+            "label": "Repeat cone",
+            "text": "Repeat cone",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-3",
+              "page_label": "CERV-3",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "CERV-3:pages:13"
+            }
+          },
+          {
+            "option_id": "cerv_ia1_pd_hyst",
+            "label": "Type A hysterectomy",
+            "text": "Type A hysterectomy",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "medically_operable",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-3",
+              "page_label": "CERV-3",
+              "physical_pages": [
+                13
+              ],
+              "source_anchor": "CERV-3:pages:13"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IA1_DYSPLASIA_MARGIN"
+    },
+    "ia1_lvsi_margin": {
+      "kind": "decision",
+      "label": "IA1 with LVSI, negative cone margin?",
+      "expression": {
+        "fact": "cone_margin_status",
+        "op": "eq",
+        "value": "NEGATIVE"
+      },
+      "on": {
+        "TRUE": "ia1lvsi_hyst",
+        "FALSE": "ia1lvsi_pm"
+      },
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "decision_id": "ia1_lvsi_margin"
+    },
+    "ia1lvsi_hyst": {
+      "kind": "action",
+      "label": "IA1 with LVSI and negative margins: type A hysterectomy + SLN/pelvic lymphadenectomy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ia1lvsi_hyst",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "IA1 with LVSI and negative margins: type A hysterectomy + SLN/pelvic lymphadenectomy.",
+        "options": [
+          {
+            "option_id": "cerv_ia1lvsi_hyst",
+            "label": "Type A hysterectomy + nodal staging",
+            "text": "Type A hysterectomy + nodal staging",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IA1_LVSI_NEG_MARGIN"
+    },
+    "ia1lvsi_pm": {
+      "kind": "action",
+      "label": "IA1 with LVSI and positive margin: repeat cone or type A/B hysterectomy with nodal staging, or pelvic EBRT + brachytherapy when appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ia1lvsi_pm",
+      "source_pathways": [
+        "CERV-3"
+      ],
+      "recommendation": {
+        "title": "IA1 with LVSI and positive margin: repeat cone or type A/B hysterectomy with nodal staging, or pelvic EBRT + brachytherapy when appropriate.",
+        "options": [
+          {
+            "option_id": "cerv_ia1lvsi_recone",
+            "label": "Repeat cone",
+            "text": "Repeat cone",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          },
+          {
+            "option_id": "cerv_ia1lvsi_hyst2",
+            "label": "Type A/B hysterectomy + nodal staging",
+            "text": "Type A/B hysterectomy + nodal staging",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          },
+          {
+            "option_id": "cerv_ia1lvsi_rt",
+            "label": "Pelvic EBRT + brachytherapy",
+            "text": "Pelvic EBRT + brachytherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IA1_LVSI_POS_MARGIN"
+    },
+    "early_ia2": {
+      "kind": "decision",
+      "label": "IA2-IB1 conservative criteria met?",
+      "expression": {
+        "all": [
+          {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "figo_stage",
+                    "op": "in",
+                    "value": [
+                      "IA2",
+                      "IB1"
+                    ]
+                  },
+                  {
+                    "fact": "conservative_surgery_criteria_met",
+                    "op": "eq",
+                    "value": true
+                  }
+                ]
+              },
+              {
+                "fact": "tumor_size_cm",
+                "op": "lte",
+                "value": 2
+              },
+              {
+                "fact": "depth_invasion_mm",
+                "op": "lte",
+                "value": 10
+              }
+            ]
+          },
+          {
+            "fact": "tumor_size_cm",
+            "op": "lte",
+            "value": 2
+          },
+          {
+            "fact": "depth_invasion_mm",
+            "op": "lte",
+            "value": 10
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "early_cons_action",
+        "FALSE": "ib1ib2"
+      },
+      "source_pathways": [
+        "CERV-4",
+        "CERV-2A",
+        "CERV-3A"
+      ],
+      "decision_id": "early_ia2"
+    },
+    "early_cons_action": {
+      "kind": "action",
+      "label": "Non-fertility IA2-IB1 meeting conservative surgery criteria: type A hysterectomy + SLN/pelvic lymphadenectomy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "early_cons_action",
+      "source_pathways": [
+        "CERV-4",
+        "CERV-2A",
+        "CERV-3A"
+      ],
+      "recommendation": {
+        "title": "Non-fertility IA2-IB1 meeting conservative surgery criteria: type A hysterectomy + SLN/pelvic lymphadenectomy.",
+        "options": [
+          {
+            "option_id": "cerv_early_typea",
+            "label": "Type A hysterectomy + nodal staging",
+            "text": "Type A hysterectomy + nodal staging",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-2A",
+          "CERV-3A"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_EARLY_CONSERVATIVE_CRITERIA"
+    },
+    "ib1ib2": {
+      "kind": "decision",
+      "label": "IB1 not conservative, IB2, or IIA1?",
+      "expression": {
+        "fact": "figo_stage",
+        "op": "in",
+        "value": [
+          "IB1",
+          "IB2",
+          "IIA1"
+        ]
+      },
+      "on": {
+        "TRUE": "ib1ib2_operable",
+        "FALSE": "bulky"
+      },
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "decision_id": "ib1ib2"
+    },
+    "ib1ib2_operable": {
+      "kind": "decision",
+      "label": "Medically operable?",
+      "expression": {
+        "fact": "medically_operable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "ib1ib2_action",
+        "FALSE": "ib1ib2_rt"
+      },
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "decision_id": "ib1ib2_operable"
+    },
+    "ib1ib2_action": {
+      "kind": "action",
+      "label": "IB1 not conservative/IB2/IIA1 operable: type C1 radical hysterectomy + nodal staging or definitive pelvic EBRT + brachytherapy +/- concurrent platinum.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ib1ib2_action",
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "recommendation": {
+        "title": "IB1 not conservative/IB2/IIA1 operable: type C1 radical hysterectomy + nodal staging or definitive pelvic EBRT + brachytherapy +/- concurrent platinum.",
+        "options": [
+          {
+            "option_id": "cerv_early_rad_hyst",
+            "label": "Type C1 radical hysterectomy + nodal staging",
+            "text": "Category 1 surgery route.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          },
+          {
+            "option_id": "cerv_early_rt",
+            "label": "Pelvic EBRT + brachytherapy +/- concurrent platinum",
+            "text": "Pelvic EBRT + brachytherapy +/- concurrent platinum",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IB1_IB2_IIA1"
+    },
+    "ib1ib2_rt": {
+      "kind": "action",
+      "label": "Medically inoperable early cervical cancer: definitive pelvic EBRT + brachytherapy +/- concurrent platinum.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "ib1ib2_rt",
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "recommendation": {
+        "title": "Medically inoperable early cervical cancer: definitive pelvic EBRT + brachytherapy +/- concurrent platinum.",
+        "options": [
+          {
+            "option_id": "cerv_early_inop_rt",
+            "label": "Pelvic EBRT + brachytherapy +/- concurrent platinum",
+            "text": "Pelvic EBRT + brachytherapy +/- concurrent platinum",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_EARLY_INOPERABLE"
+    },
+    "bulky": {
+      "kind": "decision",
+      "label": "IB3 or IIA2?",
+      "expression": {
+        "fact": "figo_stage",
+        "op": "in",
+        "value": [
+          "IB3",
+          "IIA2"
+        ]
+      },
+      "on": {
+        "TRUE": "bulky_action",
+        "FALSE": "locallyadv_check"
+      },
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "decision_id": "bulky"
+    },
+    "bulky_action": {
+      "kind": "action",
+      "label": "IB3/IIA2: definitive pelvic EBRT + concurrent platinum + brachytherapy category 1; radical hysterectomy is an alternative in selected patients.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bulky_action",
+      "source_pathways": [
+        "CERV-5"
+      ],
+      "recommendation": {
+        "title": "IB3/IIA2: definitive pelvic EBRT + concurrent platinum + brachytherapy category 1; radical hysterectomy is an alternative in selected patients.",
+        "options": [
+          {
+            "option_id": "cerv_bulky_crt",
+            "label": "Pelvic EBRT + concurrent platinum + brachytherapy",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_bulky_surg",
+            "label": "Type C1 radical hysterectomy + lymphadenectomy",
+            "text": "Selected alternative.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_IB3_IIA2"
+    },
+    "locallyadv_check": {
+      "kind": "decision",
+      "label": "IIB-IVA?",
+      "expression": {
+        "fact": "figo_stage",
+        "op": "in",
+        "value": [
+          "IIB",
+          "IIIC1",
+          "IIIC2",
+          "III",
+          "IVA"
+        ]
+      },
+      "on": {
+        "TRUE": "locallyadv_nodes",
+        "FALSE": "need_stage"
+      },
+      "source_pathways": [
+        "CERV-7"
+      ],
+      "decision_id": "locallyadv_check"
+    },
+    "locallyadv_nodes": {
+      "kind": "decision",
+      "label": "Para-aortic nodes positive?",
+      "expression": {
+        "fact": "para_aortic_nodes_positive",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "la_extended",
+        "FALSE": "la_standard",
+        "UNKNOWN": "la_nodal_pending"
+      },
+      "source_pathways": [
+        "CERV-7"
+      ],
+      "decision_id": "locallyadv_nodes"
+    },
+    "la_extended": {
+      "kind": "action",
+      "label": "Locally advanced cervical cancer with para-aortic nodal involvement: extended-field EBRT + concurrent platinum + brachytherapy, with pembrolizumab where source-defined.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "la_extended",
+      "source_pathways": [
+        "CERV-7"
+      ],
+      "recommendation": {
+        "title": "Locally advanced cervical cancer with para-aortic nodal involvement: extended-field EBRT + concurrent platinum + brachytherapy, with pembrolizumab where source-defined.",
+        "options": [
+          {
+            "option_id": "cerv_la_ext_crt",
+            "label": "Extended-field EBRT + concurrent platinum + brachytherapy",
+            "text": "Extended-field EBRT + concurrent platinum + brachytherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_la_pembro",
+            "label": "Concurrent and maintenance pembrolizumab",
+            "text": "Source-defined locally advanced setting.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_LOCALLY_ADV_PA_NODES"
+    },
+    "la_standard": {
+      "kind": "action",
+      "label": "Stage IIB-IVA without para-aortic-positive route: pelvic/extended-field RT as indicated + concurrent platinum + brachytherapy; pembrolizumab per source-defined locally advanced setting.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "la_standard",
+      "source_pathways": [
+        "CERV-7"
+      ],
+      "recommendation": {
+        "title": "Stage IIB-IVA without para-aortic-positive route: pelvic/extended-field RT as indicated + concurrent platinum + brachytherapy; pembrolizumab per source-defined locally advanced setting.",
+        "options": [
+          {
+            "option_id": "cerv_la_crt",
+            "label": "EBRT + concurrent platinum + brachytherapy",
+            "text": "EBRT + concurrent platinum + brachytherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_la_pembro2",
+            "label": "Concurrent and maintenance pembrolizumab",
+            "text": "Source-defined setting.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_LOCALLY_ADVANCED"
+    },
+    "need_stage": {
+      "kind": "status",
+      "label": "FIGO stage is required for primary cervical treatment routing.",
+      "status": "NEEDS_INFORMATION",
+      "source_pathways": [
+        "CERV-1"
+      ]
+    },
+    "post_high": {
+      "kind": "decision",
+      "label": "Positive pelvic/para-aortic nodes, margin, or parametrium?",
+      "expression": {
+        "any": [
+          {
+            "fact": "positive_nodes",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "positive_margin",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "positive_parametrium",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "pelvic_nodes_positive",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "para_aortic_nodes_positive",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "post_high_met",
+        "FALSE": "post_intermediate"
+      },
+      "source_pathways": [
+        "CERV-6"
+      ],
+      "decision_id": "post_high"
+    },
+    "post_high_met": {
+      "kind": "decision",
+      "label": "Distant metastases present?",
+      "expression": {
+        "fact": "distant_metastases",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "met_localable",
+        "FALSE": "post_high_action"
+      },
+      "source_pathways": [
+        "CERV-6"
+      ],
+      "decision_id": "post_high_met"
+    },
+    "post_high_action": {
+      "kind": "action",
+      "label": "High-risk surgical findings without distant metastases: pelvic/extended-field EBRT + concurrent platinum +/- brachytherapy according to nodal/margin pattern.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "post_high_action",
+      "source_pathways": [
+        "CERV-6"
+      ],
+      "recommendation": {
+        "title": "High-risk surgical findings without distant metastases: pelvic/extended-field EBRT + concurrent platinum +/- brachytherapy according to nodal/margin pattern.",
+        "options": [
+          {
+            "option_id": "cerv_post_crt",
+            "label": "EBRT + concurrent platinum",
+            "text": "Category 1 in source-defined high-risk setting.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_post_brachy",
+            "label": "Add brachytherapy",
+            "text": "As indicated by positive margin/local risk.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_POSTOP_HIGH_RISK"
+    },
+    "post_intermediate": {
+      "kind": "decision",
+      "label": "GOG/Sedlis intermediate-risk combination present?",
+      "expression": {
+        "fact": "lvsi",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "post_intermediate_action",
+        "FALSE": "surv"
+      },
+      "source_pathways": [
+        "CERV-6",
+        "CERV-E"
+      ],
+      "decision_id": "post_intermediate"
+    },
+    "post_intermediate_action": {
+      "kind": "action",
+      "label": "Node/margin/parametrium-negative postoperative cervical cancer meeting intermediate-risk factors: pelvic EBRT category 1 +/- concurrent platinum category 2B.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "post_intermediate_action",
+      "source_pathways": [
+        "CERV-6"
+      ],
+      "recommendation": {
+        "title": "Node/margin/parametrium-negative postoperative cervical cancer meeting intermediate-risk factors: pelvic EBRT category 1 +/- concurrent platinum category 2B.",
+        "options": [
+          {
+            "option_id": "cerv_post_ebrt",
+            "label": "Pelvic EBRT",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-E",
+              "page_label": "CERV-E",
+              "physical_pages": [
+                56
+              ],
+              "source_anchor": "CERV-E:pages:56"
+            }
+          },
+          {
+            "option_id": "cerv_post_chemo",
+            "label": "Concurrent platinum",
+            "text": "Category 2B.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_2B",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-E",
+              "page_label": "CERV-E",
+              "physical_pages": [
+                56
+              ],
+              "source_anchor": "CERV-E:pages:56"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-E"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_POSTOP_INTERMEDIATE"
+    },
+    "incidental_stage": {
+      "kind": "decision",
+      "label": "Incidental IA1 no LVSI with negative margin?",
+      "expression": {
+        "all": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IA1"
+          },
+          {
+            "fact": "lvsi",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "positive_margin",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "incidental_ia1",
+        "FALSE": "incidental_other"
+      },
+      "source_pathways": [
+        "CERV-8",
+        "CERV-9"
+      ],
+      "decision_id": "incidental_stage"
+    },
+    "incidental_ia1": {
+      "kind": "action",
+      "label": "Incidental IA1 no LVSI after simple hysterectomy with negative margins: surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "incidental_ia1",
+      "source_pathways": [
+        "CERV-8"
+      ],
+      "recommendation": {
+        "title": "Incidental IA1 no LVSI after simple hysterectomy with negative margins: surveillance.",
+        "options": [
+          {
+            "option_id": "cerv_incidental_surv",
+            "label": "Surveillance",
+            "text": "Surveillance",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-8",
+              "page_label": "CERV-8",
+              "physical_pages": [
+                19
+              ],
+              "source_anchor": "CERV-8:pages:19"
+            }
+          }
+        ],
+        "supporting_sections": [],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_INCIDENTAL_IA1"
+    },
+    "incidental_other": {
+      "kind": "action",
+      "label": "Incidental invasive cervical cancer beyond IA1/no-LVSI or with positive margin: complete imaging/nodal assessment then RT/chemoradiation or completion radical surgery based on residual disease/risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "incidental_other",
+      "source_pathways": [
+        "CERV-8",
+        "CERV-9"
+      ],
+      "recommendation": {
+        "title": "Incidental invasive cervical cancer beyond IA1/no-LVSI or with positive margin: complete imaging/nodal assessment then RT/chemoradiation or completion radical surgery based on residual disease/risk.",
+        "options": [
+          {
+            "option_id": "cerv_incidental_crt",
+            "label": "Pelvic EBRT +/- concurrent platinum +/- brachytherapy",
+            "text": "Pelvic EBRT +/- concurrent platinum +/- brachytherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          },
+          {
+            "option_id": "cerv_incidental_surgery",
+            "label": "Completion radical parametrectomy/upper vaginectomy + nodal assessment",
+            "text": "Selected operable patients.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_INCIDENTAL_INVASIVE"
+    },
+    "rec_priorrt": {
+      "kind": "decision",
+      "label": "No prior RT or recurrence outside prior RT field?",
+      "expression": {
+        "any": [
+          {
+            "fact": "prior_pelvic_rt",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "fact": "recurrence_outside_prior_rt_field",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rec_no_prior",
+        "FALSE": "rec_central"
+      },
+      "source_pathways": [
+        "CERV-11"
+      ],
+      "decision_id": "rec_priorrt"
+    },
+    "rec_no_prior": {
+      "kind": "action",
+      "label": "Locoregional recurrence without prior RT/in unirradiated field: surgical resection if feasible and/or individualized EBRT + concurrent platinum +/- brachytherapy.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rec_no_prior",
+      "source_pathways": [
+        "CERV-11"
+      ],
+      "recommendation": {
+        "title": "Locoregional recurrence without prior RT/in unirradiated field: surgical resection if feasible and/or individualized EBRT + concurrent platinum +/- brachytherapy.",
+        "options": [
+          {
+            "option_id": "cerv_rec_surg",
+            "label": "Surgical resection",
+            "text": "If feasible.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "recurrence_resectable_or_local_treatable",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_rec_crt",
+            "label": "Individualized EBRT + concurrent platinum +/- brachytherapy",
+            "text": "Individualized EBRT + concurrent platinum +/- brachytherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_RECURRENCE_NO_PRIOR_RT"
+    },
+    "rec_central": {
+      "kind": "decision",
+      "label": "Central pelvic recurrence after prior RT?",
+      "expression": {
+        "fact": "central_recurrence",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "rec_central_action",
+        "FALSE": "rec_noncentral"
+      },
+      "source_pathways": [
+        "CERV-11"
+      ],
+      "decision_id": "rec_central"
+    },
+    "rec_central_action": {
+      "kind": "action",
+      "label": "Central pelvic recurrence after prior RT: pelvic exenteration +/- IORT category 3, or selected hysterectomy/brachytherapy/reirradiation approaches.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rec_central_action",
+      "source_pathways": [
+        "CERV-11"
+      ],
+      "recommendation": {
+        "title": "Central pelvic recurrence after prior RT: pelvic exenteration +/- IORT category 3, or selected hysterectomy/brachytherapy/reirradiation approaches.",
+        "options": [
+          {
+            "option_id": "cerv_rec_exent",
+            "label": "Pelvic exenteration",
+            "text": "IORT category 3 if used.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          },
+          {
+            "option_id": "cerv_rec_central_local",
+            "label": "Selected radical hysterectomy/brachytherapy/individualized RT",
+            "text": "Selected radical hysterectomy/brachytherapy/individualized RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-C",
+              "page_label": "CERV-C",
+              "physical_pages": [
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ],
+              "source_anchor": "CERV-C:pages:38,39,40,41,42,43,44,45,46"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-C",
+          "CERV-D"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_RECURRENCE_CENTRAL_PRIOR_RT"
+    },
+    "rec_noncentral": {
+      "kind": "action",
+      "label": "Noncentral recurrence after prior RT: resection +/- IORT or individualized reirradiation/systemic therapy/supportive care according to feasibility.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "rec_noncentral",
+      "source_pathways": [
+        "CERV-11"
+      ],
+      "recommendation": {
+        "title": "Noncentral recurrence after prior RT: resection +/- IORT or individualized reirradiation/systemic therapy/supportive care according to feasibility.",
+        "options": [
+          {
+            "option_id": "cerv_rec_noncentral_surg",
+            "label": "Resection +/- IORT",
+            "text": "Resection +/- IORT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_rec_noncentral_rt",
+            "label": "Individualized reirradiation +/- platinum",
+            "text": "Individualized reirradiation +/- platinum",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_rec_noncentral_sys",
+            "label": "Systemic therapy",
+            "text": "Systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_RECURRENCE_NONCENTRAL_PRIOR_RT"
+    },
+    "met_localable": {
+      "kind": "decision",
+      "label": "Stage IVB/distant recurrence amenable to local treatment?",
+      "expression": {
+        "fact": "local_treatment_amenable",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "met_local_action",
+        "FALSE": "met_line"
+      },
+      "source_pathways": [
+        "CERV-12"
+      ],
+      "decision_id": "met_localable"
+    },
+    "met_local_action": {
+      "kind": "action",
+      "label": "Oligometastatic/selected distant cervical disease amenable to local treatment: resection/ablation/individualized RT +/- systemic therapy then surveillance.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "met_local_action",
+      "source_pathways": [
+        "CERV-12"
+      ],
+      "recommendation": {
+        "title": "Oligometastatic/selected distant cervical disease amenable to local treatment: resection/ablation/individualized RT +/- systemic therapy then surveillance.",
+        "options": [
+          {
+            "option_id": "cerv_met_local",
+            "label": "Resection/local ablation/individualized RT",
+            "text": "Resection/local ablation/individualized RT",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_met_adj_sys",
+            "label": "Consider systemic therapy",
+            "text": "Consider systemic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_METASTATIC_LOCAL_TREATMENT"
+    },
+    "met_line": {
+      "kind": "decision",
+      "label": "First-line recurrent/metastatic systemic therapy?",
+      "expression": {
+        "fact": "systemic_line",
+        "op": "eq",
+        "value": "FIRST"
+      },
+      "on": {
+        "TRUE": "met_first_pdl1",
+        "FALSE": "met_later"
+      },
+      "source_pathways": [
+        "CERV-F"
+      ],
+      "decision_id": "met_line"
+    },
+    "met_first_pdl1": {
+      "kind": "decision",
+      "label": "PD-L1 positive?",
+      "expression": {
+        "fact": "pd_l1_positive",
+        "op": "eq",
+        "value": true
+      },
+      "on": {
+        "TRUE": "met_first_pdl1pos",
+        "FALSE": "met_first_standard"
+      },
+      "source_pathways": [
+        "CERV-F"
+      ],
+      "decision_id": "met_first_pdl1"
+    },
+    "met_first_pdl1pos": {
+      "kind": "action",
+      "label": "First-line recurrent/metastatic PD-L1-positive cervical cancer: platinum/paclitaxel + pembrolizumab +/- bevacizumab category 1 preferred; bevacizumab/atezolizumab backbones are source options.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "met_first_pdl1pos",
+      "source_pathways": [
+        "CERV-12"
+      ],
+      "recommendation": {
+        "title": "First-line recurrent/metastatic PD-L1-positive cervical cancer: platinum/paclitaxel + pembrolizumab +/- bevacizumab category 1 preferred; bevacizumab/atezolizumab backbones are source options.",
+        "options": [
+          {
+            "option_id": "cerv_met_pembro_cis",
+            "label": "Cisplatin/paclitaxel + pembrolizumab +/- bevacizumab",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "cisplatin_intolerant",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_met_pembro_carbo",
+            "label": "Carboplatin/paclitaxel + pembrolizumab +/- bevacizumab",
+            "text": "Category 1 preferred when carboplatin appropriate.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_met_bev",
+            "label": "Platinum/paclitaxel + bevacizumab",
+            "text": "Category 1/source preferred option.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_MET_FIRST_PDL1"
+    },
+    "met_first_standard": {
+      "kind": "action",
+      "label": "First-line recurrent/metastatic PD-L1-negative/unknown checkpoint-ineligible cervical cancer: platinum/paclitaxel +/- bevacizumab and other source-listed regimens.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "met_first_standard",
+      "source_pathways": [
+        "CERV-12"
+      ],
+      "recommendation": {
+        "title": "First-line recurrent/metastatic PD-L1-negative/unknown checkpoint-ineligible cervical cancer: platinum/paclitaxel +/- bevacizumab and other source-listed regimens.",
+        "options": [
+          {
+            "option_id": "cerv_met_cis_pac_bev",
+            "label": "Cisplatin/paclitaxel + bevacizumab",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "applicability": {
+              "fact": "cisplatin_intolerant",
+              "op": "eq",
+              "value": false
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_met_carbo_pac_bev",
+            "label": "Carboplatin/paclitaxel + bevacizumab",
+            "text": "Carboplatin/paclitaxel + bevacizumab",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_met_cis_pac",
+            "label": "Cisplatin/paclitaxel",
+            "text": "Category 1.",
+            "decision_relevant": true,
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_met_carbo_pac",
+            "label": "Carboplatin/paclitaxel",
+            "text": "Carboplatin/paclitaxel",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_MET_FIRST_STANDARD"
+    },
+    "met_later": {
+      "kind": "action",
+      "label": "Second/subsequent-line recurrent/metastatic cervical cancer: exact biomarker-eligible immunotherapy/targeted options plus tisotumab vedotin and cytotoxic options.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "met_later",
+      "source_pathways": [
+        "CERV-12"
+      ],
+      "recommendation": {
+        "title": "Second/subsequent-line recurrent/metastatic cervical cancer: exact biomarker-eligible immunotherapy/targeted options plus tisotumab vedotin and cytotoxic options.",
+        "options": [
+          {
+            "option_id": "cerv_later_tisotumab",
+            "label": "Tisotumab vedotin-tftv",
+            "text": "Category 1 preferred.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "evidence_category": "CATEGORY_1",
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_pembro_pdl1",
+            "label": "Pembrolizumab",
+            "text": "PD-L1-positive and no inappropriate prior checkpoint reuse.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "pd_l1_positive",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_checkpoint_inhibitor",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_pembro_msi",
+            "label": "Pembrolizumab",
+            "text": "MSI-H/dMMR.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "msi_h_dmmr_or_tmbh",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_checkpoint_inhibitor",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_pembro_tmb",
+            "label": "Pembrolizumab",
+            "text": "TMB-H.",
+            "decision_relevant": true,
+            "preference_category": "PREFERRED",
+            "applicability": {
+              "all": [
+                {
+                  "fact": "tmb_high",
+                  "op": "eq",
+                  "value": true
+                },
+                {
+                  "fact": "prior_checkpoint_inhibitor",
+                  "op": "eq",
+                  "value": false
+                }
+              ]
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_tdx",
+            "label": "Fam-trastuzumab deruxtecan-nxki",
+            "text": "HER2 IHC 3+/2+.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "her2_positive",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_neratinib",
+            "label": "Neratinib",
+            "text": "HER2-mutant.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "her2_mutant",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_ret",
+            "label": "Selpercatinib",
+            "text": "RET fusion.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "ret_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_ntrk",
+            "label": "Larotrectinib/entrectinib/repotrectinib",
+            "text": "NTRK fusion.",
+            "decision_relevant": true,
+            "applicability": {
+              "fact": "ntrk_fusion",
+              "op": "eq",
+              "value": true
+            },
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          },
+          {
+            "option_id": "cerv_later_chemo",
+            "label": "Source-listed single-agent cytotoxic therapy",
+            "text": "Source-listed single-agent cytotoxic therapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-F",
+              "page_label": "CERV-F",
+              "physical_pages": [
+                57,
+                58,
+                59,
+                60,
+                61
+              ],
+              "source_anchor": "CERV-F:pages:57,58,59,60,61"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_MET_LATER"
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Outside cervical cancer package.",
+      "status": "OUTSIDE_ENCODED_SCOPE",
+      "source_pathways": [
+        "CERV-1"
+      ]
+    },
+    "la_nodal_pending": {
+      "kind": "action",
+      "label": "Stage IIB-IVA: definitive concurrent platinum-based chemoradiation plus brachytherapy; para-aortic nodal status is still required to finalize radiation field extent.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "la_nodal_pending",
+      "source_pathways": [
+        "CERV-7"
+      ],
+      "recommendation": {
+        "title": "Locally advanced cervical cancer definitive therapy with nodal-field refinement pending.",
+        "options": [
+          {
+            "option_id": "cerv_la_crt",
+            "label": "EBRT + concurrent platinum + brachytherapy",
+            "text": "EBRT + concurrent platinum + brachytherapy",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          },
+          {
+            "option_id": "cerv_la_pembro2",
+            "label": "Concurrent and maintenance pembrolizumab",
+            "text": "Source-defined setting.",
+            "decision_relevant": true,
+            "source_provenance": {
+              "guideline": "Cervical Cancer",
+              "version": "2.2026",
+              "section": "CERV-D",
+              "page_label": "CERV-D",
+              "physical_pages": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55
+              ],
+              "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55"
+            }
+          }
+        ],
+        "supporting_sections": [
+          "CERV-D",
+          "CERV-F"
+        ],
+        "next_steps": []
+      },
+      "pathway_id": "CERV_LOCALLY_ADVANCED_NODAL_REFINEMENT_PENDING"
+    }
+  },
+  "coverage": {
+    "primary_sections": {
+      "CERV-1": {
+        "code": "CERV-1",
+        "pages": [
+          10
+        ],
+        "page_count": 1,
+        "source_text_sha256": "43dd582178f8267188b4784cdeda502ddba748e4b924f1f581aa2f71c95c8244",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-2": {
+        "code": "CERV-2",
+        "pages": [
+          11
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a5d0f26823982d95d4c79f4aed3a9e775cc82b0c6316ee1b9973e5c106bc0dcd",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-2A": {
+        "code": "CERV-2A",
+        "pages": [
+          12
+        ],
+        "page_count": 1,
+        "source_text_sha256": "73fb962c2c89b50d547e2760d572932d44f508cef0b0d499c363f92449a6c6ea",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-3": {
+        "code": "CERV-3",
+        "pages": [
+          13
+        ],
+        "page_count": 1,
+        "source_text_sha256": "c542a4bd202fb79aa69464603c0d0b70457a2637db7ec24bf928f131faaf286d",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-3A": {
+        "code": "CERV-3A",
+        "pages": [
+          14
+        ],
+        "page_count": 1,
+        "source_text_sha256": "50e5d3217b026af8791069d56a19062930c6cad07ecbd7700270ed786c744274",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-4": {
+        "code": "CERV-4",
+        "pages": [
+          15
+        ],
+        "page_count": 1,
+        "source_text_sha256": "2722a5966551be43c4ea3ca44f4edba268212153ec3ed2d0082715f6624fde0a",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-5": {
+        "code": "CERV-5",
+        "pages": [
+          16
+        ],
+        "page_count": 1,
+        "source_text_sha256": "e5e146a3be08ac5c52cc705651d7649ab0bf803fdb13b4e1c8e0a095998a9086",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-6": {
+        "code": "CERV-6",
+        "pages": [
+          17
+        ],
+        "page_count": 1,
+        "source_text_sha256": "a81f7f22a624f70a3163c584a3f54af73c4918edf3423bf488561e08ac371a6d",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-7": {
+        "code": "CERV-7",
+        "pages": [
+          18
+        ],
+        "page_count": 1,
+        "source_text_sha256": "394d649583a1fa14ef75ebb8b2408c42271df48f7e5529023455b3b2c11e4ed9",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-8": {
+        "code": "CERV-8",
+        "pages": [
+          19
+        ],
+        "page_count": 1,
+        "source_text_sha256": "5f073b1fb606d59a8f3b8c182b25aea6b73ef15507fc4e8c1a99bf5ddcf0b14c",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-9": {
+        "code": "CERV-9",
+        "pages": [
+          20
+        ],
+        "page_count": 1,
+        "source_text_sha256": "c365b13dbfbf9b93631362bba75c7a6614479aefff06126e3f8e5a5658562c69",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-10": {
+        "code": "CERV-10",
+        "pages": [
+          21
+        ],
+        "page_count": 1,
+        "source_text_sha256": "bbb26d5c66ddc13931cd5c1eeed1ee7e7af4c9ae7c4ee847197ee1701192f34f",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-11": {
+        "code": "CERV-11",
+        "pages": [
+          22
+        ],
+        "page_count": 1,
+        "source_text_sha256": "0b65bb35ba820bdb969599be20aba353363d1eaf206951552918eb7cfa6613a5",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-12": {
+        "code": "CERV-12",
+        "pages": [
+          23
+        ],
+        "page_count": 1,
+        "source_text_sha256": "dc3ccbc07769223e6cb23bddcaa02d948dc63d8715b48ea55e9abfe68d605b42",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-13": {
+        "code": "CERV-13",
+        "pages": [
+          24
+        ],
+        "page_count": 1,
+        "source_text_sha256": "df2f1b673de18f538bb9e9c2152c6e554b302ed0bd8f4462e03fc963e7804bca",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      },
+      "CERV-14": {
+        "code": "CERV-14",
+        "pages": [
+          25
+        ],
+        "page_count": 1,
+        "source_text_sha256": "dba9c6a37ac9eb943c96280c17aaf8eb1616425fa10273f8bca70085ee87a257",
+        "kind": "PRIMARY_ALGORITHM",
+        "found": true
+      }
+    },
+    "supporting_sections": {
+      "CERV-A": {
+        "code": "CERV-A",
+        "pages": [
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33
+        ],
+        "page_count": 8,
+        "source_text_sha256": "3167b9303d01fd00dfac777bb16787a9a7536832fda4a66d54a823f2c2320fb7",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "CERV-B": {
+        "code": "CERV-B",
+        "pages": [
+          34,
+          35,
+          36,
+          37
+        ],
+        "page_count": 4,
+        "source_text_sha256": "ce6fa2f7af9382536e36be657601eb9e4a1b08a631dd2c8db905830b4805cde9",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "CERV-C": {
+        "code": "CERV-C",
+        "pages": [
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46
+        ],
+        "page_count": 9,
+        "source_text_sha256": "3918a6c44678f6505d2f2e25e5e09cd3f4d003428e3cf07d7ecc3c619587d30a",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "CERV-D": {
+        "code": "CERV-D",
+        "pages": [
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55
+        ],
+        "page_count": 9,
+        "source_text_sha256": "5742df8f8c71d33cbdf70a7f190cbb652e0f45c8f03a377244c3d61e529a0cdd",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "CERV-E": {
+        "code": "CERV-E",
+        "pages": [
+          56
+        ],
+        "page_count": 1,
+        "source_text_sha256": "c386d162e42a05fe1110ab1109b3ef98f59379685b9847ef2dd2a22ec04b4f7b",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "CERV-F": {
+        "code": "CERV-F",
+        "pages": [
+          57,
+          58,
+          59,
+          60,
+          61
+        ],
+        "page_count": 5,
+        "source_text_sha256": "06a721c50590943cd75593d7321c5d83dbcbeb95e2bee3c2af949564ba010411",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "CERV-G": {
+        "code": "CERV-G",
+        "pages": [
+          62
+        ],
+        "page_count": 1,
+        "source_text_sha256": "b8ef3363957a2c79dd6954ca5656cffa7122572b21513d7c3f0a4023e48bb93d",
+        "kind": "SUPPORTING_PRINCIPLE",
+        "found": true
+      },
+      "ST-1": {
+        "code": "ST-1",
+        "pages": [
+          63
+        ],
+        "page_count": 1,
+        "source_text_sha256": "4a2c7efa213c10fbb23ea23d98abf180df6c62a2d07c3d7a620f2d964236e15e",
+        "kind": "STAGING",
+        "found": true
+      }
+    },
+    "primary_expected": 16,
+    "supporting_expected": 8
+  },
+  "source": {
+    "filename": "cervical(6).pdf",
+    "sha256": "720abc1b1c3794294ab7af063edae613240a7f06affcdbae8b2002b93b29f4ee",
+    "pdf_pages": 138
+  },
+  "safety": {
+    "three_valued_logic": true,
+    "semantic_unknown_fail_closed": true,
+    "whole_state_schema_validation_required": true,
+    "pathway_transfer_is_non_treatment": true,
+    "clinical_review_required": true,
+    "cross_state_consistency_gate": true
+  },
+  "consistency_rules": [
+    {
+      "id": "cerv_ivb_surveillance_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "figo_stage",
+            "op": "eq",
+            "value": "IVB"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "SURVEILLANCE"
+          },
+          {
+            "fact": "distant_metastases",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "message": "Active distant metastatic cervical disease cannot route to routine post-treatment surveillance.",
+      "source_pathways": [
+        "CERV-10",
+        "CERV-12"
+      ]
+    },
+    {
+      "id": "cerv_conservative_size_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "conservative_surgery_criteria_met",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "tumor_size_cm",
+            "op": "gt",
+            "value": 2
+          }
+        ]
+      },
+      "message": "Conservative-surgery flag conflicts with source criterion tumor size <=2 cm.",
+      "source_pathways": [
+        "CERV-2",
+        "CERV-4",
+        "CERV-C"
+      ]
+    },
+    {
+      "id": "cerv_conservative_doi_conflict",
+      "when": {
+        "all": [
+          {
+            "fact": "conservative_surgery_criteria_met",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "depth_invasion_mm",
+            "op": "gt",
+            "value": 10
+          }
+        ]
+      },
+      "message": "Conservative-surgery flag conflicts with source criterion depth of invasion <=10 mm.",
+      "source_pathways": [
+        "CERV-2",
+        "CERV-4",
+        "CERV-C"
+      ]
+    }
+  ],
+  "derived_rules": [],
+  "executable_decisions": [
+    {
+      "decision_id": "scope",
+      "source_section": "CERV-1",
+      "source_page_label": "CERV-1",
+      "source_anchor": "CERV-1:pages:10",
+      "clinical_question": "Cervical cancer?",
+      "input_fact_ids": [
+        "cancer_type"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "necc",
+        "outside"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "scope",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "necc",
+      "source_section": "CERV-13",
+      "source_page_label": "CERV-13",
+      "source_anchor": "CERV-13:pages:24",
+      "clinical_question": "Small-cell neuroendocrine carcinoma?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "necc_extent",
+        "common_hist"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "necc",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "common_hist",
+      "source_section": "CERV-1",
+      "source_page_label": "CERV-1",
+      "source_anchor": "CERV-1:pages:10",
+      "clinical_question": "Squamous, adenocarcinoma, or adenosquamous cervical carcinoma?",
+      "input_fact_ids": [
+        "histology"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "care_met",
+        "otherhist"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "common_hist",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "necc_extent",
+      "source_section": "CERV-13",
+      "source_page_label": "CERV-13",
+      "source_anchor": "CERV-13:pages:24",
+      "clinical_question": "NECC distant metastatic?",
+      "input_fact_ids": [
+        "figo_stage",
+        "necc_disease_extent"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_necc_bsc",
+        "cerv_necc_sys"
+      ],
+      "internal_transfer_targets": [
+        "necc_met",
+        "necc_localadv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "necc_extent",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "necc_localadv",
+      "source_section": "CERV-13",
+      "source_page_label": "CERV-13",
+      "source_anchor": "CERV-13:pages:24",
+      "clinical_question": "NECC locally advanced IIA-IVA / IB3?",
+      "input_fact_ids": [
+        "figo_stage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_necc_early_chemo",
+        "cerv_necc_early_crt",
+        "cerv_necc_early_surg"
+      ],
+      "internal_transfer_targets": [
+        "necc_la",
+        "necc_early"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "necc_localadv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "necc_la",
+      "source_section": "CERV-14",
+      "source_page_label": "CERV-14",
+      "source_anchor": "CERV-14:pages:25",
+      "clinical_question": "Post-treatment NECC response assessment?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_necc_la_crt",
+        "cerv_necc_la_neoadj"
+      ],
+      "internal_transfer_targets": [
+        "necc_resp",
+        "necc_la_primary"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "necc_la",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "necc_resp",
+      "source_section": "CERV-14",
+      "source_page_label": "CERV-14",
+      "source_anchor": "CERV-14:pages:25",
+      "clinical_question": "NECC response to treatment?",
+      "input_fact_ids": [
+        "necc_response"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_necc_rr_exent",
+        "cerv_necc_rr_sys",
+        "cerv_surveillance"
+      ],
+      "internal_transfer_targets": [
+        "surv",
+        "necc_persist"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "necc_resp",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_met",
+      "source_section": "CERV-12",
+      "source_page_label": "CERV-12",
+      "source_anchor": "CERV-12:pages:23",
+      "clinical_question": "Current distant metastatic/IVB episode?",
+      "input_fact_ids": [
+        "distant_metastases",
+        "figo_stage",
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "met_localable",
+        "care_rec"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_met",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_rec",
+      "source_section": "CERV-11",
+      "source_page_label": "CERV-11",
+      "source_anchor": "CERV-11:pages:22",
+      "clinical_question": "Current locoregional recurrence?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "rec_priorrt",
+        "care_incidental"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_rec",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_incidental",
+      "source_section": "CERV-8",
+      "source_page_label": "CERV-8",
+      "source_anchor": "CERV-8:pages:19",
+      "clinical_question": "Incidental invasive cancer after simple hysterectomy?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "incidental_stage",
+        "care_post"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_incidental",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_post",
+      "source_section": "CERV-6",
+      "source_page_label": "CERV-6",
+      "source_anchor": "CERV-6:pages:17",
+      "clinical_question": "Post-surgery/adjuvant state?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "post_high",
+        "care_surv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_post",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "care_surv",
+      "source_section": "CERV-10",
+      "source_page_label": "CERV-10",
+      "source_anchor": "CERV-10:pages:21",
+      "clinical_question": "Surveillance state?",
+      "input_fact_ids": [
+        "treatment_phase"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_surveillance"
+      ],
+      "internal_transfer_targets": [
+        "surv",
+        "initial_stage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "care_surv",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "initial_stage",
+      "source_section": "CERV-2",
+      "source_page_label": "CERV-2",
+      "source_anchor": "CERV-2:pages:11",
+      "clinical_question": "Fertility-sparing desired?",
+      "input_fact_ids": [
+        "fertility_sparing_desired",
+        "figo_stage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "fertility_stage",
+        "nonfert_stage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "initial_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "fertility_stage",
+      "source_section": "CERV-2",
+      "source_page_label": "CERV-2",
+      "source_anchor": "CERV-2:pages:11",
+      "clinical_question": "Stage IA1 no LVSI?",
+      "input_fact_ids": [
+        "figo_stage",
+        "lvsi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_fert_cone"
+      ],
+      "internal_transfer_targets": [
+        "fert_ia1",
+        "fert_lvsi"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "fertility_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "fert_lvsi",
+      "source_section": "CERV-2",
+      "source_page_label": "CERV-2",
+      "source_anchor": "CERV-2:pages:11",
+      "clinical_question": "Stage IA1 with LVSI?",
+      "input_fact_ids": [
+        "figo_stage",
+        "lvsi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_fert_ia1lvsi"
+      ],
+      "internal_transfer_targets": [
+        "fert_ia1_lvsi",
+        "fert_cons"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "fert_lvsi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "fert_cons",
+      "source_section": "CERV-2",
+      "source_page_label": "CERV-2",
+      "source_anchor": "CERV-2:pages:11",
+      "clinical_question": "IA2-IB1 meeting conservative surgery criteria?",
+      "input_fact_ids": [
+        "conservative_surgery_criteria_met",
+        "depth_invasion_mm",
+        "figo_stage",
+        "tumor_size_cm"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_fert_cons_cone"
+      ],
+      "internal_transfer_targets": [
+        "fert_cons_action",
+        "fert_radical"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "fert_cons",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "fert_radical",
+      "source_section": "CERV-2",
+      "source_page_label": "CERV-2",
+      "source_anchor": "CERV-2:pages:11",
+      "clinical_question": "IB1 not meeting conservative criteria or selected IB2?",
+      "input_fact_ids": [
+        "figo_stage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_rad_trach"
+      ],
+      "internal_transfer_targets": [
+        "fert_trach",
+        "fert_not"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "fert_radical",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "nonfert_stage",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "Stage IA1?",
+      "input_fact_ids": [
+        "figo_stage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "ia1_lvsi",
+        "early_ia2"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "nonfert_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ia1_lvsi",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "LVSI present?",
+      "input_fact_ids": [
+        "lvsi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "ia1_lvsi_margin",
+        "ia1_margin"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ia1_lvsi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ia1_margin",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "Cone margin negative?",
+      "input_fact_ids": [
+        "cone_margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "ia1_operable",
+        "ia1_posmargin"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ia1_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ia1_operable",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "Medically operable?",
+      "input_fact_ids": [
+        "medically_operable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_ia1_hyst",
+        "cerv_ia1_observe"
+      ],
+      "internal_transfer_targets": [
+        "ia1_hyst",
+        "ia1_observe"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ia1_operable",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ia1_posmargin",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "Positive margin for carcinoma?",
+      "input_fact_ids": [
+        "cone_margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_ia1_pd_cone",
+        "cerv_ia1_pd_hyst"
+      ],
+      "internal_transfer_targets": [
+        "ia1_pm_operable",
+        "ia1_pd"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ia1_posmargin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ia1_pm_operable",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "Medically operable?",
+      "input_fact_ids": [
+        "medically_operable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_ia1_pm_brachy",
+        "cerv_ia1_pm_cone",
+        "cerv_ia1_pm_rad",
+        "cerv_ia1_pm_recone"
+      ],
+      "internal_transfer_targets": [
+        "ia1_pm_surg",
+        "ia1_pm_inop"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ia1_pm_operable",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ia1_lvsi_margin",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "IA1 with LVSI, negative cone margin?",
+      "input_fact_ids": [
+        "cone_margin_status"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_ia1lvsi_hyst",
+        "cerv_ia1lvsi_hyst2",
+        "cerv_ia1lvsi_recone",
+        "cerv_ia1lvsi_rt"
+      ],
+      "internal_transfer_targets": [
+        "ia1lvsi_hyst",
+        "ia1lvsi_pm"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ia1_lvsi_margin",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "early_ia2",
+      "source_section": "CERV-4",
+      "source_page_label": "CERV-4",
+      "source_anchor": "CERV-4:pages:15",
+      "clinical_question": "IA2-IB1 conservative criteria met?",
+      "input_fact_ids": [
+        "conservative_surgery_criteria_met",
+        "depth_invasion_mm",
+        "figo_stage",
+        "tumor_size_cm"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_early_typea"
+      ],
+      "internal_transfer_targets": [
+        "early_cons_action",
+        "ib1ib2"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "early_ia2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ib1ib2",
+      "source_section": "CERV-5",
+      "source_page_label": "CERV-5",
+      "source_anchor": "CERV-5:pages:16",
+      "clinical_question": "IB1 not conservative, IB2, or IIA1?",
+      "input_fact_ids": [
+        "figo_stage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "ib1ib2_operable",
+        "bulky"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ib1ib2",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "ib1ib2_operable",
+      "source_section": "CERV-5",
+      "source_page_label": "CERV-5",
+      "source_anchor": "CERV-5:pages:16",
+      "clinical_question": "Medically operable?",
+      "input_fact_ids": [
+        "medically_operable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_early_inop_rt",
+        "cerv_early_rad_hyst",
+        "cerv_early_rt"
+      ],
+      "internal_transfer_targets": [
+        "ib1ib2_action",
+        "ib1ib2_rt"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "ib1ib2_operable",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "bulky",
+      "source_section": "CERV-5",
+      "source_page_label": "CERV-5",
+      "source_anchor": "CERV-5:pages:16",
+      "clinical_question": "IB3 or IIA2?",
+      "input_fact_ids": [
+        "figo_stage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_bulky_crt",
+        "cerv_bulky_surg"
+      ],
+      "internal_transfer_targets": [
+        "bulky_action",
+        "locallyadv_check"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "bulky",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "locallyadv_check",
+      "source_section": "CERV-7",
+      "source_page_label": "CERV-7",
+      "source_anchor": "CERV-7:pages:18",
+      "clinical_question": "IIB-IVA?",
+      "input_fact_ids": [
+        "figo_stage"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "locallyadv_nodes",
+        "need_stage"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "locallyadv_check",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "locallyadv_nodes",
+      "source_section": "CERV-7",
+      "source_page_label": "CERV-7",
+      "source_anchor": "CERV-7:pages:18",
+      "clinical_question": "Para-aortic nodes positive?",
+      "input_fact_ids": [
+        "para_aortic_nodes_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_la_crt",
+        "cerv_la_ext_crt",
+        "cerv_la_pembro",
+        "cerv_la_pembro2"
+      ],
+      "internal_transfer_targets": [
+        "la_extended",
+        "la_standard"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "locallyadv_nodes",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "post_high",
+      "source_section": "CERV-6",
+      "source_page_label": "CERV-6",
+      "source_anchor": "CERV-6:pages:17",
+      "clinical_question": "Positive pelvic/para-aortic nodes, margin, or parametrium?",
+      "input_fact_ids": [
+        "para_aortic_nodes_positive",
+        "pelvic_nodes_positive",
+        "positive_margin",
+        "positive_nodes",
+        "positive_parametrium"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [],
+      "internal_transfer_targets": [
+        "post_high_met",
+        "post_intermediate"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_high",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "post_high_met",
+      "source_section": "CERV-6",
+      "source_page_label": "CERV-6",
+      "source_anchor": "CERV-6:pages:17",
+      "clinical_question": "Distant metastases present?",
+      "input_fact_ids": [
+        "distant_metastases"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_post_brachy",
+        "cerv_post_crt"
+      ],
+      "internal_transfer_targets": [
+        "met_localable",
+        "post_high_action"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_high_met",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "post_intermediate",
+      "source_section": "CERV-6",
+      "source_page_label": "CERV-6",
+      "source_anchor": "CERV-6:pages:17",
+      "clinical_question": "GOG/Sedlis intermediate-risk combination present?",
+      "input_fact_ids": [
+        "lvsi"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_post_chemo",
+        "cerv_post_ebrt",
+        "cerv_surveillance"
+      ],
+      "internal_transfer_targets": [
+        "post_intermediate_action",
+        "surv"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "post_intermediate",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "incidental_stage",
+      "source_section": "CERV-8",
+      "source_page_label": "CERV-8",
+      "source_anchor": "CERV-8:pages:19",
+      "clinical_question": "Incidental IA1 no LVSI with negative margin?",
+      "input_fact_ids": [
+        "figo_stage",
+        "lvsi",
+        "positive_margin"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_incidental_crt",
+        "cerv_incidental_surgery",
+        "cerv_incidental_surv"
+      ],
+      "internal_transfer_targets": [
+        "incidental_ia1",
+        "incidental_other"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "incidental_stage",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "rec_priorrt",
+      "source_section": "CERV-11",
+      "source_page_label": "CERV-11",
+      "source_anchor": "CERV-11:pages:22",
+      "clinical_question": "No prior RT or recurrence outside prior RT field?",
+      "input_fact_ids": [
+        "prior_pelvic_rt",
+        "recurrence_outside_prior_rt_field"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_rec_crt",
+        "cerv_rec_surg"
+      ],
+      "internal_transfer_targets": [
+        "rec_no_prior",
+        "rec_central"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rec_priorrt",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "rec_central",
+      "source_section": "CERV-11",
+      "source_page_label": "CERV-11",
+      "source_anchor": "CERV-11:pages:22",
+      "clinical_question": "Central pelvic recurrence after prior RT?",
+      "input_fact_ids": [
+        "central_recurrence"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_rec_central_local",
+        "cerv_rec_exent",
+        "cerv_rec_noncentral_rt",
+        "cerv_rec_noncentral_surg",
+        "cerv_rec_noncentral_sys"
+      ],
+      "internal_transfer_targets": [
+        "rec_central_action",
+        "rec_noncentral"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "rec_central",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "met_localable",
+      "source_section": "CERV-12",
+      "source_page_label": "CERV-12",
+      "source_anchor": "CERV-12:pages:23",
+      "clinical_question": "Stage IVB/distant recurrence amenable to local treatment?",
+      "input_fact_ids": [
+        "local_treatment_amenable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_met_adj_sys",
+        "cerv_met_local"
+      ],
+      "internal_transfer_targets": [
+        "met_local_action",
+        "met_line"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "met_localable",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "met_line",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "First-line recurrent/metastatic systemic therapy?",
+      "input_fact_ids": [
+        "systemic_line"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_chemo",
+        "cerv_later_neratinib",
+        "cerv_later_ntrk",
+        "cerv_later_pembro_msi",
+        "cerv_later_pembro_pdl1",
+        "cerv_later_pembro_tmb",
+        "cerv_later_ret",
+        "cerv_later_tdx",
+        "cerv_later_tisotumab"
+      ],
+      "internal_transfer_targets": [
+        "met_first_pdl1",
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "met_line",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "met_first_pdl1",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "PD-L1 positive?",
+      "input_fact_ids": [
+        "pd_l1_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "TRUE",
+        "FALSE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_met_bev",
+        "cerv_met_carbo_pac",
+        "cerv_met_carbo_pac_bev",
+        "cerv_met_cis_pac",
+        "cerv_met_cis_pac_bev",
+        "cerv_met_pembro_carbo",
+        "cerv_met_pembro_cis"
+      ],
+      "internal_transfer_targets": [
+        "met_first_pdl1pos",
+        "met_first_standard"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "PATHWAY_DECISION",
+      "implementation_ref": "met_first_pdl1",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::ia1_pd::cerv_ia1_pd_hyst",
+      "source_section": "CERV-3",
+      "source_page_label": "CERV-3",
+      "source_anchor": "CERV-3:pages:13",
+      "clinical_question": "Is option Type A hysterectomy applicable to the current patient state?",
+      "input_fact_ids": [
+        "medically_operable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_ia1_pd_hyst"
+      ],
+      "internal_transfer_targets": [
+        "ia1_pd"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "ia1_pd:cerv_ia1_pd_hyst",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::rec_no_prior::cerv_rec_surg",
+      "source_section": "CERV-D",
+      "source_page_label": "CERV-D",
+      "source_anchor": "CERV-D:pages:47,48,49,50,51,52,53,54,55",
+      "clinical_question": "Is option Surgical resection applicable to the current patient state?",
+      "input_fact_ids": [
+        "recurrence_resectable_or_local_treatable"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_rec_surg"
+      ],
+      "internal_transfer_targets": [
+        "rec_no_prior"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "rec_no_prior:cerv_rec_surg",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_first_pdl1pos::cerv_met_pembro_cis",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Cisplatin/paclitaxel + pembrolizumab +/- bevacizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "cisplatin_intolerant"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_met_pembro_cis"
+      ],
+      "internal_transfer_targets": [
+        "met_first_pdl1pos"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_first_pdl1pos:cerv_met_pembro_cis",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_first_standard::cerv_met_cis_pac_bev",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Cisplatin/paclitaxel + bevacizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "cisplatin_intolerant"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_met_cis_pac_bev"
+      ],
+      "internal_transfer_targets": [
+        "met_first_standard"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_first_standard:cerv_met_cis_pac_bev",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_later::cerv_later_pembro_pdl1",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "pd_l1_positive",
+        "prior_checkpoint_inhibitor"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_pembro_pdl1"
+      ],
+      "internal_transfer_targets": [
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_later:cerv_later_pembro_pdl1",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_later::cerv_later_pembro_msi",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "msi_h_dmmr_or_tmbh",
+        "prior_checkpoint_inhibitor"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_pembro_msi"
+      ],
+      "internal_transfer_targets": [
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_later:cerv_later_pembro_msi",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_later::cerv_later_pembro_tmb",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Pembrolizumab applicable to the current patient state?",
+      "input_fact_ids": [
+        "prior_checkpoint_inhibitor",
+        "tmb_high"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_pembro_tmb"
+      ],
+      "internal_transfer_targets": [
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_later:cerv_later_pembro_tmb",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_later::cerv_later_tdx",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Fam-trastuzumab deruxtecan-nxki applicable to the current patient state?",
+      "input_fact_ids": [
+        "her2_positive"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_tdx"
+      ],
+      "internal_transfer_targets": [
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_later:cerv_later_tdx",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_later::cerv_later_neratinib",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Neratinib applicable to the current patient state?",
+      "input_fact_ids": [
+        "her2_mutant"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_neratinib"
+      ],
+      "internal_transfer_targets": [
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_later:cerv_later_neratinib",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_later::cerv_later_ret",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Selpercatinib applicable to the current patient state?",
+      "input_fact_ids": [
+        "ret_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_ret"
+      ],
+      "internal_transfer_targets": [
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_later:cerv_later_ret",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    },
+    {
+      "decision_id": "option::met_later::cerv_later_ntrk",
+      "source_section": "CERV-F",
+      "source_page_label": "CERV-F",
+      "source_anchor": "CERV-F:pages:57,58,59,60,61",
+      "clinical_question": "Is option Larotrectinib/entrectinib/repotrectinib applicable to the current patient state?",
+      "input_fact_ids": [
+        "ntrk_fusion"
+      ],
+      "derived_rule_ids": [],
+      "possible_branches": [
+        "SHOW",
+        "HIDE",
+        "UNKNOWN",
+        "CONFLICT"
+      ],
+      "option_set_ids": [
+        "cerv_later_ntrk"
+      ],
+      "internal_transfer_targets": [
+        "met_later"
+      ],
+      "external_dependencies": [],
+      "implementation_kind": "OPTION_APPLICABILITY",
+      "implementation_ref": "met_later:cerv_later_ntrk",
+      "implemented": true,
+      "tested": true,
+      "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+    }
+  ]
+}

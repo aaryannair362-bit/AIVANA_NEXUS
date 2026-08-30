@@ -1,0 +1,1140 @@
+[
+  {
+    "decision_id": "scope",
+    "source_section": "BCC-1",
+    "source_page_label": "BCC-1",
+    "source_anchor": "BCC-1:pages:5",
+    "clinical_question": "Basal cell skin cancer?",
+    "input_fact_ids": [
+      "cancer_type"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "care_advanced",
+      "outside"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "scope",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_advanced",
+    "source_section": "BCC-1",
+    "source_page_label": "BCC-1",
+    "source_anchor": "BCC-1:pages:5",
+    "clinical_question": "Nodal or metastatic/locally advanced current disease?",
+    "input_fact_ids": [
+      "disease_extent"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "extent_la",
+      "care_recur"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_advanced",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "care_recur",
+    "source_section": "BCC-6",
+    "source_page_label": "BCC-6",
+    "source_anchor": "BCC-6:pages:11",
+    "clinical_question": "Current recurrence?",
+    "input_fact_ids": [
+      "local_recurrence",
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "recur_extent",
+      "care_post_treatment"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_recur",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "risk_any",
+    "source_section": "BCC-2",
+    "source_page_label": "BCC-2",
+    "source_anchor": "BCC-2:pages:6",
+    "clinical_question": "Any confirmed high-risk recurrence factor?",
+    "input_fact_ids": [
+      "aggressive_histology",
+      "diameter_high_risk",
+      "immunosuppressed",
+      "location_high_risk",
+      "perineural_involvement",
+      "poorly_defined_borders",
+      "recurrent_primary",
+      "site_prior_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "high_local",
+      "risk_all_negative"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "risk_any",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "risk_all_negative",
+    "source_section": "BCC-2",
+    "source_page_label": "BCC-2",
+    "source_anchor": "BCC-2:pages:6",
+    "clinical_question": "All source-defined high-risk factors confirmed absent?",
+    "input_fact_ids": [
+      "aggressive_histology",
+      "diameter_high_risk",
+      "immunosuppressed",
+      "location_high_risk",
+      "perineural_involvement",
+      "poorly_defined_borders",
+      "recurrent_primary",
+      "site_prior_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_low_ce",
+      "bcc_low_excision",
+      "bcc_low_mohs",
+      "bcc_low_superficial"
+    ],
+    "internal_transfer_targets": [
+      "low_primary",
+      "need_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "risk_all_negative",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "low_local",
+    "source_section": "BCC-3",
+    "source_page_label": "BCC-3",
+    "source_anchor": "BCC-3:pages:7",
+    "clinical_question": "Low-risk BCC postoperative margin positive?",
+    "input_fact_ids": [
+      "margin_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_low_ce",
+      "bcc_low_excision",
+      "bcc_low_mohs",
+      "bcc_low_pm_mohs",
+      "bcc_low_pm_reexcision",
+      "bcc_low_pm_rt",
+      "bcc_low_superficial"
+    ],
+    "internal_transfer_targets": [
+      "low_posmargin",
+      "low_primary"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "low_local",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "high_local",
+    "source_section": "BCC-4",
+    "source_page_label": "BCC-4",
+    "source_anchor": "BCC-4:pages:9",
+    "clinical_question": "Named nerve/perineural extensive involvement?",
+    "input_fact_ids": [
+      "named_nerve_involvement"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_pn_rt",
+      "bcc_pn_surgery"
+    ],
+    "internal_transfer_targets": [
+      "high_pn",
+      "high_surgery"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "high_local",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "high_surgery",
+    "source_section": "BCC-4",
+    "source_page_label": "BCC-4",
+    "source_anchor": "BCC-4:pages:9",
+    "clinical_question": "Surgery feasible?",
+    "input_fact_ids": [
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_high_def_rt",
+      "bcc_high_mohs_pdema",
+      "bcc_high_standard_excision",
+      "bcc_high_to_advanced"
+    ],
+    "internal_transfer_targets": [
+      "high_primary_surgery",
+      "high_rt"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "high_surgery",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "high_surgery_margin",
+    "source_section": "BCC-4",
+    "source_page_label": "BCC-4",
+    "source_anchor": "BCC-4:pages:9",
+    "clinical_question": "Postoperative margin positive?",
+    "input_fact_ids": [
+      "margin_status"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_high_adjuvant_rt",
+      "bcc_high_follow",
+      "bcc_high_pm_resect",
+      "bcc_high_pm_rt"
+    ],
+    "internal_transfer_targets": [
+      "high_pm",
+      "high_neg"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "high_surgery_margin",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "extent_la",
+    "source_section": "BCC-5",
+    "source_page_label": "BCC-5",
+    "source_anchor": "BCC-5:pages:10",
+    "clinical_question": "Locally advanced disease?",
+    "input_fact_ids": [
+      "disease_extent"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "la_resect",
+      "extent_nodal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "extent_la",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "la_resect",
+    "source_section": "BCC-5",
+    "source_page_label": "BCC-5",
+    "source_anchor": "BCC-5:pages:10",
+    "clinical_question": "Locally advanced disease resectable with acceptable morbidity?",
+    "input_fact_ids": [
+      "resectable"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_la_neo_vismo",
+      "bcc_la_surgery"
+    ],
+    "internal_transfer_targets": [
+      "la_resect_action",
+      "la_hhi_state"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "la_resect",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "la_hhi_state",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Prior HHI with progression/intolerance?",
+    "input_fact_ids": [
+      "hhi_intolerant_or_progressed"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_la_cemip",
+      "bcc_la_soni",
+      "bcc_la_vismo"
+    ],
+    "internal_transfer_targets": [
+      "la_second",
+      "la_first"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "la_hhi_state",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "extent_nodal",
+    "source_section": "BCC-5",
+    "source_page_label": "BCC-5",
+    "source_anchor": "BCC-5:pages:10",
+    "clinical_question": "Nodal disease?",
+    "input_fact_ids": [
+      "disease_extent"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_nodal_cemi",
+      "bcc_nodal_cemip",
+      "bcc_nodal_hhi",
+      "bcc_nodal_soni",
+      "bcc_nodal_surg",
+      "bcc_nodal_vismo"
+    ],
+    "internal_transfer_targets": [
+      "nodal",
+      "extent_met"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "extent_nodal",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "extent_met",
+    "source_section": "BCC-5",
+    "source_page_label": "BCC-5",
+    "source_anchor": "BCC-5:pages:10",
+    "clinical_question": "Metastatic disease?",
+    "input_fact_ids": [
+      "disease_extent"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_met_cemi",
+      "bcc_met_cemip",
+      "bcc_met_hhi",
+      "bcc_met_soni",
+      "bcc_met_vismo"
+    ],
+    "internal_transfer_targets": [
+      "met",
+      "need_extent"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "extent_met",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "recur_extent",
+    "source_section": "BCC-6",
+    "source_page_label": "BCC-6",
+    "source_anchor": "BCC-6:pages:11",
+    "clinical_question": "Advanced recurrence (locally advanced/nodal/metastatic)?",
+    "input_fact_ids": [
+      "disease_extent"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_rec_mohs",
+      "bcc_rec_rt"
+    ],
+    "internal_transfer_targets": [
+      "extent_la",
+      "recur_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "recur_extent",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcc_post_treatment_state",
+    "source_section": "BCC-3",
+    "source_page_label": "BCC-3",
+    "source_anchor": "BCC-3:pages:7",
+    "clinical_question": "Post-treatment/post-excision margin assessment state?",
+    "input_fact_ids": [
+      "treatment_phase"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "post_risk_any",
+      "risk_any"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "care_post_treatment",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcc_post_high_risk_any",
+    "source_section": "BCC-2",
+    "source_page_label": "BCC-2",
+    "source_anchor": "BCC-2:pages:6",
+    "clinical_question": "Post-treatment lesion classified high risk by any BCC-2 factor?",
+    "input_fact_ids": [
+      "aggressive_histology",
+      "diameter_high_risk",
+      "immunosuppressed",
+      "location_high_risk",
+      "perineural_involvement",
+      "poorly_defined_borders",
+      "recurrent_primary",
+      "site_prior_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "high_surgery_margin",
+      "post_risk_all_negative"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_risk_any",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "bcc_post_all_high_risk_absent",
+    "source_section": "BCC-2",
+    "source_page_label": "BCC-2",
+    "source_anchor": "BCC-2:pages:6",
+    "clinical_question": "All BCC-2 high-risk factors confirmed absent for post-treatment lesion?",
+    "input_fact_ids": [
+      "aggressive_histology",
+      "diameter_high_risk",
+      "immunosuppressed",
+      "location_high_risk",
+      "perineural_involvement",
+      "poorly_defined_borders",
+      "recurrent_primary",
+      "site_prior_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "TRUE",
+      "FALSE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [],
+    "internal_transfer_targets": [
+      "low_local",
+      "need_risk"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "PATHWAY_DECISION",
+    "implementation_ref": "post_risk_all_negative",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::low_posmargin::bcc_low_pm_rt",
+    "source_section": "BCC-B",
+    "source_page_label": "BCC-B",
+    "source_anchor": "BCC-B:pages:13",
+    "clinical_question": "Is option RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "candidate_for_curative_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_low_pm_rt"
+    ],
+    "internal_transfer_targets": [
+      "low_posmargin"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "low_posmargin:bcc_low_pm_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::high_pm::bcc_high_pm_rt",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "candidate_for_curative_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_high_pm_rt"
+    ],
+    "internal_transfer_targets": [
+      "high_pm"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "high_pm:bcc_high_pm_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::high_pn::bcc_pn_surgery",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option Surgery with complete margin assessment applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_pn_surgery"
+    ],
+    "internal_transfer_targets": [
+      "high_pn"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "high_pn:bcc_pn_surgery",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::high_pn::bcc_pn_rt",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "candidate_for_curative_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_pn_rt"
+    ],
+    "internal_transfer_targets": [
+      "high_pn"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "high_pn:bcc_pn_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::high_rt::bcc_high_def_rt",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option Definitive RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "candidate_for_curative_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_high_def_rt"
+    ],
+    "internal_transfer_targets": [
+      "high_rt"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "high_rt:bcc_high_def_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::high_rt::bcc_high_to_advanced",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option Systemic therapy pathway for locally advanced disease applicable to the current patient state?",
+    "input_fact_ids": [
+      "candidate_for_curative_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_high_to_advanced"
+    ],
+    "internal_transfer_targets": [
+      "high_rt"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "high_rt:bcc_high_to_advanced",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nodal::bcc_nodal_surg",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option Lymph-node surgery +/- RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "resectable"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_nodal_surg"
+    ],
+    "internal_transfer_targets": [
+      "nodal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nodal:bcc_nodal_surg",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nodal::bcc_nodal_vismo",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option Vismodegib applicable to the current patient state?",
+    "input_fact_ids": [
+      "hhi_intolerant_or_progressed",
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_nodal_vismo"
+    ],
+    "internal_transfer_targets": [
+      "nodal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nodal:bcc_nodal_vismo",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nodal::bcc_nodal_soni",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option Sonidegib applicable to the current patient state?",
+    "input_fact_ids": [
+      "hhi_intolerant_or_progressed",
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_nodal_soni"
+    ],
+    "internal_transfer_targets": [
+      "nodal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nodal:bcc_nodal_soni",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nodal::bcc_nodal_cemi",
+    "source_section": "BCC-C",
+    "source_page_label": "BCC-C",
+    "source_anchor": "BCC-C:pages:14,15,16,17",
+    "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+    "input_fact_ids": [
+      "hhi_intolerant_or_progressed",
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_nodal_cemi"
+    ],
+    "internal_transfer_targets": [
+      "nodal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nodal:bcc_nodal_cemi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nodal::bcc_nodal_hhi",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Is option Hedgehog pathway inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_nodal_hhi"
+    ],
+    "internal_transfer_targets": [
+      "nodal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nodal:bcc_nodal_hhi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::nodal::bcc_nodal_cemip",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_nodal_cemip"
+    ],
+    "internal_transfer_targets": [
+      "nodal"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "nodal:bcc_nodal_cemip",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met::bcc_met_cemi",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_met_cemi"
+    ],
+    "internal_transfer_targets": [
+      "met"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met:bcc_met_cemi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met::bcc_met_vismo",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Is option Vismodegib applicable to the current patient state?",
+    "input_fact_ids": [
+      "hhi_intolerant_or_progressed",
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_met_vismo"
+    ],
+    "internal_transfer_targets": [
+      "met"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met:bcc_met_vismo",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met::bcc_met_soni",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Is option Sonidegib applicable to the current patient state?",
+    "input_fact_ids": [
+      "hhi_intolerant_or_progressed",
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_met_soni"
+    ],
+    "internal_transfer_targets": [
+      "met"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met:bcc_met_soni",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met::bcc_met_hhi",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Is option Hedgehog pathway inhibitor applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_met_hhi"
+    ],
+    "internal_transfer_targets": [
+      "met"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met:bcc_met_hhi",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::met::bcc_met_cemip",
+    "source_section": "BCC-D",
+    "source_page_label": "BCC-D",
+    "source_anchor": "BCC-D:pages:18,19",
+    "clinical_question": "Is option Cemiplimab-rwlc applicable to the current patient state?",
+    "input_fact_ids": [
+      "prior_hhi"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_met_cemip"
+    ],
+    "internal_transfer_targets": [
+      "met"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "met:bcc_met_cemip",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::recur_local::bcc_rec_mohs",
+    "source_section": "BCC-B",
+    "source_page_label": "BCC-B",
+    "source_anchor": "BCC-B:pages:13",
+    "clinical_question": "Is option Mohs/PDEMA or re-excision applicable to the current patient state?",
+    "input_fact_ids": [
+      "surgery_feasible"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_rec_mohs"
+    ],
+    "internal_transfer_targets": [
+      "recur_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "recur_local:bcc_rec_mohs",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  },
+  {
+    "decision_id": "option::recur_local::bcc_rec_rt",
+    "source_section": "BCC-B",
+    "source_page_label": "BCC-B",
+    "source_anchor": "BCC-B:pages:13",
+    "clinical_question": "Is option RT applicable to the current patient state?",
+    "input_fact_ids": [
+      "candidate_for_curative_rt"
+    ],
+    "derived_rule_ids": [],
+    "possible_branches": [
+      "SHOW",
+      "HIDE",
+      "UNKNOWN",
+      "CONFLICT"
+    ],
+    "option_set_ids": [
+      "bcc_rec_rt"
+    ],
+    "internal_transfer_targets": [
+      "recur_local"
+    ],
+    "external_dependencies": [],
+    "implementation_kind": "OPTION_APPLICABILITY",
+    "implementation_ref": "recur_local:bcc_rec_rt",
+    "implemented": true,
+    "tested": true,
+    "test_method": "exhaustive_symbolic_runtime_mutation_v1"
+  }
+]

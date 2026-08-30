@@ -1,0 +1,364 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "Confirmed basal cell carcinoma?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "BASAL_CELL_SKIN_CANCER"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "phase",
+        "FALSE": "outside"
+      }
+    },
+    "phase": {
+      "kind": "decision",
+      "label": "Post-treatment/recurrence episode?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_TREATMENT"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RECURRENCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "follow",
+        "FALSE": "extent_local"
+      }
+    },
+    "follow": {
+      "kind": "action",
+      "label": "Post-treatment BCC: complete skin examination, recurrence assessment, and recurrence-specific treatment based on extent/risk.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_followup_recurrence",
+      "source_pathways": [
+        "BCC-6"
+      ],
+      "recommendation": {
+        "title": "Post-treatment BCC: complete skin examination, recurrence assessment, and recurrence-specific treatment based on extent/risk.",
+        "options": [
+          {
+            "label": "Follow-up",
+            "text": "Risk-appropriate skin and nodal surveillance; educate on new skin cancers."
+          },
+          {
+            "label": "Recurrence management",
+            "text": "Re-stage and route recurrent disease to local/high-risk/advanced pathway."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-A",
+          "BCC-B",
+          "BCC-C",
+          "BCC-D",
+          "BCC-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "extent_local": {
+      "kind": "decision",
+      "label": "Local disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "disease_extent",
+            "op": "eq",
+            "value": "LOCAL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "risk",
+        "FALSE": "extent_la"
+      }
+    },
+    "risk": {
+      "kind": "decision",
+      "label": "Any high-risk recurrence factor?",
+      "expression": {
+        "all": [
+          {
+            "fact": "high_risk_any",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "high",
+        "FALSE": "low"
+      }
+    },
+    "low": {
+      "kind": "action",
+      "label": "Low-risk local BCC.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_low_risk",
+      "source_pathways": [
+        "BCC-3"
+      ],
+      "recommendation": {
+        "title": "Low-risk local BCC.",
+        "options": [
+          {
+            "label": "Standard excision",
+            "text": "Use recommended clinical margins and histologic assessment."
+          },
+          {
+            "label": "Mohs/PDEMA",
+            "text": "Appropriate in selected anatomic/functional settings."
+          },
+          {
+            "label": "Other local modalities",
+            "text": "Use only when source criteria are met."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-A",
+          "BCC-B",
+          "BCC-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "high": {
+      "kind": "action",
+      "label": "High-risk local BCC: multidisciplinary/specialized management with complete margin assessment when feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_high_risk",
+      "source_pathways": [
+        "BCC-4"
+      ],
+      "recommendation": {
+        "title": "High-risk local BCC: multidisciplinary/specialized management with complete margin assessment when feasible.",
+        "options": [
+          {
+            "label": "Mohs/PDEMA",
+            "text": "Preferred complete peripheral/deep margin assessment in many high-risk settings."
+          },
+          {
+            "label": "Excision or RT",
+            "text": "Use source-defined alternatives when appropriate."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-A",
+          "BCC-B",
+          "BCC-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "extent_la": {
+      "kind": "decision",
+      "label": "Locally advanced disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "disease_extent",
+            "op": "eq",
+            "value": "LOCALLY_ADVANCED"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "la_resect",
+        "FALSE": "extent_nodal"
+      }
+    },
+    "la_resect": {
+      "kind": "decision",
+      "label": "Curative surgery or RT feasible?",
+      "expression": {
+        "any": [
+          {
+            "fact": "resectable",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "fact": "candidate_for_curative_rt",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "la_local",
+        "FALSE": "la_sys"
+      }
+    },
+    "la_local": {
+      "kind": "action",
+      "label": "Locally advanced BCC with curative local option: multidisciplinary surgery and/or RT pathway; systemic therapy may be integrated in selected cases.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_locally_advanced_local",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Locally advanced BCC with curative local option: multidisciplinary surgery and/or RT pathway; systemic therapy may be integrated in selected cases.",
+        "options": [
+          {
+            "label": "Curative local therapy",
+            "text": "Surgery and/or RT based on resectability, function, and expertise."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-B",
+          "BCC-C",
+          "BCC-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "la_sys": {
+      "kind": "decision",
+      "label": "Prior HHI intolerance/progression?",
+      "expression": {
+        "all": [
+          {
+            "fact": "hhi_intolerant_or_progressed",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "la_cpi",
+        "FALSE": "la_hhi"
+      }
+    },
+    "la_hhi": {
+      "kind": "action",
+      "label": "Locally advanced unresectable BCC without prior HHI failure: hedgehog-inhibitor pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_la_hhi",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Locally advanced unresectable BCC without prior HHI failure: hedgehog-inhibitor pathway.",
+        "options": [
+          {
+            "label": "Hedgehog inhibitor",
+            "text": "Use preferred source-listed HHI options."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "la_cpi": {
+      "kind": "action",
+      "label": "Locally advanced unresectable BCC after HHI progression/intolerance: checkpoint-inhibitor pathway.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_la_cpi",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Locally advanced unresectable BCC after HHI progression/intolerance: checkpoint-inhibitor pathway.",
+        "options": [
+          {
+            "label": "Checkpoint inhibitor",
+            "text": "Use source-listed preferred second-line/intolerance option."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "extent_nodal": {
+      "kind": "decision",
+      "label": "Nodal disease?",
+      "expression": {
+        "all": [
+          {
+            "fact": "disease_extent",
+            "op": "eq",
+            "value": "NODAL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "nodal",
+        "FALSE": "met"
+      }
+    },
+    "nodal": {
+      "kind": "action",
+      "label": "Nodal BCC: multidisciplinary regional surgery/RT ± systemic therapy according to resectability and prior HHI exposure.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_nodal",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Nodal BCC: multidisciplinary regional surgery/RT ± systemic therapy according to resectability and prior HHI exposure.",
+        "options": [
+          {
+            "label": "Regional treatment",
+            "text": "Nodal surgery and/or RT."
+          },
+          {
+            "label": "Systemic therapy",
+            "text": "HHI or checkpoint inhibitor according to source sequence."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-B",
+          "BCC-C",
+          "BCC-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "met": {
+      "kind": "action",
+      "label": "Metastatic BCC: systemic therapy with source-preferred sequencing; local palliation as indicated.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "bcc_metastatic",
+      "source_pathways": [
+        "BCC-5"
+      ],
+      "recommendation": {
+        "title": "Metastatic BCC: systemic therapy with source-preferred sequencing; local palliation as indicated.",
+        "options": [
+          {
+            "label": "Systemic therapy",
+            "text": "Use preferred metastatic systemic options based on prior HHI exposure/tolerance."
+          }
+        ],
+        "supporting_sections": [
+          "BCC-D"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside BCC ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

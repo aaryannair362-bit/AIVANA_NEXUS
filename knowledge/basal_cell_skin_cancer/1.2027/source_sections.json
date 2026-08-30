@@ -1,0 +1,126 @@
+{
+  "BCC-1": {
+    "code": "BCC-1",
+    "pages": [
+      5
+    ],
+    "page_count": 1,
+    "source_text_sha256": "2c57eca82ff4524d1e7a7497d87718f8e5cf5ba7d35124db649d38abd5e86249",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BCC-2": {
+    "code": "BCC-2",
+    "pages": [
+      6
+    ],
+    "page_count": 1,
+    "source_text_sha256": "4fb57756fc6eb5f6b199404d6b11c49fbc41ad37dcebead227ef03feaeef6d27",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BCC-3": {
+    "code": "BCC-3",
+    "pages": [
+      7
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8bb3f1cdd80650b52d8032bd284d5c36c57b479c10614e30e9a08cd6607a6eb1",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BCC-3A": {
+    "code": "BCC-3A",
+    "pages": [
+      8
+    ],
+    "page_count": 1,
+    "source_text_sha256": "902567d5042be45c9ff0c343a6be52517c15e75af56c016a4badd271cfbfce23",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BCC-4": {
+    "code": "BCC-4",
+    "pages": [
+      9
+    ],
+    "page_count": 1,
+    "source_text_sha256": "0789d933fb3c6dfd2322053c293d913f0aeb8bbd8331e601a7f52fecd90ea9f2",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BCC-5": {
+    "code": "BCC-5",
+    "pages": [
+      10
+    ],
+    "page_count": 1,
+    "source_text_sha256": "8650b6b6709e3e890d380210c7003edc0b6b197da5529523067e2d7fdea2177c",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BCC-6": {
+    "code": "BCC-6",
+    "pages": [
+      11
+    ],
+    "page_count": 1,
+    "source_text_sha256": "ecd2f5fcda0b3a63c67c7ba5e92c8e970a5553cb7e93cf5af9b24ab3e08a5906",
+    "kind": "PRIMARY_ALGORITHM",
+    "found": true
+  },
+  "BCC-A": {
+    "code": "BCC-A",
+    "pages": [
+      12
+    ],
+    "page_count": 1,
+    "source_text_sha256": "45520210ba004963a30b3b2a7138ac3425d3c51676b3b10e39ee44548edff09c",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BCC-B": {
+    "code": "BCC-B",
+    "pages": [
+      13
+    ],
+    "page_count": 1,
+    "source_text_sha256": "739819306226ab9e4ec6078d2cc0efb6fbbe53bef9d7755bb9f41672bee4f35a",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BCC-C": {
+    "code": "BCC-C",
+    "pages": [
+      14,
+      15,
+      16,
+      17
+    ],
+    "page_count": 4,
+    "source_text_sha256": "b2d465742ae3e1c349d39b0935b9f6854184247440d7e9f4b98627db8d61c403",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BCC-D": {
+    "code": "BCC-D",
+    "pages": [
+      18,
+      19
+    ],
+    "page_count": 2,
+    "source_text_sha256": "0a1edd9dd8f9fe3c621f64a57e3214772bcaa89ad4b25b7e931c5e9f9719d756",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  },
+  "BCC-E": {
+    "code": "BCC-E",
+    "pages": [
+      20
+    ],
+    "page_count": 1,
+    "source_text_sha256": "258bcc5afa50a609d5ba27cb73579bd34341589451890832903700686762d575",
+    "kind": "SUPPORTING_PRINCIPLE",
+    "found": true
+  }
+}

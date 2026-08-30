@@ -1,0 +1,1120 @@
+{
+  "entry_point": "scope",
+  "nodes": {
+    "scope": {
+      "kind": "decision",
+      "label": "AML/APL/BPDCN ruleset?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cancer_type",
+            "op": "eq",
+            "value": "ACUTE_MYELOID_LEUKEMIA"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "family_bpdcn",
+        "FALSE": "outside"
+      }
+    },
+    "family_bpdcn": {
+      "kind": "decision",
+      "label": "BPDCN?",
+      "expression": {
+        "all": [
+          {
+            "fact": "disease_family",
+            "op": "eq",
+            "value": "BPDCN"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "bpdcn_phase",
+        "FALSE": "family_apl"
+      }
+    },
+    "bpdcn_phase": {
+      "kind": "decision",
+      "label": "Relapsed/refractory BPDCN?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RELAPSED_REFRACTORY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "bpdcn_rr",
+        "FALSE": "bpdcn_phase_new"
+      }
+    },
+    "bpdcn_phase_new": {
+      "kind": "decision",
+      "label": "New-diagnosis BPDCN phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "bpdcn_primary",
+        "FALSE": "workup"
+      }
+    },
+    "bpdcn_primary": {
+      "kind": "action",
+      "label": "BPDCN: complete BPDCN workup/CNS evaluation, then CD123-directed or chemotherapy-based induction based on eligibility with transplant consolidation when appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_bpdcn_primary",
+      "source_pathways": [
+        "BPDCN-INTRO",
+        "BPDCN-1",
+        "BPDCN-2",
+        "BPDCN-3",
+        "BPDCN-3A"
+      ],
+      "recommendation": {
+        "title": "BPDCN: complete BPDCN workup/CNS evaluation, then CD123-directed or chemotherapy-based induction based on eligibility with transplant consolidation when appropriate.",
+        "options": [
+          {
+            "label": "CD123-directed therapy",
+            "text": "Use tagraxofusp or pivekimab according to source eligibility/exclusion and CD123 expression."
+          },
+          {
+            "label": "Chemotherapy/non-intensive therapy",
+            "text": "Use source alternatives when intensive/CD123-directed therapy is not suitable."
+          },
+          {
+            "label": "Allogeneic HCT",
+            "text": "Consolidate in appropriate responders."
+          }
+        ],
+        "supporting_sections": [
+          "BPDCN-A",
+          "BPDCN-B",
+          "BPDCN-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "bpdcn_rr": {
+      "kind": "action",
+      "label": "Relapsed/refractory BPDCN: CD123-directed therapy not previously used, alternative systemic therapy/clinical trial, CNS-directed care, and transplant evaluation when feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_bpdcn_rr",
+      "source_pathways": [
+        "BPDCN-4"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory BPDCN: CD123-directed therapy not previously used, alternative systemic therapy/clinical trial, CNS-directed care, and transplant evaluation when feasible.",
+        "options": [
+          {
+            "label": "Pivekimab/tagraxofusp",
+            "text": "Use source eligibility and prior exposure constraints."
+          },
+          {
+            "label": "Clinical trial/other systemic therapy",
+            "text": "For patients not eligible or after prior CD123 therapy."
+          }
+        ],
+        "supporting_sections": [
+          "BPDCN-A",
+          "BPDCN-B",
+          "BPDCN-C"
+        ],
+        "next_steps": []
+      }
+    },
+    "family_apl": {
+      "kind": "decision",
+      "label": "APL?",
+      "expression": {
+        "all": [
+          {
+            "fact": "disease_family",
+            "op": "eq",
+            "value": "APL"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "apl_phase",
+        "FALSE": "family_nonapl"
+      }
+    },
+    "apl_phase": {
+      "kind": "decision",
+      "label": "Relapsed APL?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RELAPSED_REFRACTORY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "apl_rel",
+        "FALSE": "apl_post"
+      }
+    },
+    "apl_rel": {
+      "kind": "action",
+      "label": "Relapsed APL: molecularly and prior-treatment-directed salvage to molecular remission followed by consolidation/transplant strategy per APL-6.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_apl_relapse",
+      "source_pathways": [
+        "APL-6"
+      ],
+      "recommendation": {
+        "title": "Relapsed APL: molecularly and prior-treatment-directed salvage to molecular remission followed by consolidation/transplant strategy per APL-6.",
+        "options": [
+          {
+            "label": "Salvage",
+            "text": "Use ATO/ATRA/anthracycline/GO-based approach based on prior exposure and relapse timing."
+          },
+          {
+            "label": "Consolidation/transplant",
+            "text": "Use molecular response and prior therapy to direct autologous/allogeneic transplant or nontransplant consolidation."
+          }
+        ],
+        "supporting_sections": [
+          "APL-A",
+          "APL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "apl_post": {
+      "kind": "decision",
+      "label": "Post-consolidation/monitoring phase?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_CONSOLIDATION"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "SURVEILLANCE"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "MAINTENANCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "apl_monitor",
+        "FALSE": "apl_postind"
+      }
+    },
+    "apl_postind": {
+      "kind": "decision",
+      "label": "Post-induction APL phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_INDUCTION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "apl_consolidation",
+        "FALSE": "apl_new"
+      }
+    },
+    "apl_new": {
+      "kind": "decision",
+      "label": "New-diagnosis APL phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "apl_risk",
+        "FALSE": "workup"
+      }
+    },
+    "apl_consolidation": {
+      "kind": "action",
+      "label": "APL after induction response: proceed with risk/regimen-specific consolidation and molecular response monitoring; do not restart induction by phase fallthrough.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_apl_consolidation",
+      "source_pathways": [
+        "APL-2",
+        "APL-3",
+        "APL-4"
+      ],
+      "recommendation": {
+        "title": "APL after induction response: proceed with risk/regimen-specific consolidation and molecular response monitoring; do not restart induction by phase fallthrough.",
+        "options": [
+          {
+            "label": "APL consolidation",
+            "text": "Use the same risk/regimen family and source-defined consolidation schedule."
+          },
+          {
+            "label": "Molecular response assessment",
+            "text": "PML::RARA assessment at the source-defined post-consolidation timepoint."
+          }
+        ],
+        "supporting_sections": [
+          "APL-A",
+          "APL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "apl_monitor": {
+      "kind": "action",
+      "label": "APL post-consolidation: molecular monitoring, maintenance only for source-defined regimen/risk situations, and relapse evaluation for molecular recurrence.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_apl_monitor",
+      "source_pathways": [
+        "APL-5"
+      ],
+      "recommendation": {
+        "title": "APL post-consolidation: molecular monitoring, maintenance only for source-defined regimen/risk situations, and relapse evaluation for molecular recurrence.",
+        "options": [
+          {
+            "label": "Molecular monitoring",
+            "text": "PML::RARA monitoring schedule by risk/regimen."
+          },
+          {
+            "label": "Maintenance",
+            "text": "Use only when source regimen/risk calls for it."
+          }
+        ],
+        "supporting_sections": [
+          "APL-A",
+          "APL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "apl_risk": {
+      "kind": "decision",
+      "label": "High-risk APL WBC >10 x10^9/L?",
+      "expression": {
+        "fact": "wbc_count",
+        "op": "gt",
+        "value": 10
+      },
+      "on": {
+        "TRUE": "apl_high",
+        "FALSE": "apl_low"
+      }
+    },
+    "apl_low": {
+      "kind": "action",
+      "label": "Low-risk APL: ATRA + arsenic trioxide-based induction/consolidation with APL supportive care.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_apl_low",
+      "source_pathways": [
+        "APL-1",
+        "APL-2",
+        "APL-4"
+      ],
+      "recommendation": {
+        "title": "Low-risk APL: ATRA + arsenic trioxide-based induction/consolidation with APL supportive care.",
+        "options": [
+          {
+            "label": "ATRA + ATO",
+            "text": "Core low-risk approach; follow source induction/consolidation details."
+          },
+          {
+            "label": "Supportive care",
+            "text": "Immediate coagulopathy/differentiation-syndrome management per APL-A."
+          }
+        ],
+        "supporting_sections": [
+          "APL-A",
+          "APL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "apl_high": {
+      "kind": "action",
+      "label": "High-risk APL: ATRA + arsenic trioxide plus source-defined cytoreduction/anthracycline/GO strategy, then consolidation/monitoring.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_apl_high",
+      "source_pathways": [
+        "APL-1",
+        "APL-3",
+        "APL-4"
+      ],
+      "recommendation": {
+        "title": "High-risk APL: ATRA + arsenic trioxide plus source-defined cytoreduction/anthracycline/GO strategy, then consolidation/monitoring.",
+        "options": [
+          {
+            "label": "ATRA + ATO + cytoreduction",
+            "text": "Use source preferred high-risk regimen and supportive care."
+          }
+        ],
+        "supporting_sections": [
+          "APL-A",
+          "APL-B"
+        ],
+        "next_steps": []
+      }
+    },
+    "family_nonapl": {
+      "kind": "decision",
+      "label": "Non-APL AML?",
+      "expression": {
+        "all": [
+          {
+            "fact": "disease_family",
+            "op": "eq",
+            "value": "NON_APL_AML"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "aml_phase_rr",
+        "FALSE": "workup"
+      }
+    },
+    "workup": {
+      "kind": "action",
+      "label": "Suspected/confirmed acute leukemia requires complete AML evaluation, lineage/genetic characterization and urgent APL exclusion before treatment routing.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_workup",
+      "source_pathways": [
+        "EVAL-1",
+        "EVAL-2",
+        "EVAL-2A"
+      ],
+      "recommendation": {
+        "title": "Suspected/confirmed acute leukemia requires complete AML evaluation, lineage/genetic characterization and urgent APL exclusion before treatment routing.",
+        "options": [
+          {
+            "label": "Diagnostic evaluation",
+            "text": "Morphology, flow, cytogenetic/FISH and rapid molecular panel including actionable mutations."
+          },
+          {
+            "label": "Fitness/risk assessment",
+            "text": "Determine intensive-therapy eligibility and ELN biology before choosing non-APL AML induction."
+          }
+        ],
+        "supporting_sections": [
+          "AML-A",
+          "AML-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "aml_phase_rr": {
+      "kind": "decision",
+      "label": "Relapsed/refractory AML?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "RELAPSED_REFRACTORY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "aml_rr_target",
+        "FALSE": "aml_phase_postind"
+      }
+    },
+    "aml_phase_postind": {
+      "kind": "decision",
+      "label": "Post-induction phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_INDUCTION"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "postind_resp",
+        "FALSE": "aml_phase_postcon"
+      }
+    },
+    "aml_phase_postcon": {
+      "kind": "decision",
+      "label": "Post-consolidation/maintenance/surveillance?",
+      "expression": {
+        "any": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "POST_CONSOLIDATION"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "MAINTENANCE"
+          },
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "SURVEILLANCE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "maintenance",
+        "FALSE": "aml_phase_new"
+      }
+    },
+    "aml_phase_new": {
+      "kind": "decision",
+      "label": "New-diagnosis AML phase?",
+      "expression": {
+        "all": [
+          {
+            "fact": "treatment_phase",
+            "op": "eq",
+            "value": "NEW_DIAGNOSIS"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "new_intensive",
+        "FALSE": "workup"
+      }
+    },
+    "new_intensive": {
+      "kind": "decision",
+      "label": "Intensive induction eligible?",
+      "expression": {
+        "all": [
+          {
+            "fact": "intensive_induction_eligible",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "intensive_mrc",
+        "FALSE": "lower"
+      }
+    },
+    "intensive_mrc": {
+      "kind": "decision",
+      "label": "Therapy-related/AML-MRC biology?",
+      "expression": {
+        "all": [
+          {
+            "fact": "therapy_related_or_mrc",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "cpx_age",
+        "FALSE": "intensive_cbf"
+      }
+    },
+    "cpx_age": {
+      "kind": "decision",
+      "label": "Age ≥60?",
+      "expression": {
+        "all": [
+          {
+            "fact": "age_ge_60",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "cpx_pref",
+        "FALSE": "cpx_other"
+      }
+    },
+    "cpx_pref": {
+      "kind": "action",
+      "label": "Intensive-eligible therapy-related/AML-MRC age ≥60: CPX-351 is a source-preferred induction option; use biology/actionable-mutation-specific alternatives when indicated.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_intensive_mrc_older",
+      "source_pathways": [
+        "AML-1",
+        "AML-2"
+      ],
+      "recommendation": {
+        "title": "Intensive-eligible therapy-related/AML-MRC age ≥60: CPX-351 is a source-preferred induction option; use biology/actionable-mutation-specific alternatives when indicated.",
+        "options": [
+          {
+            "label": "CPX-351",
+            "text": "Preferred in source-defined older therapy-related/MRC setting."
+          },
+          {
+            "label": "7+3/other intensive regimen",
+            "text": "Use source age/biology-specific alternatives; add targeted agents when mutation-specific."
+          }
+        ],
+        "supporting_sections": [
+          "AML-A",
+          "AML-E",
+          "AML-F",
+          "AML-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "cpx_other": {
+      "kind": "action",
+      "label": "Intensive-eligible therapy-related/AML-MRC younger than the source CPX-351-preference age boundary: use source-listed intensive induction options with mutation-directed additions.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_intensive_mrc_younger",
+      "source_pathways": [
+        "AML-1",
+        "AML-2"
+      ],
+      "recommendation": {
+        "title": "Intensive-eligible therapy-related/AML-MRC younger than the source CPX-351-preference age boundary: use source-listed intensive induction options with mutation-directed additions.",
+        "options": [
+          {
+            "label": "Intensive induction",
+            "text": "Use source-listed CPX-351 or 7+3/other regimen according to age/biology and preference category."
+          },
+          {
+            "label": "Targeted addition",
+            "text": "Add FLT3/other agent only when biomarker and regimen prerequisites are met."
+          }
+        ],
+        "supporting_sections": [
+          "AML-A",
+          "AML-E",
+          "AML-F",
+          "AML-G"
+        ],
+        "next_steps": []
+      }
+    },
+    "intensive_cbf": {
+      "kind": "decision",
+      "label": "Core-binding-factor AML?",
+      "expression": {
+        "all": [
+          {
+            "fact": "cbf_aml",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "cbf",
+        "FALSE": "intensive_adverse"
+      }
+    },
+    "cbf": {
+      "kind": "action",
+      "label": "CBF AML: CBF-directed intensive induction with source-listed gemtuzumab-containing option(s) and molecular MRD-guided consolidation.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_cbf",
+      "source_pathways": [
+        "AML-1",
+        "AML-2"
+      ],
+      "recommendation": {
+        "title": "CBF AML: CBF-directed intensive induction with source-listed gemtuzumab-containing option(s) and molecular MRD-guided consolidation.",
+        "options": [
+          {
+            "label": "CBF induction",
+            "text": "Use source-listed intensive CBF regimen, including GO-containing preferred/appropriate options."
+          },
+          {
+            "label": "Consolidation",
+            "text": "High-dose/intermediate-dose cytarabine-based consolidation and MRD monitoring per source."
+          }
+        ],
+        "supporting_sections": [
+          "AML-A",
+          "AML-E",
+          "AML-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "intensive_adverse": {
+      "kind": "decision",
+      "label": "ELN adverse risk?",
+      "expression": {
+        "all": [
+          {
+            "fact": "eln_risk",
+            "op": "eq",
+            "value": "ADVERSE"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "adverse",
+        "FALSE": "nonadverse"
+      }
+    },
+    "adverse": {
+      "kind": "action",
+      "label": "Intensive-eligible adverse-risk non-APL AML: source-listed intensive induction (including CPX-351 when biology/age appropriate) with early allogeneic HCT planning.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_adverse",
+      "source_pathways": [
+        "AML-1",
+        "AML-2"
+      ],
+      "recommendation": {
+        "title": "Intensive-eligible adverse-risk non-APL AML: source-listed intensive induction (including CPX-351 when biology/age appropriate) with early allogeneic HCT planning.",
+        "options": [
+          {
+            "label": "Intensive induction",
+            "text": "Use source adverse-risk regimen set and mutation-directed additions."
+          },
+          {
+            "label": "Allogeneic HCT planning",
+            "text": "Early donor/eligibility workup for appropriate patients."
+          }
+        ],
+        "supporting_sections": [
+          "AML-A",
+          "AML-E",
+          "AML-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "nonadverse": {
+      "kind": "action",
+      "label": "Intensive-eligible favorable/intermediate-risk AML: biology-specific intensive induction with GO/targeted additions only when source criteria are satisfied.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_intensive_nonadverse",
+      "source_pathways": [
+        "AML-1",
+        "AML-2"
+      ],
+      "recommendation": {
+        "title": "Intensive-eligible favorable/intermediate-risk AML: biology-specific intensive induction with GO/targeted additions only when source criteria are satisfied.",
+        "options": [
+          {
+            "label": "7+3-based or disease-specific intensive therapy",
+            "text": "Select by age/biology."
+          },
+          {
+            "label": "Gemtuzumab ozogamicin",
+            "text": "Use in source-defined CBF/CD33-positive favorable/intermediate settings."
+          },
+          {
+            "label": "FLT3-targeted addition",
+            "text": "Use only for FLT3-mutated source-defined regimens."
+          }
+        ],
+        "supporting_sections": [
+          "AML-A",
+          "AML-E",
+          "AML-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "lower": {
+      "kind": "action",
+      "label": "Non-APL AML not eligible for intensive induction or declining it: lower-intensity therapy with exact option prerequisites for mutation status, prior HMA exposure, and venetoclax suitability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_lower_intensity",
+      "source_pathways": [
+        "AML-4"
+      ],
+      "recommendation": {
+        "title": "Non-APL AML not eligible for intensive induction or declining it: lower-intensity therapy with exact option prerequisites for mutation status, prior HMA exposure, and venetoclax suitability.",
+        "options": [
+          {
+            "label": "HMA + venetoclax",
+            "text": "Preferred common lower-intensity backbone when appropriate."
+          },
+          {
+            "label": "Mutation-directed lower-intensity therapy",
+            "text": "Use IDH/FLT3 or other source options only with required mutation and line/eligibility conditions."
+          },
+          {
+            "label": "Non-venetoclax alternatives",
+            "text": "Use source options when venetoclax is contraindicated/not appropriate or after prior HMA exposure."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E",
+          "AML-F",
+          "AML-J"
+        ],
+        "next_steps": []
+      }
+    },
+    "postind_resp": {
+      "kind": "decision",
+      "label": "Persistent/refractory disease after induction?",
+      "expression": {
+        "any": [
+          {
+            "fact": "response_status",
+            "op": "eq",
+            "value": "PERSISTENT"
+          },
+          {
+            "fact": "response_status",
+            "op": "eq",
+            "value": "REFRACTORY"
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "reinduction",
+        "FALSE": "consolidation"
+      }
+    },
+    "reinduction": {
+      "kind": "decision",
+      "label": "Was CPX-351 used during induction?",
+      "expression": {
+        "all": [
+          {
+            "fact": "prior_cpx351",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "cpx_reind",
+        "FALSE": "other_reind"
+      }
+    },
+    "cpx_reind": {
+      "kind": "action",
+      "label": "Persistent disease after CPX-351 induction: source response/reinduction branch; CPX-351 reinduction is considered only because it was used initially.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_cpx_reinduction",
+      "source_pathways": [
+        "AML-3",
+        "AML-3A"
+      ],
+      "recommendation": {
+        "title": "Persistent disease after CPX-351 induction: source response/reinduction branch; CPX-351 reinduction is considered only because it was used initially.",
+        "options": [
+          {
+            "label": "CPX-351 reinduction",
+            "text": "Applicable only when CPX-351 was the induction regimen and source response criteria are met."
+          },
+          {
+            "label": "Alternative salvage",
+            "text": "Use source alternative if persistent disease or not suitable for repeat CPX-351."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E",
+          "AML-G",
+          "AML-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "other_reind": {
+      "kind": "action",
+      "label": "Persistent disease after non-CPX intensive induction: reinduction/salvage based on prior regimen, biology and clinical trial availability.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_other_reinduction",
+      "source_pathways": [
+        "AML-3",
+        "AML-3A"
+      ],
+      "recommendation": {
+        "title": "Persistent disease after non-CPX intensive induction: reinduction/salvage based on prior regimen, biology and clinical trial availability.",
+        "options": [
+          {
+            "label": "Reinduction/salvage",
+            "text": "Use source-listed regimen appropriate to prior induction and molecular profile."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E",
+          "AML-G",
+          "AML-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "consolidation": {
+      "kind": "action",
+      "label": "Remission after intensive induction: risk/MRD/prior-induction-directed consolidation with cytarabine-based therapy and/or allogeneic HCT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_consolidation",
+      "source_pathways": [
+        "AML-6",
+        "AML-6A"
+      ],
+      "recommendation": {
+        "title": "Remission after intensive induction: risk/MRD/prior-induction-directed consolidation with cytarabine-based therapy and/or allogeneic HCT.",
+        "options": [
+          {
+            "label": "Cytarabine-based consolidation",
+            "text": "Exact schedule/intensity depends on age/risk/induction regimen."
+          },
+          {
+            "label": "Allogeneic HCT",
+            "text": "For adverse/intermediate or MRD-positive/high-risk states when eligible."
+          },
+          {
+            "label": "Targeted continuation",
+            "text": "Only when source indicates after corresponding targeted induction."
+          }
+        ],
+        "supporting_sections": [
+          "AML-A",
+          "AML-E",
+          "AML-H"
+        ],
+        "next_steps": []
+      }
+    },
+    "maintenance": {
+      "kind": "action",
+      "label": "AML after consolidation: maintenance or surveillance determined by transplant status, age, MRD, prior induction/consolidation and eligibility.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_maintenance",
+      "source_pathways": [
+        "AML-7",
+        "AML-8"
+      ],
+      "recommendation": {
+        "title": "AML after consolidation: maintenance or surveillance determined by transplant status, age, MRD, prior induction/consolidation and eligibility.",
+        "options": [
+          {
+            "label": "Maintenance",
+            "text": "Use oral azacitidine/targeted maintenance only when source prerequisites are met."
+          },
+          {
+            "label": "Surveillance",
+            "text": "CBC/marrow/MRD monitoring per source; treat relapse via AML-9."
+          }
+        ],
+        "supporting_sections": [
+          "AML-H",
+          "AML-I"
+        ],
+        "next_steps": []
+      }
+    },
+    "aml_rr_target": {
+      "kind": "decision",
+      "label": "NPM1 mutation?",
+      "expression": {
+        "all": [
+          {
+            "fact": "npm1_mutation",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_npm1",
+        "FALSE": "rr_flt3"
+      }
+    },
+    "rr_npm1": {
+      "kind": "action",
+      "label": "Relapsed/refractory NPM1-mutated AML: menin-inhibitor targeted therapy option(s) per current source, then response/HCT planning as appropriate.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_rr_npm1",
+      "source_pathways": [
+        "AML-9"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory NPM1-mutated AML: menin-inhibitor targeted therapy option(s) per current source, then response/HCT planning as appropriate.",
+        "options": [
+          {
+            "label": "NPM1-directed menin inhibitor",
+            "text": "Use source-listed ziftomenib/revumenib eligibility and prior-therapy criteria."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "rr_flt3": {
+      "kind": "decision",
+      "label": "FLT3 mutation?",
+      "expression": {
+        "all": [
+          {
+            "fact": "flt3_mutation",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_flt3_action",
+        "FALSE": "rr_idh1"
+      }
+    },
+    "rr_flt3_action": {
+      "kind": "action",
+      "label": "Relapsed/refractory FLT3-mutated AML: FLT3-directed salvage per prior exposure and mutation context, with HCT when feasible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_rr_flt3",
+      "source_pathways": [
+        "AML-9"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory FLT3-mutated AML: FLT3-directed salvage per prior exposure and mutation context, with HCT when feasible.",
+        "options": [
+          {
+            "label": "FLT3 inhibitor",
+            "text": "Use source-listed agent based on prior exposure/eligibility."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "rr_idh1": {
+      "kind": "decision",
+      "label": "IDH1 mutation?",
+      "expression": {
+        "all": [
+          {
+            "fact": "idh1_mutation",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_idh1_action",
+        "FALSE": "rr_idh2"
+      }
+    },
+    "rr_idh1_action": {
+      "kind": "action",
+      "label": "Relapsed/refractory IDH1-mutated AML: IDH1-directed salvage or other source regimen; assess for HCT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_rr_idh1",
+      "source_pathways": [
+        "AML-9"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory IDH1-mutated AML: IDH1-directed salvage or other source regimen; assess for HCT.",
+        "options": [
+          {
+            "label": "IDH1 inhibitor",
+            "text": "Use source-listed IDH1-directed therapy according to prior exposure/eligibility."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "rr_idh2": {
+      "kind": "decision",
+      "label": "IDH2 mutation?",
+      "expression": {
+        "all": [
+          {
+            "fact": "idh2_mutation",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "on": {
+        "TRUE": "rr_idh2_action",
+        "FALSE": "rr_other"
+      }
+    },
+    "rr_idh2_action": {
+      "kind": "action",
+      "label": "Relapsed/refractory IDH2-mutated AML: IDH2-directed salvage or other source regimen; assess for HCT.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_rr_idh2",
+      "source_pathways": [
+        "AML-9"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory IDH2-mutated AML: IDH2-directed salvage or other source regimen; assess for HCT.",
+        "options": [
+          {
+            "label": "IDH2 inhibitor",
+            "text": "Use source-listed IDH2-directed therapy according to prior exposure/eligibility."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E"
+        ],
+        "next_steps": []
+      }
+    },
+    "rr_other": {
+      "kind": "action",
+      "label": "Relapsed/refractory AML without an encoded targeted mutation: clinical trial or salvage regimen chosen by prior therapy/fitness, with allogeneic HCT if remission and eligible.",
+      "status": "RECOMMENDATION",
+      "recommendation_id": "aml_rr_other",
+      "source_pathways": [
+        "AML-9"
+      ],
+      "recommendation": {
+        "title": "Relapsed/refractory AML without an encoded targeted mutation: clinical trial or salvage regimen chosen by prior therapy/fitness, with allogeneic HCT if remission and eligible.",
+        "options": [
+          {
+            "label": "Clinical trial",
+            "text": "Preferred when available."
+          },
+          {
+            "label": "Salvage systemic therapy",
+            "text": "Use source-listed intensive or lower-intensity salvage."
+          },
+          {
+            "label": "Allogeneic HCT",
+            "text": "Proceed in appropriate response when eligible."
+          }
+        ],
+        "supporting_sections": [
+          "AML-E",
+          "AML-F"
+        ],
+        "next_steps": []
+      }
+    },
+    "outside": {
+      "kind": "status",
+      "label": "Case is outside AML/APL/BPDCN ruleset.",
+      "status": "OUTSIDE_ENCODED_SCOPE"
+    }
+  }
+}

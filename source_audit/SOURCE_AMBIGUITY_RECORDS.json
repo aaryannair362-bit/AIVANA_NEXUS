@@ -1,0 +1,10 @@
+[
+  {
+    "guideline_id": "NCCN_AML",
+    "version": "5.2026",
+    "source_section": "AML-9",
+    "decision": "AML-9 long-versus-short first-remission distinction",
+    "ambiguity": "The guideline uses qualitative long/relatively short first remission without defining a numeric threshold on this page.",
+    "fail_closed_behavior": "Do not derive from relapse_interval_months. Require explicit long_first_remission_confirmed if re-use/reinduction applicability depends on it."
+  }
+]
